@@ -1,12 +1,1920 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dynatrace Labs</title>
+<script>
+/* Apply the saved / OS theme before first paint so dark mode never flashes white. */
+(function(){
+  var t=null; try{ t=localStorage.getItem('dtDevCommunity.theme'); }catch(e){}
+  if(!t) t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+<!-- Dynatrace Real User Monitoring (agentless), frontend "Developer Community" in the production
+     environment dre63214. Not loaded in automated tests or local
+     previews, so they never count as visits. -->
+<script>
+(function(){
+  var RUM_SRC='https://js-cdn.dynatrace.com/jstag/1932af1baba/bf96767wvv/2dbfaa224240afa9_complete.js';
+  if(navigator.webdriver||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
+  var s=document.createElement('script'); s.src=RUM_SRC; s.crossOrigin='anonymous'; document.head.appendChild(s);
+})();
+</script>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   STRATO DESIGN TOKENS · developer.dynatrace.com/design/design-tokens
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="light"]{
+  --bg-base:#f9f9fa; --bg-shell:#f2f2f5; --bg-surface:#ffffff; --bg-page:#ffffff;
+  --fg-default:#2d2e4e;
+  --neutral-10:#f2f2f5; --neutral-20:#ebecf0; --neutral-30:#e4e5eb; --neutral-40:#dadbe4;
+  --neutral-50:#d0d1dc; --neutral-60:#c6c7d5; --neutral-70:#5b5c81; --neutral-80:#4d4e72; --neutral-90:#404164;
+  --primary-10:#f1f2f9; --primary-20:#e9ecf8; --primary-30:#e1e5f7; --primary-40:#d5dbf6;
+  --primary-50:#c9d1f4; --primary-60:#bdc7f2; --primary-70:#474fcf; --primary-80:#3b3fbe; --primary-90:#312dad;
+  --success-30:#e0e7e6; --success-60:#bbccc9; --success-80:#1f5a54;
+  --warning-30:#f9f0e5; --warning-60:#f9e1c6; --warning-70:#eea53c;
+  --critical-30:#f8e1e1; --critical-60:#f3bebd; --critical-70:#c62239;
+  --shadow-sm:0 1px 2px rgba(45,46,78,.06),0 1px 3px rgba(45,46,78,.08);
+  --shadow-md:0 2px 4px rgba(45,46,78,.06),0 4px 12px rgba(45,46,78,.10);
+  --shadow-lg:0 8px 16px rgba(45,46,78,.08),0 16px 40px rgba(45,46,78,.14);
+  --hdr-solid:#ffffff;
+  --link-fg:#1557d9; --warning-fg:#8f5200;   /* text colours that pass 4.5:1 */
+}
+:root[data-theme="dark"]{
+  --bg-base:#19192c; --bg-shell:#141419; --bg-surface:#111122; --bg-page:#141426;
+  --fg-default:#f0f0f5;
+  --neutral-10:#212135; --neutral-20:#292a3e; --neutral-30:#323248; --neutral-40:#3b3b52;
+  --neutral-50:#44445c; --neutral-60:#4d4e66; --neutral-70:#a0a1c0; --neutral-80:#b0b1d0; --neutral-90:#bfc0e1;
+  --primary-10:#212138; --primary-20:#292944; --primary-30:#313150; --primary-40:#39395d;
+  --primary-50:#42426a; --primary-60:#4a4b78; --primary-70:#999bed; --primary-80:#a8abfe; --primary-90:#b8bbff;
+  --success-30:#273644; --success-60:#34545d; --success-80:#6ec1b9;
+  --warning-30:#403537; --warning-60:#6c523e; --warning-70:#eea746;
+  --critical-30:#3c2131; --critical-60:#602634; --critical-70:#e0566a;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.30),0 1px 3px rgba(0,0,0,.36);
+  --shadow-md:0 2px 4px rgba(0,0,0,.30),0 4px 12px rgba(0,0,0,.40);
+  --shadow-lg:0 8px 16px rgba(0,0,0,.36),0 16px 40px rgba(0,0,0,.50);
+  --hdr-solid:#111122;
+  --link-fg:#7aa2ff; --warning-fg:#eea746;
+}
+:root{
+  --dt-purple:#312dad; --dt-blue:rgb(25,102,255); --dt-blue-dk:#1557d9; --dt-mint:#17b894;
+  --sp-4:4px; --sp-8:8px; --sp-12:12px; --sp-16:16px; --sp-20:20px;
+  --sp-24:24px; --sp-32:32px; --sp-40:40px; --sp-48:48px; --sp-64:64px; --sp-80:80px;
+  --r-sm:4px; --r-md:6px; --r-lg:8px; --r-xl:12px; --r-2xl:16px; --r-full:999px;
+  --font:"DynatraceFlow","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --page-w:1360px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg-base);color:var(--fg-default);font-family:var(--font);
+  min-height:100vh;display:flex;flex-direction:column;
+  font-size:14px;line-height:1.43;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .18s,color .18s;}
+button{font-family:inherit;}
+a{color:var(--primary-70);text-decoration:none;}
+a:hover{text-decoration:underline;}
+/* Links inside running text are underlined, so they don't rely on colour alone. */
+p a:not(.btn),.md a,.kv a{text-decoration:underline;text-underline-offset:2px;}
+/* Skip link: off-screen until a keyboard user tabs to it. */
+.skip-link{position:absolute;left:var(--sp-16);top:-80px;z-index:300;padding:10px 16px;border-radius:var(--r-md);
+  background:var(--dt-blue);color:#fff;font-weight:600;text-decoration:none !important;box-shadow:var(--shadow-lg);}
+.skip-link:focus{top:12px;outline:2px solid #fff;outline-offset:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+/* Headings that receive focus after a page change don't need a focus ring. */
+[tabindex="-1"]:focus{outline:none;}
+img,svg{display:block;}
+.muted{color:var(--neutral-70);}
+.code{font-family:var(--mono);font-size:12px;background:var(--neutral-10);
+  padding:1px 5px;border-radius:var(--r-sm);border:1px solid var(--neutral-30);}
+.t-h2{font-size:28px;line-height:1.29;font-weight:600;}
+.t-h3{font-size:22px;line-height:1.3;font-weight:600;}
+.t-h4{font-size:18px;line-height:1.4;font-weight:600;}
+.t-h5{font-size:16px;line-height:1.5;font-weight:600;}
+.view[hidden]{display:none;}
+.view{width:100%;min-width:0;}   /* body is a flex column: without this a wide table sets the page width */
+.wrap{max-width:var(--page-w);margin:0 auto;padding:0 var(--sp-32);}
+.page{max-width:var(--page-w);margin:0 auto;padding:var(--sp-32) var(--sp-32) var(--sp-80);}
+.page.narrow{max-width:1100px;}
+/* flow-root keeps the last child's bottom margin inside the white section;
+   without it the body's grey shows as a stripe above the footer. */
+#view-welcome{background:var(--bg-page);}
+#view-welcome:not([hidden]){display:flow-root;}
+/* Preview: the home page is Explore, with the hero on top. */
+#view-explore:not([hidden]){display:flow-root;background:var(--bg-page);}
+#results{scroll-margin-top:72px;}
+/* Carousel cards ~30 % smaller (218 px instead of ~312 px), so more fit in one set. */
+.hero-fresh .mcard .th{height:98px;}
+.hero-fresh .mcard .tx{padding:8px 10px 10px;}
+/* While searching, the hero switches to a one-line headline and the search box. The layout
+   changes in one step; only opacity/transform are animated (GPU, cheap on slow machines). */
+.hero.searching{padding-top:calc(61px + var(--sp-24));padding-bottom:var(--sp-24);}
+#view-explore .hero.searching .hero-sub,#view-explore .hero.searching .hero-fresh{display:none;}
+.hero.searching h1{font-size:24px;line-height:1.3;margin-bottom:var(--sp-16);max-width:none;
+  animation:heroIn .15s ease-out;}
+.hero.unsearched .hero-sub,.hero.unsearched .hero-fresh{animation:heroIn .15s ease-out;}
+@keyframes heroIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+@media(max-width:720px){ .hero.searching h1{font-size:20px;} }
+/* Gap between the sets, so card shadows of the next (hidden) set never show at the edge. */
+.ftrack{gap:48px;}
+/* Dots and the round pause/play button in one row below the cards. */
+.fcontrols{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:var(--sp-8);}
+.fcontrols .fdots{margin-top:0;}
+.fcontrols .fpause{width:28px;height:28px;padding:0;justify-content:center;gap:0;}
+/* Our own clear button: the browser's X only shows while the box has focus. */
+.search input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;}
+.search input[type="search"]{padding-right:52px;}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;
+  border:0;border-radius:999px;background:transparent;color:var(--dt-blue);cursor:pointer;}
+.search-clear:hover{background:rgba(25,102,255,.1);}
+.search-clear:focus-visible{outline:2px solid var(--dt-blue);outline-offset:1px;}
+.search-clear[hidden]{display:none;}
+.search-clear svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;}
+/* Sort menu on the right. */
+.res-top select.input{margin-left:auto;}   /* must not override [hidden] */
+/* The visible view fills the space above the footer, so short pages show their own
+   background there instead of a grey band. */
+.view:not([hidden]){flex:1 0 auto;}
+
+/* ═══ HEADER ═══════════════════════════════════════════════════════════════
+   Transparent over the hero on the welcome page, solid everywhere else and
+   once the page scrolls. */
+.site-header{--hdr-fg:#fff;--hdr-border:rgba(255,255,255,.42);--hdr-hover:rgba(255,255,255,.16);
+  position:sticky;top:0;z-index:70;color:var(--hdr-fg);background:transparent;
+  border-bottom:1px solid transparent;transition:background .25s,border-color .25s,box-shadow .25s;}
+.site-header.solid{--hdr-fg:var(--fg-default);--hdr-border:var(--neutral-40);--hdr-hover:var(--neutral-10);
+  background:var(--hdr-solid);border-bottom-color:var(--neutral-30);box-shadow:0 1px 12px rgba(0,0,0,.08);}
+.hdr{max-width:var(--page-w);margin:0 auto;height:60px;padding:0 var(--sp-32);
+  display:flex;align-items:center;gap:var(--sp-12);}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;
+  color:var(--hdr-fg);min-width:0;}
+.brand-mark{height:28px;width:auto;flex-shrink:0;transition:filter .2s;}
+.site-header.solid .brand-mark{filter:invert(1);}
+:root[data-theme="dark"] .site-header.solid .brand-mark{filter:none;}
+.brand-txt{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.brand:hover .brand-txt{text-decoration:underline;}
+.proto-chip{text-decoration:none !important;flex-shrink:0;background:#fff;color:var(--dt-purple);font-size:10px;font-weight:700;
+  letter-spacing:.7px;padding:3px 9px;border-radius:var(--r-full);box-shadow:0 1px 4px rgba(0,0,0,.18);}
+.hdr .grow{flex:1;}
+.hnav{background:none;border:0;cursor:pointer;height:34px;padding:0 var(--sp-12);border-radius:var(--r-md);
+  font-size:13px;font-weight:600;color:var(--hdr-fg);white-space:nowrap;}
+.hnav:hover{background:var(--hdr-hover);}
+.hnav[aria-current="page"]{color:var(--link-fg);}
+.site-header:not(.solid) .hnav[aria-current="page"]{color:#fff;text-decoration:underline;text-underline-offset:6px;}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:34px;padding:0 var(--sp-16);
+  border-radius:var(--r-md);font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;
+  border:1px solid transparent;transition:background .14s,border-color .14s,color .14s;}
+.hbtn:focus-visible,.hnav:focus-visible{outline:2px solid var(--hdr-fg);outline-offset:2px;}
+/* Contribute is the one solid button in the header — contribution keeps the library alive. */
+/* Explore is the one solid button in the header: finding a solution is the main job. */
+.hbtn-cta{background:var(--dt-blue);color:#fff;}
+.hbtn-cta:hover{background:var(--dt-blue-dk);}
+.site-header:not(.solid) .hbtn-cta{background:#fff;color:var(--dt-purple);}
+.site-header:not(.solid) .hbtn-cta:hover{background:#f0e7f8;}
+.hbtn-cta[aria-current="page"]{box-shadow:0 0 0 2px var(--primary-40);}
+.hbtn-icon{width:34px;padding:0;background:transparent;color:var(--hdr-fg);border-color:var(--hdr-border);}
+.hbtn-icon:hover{background:var(--hdr-hover);border-color:var(--hdr-fg);}
+.hbtn-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.hbtn-icon[aria-current="page"]{background:var(--dt-blue);border-color:var(--dt-blue);color:#fff;}
+.theme-btn .sun{display:none;}
+:root[data-theme="dark"] .theme-btn .sun{display:block;}
+:root[data-theme="dark"] .theme-btn .moon{display:none;}
+/* Phone menu: the header keeps Explore + theme; AI & Agents, Contribute and the
+   version move into a menu behind the ☰ button. */
+.menu-btn,.mnav{display:none;}
+@media(max-width:720px){
+  .hdr{padding:0 var(--sp-16);gap:var(--sp-8);}
+  .proto-chip,.hnav-extra{display:none;}
+  .brand-txt{font-size:14px;}
+  .menu-btn{display:inline-flex;}
+  .mnav.open{display:block;position:absolute;left:0;right:0;top:60px;padding:var(--sp-8) var(--sp-16) var(--sp-12);
+    background:var(--hdr-solid);border-bottom:1px solid var(--neutral-30);box-shadow:var(--shadow-md);}
+  .mnav button,.mnav a{display:block;width:100%;text-align:left;padding:12px 8px;border:0;border-radius:var(--r-md);
+    background:none;font:inherit;font-size:16px;font-weight:600;color:var(--fg-default);text-decoration:none;cursor:pointer;}
+  .mnav button:hover,.mnav a:hover{background:var(--neutral-10);}
+  .mnav .mnav-ver{font-size:13px;font-weight:400;color:var(--neutral-70);}
+  .hero{padding-top:calc(61px + var(--sp-32));padding-bottom:var(--sp-40);}
+  .hero .hero-sub{font-size:15px;}
+}
+@media(max-width:480px){
+  .hdr{gap:6px;}
+  .brand-txt{font-size:14px;}
+}
+
+/* ═══ PRIMITIVES ═══════════════════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:36px;padding:0 var(--sp-16);
+  border-radius:var(--r-md);font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;
+  border:1px solid transparent;transition:all .13s;text-decoration:none !important;}
+.btn-primary{background:var(--dt-blue);color:#fff;}
+.btn-primary:hover{background:var(--dt-blue-dk);}
+.btn-secondary{background:transparent;color:var(--primary-70);border-color:var(--primary-70);}
+.btn-secondary:hover{background:var(--primary-20);}
+.btn-ghost{background:transparent;color:var(--neutral-70);}
+.btn-ghost:hover{background:var(--neutral-20);color:var(--fg-default);}
+.btn-sm{height:28px;padding:0 11px;font-size:12px;}
+.tag{display:inline-block;padding:2px 8px;border-radius:var(--r-sm);font-size:11px;line-height:1.5;
+  background:var(--neutral-10);color:var(--neutral-70);border:1px solid var(--neutral-30);white-space:nowrap;}
+.tag.type{background:var(--primary-20);color:var(--primary-70);border-color:var(--primary-40);}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:var(--r-full);
+  font-size:11px;font-weight:600;line-height:1.5;}
+.chip.new{background:#0a7c63;color:#fff;}   /* darker than --dt-mint: white text needs 4.5:1 contrast */
+.chip.ok{background:var(--success-30);color:var(--success-80);}
+.chip.warn{background:var(--warning-30);color:var(--warning-fg);}
+.chip.crit{background:var(--critical-30);color:var(--critical-70);}
+.input{width:100%;height:36px;padding:0 var(--sp-12);background:var(--bg-surface);color:var(--fg-default);
+  border:1px solid var(--neutral-50);border-radius:var(--r-md);font-family:inherit;font-size:14px;}
+.input:focus{outline:none;border-color:var(--dt-blue);box-shadow:0 0 0 3px rgba(25,102,255,.18);}
+.input::placeholder{color:var(--neutral-70);}
+select.input{cursor:pointer;padding-right:var(--sp-32);appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 15px) 15px,calc(100% - 10px) 15px;background-size:5px 5px;background-repeat:no-repeat;}
+.search{position:relative;flex:1;min-width:200px;}
+.search .mag{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;
+  color:var(--dt-blue);pointer-events:none;}
+.search .mag svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;}
+.search .input{height:52px;padding-left:52px;border-radius:var(--r-xl);border-color:transparent;
+  font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;padding:6px;text-align:left;
+  background:var(--bg-surface);border:1px solid var(--neutral-30);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);
+  max-height:420px;overflow-y:auto;}
+.suggest[hidden]{display:none;}
+.sg{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:0;border-radius:var(--r-md);
+  background:none;cursor:pointer;color:var(--fg-default);font-size:13px;text-align:left;}
+.sg:hover,.sg.on{background:var(--primary-20);}
+.sg .k{min-width:84px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--neutral-70);}
+.sg .mini{width:46px;height:30px;flex-shrink:0;overflow:hidden;border-radius:var(--r-sm);border:1px solid var(--neutral-30);}
+.sg .sgt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sg .sgm{color:var(--neutral-70);font-size:12px;}
+.sg-all{color:var(--link-fg);font-weight:600;border-top:1px solid var(--neutral-20);border-radius:0 0 var(--r-md) var(--r-md);}
+.fmore{margin:6px 0 0 7px;font-size:12px;}
+.fmore[hidden]{display:none;}
+.search .input:focus{border-color:var(--dt-blue);box-shadow:0 8px 24px rgba(0,0,0,.12),0 0 0 3px rgba(25,102,255,.18);}
+.sec-hd{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-16);margin:0 0 var(--sp-16);}
+.sec-hd h2{margin:0;}
+.linkbtn{background:none;border:0;padding:4px 0;cursor:pointer;color:var(--link-fg);font-size:13px;font-weight:600;}
+.linkbtn:hover{text-decoration:underline;}
+
+/* Placeholder preview for solutions without a screenshot in the repo. */
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:radial-gradient(120% 120% at 100% 0%,rgba(23,184,148,.25),transparent 55%),
+             linear-gradient(135deg,#312dad,#1966ff);}
+.ph svg{width:30%;max-width:44px;height:auto;stroke:#fff;fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.95;}
+.ph-lbl{color:rgba(255,255,255,.88);font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;}
+/* Tiny previews (search suggestions, gallery thumbnails) show the icon only. */
+.sg .mini .ph-lbl,.gallery .strip .ph-lbl{display:none;}
+.shot{width:100%;height:100%;object-fit:cover;object-position:top center;background:var(--neutral-10);}
+
+/* ═══ HERO — compact and left-aligned ══════════════════════════════════════ */
+.hero{position:relative;overflow:hidden;margin-top:-61px;padding:calc(61px + var(--sp-64)) 0 var(--sp-40);
+  background-color:#1c2f8f;
+  background-image:url('https://cdn.dm.dynatrace.com/assets/Marketing/section-backgrounds/_360x156_crop_center-center_82_line/fullwave-multicolor-opt3@3x.png');
+  background-size:cover;background-position:center;}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(20,8,44,.55) 0%,rgba(20,8,44,.28) 50%,rgba(20,8,44,.05) 100%);}
+.hero .wrap{position:relative;z-index:1;}
+.hero h1{margin:0 0 var(--sp-20);max-width:48ch;text-wrap:balance;color:#fff;font-size:38px;line-height:1.18;
+  font-weight:700;letter-spacing:-.5px;text-shadow:0 2px 18px rgba(18,6,36,.45);}
+.hero .hero-sub{margin:calc(-1 * var(--sp-8)) 0 var(--sp-24);max-width:64ch;color:rgba(255,255,255,.9);
+  font-size:16px;line-height:1.55;font-weight:400;text-shadow:0 1px 12px rgba(18,6,36,.45);}
+.hero .search{max-width:620px;}
+/* Dark mode: search boxes stay light (hero and Explore) so they stand out. */
+:root[data-theme="dark"] .search .input{background:#fff;color:#2d2e4e;}
+:root[data-theme="dark"] .search .input::placeholder{color:#5b5c81;}
+:root[data-theme="dark"] .search mark{color:inherit;}
+.hero .search .input{border-color:transparent;}
+/* Fresh out of the kitchen lives inside the hero: white type, dark glass cards. */
+.hero{padding-bottom:var(--sp-64);}
+.hero-fresh{margin-top:var(--sp-48);}
+.hero-fresh .sec-hd{margin-bottom:var(--sp-12);align-items:center;}
+.hero-fresh h2{display:flex;align-items:center;gap:8px;margin:0;color:#fff;font-size:16px;font-weight:400;
+  text-shadow:0 1px 12px rgba(18,6,36,.45);}
+.hero-fresh .linkbtn{color:#fff;}
+.hero-fresh .mcard{border:0;box-shadow:0 6px 18px rgba(10,6,40,.28);}
+.hero-fresh .mcard:hover,.hero-fresh .mcard:focus-visible{box-shadow:0 14px 34px rgba(10,6,40,.45);}
+.hero-fresh .mcard .th{height:140px;border-bottom:0;}
+@media(max-width:720px){ .hero h1{font-size:28px;} .wrap,.page{padding-left:var(--sp-16);padding-right:var(--sp-16);} }
+
+/* ═══ FRESH OUT OF THE KITCHEN — continuous loop ═══════════════════════════
+   The card list is rendered twice in a row; the track slides right → left by
+   exactly one copy and starts over, so the cards circle without a visible
+   jump. Hovering pauses it. */
+/* One size for every welcome-page section headline. */
+.sec-title{font-size:22px;line-height:1.3;font-weight:700;}
+/* Fresh out of the kitchen: pages of cards that slide sideways, one dot per page. */
+.fstrip{overflow:hidden;padding:6px 0 14px;}
+.ftrack{display:flex;will-change:transform;}
+.fpage{flex:0 0 100%;display:grid;gap:var(--sp-16);padding:0 2px;}
+/* Each dot is a 24px tap target; only the 8px dot inside it is drawn. */
+.fdots{display:flex;justify-content:center;align-items:center;margin-top:var(--sp-8);}
+.fdot{width:24px;height:24px;border:0;padding:0;cursor:pointer;background:none;display:grid;place-items:center;
+  border-radius:999px;transition:width .3s;}
+.fdot::before{content:"";width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.45);transition:width .3s,background .3s;}
+.fdot:hover::before{background:rgba(255,255,255,.75);}
+.fdot.on{width:32px;}
+.fdot.on::before{width:24px;background:#fff;}
+.fdot:focus-visible{outline:2px solid #fff;outline-offset:0;}
+.fpause{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:var(--r-full);cursor:pointer;
+  border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-size:12px;font-weight:600;}
+.fpause:hover{background:rgba(255,255,255,.2);}
+.fpause:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.fpause svg{width:12px;height:12px;fill:currentColor;}
+.fpause[hidden]{display:none;}
+.mcard{display:flex;flex-direction:column;
+  text-align:left;cursor:pointer;padding:0;overflow:hidden;border-radius:var(--r-lg);background:var(--bg-surface);
+  border:1px solid var(--neutral-30);color:inherit;font:inherit;transition:border-color .15s,box-shadow .15s,transform .15s;}
+.mcard:hover,.mcard:focus-visible{border-color:var(--primary-60);box-shadow:var(--shadow-md);transform:translateY(-3px);outline:none;}
+.mcard .th{height:150px;overflow:hidden;border-bottom:1px solid var(--neutral-30);}
+.mcard .tx{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px;}
+.mcard .tt{font-size:13px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;min-height:2.6em;}
+.mcard .ds{font-size:12px;line-height:1.4;color:var(--neutral-70);display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;min-height:2.8em;}
+
+/* ═══ ALL SOLUTIONS — four tall category cards ═════════════════════════════ */
+.areas{padding:var(--sp-40) 0 var(--sp-48);}
+/* Each card spans 4 rows of the outer grid (head, example, example, button) and uses
+   them as a subgrid, so the rows line up across cards whatever the text length. */
+.area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-16);}
+@media(max-width:1100px){ .area-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:540px){ .area-grid{grid-template-columns:1fr;} }
+.acat{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:var(--sp-16);align-content:start;padding:28px var(--sp-24);
+  border-radius:var(--r-xl);background:var(--bg-surface);border:1px solid var(--neutral-30);box-shadow:var(--shadow-sm);
+  transition:box-shadow .18s,transform .18s,border-color .18s,background .18s;}
+.acat:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--primary-50);background:var(--bg-surface);}
+.acat-hd{display:flex;flex-direction:column;align-items:center;gap:var(--sp-20);text-align:center;
+  padding-bottom:var(--sp-12);}
+.acat-nm{margin:0;font-size:17px;font-weight:700;line-height:1.25;}
+/* Each example is a small card of its own; hover highlights all of it. The negative
+   margin keeps the content aligned with the card edges while the padding shows. */
+.ex{display:flex;flex-direction:column;gap:6px;text-align:left;cursor:pointer;padding:8px;margin:-8px;
+  background:none;border:1px solid transparent;color:inherit;font:inherit;border-radius:var(--r-lg);
+  transition:background .15s,border-color .15s,box-shadow .15s;}
+.ex:hover,.ex:focus-visible{background:var(--primary-10);border-color:var(--primary-40);box-shadow:var(--shadow-sm);outline:none;}
+.ex .th{height:104px;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--neutral-30);
+  transition:border-color .15s;}
+.ex:hover .th{border-color:var(--dt-blue);}
+.ex{align-self:start;}
+.ex .tt{font-size:13px;font-weight:600;line-height:1.3;}
+.ex:hover .tt{color:var(--dt-blue);}
+.ex .ds{font-size:12px;line-height:1.4;color:var(--neutral-70);display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;}
+.acat .browse-all{grid-row:4;align-self:end;width:100%;height:44px;margin-top:var(--sp-24);}
+.more-list{grid-row:2 / span 2;list-style:none;margin:0;padding:0;display:grid;align-content:start;}
+.more-list li+li{border-top:1px solid var(--neutral-20);}
+.more-list .mi{width:20px;height:20px;flex-shrink:0;fill:none;stroke:var(--neutral-70);stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;transition:stroke .12s;}
+.more-list button:hover .mi{stroke:var(--primary-70);}
+.more-list button{width:100%;display:flex;align-items:center;justify-content:flex-start;gap:12px;
+  padding:11px 6px;border:0;border-radius:var(--r-md);background:none;cursor:pointer;text-align:left;
+  font-size:15px;font-weight:700;color:var(--fg-default);}
+.more-list button:hover{background:var(--primary-20);color:var(--primary-70);}
+
+/* Category icons — static, one colour for all. */
+.bigic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;
+  box-shadow:0 8px 20px rgba(25,102,255,.28);}
+.bigic svg{width:36px;height:36px;stroke:#fff;fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;}
+.g-agent,.g-ai,.g-dev,.g-more{background:linear-gradient(135deg,#312dad,#1966ff);}
+
+/* ═══ CONTRIBUTE BAND ══════════════════════════════════════════════════════ */
+.contrib-band{padding:var(--sp-16) 0 var(--sp-24);background:var(--bg-page);}
+/* Text first, the two buttons directly below it. */
+.contrib-band .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-20);}
+.contrib-band h2{margin:0 0 var(--sp-8);}
+.contrib-band p{margin:0;font-size:15px;line-height:1.6;color:var(--neutral-80);max-width:62ch;}
+.btn-row{display:flex;gap:var(--sp-12);flex-wrap:wrap;}
+
+/* ═══ INFO NOTE (disclaimer) ═══════════════════════════════════════════════ */
+.info-note{display:flex;gap:var(--sp-12);align-items:flex-start;margin:var(--sp-32) 0 var(--sp-40);
+  padding:var(--sp-16) var(--sp-20);border-radius:var(--r-lg);background:var(--primary-10);
+  border:1px solid var(--primary-30);}
+.info-note svg{width:20px;height:20px;flex-shrink:0;stroke:var(--primary-70);fill:none;stroke-width:2;stroke-linecap:round;}
+.info-note p{margin:0;font-size:13px;line-height:1.6;}
+
+/* ═══ EXPLORE ══════════════════════════════════════════════════════════════ */
+.explore{display:grid;grid-template-columns:250px 1fr;gap:var(--sp-32);align-items:start;}
+.filter-btn,.rail-done,.rail-backdrop{display:none;}
+@media(max-width:900px){
+  .explore{grid-template-columns:1fr;}
+  .filter-btn{display:inline-flex;height:52px;}
+  .rail{position:fixed !important;top:0;left:0;bottom:0;z-index:97;width:min(340px,88vw);max-height:none !important;
+    padding:var(--sp-20) var(--sp-20) 0;background:var(--bg-surface);box-shadow:var(--shadow-lg);
+    transform:translateX(-102%);transition:transform .25s cubic-bezier(.32,.72,0,1);display:flex;flex-direction:column;}
+  .rail.open{transform:none;}
+  .rail-done{display:block;position:sticky;bottom:0;margin-top:auto;padding:var(--sp-16) 0;background:var(--bg-surface);}
+  .rail-done .btn{width:100%;height:44px;}
+  .rail-backdrop{display:block;position:fixed;inset:0;z-index:96;background:rgba(20,20,43,.45);opacity:0;pointer-events:none;transition:opacity .2s;}
+  .rail-backdrop.open{opacity:1;pointer-events:auto;}
+  body.rail-open{overflow:hidden;}
+}
+.rail{position:sticky;top:84px;max-height:calc(100vh - 108px);overflow-y:auto;}
+.rail-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-12);}
+.rail-hd h2{margin:0;font-size:15px;}
+.fgroup{border-top:1px solid var(--neutral-30);padding:var(--sp-12) 0;}
+.fgroup>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-size:12px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--neutral-80);padding:var(--sp-4) 0;}
+.fgroup>summary::-webkit-details-marker{display:none;}
+.fgroup>summary::after{content:"−";}
+.fgroup:not([open])>summary::after{content:"+";}
+.opts{margin-top:var(--sp-8);display:grid;gap:1px;}
+.opt{display:flex;align-items:center;gap:9px;cursor:pointer;padding:6px 7px;border-radius:var(--r-sm);font-size:13px;}
+.opt:hover{background:var(--neutral-10);}
+.opt input{appearance:none;width:16px;height:16px;margin:0;flex-shrink:0;cursor:pointer;position:relative;
+  border:1.5px solid var(--neutral-60);border-radius:3px;background:var(--bg-surface);}
+.opt input:checked{background:var(--dt-blue);border-color:var(--dt-blue);}
+.opt input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:700;}
+.opt .nm{flex:1;}
+.opt .ct{font-size:11px;color:var(--neutral-70);}
+/* Options with no matches: muted text that still meets 4.5:1 (opacity made it unreadable). */
+.opt.off .nm,.opt.off .ct{color:var(--neutral-70);}
+.opt.off input{border-color:var(--neutral-40);}
+.res-top{display:flex;gap:var(--sp-12);align-items:center;flex-wrap:wrap;margin-bottom:var(--sp-16);}
+.res-top select.input{height:52px;width:auto;min-width:170px;background-position:calc(100% - 15px) 23px,calc(100% - 10px) 23px;}
+.active-f{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:var(--sp-12);}
+.af{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-full);font-size:12px;
+  font-weight:500;cursor:pointer;background:var(--primary-20);color:var(--primary-70);border:1px solid var(--primary-40);}
+.af:hover{background:var(--primary-30);}
+.res-count{margin-bottom:var(--sp-16);font-size:13px;font-weight:500;}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--sp-16);}
+.acard{position:relative;display:flex;flex-direction:column;cursor:pointer;overflow:hidden;background:var(--bg-surface);
+  border:1px solid var(--neutral-30);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+  transition:transform .16s,box-shadow .16s,border-color .16s;}
+.acard:hover,.acard:focus-within{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--primary-60);}
+/* The title is the card's button; its ::after stretches over the whole card, so the
+   card stays clickable everywhere while screen readers get one real button. */
+.acard-open{all:unset;cursor:pointer;}
+.acard-open::after{content:"";position:absolute;inset:0;}
+.acard:has(.acard-open:focus-visible){outline:2px solid var(--dt-blue);outline-offset:2px;}
+.acard .thumb{height:130px;position:relative;overflow:hidden;border-bottom:1px solid var(--neutral-30);}
+.acard .badges{position:absolute;top:8px;left:8px;display:flex;gap:5px;}
+.acard .body{padding:var(--sp-12) 14px 14px;display:flex;flex-direction:column;gap:6px;}
+.acard h3{margin:0;font-size:14px;font-weight:600;line-height:1.35;}
+.acard.selected{border-color:var(--dt-blue);box-shadow:0 0 0 2px var(--dt-blue);}
+mark{background:rgba(25,102,255,.18);color:inherit;border-radius:2px;padding:0 1px;}
+.acard .desc{margin:0;color:var(--neutral-70);font-size:12.5px;line-height:1.45;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.acard .tags{display:flex;gap:5px;flex-wrap:nowrap;overflow:hidden;}
+.pager{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:var(--sp-24);}
+.pg{min-width:32px;height:32px;padding:0 10px;border-radius:var(--r-md);cursor:pointer;background:var(--bg-surface);
+  border:1px solid var(--neutral-30);color:var(--fg-default);font-size:13px;}
+.pg.on{background:var(--dt-blue);border-color:var(--dt-blue);color:#fff;}
+.pg:disabled{opacity:.4;cursor:default;}
+.empty{text-align:center;padding:var(--sp-64) var(--sp-24);border:1px dashed var(--neutral-40);border-radius:var(--r-lg);}
+.sync-note{margin-top:var(--sp-24);font-size:12px;color:var(--neutral-70);}
+
+/* ═══ DRAWER ═══════════════════════════════════════════════════════════════ */
+/* Docked, non-modal panel below the header. While it is open the Explore page
+   makes room for it, so the cards stay visible and clickable. */
+:root{--panel-w:min(540px,42vw);}
+
+/* 100%, not 100vw: vw includes the scrollbar and made the panel wider than the window.
+   The page behind the full-width panel is locked so only the panel scrolls. */
+@media(max-width:900px){
+  :root{--panel-w:100%;}
+  .drawer-head{padding:var(--sp-16);}
+  .drawer-body{padding:var(--sp-16);}
+  .drawer-foot{padding:var(--sp-12) var(--sp-16);gap:var(--sp-8);}
+  .drawer-foot .btn{flex:1 1 auto;}
+  #dPrimary{flex-basis:100%;}
+  .gallery .main{height:220px;}
+  .kv{grid-template-columns:110px 1fr;}
+}
+.drawer{position:fixed;top:61px;right:0;bottom:0;width:var(--panel-w);z-index:65;background:var(--bg-base);
+  border-left:1px solid var(--neutral-30);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .26s cubic-bezier(.32,.72,0,1);visibility:hidden;}
+.drawer.open{transform:none;visibility:visible;}
+.drawer-head{display:flex;gap:var(--sp-16);padding:var(--sp-20) var(--sp-24);background:var(--bg-surface);
+  border-bottom:1px solid var(--neutral-30);}
+.drawer-head .grow{flex:1;min-width:0;}
+.drawer-head .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.drawer-head h2{margin:0;}
+.closebtn{width:32px;height:32px;flex-shrink:0;border-radius:var(--r-md);border:1px solid var(--neutral-40);
+  background:var(--bg-surface);color:var(--neutral-70);cursor:pointer;font-size:16px;}
+.closebtn:hover{background:var(--neutral-20);color:var(--fg-default);}
+.drawer-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:var(--sp-24);}
+.md{overflow-wrap:anywhere;}
+.getstarted{padding:var(--sp-16) var(--sp-20);border-radius:var(--r-lg);background:var(--primary-10);border:1px solid var(--primary-30);}
+.getstarted>h3{border-bottom-color:var(--primary-30) !important;}
+.steps-ol{margin:0 0 var(--sp-12);padding-left:20px;line-height:1.7;font-size:13px;}
+.gs-lead{margin:0 0 var(--sp-12);font-size:13px;line-height:1.6;}
+.gs-note{margin:var(--sp-8) 0 0;font-size:12px;color:var(--neutral-70);}
+.flist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:6px;}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:6px 8px;border-radius:var(--r-md);background:var(--bg-surface);border:1px solid var(--neutral-30);}
+.frow .fname{flex:1 1 140px;min-width:0;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.frow .fsize{font-size:11px;color:var(--neutral-70);white-space:nowrap;}
+.more-files{margin-top:var(--sp-12);}
+.dl-all{margin-top:var(--sp-12);}
+.more-files summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--primary-70);margin-bottom:8px;}
+.cmdblock{border-radius:var(--r-md);overflow:hidden;background:#14142b;}
+.cmd-bar{display:flex;align-items:center;justify-content:space-between;padding:6px 8px 6px 14px;
+  background:#1f1f3d;color:rgba(255,255,255,.6);font-size:11px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;}
+.cmdblock pre{margin:0;padding:12px 14px;background:#14142b;color:#d6d6f5;
+  font-family:var(--mono);font-size:12px;line-height:1.6;overflow-x:auto;white-space:pre;}
+.cmd-copy{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25);}
+.cmd-copy:hover{background:rgba(255,255,255,.22);}
+.drawer-foot{display:flex;gap:var(--sp-12);flex-wrap:wrap;padding:var(--sp-16) var(--sp-24);
+  background:var(--bg-surface);border-top:1px solid var(--neutral-30);}
+.gallery{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--neutral-30);margin-bottom:var(--sp-24);background:var(--neutral-10);}
+.gallery .main{height:320px;position:relative;}
+.gallery .main .shot{object-fit:contain;object-position:center;cursor:zoom-in;}
+.gallery .main:has(.shot)::after{content:"⤢ Enlarge";position:absolute;right:10px;bottom:10px;pointer-events:none;
+  padding:3px 9px;border-radius:var(--r-full);background:rgba(20,20,43,.72);color:#fff;font-size:11px;opacity:0;transition:opacity .15s;}
+.gallery .main:hover::after,.gallery .main:has(.gal-open:focus-visible)::after{opacity:1;}
+.gal-open{all:unset;display:block;width:100%;height:100%;cursor:zoom-in;}
+.gal-open:focus-visible{outline:3px solid var(--dt-blue);outline-offset:-3px;}
+
+/* Full-page screenshot viewer */
+.lightbox{position:fixed;inset:0;z-index:200;display:grid;grid-template-columns:64px 1fr 64px;align-items:center;
+  background:rgba(10,10,24,.94);}
+.lightbox[hidden]{display:none;}
+body.lbx-open{overflow:hidden;}
+.lightbox figure{grid-column:2;margin:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:var(--sp-12);padding:var(--sp-48) 0 var(--sp-24);min-width:0;}
+.lightbox img{max-width:100%;max-height:calc(100vh - 120px);object-fit:contain;border-radius:var(--r-md);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff;}
+.lightbox figcaption{color:rgba(255,255,255,.85);font-size:13px;text-align:center;}
+.lbx-btn{display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;
+  cursor:pointer;border-radius:var(--r-full);transition:background .15s,border-color .15s;}
+.lbx-btn:hover,.lbx-btn:focus-visible{background:rgba(255,255,255,.2);border-color:#fff;}
+.lbx-btn:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.lbx-btn[hidden]{display:none;}
+.lbx-close{position:absolute;top:16px;right:16px;width:44px;height:44px;font-size:20px;}
+.lbx-nav{width:44px;height:44px;font-size:26px;line-height:1;justify-self:center;}
+.lbx-prev{grid-column:1;grid-row:1;} .lbx-next{grid-column:3;grid-row:1;}
+.lightbox figure{grid-row:1;}
+.gallery .cap{padding:7px var(--sp-12);font-size:12px;color:var(--neutral-70);background:var(--bg-surface);border-top:1px solid var(--neutral-30);}
+.gallery .strip{display:flex;gap:var(--sp-8);padding:var(--sp-8);background:var(--bg-surface);border-top:1px solid var(--neutral-30);overflow-x:auto;}
+.gallery .strip button{width:68px;height:44px;flex-shrink:0;padding:0;cursor:pointer;overflow:hidden;
+  border-radius:var(--r-sm);border:2px solid var(--neutral-30);background:var(--neutral-10);}
+.gallery .strip button.on{border-color:var(--dt-blue);}
+.dsec{margin-bottom:var(--sp-32);}
+.dsec>h3{margin:0 0 var(--sp-12);padding-bottom:var(--sp-8);border-bottom:1px solid var(--neutral-30);}
+.md p{margin:0 0 var(--sp-12);line-height:1.6;}
+.md ul,.md ol{margin:0 0 var(--sp-12);padding-left:22px;line-height:1.65;}
+.md h4,.md h5{margin:var(--sp-16) 0 var(--sp-8);font-size:14px;}
+.md .codeblock{font-family:var(--mono);font-size:12px;background:var(--neutral-10);border:1px solid var(--neutral-30);
+  border-radius:var(--r-md);padding:var(--sp-12);overflow-x:auto;white-space:pre;}
+.md .more-on-gh{font-style:italic;color:var(--neutral-70);}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:var(--sp-8) var(--sp-16);font-size:13px;}
+.kv dt{color:var(--neutral-70);}
+.kv dd{margin:0;font-weight:500;word-break:break-word;}
+.support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--sp-12);}
+.support-card{padding:var(--sp-16);border-radius:var(--r-md);background:var(--bg-surface);border:1px solid var(--neutral-30);}
+.support-card h4{margin:0 0 4px;font-size:13px;}
+.support-card p{margin:0 0 var(--sp-12);font-size:12px;color:var(--neutral-70);line-height:1.45;}
+
+/* ═══ CONTRIBUTE PAGE / MAINTAINERS ════════════════════════════════════════ */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp-16);}
+.pcard{padding:var(--sp-24);border-radius:var(--r-lg);background:var(--bg-surface);border:1px solid var(--neutral-30);}
+.pcard h2{margin:0 0 6px;}
+.pcard p{margin:0;color:var(--neutral-70);font-size:13px;line-height:1.55;}
+.pcard .n{width:30px;height:30px;border-radius:var(--r-full);display:grid;place-items:center;background:var(--primary-20);
+  color:var(--primary-70);font-weight:700;margin-bottom:var(--sp-12);}
+hr.divider{height:1px;border:0;background:var(--neutral-30);margin:var(--sp-40) 0;}
+.checklist{display:grid;gap:var(--sp-8);}
+.check{display:flex;gap:var(--sp-12);padding:var(--sp-12) var(--sp-16);border-radius:var(--r-md);
+  background:var(--bg-surface);border:1px solid var(--neutral-30);}
+.check .mk{width:20px;height:20px;flex-shrink:0;border-radius:var(--r-sm);display:grid;place-items:center;
+  background:var(--success-30);color:var(--success-80);font-size:12px;font-weight:700;}
+.check strong{display:block;font-size:13px;margin-bottom:2px;}
+.check span{font-size:12px;color:var(--neutral-70);}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--sp-16);margin-bottom:var(--sp-24);}
+.stat{padding:var(--sp-16) var(--sp-20);border-radius:var(--r-lg);background:var(--bg-surface);border:1px solid var(--neutral-30);}
+.stat .n{font-size:26px;font-weight:600;}
+.stat .l{font-size:11px;color:var(--neutral-70);margin-top:4px;}
+.stat.warn .n{color:var(--warning-fg);} .stat.crit .n{color:var(--critical-70);}
+.tablewrap{overflow-x:auto;border-radius:var(--r-lg);background:var(--bg-surface);border:1px solid var(--neutral-30);}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:860px;}
+thead th{text-align:left;padding:var(--sp-12) var(--sp-16);background:var(--neutral-10);color:var(--neutral-80);
+  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;border-bottom:1px solid var(--neutral-30);
+  white-space:nowrap;cursor:pointer;user-select:none;}
+thead th:hover{color:var(--primary-70);}
+.th-sort{all:unset;cursor:pointer;}
+.th-sort:focus-visible{outline:2px solid var(--dt-blue);outline-offset:3px;border-radius:2px;}
+tbody td{padding:10px var(--sp-16);border-bottom:1px solid var(--neutral-20);vertical-align:middle;}
+tbody tr:hover{background:var(--neutral-10);}
+td .ttl{font-weight:500;display:block;}
+td .sub{font-size:11px;color:var(--neutral-70);font-family:var(--mono);}
+.yes{color:var(--success-80);font-weight:600;} .no{color:var(--critical-70);font-weight:600;}
+
+/* ═══ FOOTER ═══════════════════════════════════════════════════════════════ */
+.site-footer{background:#14142b;color:rgba(255,255,255,.75);font-size:13px;}
+:root[data-theme="dark"] .site-footer{background:#08080f;border-top:1px solid rgba(255,255,255,.08);}
+.footer-inner{max-width:var(--page-w);margin:0 auto;padding:var(--sp-24) var(--sp-32);display:flex;
+  justify-content:space-between;align-items:center;gap:var(--sp-16);flex-wrap:wrap;}
+.footer-inner a{display:inline-block;padding:4px 0;color:rgba(255,255,255,.85);margin-left:var(--sp-16);}
+.footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;}
+.footer-brand img{height:24px;}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;z-index:120;
+  background:#2d2e4e;color:#fff;padding:10px 18px;border-radius:var(--r-md);font-size:13px;
+  box-shadow:var(--shadow-lg);transition:all .2s;pointer-events:none;}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}
+}
+/* Labs: a solution opens as an overlay; the page stays visible (dimmed) behind it. */
+html{scrollbar-gutter:stable;}
+.drawer-backdrop{position:fixed;inset:0;z-index:150;background:rgba(20,20,43,.55);animation:dialogFade .15s ease-out;touch-action:none;}
+.drawer-backdrop[hidden]{display:none;}
+.drawer{top:5vh;right:0;bottom:auto;left:0;margin:0 auto;width:min(920px,calc(100% - 32px));max-height:90vh;z-index:151;
+  display:flex;flex-direction:column;overflow:hidden;background:var(--bg-surface);
+  border:1px solid var(--neutral-30);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);}
+.drawer.open{animation:dialogFade .12s ease-out;}
+.drawer .drawer-head{background:none;border-bottom:1px solid var(--neutral-30);padding:var(--sp-20) var(--sp-24);}
+.drawer .drawer-body{flex:1;min-height:0;overflow-y:auto;padding:var(--sp-24);}
+.drawer .drawer-foot{background:none;padding:var(--sp-16) var(--sp-24);border-top:1px solid var(--neutral-30);}
+#dTitle{font-size:24px;line-height:1.25;margin:4px 0 0;}
+#dMeta{display:none;}
+@keyframes dialogFade{from{opacity:0;}to{opacity:1;}}
+body.panel-open{overflow:hidden;}
+@media(max-width:640px){
+  .drawer{top:16px;width:calc(100% - 16px);max-height:calc(100vh - 28px);border-radius:var(--r-lg);}
+  .drawer .drawer-head,.drawer .drawer-body,.drawer .drawer-foot{padding-left:var(--sp-16);padding-right:var(--sp-16);}
+}
+.gs-sub{margin:var(--sp-20) 0 var(--sp-8);font-size:14px;}
+/* Filters scroll with the page: no second scroll bar. */
+@media(min-width:901px){ .rail{position:static;max-height:none;overflow:visible;} }
+/* Carousel cards show the type icon in a slim band instead of a screenshot. */
+.hero-fresh .mcard .th{height:52px;}
+.hero-fresh .mcard .ph{flex-direction:row;align-items:center;justify-content:center;}
+.hero-fresh .mcard .ph svg{width:26px;max-width:none;}
+.hero-fresh .mcard .ph-lbl{display:none;}   /* icon only, centered */
+#dPrimary[hidden]{display:none;}
+.fsearch{height:32px;font-size:13px;margin:var(--sp-8) 0 4px;}
+.fnone{margin:6px 7px;font-size:12px;color:var(--neutral-70);}
+.dsec>h2{margin:0 0 var(--sp-12);padding-bottom:var(--sp-8);border-bottom:1px solid var(--neutral-30);}
+.getstarted>h2{border-bottom-color:var(--primary-30);}
+.md h3{margin:var(--sp-16) 0 var(--sp-8);font-size:14px;}
+/* Phones: the logo is the Dynatrace logo, so on narrow screens the name is "Labs" (no ellipsis). */
+@media(max-width:450px){ .brand-dt{display:none;} }
+/* iOS Safari zooms into a field whose text is smaller than 16px and stays zoomed after the keyboard closes. */
+@media(max-width:900px){ input.input,select.input,.search .input{font-size:16px;} }
+/* The search box: room for the clear button only while it is shown (more space for the placeholder). */
+.search input.input{text-overflow:ellipsis;}
+@media(max-width:720px){
+  .search input[type="search"].input{padding-left:44px;padding-right:14px;}
+  .search:has(#qClear:not([hidden])) input[type="search"].input{padding-right:52px;}
+}
+/* Narrow phones: a tighter Explore button keeps "Labs" readable; below 340px only the logo fits. */
+@media(max-width:400px){ .hbtn-cta{padding:0 10px;font-size:13px;} .brand-txt{flex-shrink:0;} }
+@media(max-width:340px){ .brand-txt{display:none;} }
+/* Dialog: no inherited docked-panel motion; hidden completely when closed. */
+.drawer{transform:none;transition:none;}
+.drawer:not(.open){display:none;}
+.drawer .drawer-body{overscroll-behavior:contain;}
+/* Right after it opens, taps are ignored for a moment: a quick second tap (double tap) must neither close
+   the dialog nor hit a button inside it. The page behind is inert, so the tap is simply dropped. */
+body.dialog-opening .drawer,body.dialog-opening .drawer-backdrop{pointer-events:none;}
+/* No double-tap zoom (pinch zoom stays possible). */
+html{touch-action:manipulation;}
+/* Phones: size the dialog to the visible screen, not to the screen without browser toolbars (100vh),
+   which pushed the bottom buttons out of sight. */
+@supports(height:100dvh){
+  .drawer{top:5dvh;max-height:90dvh;}
+  @media(max-width:640px){ .drawer{top:16px;max-height:calc(100dvh - 32px);} }
+}
+@media(max-width:640px){ .drawer .drawer-foot{padding-bottom:max(var(--sp-16),env(safe-area-inset-bottom));} }
+/* Buttons have no frames: soft fills instead of outlines. Keyboard focus keeps its outline. */
+.hbtn-cta[aria-current="page"]{box-shadow:none;}
+.hbtn-icon,.hbtn-icon:hover{border-color:transparent;}
+.btn-secondary{background:var(--primary-20);border-color:transparent;}
+.btn-secondary:hover{background:var(--primary-30);}
+.closebtn{border-color:transparent;background:var(--neutral-10);}
+.closebtn:hover{background:var(--neutral-20);}
+.fpause{border-color:transparent;background:rgba(255,255,255,.18);}
+.fpause:hover{background:rgba(255,255,255,.28);}
+.pg{border-color:transparent;background:var(--neutral-10);}
+.pg.on{background:var(--dt-blue);}
+</style>
 </head>
 <body>
-<h1>Dynatrace Labs</h1>
-<p>Coming soon.</p>
+
+<!-- ══ HEADER ═════════════════════════════════════════════════════════════ -->
+<header class="site-header" id="hdr">
+  <a class="skip-link" href="#/" id="skipLink">Skip to main content</a>
+  <div class="hdr">
+    <button class="brand" data-go="welcome" title="Home">
+      <img class="brand-mark" alt="Dynatrace" src="data:image/png;base64,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">
+      <span class="brand-txt"><span class="brand-dt">Dynatrace </span>Labs</span>
+    </button>
+    <a class="proto-chip" href="version-history.html" title="Version history">v0.3</a>
+    <div class="grow"></div>
+    <button class="hnav hnav-extra" id="navAI" data-explore="area=Agentic Operations&amp;area=AI Observability">AI &amp; Agents</button>
+    <button class="hnav hnav-extra" data-go="contribute">Contribute</button>
+    <button class="hbtn hbtn-cta" id="navExplore" data-jump="results">Explore solutions</button>
+    <button class="hbtn hbtn-icon theme-btn" id="themeBtn" title="Switch light / dark theme" aria-label="Switch light / dark theme">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+    </button>
+    <button class="hbtn hbtn-icon menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu">
+    <button data-explore="area=Agentic Operations&amp;area=AI Observability">AI &amp; Agents</button>
+    <button data-go="contribute">Contribute</button>
+    <a class="mnav-ver" href="version-history.html">Version 0.3 · version history</a>
+  </nav>
+</header>
+
+<!-- ══ WELCOME ════════════════════════════════════════════════════════════ -->
+<main class="view" id="view-welcome">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 tabindex="-1">Get more out of Dynatrace with community-built, ready-to-use solutions</h1>
+      <p class="hero-sub">A community-driven library of reusable Dynatrace artifacts: dashboards, apps, agents, and configurations. Built to solve real-world customer scenarios.</p>
+      <form class="search" id="heroForm" role="search">
+        <span class="mag"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
+        <input class="input" id="heroQ" type="search" placeholder="Search for ready-to-use solutions"
+               aria-label="Search for ready-made solutions and examples" autocomplete="off"
+               role="combobox" aria-controls="heroSuggest" aria-autocomplete="list" aria-expanded="false">
+        <div class="suggest" id="heroSuggest" role="listbox" hidden></div>
+      </form>
+
+
+    </div>
+  </section>
+
+  <section class="areas">
+    <div class="wrap">
+      <div class="sec-hd"><h2 class="sec-title">Save time by using one of the solutions before rebuilding them from scratch.</h2></div>
+      <div class="area-grid" id="areaGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ EXPLORE ════════════════════════════════════════════════════════════ -->
+<main class="view" id="view-explore" hidden>
+  <section class="hero">
+    <div class="wrap">
+      <h1 tabindex="-1">Get more out of Dynatrace with community-built, ready-to-use solutions</h1>
+      <p class="hero-sub">A community-driven library of reusable Dynatrace artifacts: dashboards, apps, agents, and configurations. Built to solve real-world customer scenarios.</p>
+      <div class="search" role="search">
+        <span class="mag"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
+        <input class="input" id="q" type="search" placeholder="Search for ready-to-use solutions"
+               aria-label="Search solutions" aria-controls="cards" autocomplete="off">
+        <button class="search-clear" id="qClear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="hero-fresh" aria-label="Fresh out of the kitchen" role="region">
+        <div class="sec-hd">
+          <h2>Fresh out of the kitchen</h2>
+        </div>
+        <div class="fstrip" id="freshStrip"></div>
+        <div class="fcontrols">
+          <div class="fdots" id="freshDots" role="group" aria-label="Choose a set of new solutions"></div>
+          <button class="fpause" id="freshPause" type="button" hidden></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page" id="results">
+  <h2 class="sr-only" id="exploreTitle" tabindex="-1">All solutions</h2>
+
+  <div class="explore">
+    <aside class="rail" aria-label="Filters">
+      <div class="rail-hd"><h2 id="railTitle" tabindex="-1">Filters</h2><button class="linkbtn" id="resetF">Reset all</button></div>
+      <details class="fgroup" open><summary>Category</summary><div class="opts" id="fArea"></div></details>
+      <details class="fgroup" open><summary>Technology</summary>
+        <input class="input fsearch" id="techSearch" type="search" placeholder="Search technologies"
+               aria-label="Search technologies" aria-controls="fTech" autocomplete="off">
+        <div class="opts" id="fTech"></div>
+        <button class="linkbtn fmore" id="techMore" type="button"></button></details>
+      <details class="fgroup" open><summary>Type</summary><div class="opts" id="fType"></div></details>
+      <div class="rail-done"><button class="btn btn-primary" id="railDone" type="button"></button></div>
+    </aside>
+    <div class="rail-backdrop" id="railBackdrop"></div>
+    <div>
+      <div class="res-top">
+        <button class="btn btn-secondary filter-btn" id="filterBtn" type="button">Filters <span id="filterCount"></span></button>
+        <select class="input" id="sortBy" aria-label="Sort">
+          <option value="relevance" hidden disabled>Best match</option>
+          <option value="added" selected>Newest first</option>
+          <option value="updated">Recently updated</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+      <div class="active-f" id="activeF"></div>
+      <h2 class="sr-only">Results</h2>
+      <div class="res-count" id="resCount" aria-live="polite" aria-atomic="true"></div>
+      <div class="cards" id="cards"></div>
+      <div class="pager" id="pager"></div>
+      <div class="empty" id="empty" hidden>
+        <h3 class="t-h4" style="margin:0 0 6px;">No solutions match your filters</h3>
+        <p class="muted" style="margin:0 0 var(--sp-20);">Try a broader search — or contribute the solution you were looking for.</p>
+        <button class="btn btn-secondary" id="emptyReset">Reset all filters</button>
+        <p class="muted" style="margin:var(--sp-24) 0 var(--sp-8);font-size:12px;">Or browse a popular technology</p>
+        <div class="active-f" id="emptyTech" style="justify-content:center;"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <section class="contrib-band">
+    <div class="wrap">
+      <div>
+        <h2 class="sec-title">Built something that works? Share it.</h2>
+        <p>Someone else has the same problem you just solved. Add your dashboard, notebook, workflow, app or
+           configuration to the community library and it shows up here as soon as it is merged.</p>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" data-go="contribute">Contribute your solution</button>
+        <a class="btn btn-secondary" id="guideLink" target="_blank" rel="noopener">Contribution guideline</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="info-note" role="note">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><path d="M12 7.5h.01"/></svg>
+      <p>Community examples and solutions are not officially maintained or supported by Dynatrace. They are shared
+         as-is by the community. Use them as inspiration and starting points, and review them before using them in production.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ══ CONTRIBUTE ═════════════════════════════════════════════════════════ -->
+<main class="view page narrow" id="view-contribute" hidden>
+  <h1 class="t-h2" tabindex="-1" style="margin:0 0 var(--sp-8);">Contribute a solution</h1>
+  <p class="muted" style="margin:0 0 var(--sp-32);max-width:72ch;font-size:16px;line-height:1.5;">
+    If you built something in Dynatrace that solved a real problem, someone else has the same problem.
+    Everything on this site comes straight from the
+    <a id="repoLink" target="_blank" rel="noopener">community-examples repository</a> — merge it there and it appears here.</p>
+
+  <div class="grid-3">
+    <div class="pcard"><div class="n">1</div><h2 class="t-h5">Export from your environment</h2>
+      <p>Export the dashboard, notebook, workflow or configuration. Strip anything environment-specific — entity IDs,
+         management zones, host names, credentials.</p></div>
+    <div class="pcard"><div class="n">2</div><h2 class="t-h5">Add a README with metadata</h2>
+      <p>Copy the README template into <span class="code">&lt;category&gt;/&lt;solution-name&gt;/</span>. Its metadata header
+         (title, type, tags) controls how your solution is listed and filtered here. Add at least one screenshot.</p></div>
+    <div class="pcard"><div class="n">3</div><h2 class="t-h5">Open a pull request</h2>
+      <p>A maintainer reviews it against the quality criteria below. Once merged, the page picks it up on the next
+         sync — within the hour.</p></div>
+  </div>
+
+  <div class="btn-row" style="margin-top:var(--sp-24);">
+    <a class="btn btn-primary" id="contribRepo" target="_blank" rel="noopener">Open the repository</a>
+    <a class="btn btn-secondary" id="contribGuide" target="_blank" rel="noopener">Contribution guide</a>
+    <a class="btn btn-secondary" id="contribTemplate" target="_blank" rel="noopener">README template</a>
+  </div>
+
+  <hr class="divider">
+  <h2 class="t-h3" style="margin:0 0 var(--sp-8);">Quality criteria</h2>
+  <p class="muted" style="margin:0 0 var(--sp-20);max-width:72ch;">Deliberately minimal — they are what makes a solution usable by someone who isn't you.</p>
+  <div class="checklist">
+    <div class="check"><div class="mk">✓</div><div><strong>Clear customer value</strong><span>It solves a real-world problem. The README says which one, in one sentence.</span></div></div>
+    <div class="check"><div class="mk">✓</div><div><strong>Production-ready</strong><span>Usable as-is or with minimal adjustment — not a half-finished experiment.</span></div></div>
+    <div class="check"><div class="mk">✓</div><div><strong>Reusable by design</strong><span>No hard-coded entity IDs, management zones or environment-specific assumptions.</span></div></div>
+    <div class="check"><div class="mk">✓</div><div><strong>Properly documented</strong><span>README with intent, prerequisites, setup steps and at least one screenshot.</span></div></div>
+    <div class="check"><div class="mk">✓</div><div><strong>Meaningful layout &amp; actionable insight</strong><span>For dashboards: a layout that answers a question, not a wall of every metric.</span></div></div>
+  </div>
+</main>
+
+<!-- ══ MAINTAINERS (read-only health view) ════════════════════════════════ -->
+<main class="view page" id="view-maintainers" hidden>
+  <h1 class="t-h2" tabindex="-1" style="margin:0 0 var(--sp-8);">Maintainer overview</h1>
+  <p class="muted" style="margin:0 0 var(--sp-24);max-width:80ch;">Read-only. The repository is the single source of truth —
+    to add, change or remove a solution, open a pull request there. This view flags what needs attention.</p>
+  <div class="stats" id="mStats"></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th data-sort="title"><button class="th-sort" type="button">Solution</button></th><th data-sort="type"><button class="th-sort" type="button">Type</button></th><th data-sort="areas"><button class="th-sort" type="button">Categories</button></th>
+      <th data-sort="added"><button class="th-sort" type="button">Added</button></th><th data-sort="updated"><button class="th-sort" type="button">Last updated</button></th>
+      <th data-sort="images"><button class="th-sort" type="button">Screenshot</button></th><th data-sort="fm"><button class="th-sort" type="button">Metadata header</button></th>
+    </tr></thead>
+    <tbody id="mRows"></tbody>
+  </table></div>
+  <p class="sync-note" id="mSync"></p>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><img alt="" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ4AAACgCAYAAAD99dWmAAAYqElEQVR42u2debBkVXnAf9/tfm/2YZidkWETEBFRFDUkpiIoIqK4IUwSg1uiqFimTNDSMhEVFDFiCsVQ0aBYGjQiagBRQSkrxpQGiQvGgCjDAMPsb5x5b+bNW/rLH+c7r8/c6eX2e73c032/qlu3p19P911+99vPOUIfiqqWRGTaXq8AzgVeBDwDWAcsBCaAUWAv8HvbdgK7ge3ASLDfafvfA3uAff77Mx6PAAkg4dvBXkVEGSCRPgNOABGRiqquA94OvAY4sg1fPwHsN1D3BkDuALYZpFttvyOAeG9WSFW1VAPOvgRT+gi6REQq9vrNwBXASvtzxW5gkjpvrbMPr4/M8jpNmXYcMRC3Ao8DjwGbbe9B3SUi+7KcY3AOUYMp/QSdqs4DPmtazt/8UpvOU2vc8HqwJi385n5glwG4GXgE2GT7RwzWbSIy0qI5zzWU0gfQlURkWlWXAt8AzmwzcHMFtR6kYsfYTCqmNbcCjwIbgYdse9g053YRGc+oKXMBpPQJdCuA24HnAJPAUEynUQdSDJYkg8bcHkD5oG2/M825VUQmMvqVaqDTaSilD6BbB3wLeJppunK/BelpTdWCSd9vmvJhg/EB4DcG5aMisrMVINsJo0QKXVlEplT1WOAO4El9Cl0rGjOtLZu5GrvMh3wQ+D/gfoNyo2lJbQLknEy2RAzdScC3gaMHGLrZQNnMt9ybAvI+228Uke0DqfEC6E4z87oWmM7opBfSHMpGWvL3ZrI9jL+y1w8BUyIy2ZfgBdCdAdwGLC+g6wqQjXzJKQPytSJye5hLbSblyKA7y1ImSwroOhpwShMgfUJ+GLgGuKMV6KLQeKo6JCKTqvoS4KvAfDvxpGCkpxoxAd4mIp9uFbrcgxdouguBL5mGLqDrnVQCjfh6Efm8v0etflGSY+iGDLrXAV8xs1pA11voEttflAU6K+PFA56d0KSqvhX4nJ0sBXQ9h+4A8AoR+bcM0CWN8ntJzoCTwLxeBlxnQcRsO0QKaR90Y8BLRORWb42aQFdR1fmqWs41eL67wqC7HLjaoEsK6Hom/vrvBs4Rkbu8NWpirSqqejIuwT+/ltkt5wy6aVW9GriMfHSYDDp0JVyT64tF5KcZzKu3Vk8FvotL8C/GdXrnS+MFXcPTqnpdAF25gK7n0D0KnNUidM8Cvke1qrS+FmtJj6FLcNRVVPVzwFsp6q69Fm9pfgucKSK/agG6PwbuBFbhhgqUAvAkF+AFSceSqn4FeF0BXS6gKwP/a9A92AJ0LzSf7jAOTnsdk5vgIox6cCWwC3ENnAV0vYfuXjOvj1jPYyPofK71ZcCtuNF76VxrPsCzk6mo6hJc1/B5dtJDxb3vmfiH/kfAC0RkazhEtIGmm1TVPwVusfsXQudN61H+v/QMvKBreDnwHeCswrzmArohCwjOEZGRjNBNqeobgH8NwKrFkx9aWukJeAF0a+0kzyigyw10t+GSw6PmBk3Xy0AE0F0K/AvV+m2aJa/x1qjqfBHRMJeXdAm6skF3NHA38PQCulz4dEO4jp9XiMh4oy4Tg6Zk0L0L+CSNq0r+vRW2ddfHC56QJxl0JxXQ5SaQuFFELgSmW4DucuCjNK8q+XEZC4A16ZRK0iXoTjXojrUDLqDrPXTXi8jrwlxqA+h8KfNq4P32HVlKmf4713UNvAC65wDfB46g6BrupWgA3cdF5C02YkwbjCgLq0qfovWqkv/e9V0BL4Duebia3YoCup5DVzFgrhCRvzXoKg2gC6tKNwBvm4OLtD79RrmD0L0YuNlsfKWArufQlYD3ishHrFVpugl0CiSq+iXgojn65Ud2FLxgfMSrgC9TtKrnATo16N4hItdmgc603LApjpfOATpvWp+Q8vnaB16Qyb4Y+HzwQwV0vZGwa/tNIvKZjF3DFVVdBHwdOHuOmi7M5UkYwCRthG5KVS8BbgycygK63kHnb/prMkLnS5nLcMX+uUIXgrcS15c30xCazBG4MJP9TuCfKFrV8wBdYtBcICJfytCq7qtKq3FtTc+lvbnWw3ED8GdgTOYCXZDf+Tvg4xSt6nmBbj9wvoh83fvdGaA7ElfKPL2N0Pkk8jDV2Vll1j5eqlX9KuDdFK3qvRafrtpj0P0gA3TeWh2Ha9o4nvZXlXxEvXZOUW0qqXgtboLrArp8QLcDV+z/ccZBOVM2KOcOXPtSJ0qZ3t8/YtYaL5VU/CzwRoq6a6/FX//HgXNF5OctdA2fZtCtofOlzHWz0nippOJNwIYCutxAtxF4kYjcnwE6n2v9Q1zXcLdm3ToIvCQrdJaDGcZ1m26gaFXPC3T348ZHtALdWebTdQM6736tDU1vkgG6UpBUvBU4n6JVPS/Q/QI3PmJjxvERk6p6Hm7IwWK6W8pcEwQbjcELQu3D7QlpR1KxkPZA9xPg+SKyOUOruofu1bjBVd2c6m0miWzHqaoqSQbofFLxjwrocgPdD4CzRWRHC4NyLqY3s2558JbhJtSsH1wE0K3HlU9Ozgl0jZaA0owXIOtr6nx3ltdZf1+a/G4t6L4NvEpE9jUaH5GKXi/BVZXqjY/ohiw1+HYDUm5wsMfbST6xg9A1W/0GDp6Dt5Ub1YmntpO/XeHQJQMk+NsQrnB/kWmwrK3q78RVlSr0ppQZVi+WWwR+MHjeQVXVUyy/c+Qs8zv1FgUJo+lkFiCNA/twU2aNUl32c2/wejT4zD5c+WgcN7fbhO2nLCqv2Hv++Px76Qs3HPx7XvBe2f49bPv5uP7DhcAi2y82E7PInvol9t5ie2+R/d9GWqiEmxH1YnebMkP3PuBD9L6U6SfxXnmIqQ3M6zNxU/mvbhBqNwIrXAap2Ynux5V4dlNdanObbTuorhe7i2CtWNsOxLqUpsExLwDTm6GVtq3BZfrX2MP/UxG5NFwWtcH3+vr5h4H3kI/6ufcpV3suykGeblpVTzRNtyoFXTjbd7hARyOfyC887JfL9Etlbga2GFw7Daa9s4HI34gWTIjO8u/Nvjvrb4cr4Yzbtqslu9UYOl/K/EfgHTkMBlfPaDzfH2V5ulsMOn/AGpja0Cmt2AXzKwpuwi2+scn+vcW01e6sEzPXWcW6YUBhN1Aj1XhZAo3wYc8yKKeiqv8M/FVOMxBrQlMbToj4FKqjy73G8wd/D2602H/hVnTZIiK7ZwnUIcGEXdRpBkBSAGlGbVnv+vpSJqr6ReDPc5z2WpU++KerakVVp1R12jZV1RFV/YSqPqPRiatqOdhK9p40mvW7kLZozsT2Q6p6i92zSc2fTNn+Vh9P+Kfi3aaRfNgObqXrD4nIpjBaCsLjRv6OBE9hq/5QvZWwiTWY6JS5NtO6APgacC75X6t3xYyrpqpHqeregMpdqvrK4ATnqeqwjcPs+RNuGtVr12RQobNrsVJV786xpvPiLeivvRUs44avLTbNsh3XXnOvqg6LyISIHEid9Aqz1WssSlluJPsc1ULLaw0HeS8sfyaWN5u0iG5/kG/bY3k4n17ZE6RQRkVkrNVli/pYfJ7uCuB5dk2HIzjuwyzPua8MnGkmdhJ4uYjca2Ztwvrwn4Hrwz8V1xq9znJO3fDfKj5ZrKojltPbZimZx4E7ReQns1lLq48khiGknhWfPN9Xxq1unQCXiMiPrP/+5bj2p2faB+udcJZ0hrQQvZHKyyV2sEuotk6H4rs0/FJHgyYjkZ37QruX28qWQrkZuFlVP23h+NLgw9NUSx5horYbT1m9QMM3oW4ccJM7FksGieqMoYd5jfFbXNvTz3ANAVgeyGucUo8PuF40XDJfcJBlNKaYyO7hDHi/A67CDbr1mqQcwRPkTU0rZrzfZF9k4GGcUbag4XAzqbG0s3szv3vAwRuPFbyEg1dcjukEJi39MshyoI4bkmc5CLwYS1v7Ax9n0DSeP9+JCI99BrzpSC/6WGQ+Tic1XkyyzIM3FelFH4vMx+mExNjNc5gHL9bE66gf6DLAzQMTEfl4kgZvIjI/yR/nKFRbgwZUYnzglsRuavdGGNG1W2KyVv4+LfbgTUb6lI9SyGSED98iVS0lkYbkIXhFl3NcGm8hML8fwCskLpkPLEiIMxcE8XRmFHKwLPAarwCvkG7KELAoBC+20HxfcQ9nuohiuHcSgLcwId7sfwFenFPGlWIHb7zgLjor5Y93URKh5pACvBkZjgxAf5yL/SowMUqsvmm7zVaMsjBGjedlgkKGIz3uRQV4RXBR+Hgt+niTAwycvwbzYja1Y6mTieWiT1FIbMFFTfBik+mCO+YXGq8ArxeyoIhquy9TkZqZAjzrThkj3iGOhcaL1EXwGm+y0B5RyqJYo3Gv8SaLe1iA10WZ50tmB4p7WIDXbVO7n3jrtYMqmgIvNv982LdFjRc+XpTgLY70+If98MYYk8jFQO54wRtKbPqHGGddGorUzMw9NKxO2bE40msw5LVGjEMFBzLvGKw9VybedMqwB29PhGZmiMEWvy5ujA9hEvOUroMO3sIAvCiDC3Ar6MSm8eYNKHBeuy0i3pLZTGQ4EuGxDyp4XpZQ7UCONriIEbz5Axpk+PNdZvsYJ9ZM0uDFcBM1cK4H2dQui9Av7wtTu4jBluURgzedjmpjqgYsHnDwVkZ4zP4h2ZYGLxZ/qYKtl1CAFx14CtwXJpBjaRTw67MODzh4qyL1TwW4KyyZxVA2mzLg/gO40mZ8H7RBP5oCTyI67sSs6+0evDGqZTPNMXRl3BKn54rINkAHcI2LSqSm1iuIm0VkS6KqYguV5HkJTg/dN4GXiMiYLQc/UNDZvVLT9Csi0nh+MNkk8DFVlSSIZHfmXNN9GXiliEwYdIO4FLyXJVTzeDGAN4Wb2eqjIvIAkJSDA9+RQ43nobtBRN6oqtIMOlUtUXsZ1HBp+ZlzjExr+iXWl2FLM0UC3RDwn8AH7P5UwtmGtuVU031KRN5u5kXrQefNkF/fjIylJOtvC7csjn3W95tBVPsP1XNolEoZJv/jof09fBC4QESmvIsUgrc1R/7AtB3w1SLybv+U1NNOvjnSXl8DPAV4GNhi2zZgu0VUuy2CHxORcfvOWLSeP8/VwcNVigC6s0VkS2it8qbx1C5mGbhcRD6QATqvCVVVbwQubvIbExbFj6rqqEXze20/GuzHgm0cNxJvHDcUdNK2CTveiSBym2oAjddS5WAbCraFwIiI3O01eB3w1kWSgfgV8CIReVRVS6Emr6XxpMfQlYB3icjHrL17uhF0IlJR1bKq3gRcYEAkqZvizahPPA/TucqHtmpaU3If8NQmn3lCBOb1Xp/2SkPnwfMXarvtkx5BpwbdpSJynaqWRWSqgW/moZsP3AycZ9ANZQSj3r6ZmZOM79HicUyHD4xpcKnz0B2Zc+h+ZGmvkVrQpcHbGfzHbjqtlUAbvUFEPqeqQyIy2ShyFZFpVV0CfAM4K4iemAVA3dB4WaBNcKsb1jt/TYGXp8DCP/TfB14mIqP1oCNlkkaorgFLl6GrABtahG458B2DbpL8zAcsDbYssqDeAxTcxCNyBp6H7nbgPIMuaRSdh2Z1D92tXvhi/wQuMfyVFqBbA9wFnNGCposlYp1HjQaIYFjjImBNjsDz1/9rwMtFZDxLgj8JfIkpqtWLToPn/Zkx4KUi8u8ZoCsbdEeZOj8tcA36SYaoPZ7EQ7aCarksLz7dF4FXA9NZq0pJat+NXN60BRG7LdS+06BqBt2Uqp4A3A2c3KfQEaRY6vmER5CP5LG//p8Rkb/wx5K1lJmkTmpzhzWeh24bLqn4wwzRq4fuFNN0x1FNMNPn4NXSeOsDV6XX0F0rIm8Kc6lZvyCdOnm8C5ruUeD5InJPC9CdDnzPojn/Pf0qpSbnd3QX/fBaUbWH7ioReYevjbda806D91gHn5AS8DvgLBG5LwN0Qwbdc3E9eKv7HDoJ7kmj7urjenR8YVXp70XkPc2qSs3Uevj0bO5AtOSfkF+bT7fJotNmmm5SVc8Gvo4bUdbvmq4WhOkbD3BMDyLasKp0mYj8Q7OqUqvgbamjCecK3f/gyidbGyUVA003qarnA1+1p78yQNDVvP4W0QtwVJfBq1lVmgt0tU5wO64ILm3wIcLyyfMzQuc13QbglgC6QZmEseZMWEH3zWF0N3lcCTh5g0E3JCJTc+1jTFInvJP2DO720H3fzOtIRuimVPX1wE12bIMEXRbTu5Zqc4N0ATqvgP4sS1WpZfACevdRbRbQOULnyyd7G5VPrKvYQ/c24IbUk1ZIFbKjgwey09D5aYpfKSI3tRO6g25sMHhmyxzA89DdTIbyiZmQkkF3GfApCyKEwZzx05/zRJ33j0uZwE5Ctw84X0S+2SzBP1cfz79+dJbgeei+ICJNyycGXWLQvR+4mmopbdCXt6p37U/s8O/6678HeLGIfKdZ2qtt0ROwaQ6a7noRea1lsskA3bSqfhS43L5jkKEL+/Om6/zt+A76dz5dtQNXVfpBp6AL0ymhPNLixfLlq2tE5G8yjo8Qg+6TwKX0b911tqZusk4q5dgOgeehe9zSXj/vJHRpjacp8JIM0PlM9hUZoZvRhKp6QwFdXesxWSOVspxqy7t0ALqHcVWljkOX1nhh9UKbgBdmst8rIh/JMj7Cf6+qfhHYQLZW9UGTySC40CClsR43nradXSn+oX/A0l4PdQO6ehpvK9VOZK0Dnc9k/3VW6MzfG8YlhgvoGoN3oMY9emKbI1oP3S9N0z3UrJTZaR9vBJfLW1rj6Qrza28Skc9kKPb7ruFFBt0LC+jqWhGhOoQyLU+aQ5qrHnT3WPS6vVmCv2Maz08GYxDV6svzmWwBXtMidMuAOwroMskYh+bxAE5qs6b7oUWvXYeulsbzWfFNKfDCTPYGEbmlBehWAd8CTqd/xkd0FLzUdfVAnNiGwMI/9HfhEvxjvYCuUeS6MaXpwkz2Lb5Q3AA6Pz7iSFy99vQies1kasEWuwkyAKqqi6m2QyVzhO5WDp7qrScTW9Y7iYeCpy3MZH+7hfERxxl0pxTQtQTerkCzhe3uc5kB1EP3VeAVInKg11O9JXVO/mHTdPNwmewXZslkB9A9GTco5wT6e3xEJ2R7DfBOsHs1PQfoviAiFwKVPMwvWA+8jfa3Lbheuh+3AN1ppumOYrC6htslW4LXHryTZxnRep86UykzD+DttlD7BSLyixagO8Mc17UFdLOWzTXuxymzMNvevfmEiLxlNiPBuhbVBge1xzTdniDF0gy6M3FzFC8poJuVeO32SCqwC1MpkhE6795cKSLvm8ugnG6lUzyAE8BEhmlfPXTn4Xrw5jN44yPaJf6azbSlWUS7jGpzQCv18/eJyJXtGB/RNfAMKskI3QW4VvUyRav6XCJaMUuTHul3LK5BoFmNNixlvlNEPpFX6BqC1+hgA+guBj4fmIUCurmB9xiHzr7/5OD6lppAlwBvEZHru1Xsb1dw0fwKmc+nqm8Gbgwc4AK6uYEH8BtrGQsBe2aTiDasn782BuhahiWYhfMy4HpcTXHaTr5CpGun5gi8nwX3xefs/qRBYFEJPnuRiHyhWVUp96a2BnS+9voq4IP2dq2pFqaDCykcOjFQIfUj2p9WPR1RVT0ROJXa/ZEeugO4qfxva/dIsFyAF9T07sAlh4+3/NKpuOn9j8fNRl7PDymArK/tSrh2qHtTf9uASwCnS44+XTWGK/bfFRN0bb3pqroAV1M8AZdpfyquh+wYqusyZAGy1albYxcP0X+LyLN9dQFXrrzfrmkYuIXzC77UpnqLCrqWNF461cLBI8IqIrIf10L9AG4wt//sUtOQJ1iEdpK9Pho3pWqpSU6q36H053end19sPPIlBl2YjPevt+OaNu7pxJjX2DReGgyl8cCfxbjBK0/E9ZqdaOb6GNz8IIub3Kx6UMZmvn0q5dm4MqXgSo734eZK8efloXsMNxLslzFErx0HrwUgofH4jJKZ5vW4kfPHm4Y8Djcx42rcCjiNpMLBi+alocwLmL7t7GfAs7C12lT1u8DZAWzex3sIOEdEfhMzdLM2tS2RXWetsDpAViyIedy2n6T+zzzcAnJPMFN9rAF5jEG5Bpflz5ImSsNJHa0pXdB21/ngTVWvC6DzXd9DuPkFzxWRh7s5KCdajTdLDQmHzipQadbOY3XNVWaq19t2lO3XmbY8HDfRYytw1MpR1tOg0oK2KwEPisgJqjoMXAf8pcEmgWL4Hm7Gpm29alXve/BmYbYzQRlE3stMa64xX+oIg3KtgbnKtOZS8zNllppMG8BKoM2eZq8/C/wBLinv86PjwFXAh8wE980C0X2VsmgAZsNApw6gfhXs5bh1JVbZtjLYL7fPLLXPL6D2GhW1ZAT4sGm1D3LwIKiduCl4rxGRX3srENmizoMDXgtg1gsyKq1qFMu7LTTwDjMQVwSwLg/2K+wzC3F9d+twOc9xXDvUfZZWuU1ENvlgqx9Ma1r+H4TVVuPzmmnQAAAAAElFTkSuQmCC"><span>Dynatrace Labs</span></div>
+    <nav aria-label="Legal">
+      <a href="version-history.html">Version 0.3</a>
+      <a href="https://dynatrace.status.io/" target="_blank" rel="noopener">Dynatrace status</a>
+      <a href="https://www.dynatrace.com/company/trust-center/terms-of-use/" target="_blank" rel="noopener">Terms</a>
+      <a href="https://www.dynatrace.com/company/trust-center/" target="_blank" rel="noopener">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ══ SOLUTION DIALOG ════════════════════════════════════════════════════ -->
+<div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="drawer-head">
+    <div class="grow">
+      <div class="chips" id="dChips"></div>
+      <h1 class="t-h4" id="dTitle" tabindex="-1"></h1>
+      <p class="muted" style="margin:4px 0 0;font-size:12px;" id="dMeta"></p>
+    </div>
+    <button class="closebtn" id="copyLink" title="Copy a shareable link to this solution" aria-label="Copy link">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    </button>
+    <button class="closebtn" id="closeDrawer" type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <a class="btn btn-secondary" id="dRepo" target="_blank" rel="noopener">View on GitHub</a>
+    <a class="btn btn-secondary" id="dIssue" target="_blank" rel="noopener">Report issue</a>
+    <button class="btn btn-primary" id="dPrimary" type="button" hidden></button>
+  </div>
+</div>
+
+<!-- ══ SCREENSHOT VIEWER ══════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <button class="lbx-btn lbx-close" id="lbxClose" aria-label="Close screenshot">✕</button>
+  <button class="lbx-btn lbx-nav lbx-prev" id="lbxPrev" aria-label="Previous screenshot">‹</button>
+  <figure><img id="lbxImg" alt=""><figcaption id="lbxCap"></figcaption></figure>
+  <button class="lbx-btn lbx-nav lbx-next" id="lbxNext" aria-label="Next screenshot">›</button>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data/catalog-repo.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   DATA — everything comes from catalog-repo.js, generated from
+   Dynatrace/community-examples by .github/scripts/build_community_catalog.py.
+   Nothing on this page is curated by hand.
+   ═══════════════════════════════════════════════════════════════════════════ */
+const C = window.CATALOG_REPO || {entries:[],types:[],areas:[],repo:'https://github.com/Dynatrace/community-examples'};
+const ART = C.entries;
+const TYPE = Object.fromEntries(C.types.map(t=>[t.id,t]));
+const AREA_COUNT = {};
+ART.forEach(a=>a.areas.forEach(x=>AREA_COUNT[x]=(AREA_COUNT[x]||0)+1));
+const AREAS = C.areas.filter(x=>AREA_COUNT[x]);
+
+/* Home-page category cards. The last one ("And more") lists every other area. */
+const FEATURED = [
+  {area:'Agentic Operations', label:'Agentic Operations', g:'g-agent', icon:'agent'},
+  {area:'AI Observability',   label:'AI Observability',   g:'g-ai',    icon:'ai'},
+  {area:'Developer',          label:'Developer',          g:'g-dev',   icon:'dev'},
+];
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const fmtDate=d=>d?new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'—';
+const daysAgo=d=>(Date.now()-new Date(d+'T00:00:00'))/864e5;
+function relDate(d){ if(!d) return '—'; const n=Math.round(daysAgo(d));
+  return n<1?'today':n<2?'yesterday':n<30?`${n} days ago`:n<365?`${Math.round(n/30.4)} months ago`:`${(n/365).toFixed(1)} years ago`; }
+const freshness=d=>{const m=daysAgo(d)/30.4; return m<6?'fresh':m<12?'aging':'stale';};
+const byAdded=(x,y)=>y.added.localeCompare(x.added)||y.updated.localeCompare(x.updated)||x.title.localeCompare(y.title);
+const byUpdated=(x,y)=>y.updated.localeCompare(x.updated)||x.title.localeCompare(y.title);
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2600);}
+
+/* ── Previews ───────────────────────────────────────────────────────────── */
+const TYPE_SVG={
+  dashboard:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+  notebook:'<path d="M5 3h12a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2z"/><path d="M9 7h6M9 11h6"/>',
+  launchpad:'<path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2"/><path d="M12 15l-3-3a15 15 0 0 1 10-9 15 15 0 0 1-7 12z"/>',
+  app:'<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/>',
+  agentic:'<rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 4.6V8"/><circle cx="12" cy="3.4" r="1.1"/><path d="M9 12.5h.01M15 12.5h.01M9.8 15.8h4.4"/>',
+  ecosystem:'<circle cx="12" cy="12" r="3"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="12" cy="20.5" r="2"/><path d="M6.2 7.2l3.4 2.9M17.8 7.2l-3.4 2.9M12 15v3.5"/>',
+  cac:'<path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/>',
+  cli:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10l3 2-3 2"/><path d="M13 15h4"/>',
+  workflow:'<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H14a4 4 0 0 1 4 4v5.5"/>',
+  blueprint:'<path d="M4 19.5V5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5z"/><path d="M9 8h6M9 12h6"/>',
+};
+const ph=a=>`<div class="ph"><svg viewBox="0 0 24 24">${TYPE_SVG[a.type]||TYPE_SVG.blueprint}</svg><span class="ph-lbl">${esc(TYPE[a.type].label)}</span></div>`;
+/* Screenshot if the README has one, generated placeholder otherwise. Broken
+   image URLs fall back to the placeholder via the global error handler below. */
+function preview(a,i=0){
+  const im=a.images[i];
+  return im?`<img class="shot" loading="lazy" alt="${esc(im.caption||a.title)}" src="${esc(im.url)}" data-ph="${esc(a.id)}">`:ph(a);
+}
+document.addEventListener('error',e=>{
+  const img=e.target; if(img.tagName!=='IMG'||!img.dataset.ph) return;
+  const a=ART.find(x=>x.id===img.dataset.ph); if(a) img.outerHTML=ph(a);
+},true);
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ROUTING — #/explore?area=Logs, #/explore?id=…, #/contribute, #/maintainers
+   ═══════════════════════════════════════════════════════════════════════════ */
+const VIEWS=['welcome','explore','contribute','maintainers'];
+let CURRENT_VIEW=null;
+
+/* ═══ USAGE ANALYTICS ═══════════════════════════════════════════════════════
+   Business events for Dynatrace RUM.
+   Anonymous: a random id per browser tab, no names or e-mail addresses. Events wait
+   until the RUM script has loaded; without RUM (tests, local preview, blocked by the
+   browser) they are dropped. */
+const ANALYTICS_VERSION='cookbook-0.3';
+const DC_SESSION=(()=>{ try{ let s=sessionStorage.getItem('dtDevCommunity.sid');
+  if(!s){ s=Math.random().toString(36).slice(2,10)+Date.now().toString(36); sessionStorage.setItem('dtDevCommunity.sid',s); }
+  return s; }catch(e){ return 'no-storage'; } })();
+const trackQueue=[];
+function track(name,attrs={}){
+  if(trackQueue.length>200) trackQueue.shift();
+  trackQueue.push(['devcommunity.'+name,{'dc.session':DC_SESSION,'app.version':ANALYTICS_VERSION,
+    'page.view':CURRENT_VIEW||'welcome','device':innerWidth<640?'phone':innerWidth<1000?'tablet':'desktop',
+    'theme':document.documentElement.getAttribute('data-theme'),...attrs}]);
+  flushTrack();
+}
+function flushTrack(){
+  const d=window.dynatrace; if(!d||typeof d.sendBizEvent!=='function') return;
+  while(trackQueue.length){ const [t,a]=trackQueue.shift(); try{ d.sendBizEvent(t,a); }catch(e){} }
+}
+{ let n=0; const t=setInterval(()=>{ flushTrack(); if(++n>40||!trackQueue.length) clearInterval(t); },500); }
+const solAttrs=a=>({'solution.id':a.id,'solution.title':a.title,'solution.type':a.type});
+const normQuery=q=>q.trim().toLowerCase().replace(/\s+/g,' ').slice(0,100);
+let OPEN_SOURCE=null, SEARCH_SOURCE='explore', lastSearch='', searchTimer=null;
+/* A search counts once the visitor stops typing (1.5 s), presses Enter or leaves the box. */
+function trackSearch(){
+  clearTimeout(searchTimer);
+  const q=normQuery($('#q').value); if(!q||q===lastSearch) return; lastSearch=q;
+  const n=results().length;
+  track('search',{'search.query':q,'search.results':n,'search.zero':n===0,'source':SEARCH_SOURCE});
+  SEARCH_SOURCE='explore';
+}
+/* The browser tab says where you are, including the open solution. */
+function updateTitle(){
+  const v=CURRENT_VIEW, base='Dynatrace Labs';
+  const page=v==='explore'?($('#exploreTitle').textContent==='AI & Agents'?'AI & Agents':''):v==='contribute'?'Contribute a solution':v==='maintainers'?'Maintainer overview':'';
+  document.title=[v==='explore'&&CUR?CUR.title:'',page,base].filter(Boolean).join(' – ');
+}
+/* After a page change keyboard and screen-reader users start on the new page,
+   not on the link they used: focus its heading, or the open solution. */
+function focusView(){
+  const t=CURRENT_VIEW==='explore'&&CUR?$('#dTitle'):$('#view-'+CURRENT_VIEW+' h1');
+  if(t) t.focus({preventScroll:true});
+}
+function go(view,params={}){
+  const qs=new URLSearchParams(params).toString();
+  const hash='#/'+(view==='welcome'?'':view)+(qs?'?'+qs:'');
+  if(location.hash===hash) route(); else location.hash=hash;
+}
+function route(){
+  const m=location.hash.match(/^#\/([a-z]*)(?:\?(.*))?$/);
+  let view=VIEWS.includes(m&&m[1])?m[1]:'welcome';
+  if(view==='welcome') view='explore';   // preview: the home page is Explore
+  const p=new URLSearchParams((m&&m[2])||'');
+  const prevView=CURRENT_VIEW; CURRENT_VIEW=view;
+  VIEWS.forEach(v=>$('#view-'+v).hidden=v!==view);
+  $$('[data-go]').forEach(b=>b.toggleAttribute('aria-current',b.dataset.go===view&&view!=='welcome'));
+  $$('[data-go][aria-current]').forEach(b=>b.setAttribute('aria-current','page'));
+  if(view==='explore'){
+    F.tech=new Set(p.getAll('tech')); F.area=new Set(p.getAll('area')); F.type=new Set(p.getAll('type'));
+    F.id=p.get('id'); $('#q').value=p.get('q')||'';
+    const sort=p.get('sort'); sortTouched=!!sort;
+    $('#sortBy').value=[...$('#sortBy').options].some(o=>o.value===sort)?sort:DEFAULT_SORT;
+    setSortForQuery();
+    const sel=p.get('s'); if(!sel) closeDetail({fromRoute:true});
+    PAGE=1; syncRail(); render();
+    if(sel) ART.some(a=>a.id===sel)?openDetail(sel,{fromRoute:true}):closeDetail({fromRoute:true});
+  } else closeDetail({fromRoute:true});
+  if(view==='maintainers') renderMaintainers();
+  updateNavState();
+  setMenu(false);
+  if(document.activeElement&&document.activeElement.closest('#freshStrip')) document.activeElement.blur();
+  /* A filter or search in the address (AI & Agents, shared links) shows the results, not the hero. */
+  if(view==='explore'&&!p.get('s')&&['area','tech','type','q','id'].some(k=>p.has(k))) $('#results').scrollIntoView({block:'start'});
+  else window.scrollTo({top:0,behavior:'instant'});
+  updateHeader();
+  updateTitle();
+  if(prevView&&prevView!==view) focusView();   // not on first load: the browser's starting point stays
+  if(prevView!==view){
+    track('page_view',{'view.name':view==='explore'&&$('#exploreTitle').textContent==='AI & Agents'?'ai_agents':view,
+      'from.view':prevView||'none',
+      'entry':prevView?'internal':p.get('s')?'shared_link':document.referrer?'referral':'direct'});
+    if(view==='explore'&&p.get('q')){ lastSearch=''; trackSearch(); }
+  }
+}
+window.addEventListener('hashchange',route);
+/* "AI & Agents" is Explore with exactly the two AI categories selected. When that
+   is what is on screen, the header link and the page title say so. */
+const AI_AREAS=['Agentic Operations','AI Observability'];
+function updateNavState(){
+  const onExplore=!$('#view-explore').hidden;
+  const isAI=onExplore && F.area.size===AI_AREAS.length && AI_AREAS.every(x=>F.area.has(x))
+             && !F.tech.size && !F.type.size && !F.id;
+  $('#navAI').toggleAttribute('aria-current',isAI); if(isAI) $('#navAI').setAttribute('aria-current','page');
+  const ex=$('#navExplore');
+  ex.toggleAttribute('aria-current',onExplore&&!isAI); if(onExplore&&!isAI) ex.setAttribute('aria-current','page');
+  $('#exploreTitle').textContent=isAI?'AI & Agents':'All solutions';
+  updateTitle();
+}
+/* "Explore solutions" in the header scrolls to the results on the home page. */
+const jumpToResults=()=>$('#results').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+document.addEventListener('click',e=>{
+  const j=e.target.closest('[data-jump]'); if(j){
+    if($('#view-explore').hidden){ location.hash='#/'; setTimeout(jumpToResults,80); } else jumpToResults();
+    return; }
+  const g=e.target.closest('[data-go]'); if(g){ e.preventDefault(); go(g.dataset.go); return; }
+  const o=e.target.closest('[data-open]'); if(o){
+    OPEN_SOURCE={source:o.closest('#freshStrip')?'home_new':o.closest('#areaGrid')?'home_category':'other'};
+    go('explore',{s:o.dataset.open}); return; }
+  const ar=e.target.closest('[data-area]'); if(ar){
+    track('filter',{facet:'area',value:ar.dataset.area,action:'add',source:'home'});
+    go('explore',{area:ar.dataset.area}); return; }
+  /* data-explore holds a query string, so a filter can repeat (area=…&area=…). */
+  const ex=e.target.closest('[data-explore]'); if(ex){
+    track('filter',{facet:'preset',value:ex.textContent.trim(),action:'add',source:'nav'});
+    const h='#/explore?'+new URLSearchParams(ex.dataset.explore);
+    if(location.hash===h) route(); else location.hash=h; return;
+  }
+});
+
+function updateHeader(){
+  const overHero=!$('#view-explore').hidden && window.scrollY<40 && !$('#mnav').classList.contains('open');
+  $('#hdr').classList.toggle('solid',!overHero);
+}
+window.addEventListener('scroll',updateHeader,{passive:true});
+
+/* Links that leave the page: GitHub folders and READMEs, issues, the contribution guide. */
+document.addEventListener('click',e=>{
+  const l=e.target.closest('a[href]'); if(!l||!/^https?:/.test(l.href)||l.href.startsWith(location.origin)) return;
+  const T={dRepo:'solution_github',dReadme:'solution_readme',guideLink:'contribute_guide',contribGuide:'contribute_guide',
+           contribRepo:'contribute_repo',repoLink:'contribute_repo',contribTemplate:'contribute_template'};
+  const inPanel=!!(CUR&&l.closest('#drawer'));
+  track('outbound',{target:T[l.id]||(l.href.includes('/issues/new')?'open_issue':inPanel?'solution_link':l.closest('footer')?'footer':'other'),
+    'link.host':new URL(l.href).host,...(inPanel?solAttrs(CUR):{})});
+});
+
+/* Skip link: the hash is the router's, so move focus by hand. */
+$('#skipLink').addEventListener('click',e=>{ e.preventDefault(); const h=$('#view-'+(CURRENT_VIEW||'welcome')+' h1'); if(h) h.focus(); });
+
+/* Phone menu */
+function setMenu(open){
+  $('#mnav').classList.toggle('open',open); $('#menuBtn').setAttribute('aria-expanded',String(open)); updateHeader();
+}
+$('#menuBtn').addEventListener('click',e=>{ e.stopPropagation(); setMenu(!$('#mnav').classList.contains('open')); });
+document.addEventListener('click',e=>{ if(!e.target.closest('#mnav,#menuBtn')) setMenu(false); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') setMenu(false); });
+
+/* Theme */
+$('#themeBtn').addEventListener('click',()=>{
+  const r=document.documentElement, t=r.getAttribute('data-theme')==='dark'?'light':'dark';
+  r.setAttribute('data-theme',t); try{localStorage.setItem('dtDevCommunity.theme',t);}catch(e){}
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FRESH OUT OF THE KITCHEN — the 8 most recently added solutions, screenshots
+   first, in pages of 4 (2 on tablets, 1 on phones). Dots below switch pages;
+   it also moves on by itself every few seconds unless someone is looking at it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* Popularity = unique visitors from GitHub's traffic data (see
+   fetch_community_popularity.py) — GitHub has no per-folder stars or downloads. */
+const byPopular=(x,y)=>y.popularity.score-x.popularity.score||y.popularity.visitors14d-x.popularity.visitors14d||byUpdated(x,y);
+const FRESH=[...ART.filter(a=>a.images.length).sort(byAdded),...ART.filter(a=>!a.images.length).sort(byAdded)].slice(0,10);
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FRESH_AUTO_MS=8000;
+
+function stripCard(a,hidden){
+  return `<button class="mcard" data-open="${esc(a.id)}" ${hidden?'tabindex="-1" aria-hidden="true"':''} title="${esc(a.oneLiner||a.title)}">
+    <span class="th">${ph(a)}</span>
+    <span class="tx"><span class="tt">${esc(a.title)}</span><span class="ds">${esc(a.oneLiner)}</span></span></button>`;
+}
+const FP={page:0,pages:0,per:0,timer:null,hold:false,paused:false};
+function freshDotLabel(i,per){
+  const a=i*per+1, b=Math.min((i+1)*per,FRESH.length);
+  return a===b?`Show new solution ${a}`:`Show new solutions ${a} to ${b}`;
+}
+const freshPerPage=()=>innerWidth<640?2:
+  Math.min(5,Math.max(2,Math.floor((Math.min(innerWidth,1360)-(innerWidth<=720?32:64)+16)/234)));
+function buildStrips(){
+  const el=$('#freshStrip');
+  if(!FRESH.length){ el.closest('.hero-fresh').hidden=true; return; }
+  const per=freshPerPage(), pages=[];
+  for(let i=0;i<FRESH.length;i+=per) pages.push(FRESH.slice(i,i+per));
+  Object.assign(FP,{per,pages:pages.length,page:Math.min(FP.page,pages.length-1)});
+  el.innerHTML=`<div class="ftrack">${pages.map(p=>
+    `<div class="fpage" style="grid-template-columns:repeat(${per},${innerWidth<640?'minmax(0,1fr)':'218px'})">${p.map(a=>stripCard(a,false)).join('')}</div>`).join('')}</div>`;
+  $('#freshDots').innerHTML=pages.length>1?pages.map((_,i)=>
+    `<button type="button" class="fdot" data-page="${i}" aria-label="${freshDotLabel(i,per)}"></button>`).join(''):'';
+  showFreshPage(FP.page,false);
+  restartFreshTimer();
+}
+function showFreshPage(i,animate=true){
+  if(!FP.pages) return;
+  FP.page=(i+FP.pages)%FP.pages;
+  const t=$('#freshStrip .ftrack');
+  t.style.transition=animate&&!reduceMotion?'transform .7s cubic-bezier(.45,0,.2,1)':'none';
+  t.style.transform=`translateX(calc(${-FP.page} * (100% + 48px)))`;   // sets are 48px apart
+  /* Only the visible page is reachable by keyboard and screen readers. */
+  $$('#freshStrip .fpage').forEach((p,pi)=>{
+    p.toggleAttribute('inert',pi!==FP.page);
+  });
+  $$('#freshDots .fdot').forEach((d,di)=>{ d.classList.toggle('on',di===FP.page); d.setAttribute('aria-current',String(di===FP.page)); });
+}
+function restartFreshTimer(){
+  clearInterval(FP.timer);
+  $('#freshPause').hidden=reduceMotion||FP.pages<2;
+  if(reduceMotion||FP.pages<2) return;
+  FP.timer=setInterval(()=>{ if(!FP.hold&&!FP.paused&&!document.hidden&&!$('#view-explore').hidden) showFreshPage(FP.page+1); },FRESH_AUTO_MS);
+}
+/* Anything that moves by itself can be stopped (WCAG 2.2.2) — also on touch screens,
+   where hovering doesn't exist. The visible word is part of the name (2.5.3). */
+function paintFreshPause(){
+  const b=$('#freshPause'), p=FP.paused;
+  b.setAttribute('aria-label',p?'Play automatic scrolling':'Pause automatic scrolling');
+  b.innerHTML=p?'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>'
+               :'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>'; b.title=b.getAttribute('aria-label');
+}
+$('#freshPause').addEventListener('click',()=>{ FP.paused=!FP.paused; paintFreshPause(); });
+paintFreshPause();
+$('#freshDots').addEventListener('click',e=>{
+  const d=e.target.closest('[data-page]'); if(!d) return;
+  showFreshPage(+d.dataset.page); restartFreshTimer();   // a full interval before it moves on again
+});
+/* Don't move the cards away while someone is reading or using them. */
+{
+  const box=$('.hero-fresh');
+  box.addEventListener('mouseenter',()=>FP.hold=true);
+  box.addEventListener('mouseleave',()=>FP.hold=false);
+  box.addEventListener('focusin',()=>FP.hold=true);
+  box.addEventListener('focusout',()=>FP.hold=false);
+}
+let rsz, lastW=innerWidth;
+window.addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(()=>{ if(innerWidth!==lastW){ lastW=innerWidth; if(freshPerPage()!==FP.per) buildStrips(); } },200);});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ALL SOLUTIONS — four featured categories with two examples each, plus "And more"
+   ═══════════════════════════════════════════════════════════════════════════ */
+const BIG_ICONS={
+  agent:'<rect x="4" y="8" width="16" height="11" rx="2.5"/><path class="antenna" d="M12 4.6V8"/><circle class="antenna" cx="12" cy="3.4" r="1.1"/><circle class="eye" cx="9" cy="12.6" r="1.1" fill="#fff"/><circle class="eye" cx="15" cy="12.6" r="1.1" fill="#fff"/><path d="M9.8 16h4.4"/>',
+  ai:'<circle cx="12" cy="12" r="3.2"/><g class="orbit"><ellipse cx="12" cy="12" rx="9" ry="3.6"/><circle cx="21" cy="12" r="1.2" fill="#fff"/></g><path d="M12 2.5v2M12 19.5v2"/>',
+  dev:'<path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path class="caret" d="M12 8v8"/>',
+  more:'<rect class="tile" x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="tile" x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect class="tile" x="13.5" y="13.5" width="7" height="7" rx="1.6"/><rect class="tile" x="3.5" y="13.5" width="7" height="7" rx="1.6"/>',
+};
+/* Small line icons for the "And more" list, in the spirit of dynatrace.com's solution menu. */
+const AREA_ICONS={
+  'Application Observability':'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>',
+  'Application Security':'<path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/>',
+  'Business Observability':'<path d="M3 17l5.5-5.5 4 4L21 7"/><path d="M15 7h6v6"/>',
+  'Cost Intelligence':'<circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.2c-.5-.9-1.6-1.4-2.8-1.4-1.6 0-2.8.8-2.8 2.1 0 2.9 5.8 1.4 5.8 4.3 0 1.3-1.3 2.1-3 2.1-1.3 0-2.4-.5-2.9-1.5M12 6.2v1.6M12 16.3v1.5"/>',
+  'Digital Experience':'<path d="M5 3l14 7-6 1.5L10.5 18z"/>',
+  'Infrastructure Observability':'<path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.5A3.3 3.3 0 0 0 7 18z"/>',
+  'Kubernetes':'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 3.5v6.3M12 14.2v6.3M3.9 9.4l6 1.9M14.1 12.7l6 1.9M6.6 18.6l3.8-4.9M13.6 10.3l3.8-4.9"/>',
+  'Logs':'<path d="M4 6h16M4 10h12M4 14h16M4 18h9"/>',
+  'Administration & Governance':'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+  'Software Delivery':'<path d="M7.5 9a3 3 0 1 0 0 6c2.5 0 6.5-6 9-6a3 3 0 1 1 0 6c-2.5 0-6.5-6-9-6z"/>',
+};
+const areaIcon=x=>`<svg class="mi" viewBox="0 0 24 24" aria-hidden="true">${AREA_ICONS[x]||'<circle cx="12" cy="12" r="4"/>'}</svg>`;
+function renderAreas(){
+  const used=new Set();
+  const cards=FEATURED.map(f=>{
+    const pool=ART.filter(a=>a.areas.includes(f.area));
+    /* Solutions with a real screenshot come first. If a category has fewer than two,
+       the remaining slots are filled with related solutions without one (placeholder). */
+    const shots=pool.filter(a=>a.images.length), noShots=pool.filter(a=>!a.images.length);
+    const pick=[...shots.filter(a=>!used.has(a.id)).sort(byUpdated),
+                ...shots.filter(a=>used.has(a.id)).sort(byUpdated),
+                ...noShots.filter(a=>!used.has(a.id)).sort(byUpdated),
+                ...noShots.filter(a=>used.has(a.id)).sort(byUpdated)].slice(0,2);
+    pick.forEach(a=>used.add(a.id));
+    return `<article class="acat">
+      <div class="acat-hd"><span class="bigic ${f.g}"><svg viewBox="0 0 24 24">${BIG_ICONS[f.icon]}</svg></span>
+        <h3 class="acat-nm">${esc(f.label)}</h3></div>
+      ${pick.map(a=>`<button class="ex" data-open="${esc(a.id)}">
+        <span class="th">${preview(a)}</span>
+        <span class="tt">${esc(a.title)}</span>
+        <span class="ds">${esc(a.oneLiner)}</span></button>`).join('')}
+      <button class="btn btn-primary browse-all" data-area="${esc(f.area)}">View all</button>
+    </article>`;
+  });
+  const rest=AREAS.filter(x=>!FEATURED.some(f=>f.area===x)).sort();
+  cards.push(`<article class="acat">
+    <div class="acat-hd"><span class="bigic g-more"><svg viewBox="0 0 24 24">${BIG_ICONS.more}</svg></span>
+      <h3 class="acat-nm">And more</h3></div>
+    <ul class="more-list">${rest.map(x=>`<li><button data-area="${esc(x)}">${areaIcon(x)}${esc(x)}</button></li>`).join('')}</ul>
+    <button class="btn btn-primary browse-all" data-go="explore">Browse all solutions</button>
+  </article>`);
+  $('#areaGrid').innerHTML=cards.join('');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEARCH — weighted fields, prefix matching, synonyms and typo tolerance.
+   Every query word has to match somewhere (AND); the score decides the order
+   when "Best match" is the sort. Title hits weigh most, README text least.
+   ═══════════════════════════════════════════════════════════════════════════ */
+const typesOf=a=>a.types&&a.types.length?a.types:[a.type];
+const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'').replace(/ci\/cd/g,'cicd');
+const stem=t=>t.length>4&&t.endsWith('s')&&!t.endsWith('ss')?t.slice(0,-1):t;
+const toks=s=>norm(s).split(/[^a-z0-9]+/).filter(Boolean).map(stem);
+const stripHtml=h=>String(h||'').replace(/<[^>]+>/g,' ').replace(/&[a-z#0-9]+;/gi,' ');
+/* Query word → words or phrases that should count as a match too. */
+const SYN={
+  k8s:['kubernetes'],kube:['kubernetes'],kubernete:['k8s'],otel:['opentelemetry'],opentelemetry:['otel'],
+  tf:['terraform'],iac:['terraform','monaco','configuration as code'],cac:['configuration as code','monaco','terraform'],
+  gitop:['argo','pipeline'],cicd:['pipeline','deployment'],ci:['pipeline','cicd'],cd:['deployment','pipeline'],
+  pipeline:['cicd'],llm:['ai','genai','openai','claude','gemini'],genai:['llm','ai'],ai:['llm','agentic','genai'],
+  agent:['agentic'],agentic:['agent'],sre:['reliability','incident'],slo:['service level objective','service-level'],
+  log:['syslog','logs'],logs:['log','syslog'],cost:['dps','billing','budget','finops','spend'],finop:['cost','dps'],
+  billing:['cost','dps'],budget:['cost','quota'],vuln:['vulnerability','security'],vulnerability:['security','dependabot'],
+  security:['vulnerability','appsec'],rum:['real user','user experience'],ux:['user experience','rum'],
+  gcp:['google cloud'],ad:['active directory'],dash:['dashboard'],alert:['notification','alerting','problem'],
+  alerting:['notification','alert'],incident:['problem','postmortem'],postmortem:['incident'],
+  ticket:['jira','servicenow','linear'],chat:['slack','teams'],automation:['workflow'],workflow:['automation'],
+};
+const FIELD_W={title:10,tech:8,tags:6,facets:5,summary:3,body:1};
+ART.forEach(a=>{
+  const f={title:a.title,tech:a.tech.join(' '),tags:[...a.tags,...a.capabilities].join(' '),
+           facets:[...a.areas,...typesOf(a).map(t=>TYPE[t].label),a.path.replace(/[-_/]/g,' ')].join(' '),
+           summary:a.summary,body:stripHtml(a.overviewHtml+' '+a.prereqsHtml+' '+a.setupHtml)};
+  a._ix=Object.fromEntries(Object.entries(f).map(([k,v])=>[k,{text:norm(v),toks:[...new Set(toks(v))]}]));
+});
+function lev(a,b,max){
+  if(Math.abs(a.length-b.length)>max) return max+1;
+  let prev=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    const cur=[i]; let best=i;
+    for(let j=1;j<=b.length;j++){ cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1)); best=Math.min(best,cur[j]); }
+    if(best>max) return max+1; prev=cur;
+  }
+  return prev[b.length];
+}
+function termQuality(t,fld,key){
+  if(fld.toks.includes(t)) return 1;
+  if(t.length>=2 && fld.toks.some(x=>x.startsWith(t))) return .8;
+  /* Synonyms only count in curated fields — in long README text they match too much. */
+  if(key!=='body') for(const s of SYN[t]||[]){
+    if(s.includes(' ')? fld.text.includes(s) : fld.toks.some(x=>x.startsWith(stem(s)))) return .7;
+  }
+  if(t.length>=4 && key!=='body'){
+    const max=t.length>=8?2:1;
+    if(fld.toks.some(x=>lev(t,x,max)<=max)) return .5;
+  }
+  return 0;
+}
+const queryTerms=q=>toks(q).filter(t=>t.length>1||/\d/.test(t));
+function scoreOf(a,terms,qn){
+  if(!terms.length) return 1;
+  let sum=0;
+  for(const t of terms){
+    let best=0;
+    for(const k in FIELD_W){ const q=termQuality(t,a._ix[k],k); if(q) best=Math.max(best,FIELD_W[k]*q); }
+    if(!best) return 0;
+    sum+=best;
+  }
+  return sum+(a._ix.title.text.includes(qn)?15:0);
+}
+/* Wrap the query words (and one-word synonyms) in <mark> inside already-escaped text. */
+function highlight(escaped,q){
+  const words=new Set(queryTerms(q));
+  [...words].forEach(t=>(SYN[t]||[]).forEach(s=>{ if(!s.includes(' ')) words.add(s); }));
+  const list=[...words].filter(w=>w.length>1).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  if(!list.length) return escaped;
+  return escaped.replace(new RegExp(`(^|[^a-z0-9&#])(${list.join('|')})`,'gi'),'$1<mark>$2</mark>');
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EXPLORE
+   ═══════════════════════════════════════════════════════════════════════════ */
+const F={tech:new Set(),area:new Set(),type:new Set(),id:null};
+let PAGE=1, techAll=false; const PAGE_SIZE=24, TECH_SHOWN=8;
+const DEFAULT_SORT='added';
+const TECH_COUNT={}; ART.forEach(a=>a.tech.forEach(t=>TECH_COUNT[t]=(TECH_COUNT[t]||0)+1));
+const TECHS=Object.keys(TECH_COUNT).sort((x,y)=>TECH_COUNT[y]-TECH_COUNT[x]||x.localeCompare(y));
+const DIM={tech:a=>a.tech, area:a=>a.areas, type:a=>typesOf(a)};
+
+function matches(a,skip){
+  if(F.id && a.id!==F.id) return false;
+  for(const d of ['tech','area','type'])
+    if(skip!==d && F[d].size && !DIM[d](a).some(x=>F[d].has(x))) return false;
+  return true;
+}
+function results(){
+  const q=$('#q').value.trim(), terms=queryTerms(q), qn=norm(q);
+  const list=ART.filter(a=>matches(a)).map(a=>({a,s:scoreOf(a,terms,qn)})).filter(x=>x.s>0);
+  const S={relevance:(x,y)=>y.s-x.s||byPopular(x.a,y.a),added:(x,y)=>byAdded(x.a,y.a),popular:(x,y)=>byPopular(x.a,y.a),
+           updated:(x,y)=>byUpdated(x.a,y.a),name:(x,y)=>x.a.title.localeCompare(y.a.title)};
+  return list.sort(S[$('#sortBy').value]||S.popular).map(x=>x.a);
+}
+function syncRail(){
+  const q=$('#q').value.trim(), terms=queryTerms(q), qn=norm(q);
+  const pool=ART.filter(a=>scoreOf(a,terms,qn)>0);
+  const opt=(dim,val,label)=>{
+    const n=pool.filter(a=>matches(a,dim)&&DIM[dim](a).includes(val)).length;
+    return `<label class="opt ${n?'':'off'}"><input type="checkbox" data-dim="${dim}" value="${esc(val)}" ${F[dim].has(val)?'checked':''}>
+      <span class="nm">${esc(label)}</span><span class="ct">${n}</span></label>`;
+  };
+  /* Selected technologies always stay visible, even beyond the first eight. */
+  /* Collapsed: the most used technologies; searching: every match; either way A–Z.
+     Selected technologies always stay visible. */
+  const tq=norm($('#techSearch').value.trim());
+  const shownTech=(tq?TECHS.filter(t=>norm(t).includes(tq)||F.tech.has(t))
+    :techAll?TECHS:TECHS.filter((t,i)=>i<TECH_SHOWN||F.tech.has(t))).slice().sort((x,y)=>x.localeCompare(y));
+  $('#fTech').innerHTML=shownTech.map(t=>opt('tech',t,t)).join('');
+  $('#techMore').hidden=TECHS.length<=TECH_SHOWN||!!tq;
+  if(tq&&!shownTech.length) $('#fTech').innerHTML='<p class="fnone">No technology matches.</p>';
+  $('#techMore').textContent=techAll?'Show fewer':`Show all ${TECHS.length}`;
+  $('#fArea').innerHTML=[...AREAS].sort((x,y)=>x.localeCompare(y)).map(x=>opt('area',x,x)).join('');
+  $('#fType').innerHTML=C.types.filter(t=>ART.some(a=>typesOf(a).includes(t.id))).sort((x,y)=>x.label.localeCompare(y.label)).map(t=>opt('type',t.id,t.label)).join('');
+}
+$('#techMore').addEventListener('click',()=>{techAll=!techAll; syncRail();});
+$('#techSearch').addEventListener('input',syncRail);
+$('.rail').addEventListener('change',e=>{
+  const i=e.target; if(!i.dataset.dim) return;
+  F[i.dataset.dim][i.checked?'add':'delete'](i.value); PAGE=1; refresh();
+  track('filter',{facet:i.dataset.dim,value:i.value,action:i.checked?'add':'remove',source:'filters','search.results':results().length});
+});
+/* The URL always describes what is on screen — filters, search, sort and the
+   open solution — so any state can be shared. replaceState: no history entry per click. */
+function exploreParams(){
+  const p=new URLSearchParams();
+  F.tech.forEach(x=>p.append('tech',x)); F.area.forEach(x=>p.append('area',x)); F.type.forEach(x=>p.append('type',x));
+  if(F.id) p.set('id',F.id); const q=$('#q').value.trim(); if(q) p.set('q',q);
+  const sort=$('#sortBy').value; if(sort!==DEFAULT_SORT && !(q&&sort==='relevance')) p.set('sort',sort);
+  if(CUR) p.set('s',CUR.id);
+  return p;
+}
+function syncHash(){
+  if($('#view-explore').hidden) return;
+  const qs=exploreParams().toString(); history.replaceState(null,'','#/explore'+(qs?'?'+qs:''));
+}
+function refresh(){ syncRail(); render(); syncHash(); updateNavState(); }
+function resetAll(){ $('#techSearch').value=''; F.tech.clear(); F.area.clear(); F.type.clear(); F.id=null; $('#q').value=''; setSortForQuery(); PAGE=1; refresh(); }
+$('#resetF').addEventListener('click',resetAll);
+$('#emptyReset').addEventListener('click',resetAll);
+/* Typing switches to "Best match"; clearing the search goes back to the default. */
+let sortTouched=false;
+function setSortForQuery(){
+  const has=!!$('#q').value.trim(), sel=$('#sortBy'), rel=sel.querySelector('[value="relevance"]');
+  rel.hidden=!has; rel.disabled=!has;
+  if(has && !sortTouched) sel.value='relevance';
+  if(!has && sel.value==='relevance'){ sel.value=DEFAULT_SORT; sortTouched=false; }
+}
+$('#q').addEventListener('input',()=>{ setSortForQuery(); PAGE=1; refresh();
+  clearTimeout(searchTimer); searchTimer=setTimeout(trackSearch,1500); });
+$('#q').addEventListener('change',trackSearch);
+$('#q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); trackSearch(); jumpToResults(); } });
+/* A tap or click must not focus the box (that opens the phone keyboard). A keyboard user (click detail 0)
+   would lose focus when the button disappears, so for them focus goes back to the box. */
+$('#qClear').addEventListener('click',e=>{ const q=$('#q'); q.value=''; q.dispatchEvent(new Event('input')); if(e.detail===0) q.focus(); });   // Enter or leaving the box
+$('#sortBy').addEventListener('change',()=>{ sortTouched=true; PAGE=1; refresh(); });
+
+function render(){
+  const list=results(), q=$('#q').value.trim();
+  { const h=$('#view-explore .hero'), was=h.classList.contains('searching');
+    h.classList.toggle('searching',!!q);
+    if(was!==!!q) h.classList.toggle('unsearched',was);   // fade the description and carousel back in once
+  }
+  /* Folded-away parts leave the tab order and the screen-reader view. */
+  $('.hero-fresh').inert=!!q; $('#view-explore .hero-sub').inert=!!q;
+  $('#qClear').hidden=!q;
+  const pages=Math.max(1,Math.ceil(list.length/PAGE_SIZE)); if(PAGE>pages) PAGE=pages;
+  const slice=list.slice((PAGE-1)*PAGE_SIZE,PAGE*PAGE_SIZE);
+
+  const chips=[];
+  if(F.id){ const a=ART.find(x=>x.id===F.id); chips.push(`<button class="af" data-clear="id">Solution: ${esc(a?a.title:F.id)} <span class="x">✕</span></button>`); }
+  F.tech.forEach(x=>chips.push(`<button class="af" data-clear="tech" data-v="${esc(x)}">${esc(x)} <span class="x">✕</span></button>`));
+  F.area.forEach(x=>chips.push(`<button class="af" data-clear="area" data-v="${esc(x)}">${esc(x)} <span class="x">✕</span></button>`));
+  F.type.forEach(x=>chips.push(`<button class="af" data-clear="type" data-v="${esc(x)}">${esc(TYPE[x].label)} <span class="x">✕</span></button>`));
+  $('#activeF').innerHTML=chips.join('');
+
+  const nF=F.tech.size+F.area.size+F.type.size;
+  $('#filterCount').textContent=nF?`(${nF})`:'';
+  $('#railDone').textContent=`Show ${list.length} solution${list.length===1?'':'s'}`;
+  $('#resCount').textContent=`${list.length} of ${ART.length} solutions`+(q?` for “${q}”`:'');
+  $('#empty').hidden=list.length>0;
+  $('#emptyTech').innerHTML=TECHS.slice(0,6).map(t=>`<button class="af" data-try-tech="${esc(t)}">${esc(t)}</button>`).join('');
+  $('#cards').innerHTML=slice.map(a=>{
+    const isNew=daysAgo(a.added)<30;
+    return `<article class="acard${CUR&&CUR.id===a.id?' selected':''}" data-id="${esc(a.id)}">
+      <div class="thumb">${preview(a)}<div class="badges">${isNew?'<span class="chip new">New</span>':''}</div></div>
+      <div class="body">
+        <div class="tags"><span class="tag type">${esc(TYPE[a.type].label)}</span>${(a.tech[0]?[a.tech[0]]:a.areas.slice(0,1)).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>
+        <h3><button class="acard-open" type="button">${highlight(esc(a.title),q)}</button></h3>
+        <p class="desc">${highlight(esc(a.summary),q)}</p>
+      </div></article>`;
+  }).join('');
+  $('#pager').innerHTML=pages>1?[`<button class="pg" data-page="${PAGE-1}" ${PAGE===1?'disabled':''}>‹</button>`,
+    ...Array.from({length:pages},(_,i)=>`<button class="pg ${i+1===PAGE?'on':''}" data-page="${i+1}">${i+1}</button>`),
+    `<button class="pg" data-page="${PAGE+1}" ${PAGE===pages?'disabled':''}>›</button>`].join(''):'';
+}
+$('#activeF').addEventListener('click',e=>{
+  const b=e.target.closest('[data-clear]'); if(!b) return;
+  if(b.dataset.clear==='id') F.id=null; else F[b.dataset.clear].delete(b.dataset.v);
+  track('filter',{facet:b.dataset.clear,value:b.dataset.v||'',action:'remove',source:'chip'});
+  PAGE=1; refresh();
+});
+$('#emptyTech').addEventListener('click',e=>{
+  const b=e.target.closest('[data-try-tech]'); if(!b) return;
+  F.tech.clear(); F.area.clear(); F.type.clear(); F.id=null; $('#q').value=''; setSortForQuery();
+  F.tech.add(b.dataset.tryTech); PAGE=1; refresh();
+  track('filter',{facet:'tech',value:b.dataset.tryTech,action:'add',source:'empty_state'});
+});
+$('#pager').addEventListener('click',e=>{const b=e.target.closest('[data-page]'); if(!b||b.disabled) return;
+  PAGE=+b.dataset.page; render(); window.scrollTo({top:0,behavior:'smooth'});});
+$('#cards').addEventListener('click',e=>{const c=e.target.closest('.acard'); if(!c) return;
+  const q=normQuery($('#q').value);
+  OPEN_SOURCE={source:'explore_list','list.position':results().findIndex(a=>a.id===c.dataset.id)+1,...(q?{'search.query':q}:{})};
+  openDetail(c.dataset.id);});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO SEARCH SUGGESTIONS — matching technologies / categories / types as
+   one-click filters, then the best-matching solutions.
+   ═══════════════════════════════════════════════════════════════════════════ */
+let sgIdx=-1;
+function suggestions(q){
+  const qn=norm(q).trim(); if(qn.length<2) return [];
+  const facet=(kind,label,val,param)=>({kind,label,go:{[param]:val}});
+  const hits=[
+    ...TECHS.filter(t=>norm(t).includes(qn)).map(t=>facet('Technology',t,t,'tech')),
+    ...AREAS.filter(x=>norm(x).includes(qn)).map(x=>facet('Category',x,x,'area')),
+    ...C.types.filter(t=>norm(t.label).includes(qn)&&ART.some(a=>typesOf(a).includes(t.id))).map(t=>facet('Type',t.label,t.id,'type')),
+  ].slice(0,3);
+  const terms=queryTerms(q);
+  const sols=ART.map(a=>({a,s:scoreOf(a,terms,qn)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||byPopular(x.a,y.a)).slice(0,5)
+    .map(({a})=>({kind:'solution',a,go:{s:a.id}}));
+  return [...hits,...sols,{kind:'all',label:`See all results for “${q}”`,go:{q}}];
+}
+function renderSuggest(){
+  const q=$('#heroQ').value, box=$('#heroSuggest'), items=suggestions(q);
+  if(!items.length){ box.hidden=true; return; }
+  sgIdx=-1; box._items=items;
+  box.innerHTML=items.map((it,i)=>it.kind==='solution'
+    ?`<button type="button" class="sg" data-sg="${i}" role="option"><span class="mini">${preview(it.a)}</span>
+        <span class="sgt">${highlight(esc(it.a.title),q)}<span class="sgm"> · ${esc(TYPE[it.a.type].label)}</span></span></button>`
+    :it.kind==='all'
+    ?`<button type="button" class="sg sg-all" data-sg="${i}" role="option">${esc(it.label)} →</button>`
+    :`<button type="button" class="sg" data-sg="${i}" role="option"><span class="k">${esc(it.kind)}</span><span class="sgt">${highlight(esc(it.label),q)}</span></button>`
+  ).join('');
+  box.hidden=false;
+}
+function pickSuggest(i){
+  const it=$('#heroSuggest')._items[i], q=normQuery($('#heroQ').value); $('#heroSuggest').hidden=true;
+  if(it.kind==='solution') OPEN_SOURCE={source:'hero_suggestion','search.query':q};
+  else if(it.kind==='all') SEARCH_SOURCE='hero';
+  else { const [facet,value]=Object.entries(it.go)[0]; track('filter',{facet,value,action:'add',source:'hero_suggestion','search.query':q}); }
+  go('explore',it.go);
+}
+$('#heroQ').addEventListener('input',renderSuggest);
+$('#heroQ').addEventListener('focus',renderSuggest);
+$('#heroQ').addEventListener('keydown',e=>{
+  const box=$('#heroSuggest'); if(box.hidden) return;
+  const n=box._items.length;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+    e.preventDefault(); sgIdx=(sgIdx+(e.key==='ArrowDown'?1:-1)+n)%n;
+    $$('#heroSuggest .sg').forEach((b,i)=>b.classList.toggle('on',i===sgIdx));
+  } else if(e.key==='Enter' && sgIdx>=0){ e.preventDefault(); pickSuggest(sgIdx); }
+  else if(e.key==='Escape'){ box.hidden=true; }
+});
+/* Screen readers learn whether the suggestion list is open, whichever code path opens or closes it. */
+new MutationObserver(()=>$('#heroQ').setAttribute('aria-expanded',String(!$('#heroSuggest').hidden)))
+  .observe($('#heroSuggest'),{attributes:true,attributeFilter:['hidden']});
+$('#heroSuggest').addEventListener('mousedown',e=>e.preventDefault());   // keep focus in the input
+$('#heroSuggest').addEventListener('click',e=>{ const b=e.target.closest('[data-sg]'); if(b) pickSuggest(+b.dataset.sg); });
+document.addEventListener('click',e=>{ if(!e.target.closest('#heroForm')) $('#heroSuggest').hidden=true; });
+$('#heroForm').addEventListener('submit',e=>{
+  e.preventDefault(); $('#heroSuggest').hidden=true;
+  const q=$('#heroQ').value.trim(); if(q) SEARCH_SOURCE='hero'; go('explore',q?{q}:{});
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DETAIL PANEL — docked on the right, not modal: the grid stays usable and
+   clicking another card swaps the content. The open solution is part of the
+   URL (s=…), so every solution has its own shareable link.
+   ═══════════════════════════════════════════════════════════════════════════ */
+let SHOT=0, CUR=null, detailReturnId=null;
+/* While the dialog is open the page behind it is inert: no clicks, no Tab, hidden from screen readers. */
+const bgInert=on=>$$('header, main, footer').forEach(el=>{ el.inert=on; });
+let openGuard=null;
+const guardOpening=on=>{ clearTimeout(openGuard); document.body.classList.toggle('dialog-opening',on);
+  if(on) openGuard=setTimeout(()=>document.body.classList.remove('dialog-opening'),350); };
+$('#drawerBackdrop').addEventListener('click',()=>closeDetail());
+/* Tab stays inside the dialog (the screenshot viewer has its own trap). */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Tab'||!CUR||!$('#lightbox').hidden) return;
+  const f=[...$$('#drawer a[href],#drawer button,#drawer input,#drawer summary')].filter(x=>!x.hidden&&!x.disabled&&x.offsetParent!==null);
+  if(!f.length) return;
+  const ae=document.activeElement;
+  if(e.shiftKey&&(ae===f[0]||ae===$('#dTitle')||!f.includes(ae))){ e.preventDefault(); f[f.length-1].focus(); }
+  else if(!e.shiftKey&&(ae===f[f.length-1]||!f.includes(ae))){ e.preventDefault(); f[0].focus(); }
+});
+/* README sub-headings sit one level below the section heading (h2 → h3). */
+const h3=html=>(html||'').replace(/<(\/?)h4>/g,'<$1h3>');
+/* The screenshot is a button: keyboard users can open the viewer too. */
+function galMainHtml(a,i){
+  return a.images.length?`<button class="gal-open" type="button" aria-label="Open screenshot ${i+1} of ${a.images.length} full page">${preview(a,i)}</button>`:preview(a,i);
+}
+const solutionLink=a=>location.href.split('#')[0]+'#/explore?s='+encodeURIComponent(a.id);
+function openDetail(id,{fromRoute=false}={}){
+  const a=ART.find(x=>x.id===id); if(!a) return; const prevId=CUR&&CUR.id; CUR=a; SHOT=0;
+  if(prevId!==a.id) track('solution_open',{...solAttrs(a),...(OPEN_SOURCE||{source:fromRoute?'link':'other'})});
+  OPEN_SOURCE=null;
+  const fr=freshness(a.updated);
+  $('#dChips').innerHTML=typesOf(a).map(t=>`<span class="tag type">${esc(TYPE[t].label)}</span>`).join('')+
+    a.areas.map(x=>`<span class="tag">${esc(x)}</span>`).join('')+
+    (daysAgo(a.added)<30?'<span class="chip new">New</span>':'')+
+    (fr==='stale'?'<span class="chip crit">Not updated in 12+ months</span>':'');
+  $('#dTitle').textContent=a.title;
+  $('#dMeta').textContent=`Added ${fmtDate(a.added)} · updated ${relDate(a.updated)}`;
+  $('#dRepo').href=a.url; paintPrimary(a);
+  const issue=`${C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`; $('#dIssue').href=issue;
+  const tags=[...a.capabilities,...a.tags];
+  $('#drawerBody').innerHTML=`
+    ${a.images.length?`<div class="gallery">
+      <div class="main" id="galMain">${galMainHtml(a,0)}</div>
+      <div class="cap" id="galCap">${esc(a.images[0].caption||'Screenshot 1 of '+a.images.length)}</div>
+      ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}" aria-label="Screenshot ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
+    </div>`:''}
+    <div class="dsec"><h2 class="t-h5">Overview</h2><div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div>
+      ${tags.length?`<div style="display:flex;gap:5px;flex-wrap:wrap;">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>`:''}</div>
+    ${a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:''}
+    ${getStartedHtml(a)}`;
+  $('#drawer').classList.add('open'); document.body.classList.add('panel-open');
+  guardOpening(true); $('#drawerBackdrop').hidden=false; bgInert(true); $('#drawerBody').scrollTop=0;   // the page behind keeps its scroll position
+  $$('#cards .acard').forEach(c=>c.classList.toggle('selected',c.dataset.id===a.id));
+  if(!fromRoute) syncHash();
+  updateTitle();
+  /* Remember the card to come back to, and take the keyboard to the panel —
+     otherwise it is only reachable after tabbing through every card. */
+  const from=document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.acard');
+  detailReturnId=from?from.dataset.id:a.id;
+  if(!fromRoute) $('#dTitle').focus({preventScroll:true});
+}
+function showShot(i){
+  SHOT=i; $('#galMain').innerHTML=galMainHtml(CUR,SHOT);
+  $('#galCap').textContent=CUR.images[SHOT].caption||`Screenshot ${SHOT+1} of ${CUR.images.length}`;
+  $$('.gallery .strip button').forEach(x=>x.classList.toggle('on',+x.dataset.shot===SHOT));
+}
+$('#drawerBody').addEventListener('click',e=>{
+  if(!CUR) return;
+  const b=e.target.closest('[data-shot]'); if(b){ showShot(+b.dataset.shot); return; }
+  if(e.target.closest('#galMain') && CUR.images.length) openLightbox(SHOT);
+});
+
+/* Full-page screenshot viewer. Arrow keys / ‹ › step through the solution's
+   screenshots and keep the panel's gallery in sync; Esc, ✕ or a click on the
+   backdrop closes it. */
+let lbReturn=null;
+function paintLightbox(){
+  const im=CUR.images[SHOT], n=CUR.images.length;
+  $('#lbxImg').src=im.url; $('#lbxImg').alt=im.caption||CUR.title;
+  $('#lbxCap').textContent=`${CUR.title} — ${im.caption||'Screenshot'}${n>1?` (${SHOT+1} of ${n})`:''}`;
+  $('#lbxPrev').hidden=$('#lbxNext').hidden=n<2;
+}
+function openLightbox(i){
+  lbReturn=document.activeElement; showShot(i); paintLightbox();
+  track('screenshot_view',{...solAttrs(CUR),'screenshot.index':i+1,'screenshot.count':CUR.images.length});
+  $('#lightbox').hidden=false; document.body.classList.add('lbx-open'); $('#lbxClose').focus();
+}
+function closeLightbox(){
+  $('#lightbox').hidden=true; document.body.classList.remove('lbx-open');
+  /* Stepping through screenshots re-renders the panel's button, so fall back to the new one. */
+  const r=lbReturn&&lbReturn.isConnected?lbReturn:$('#galMain .gal-open'); if(r) r.focus();
+}
+function stepLightbox(d){ const n=CUR.images.length; showShot((SHOT+d+n)%n); paintLightbox(); }
+$('#lbxClose').addEventListener('click',closeLightbox);
+$('#lbxPrev').addEventListener('click',()=>stepLightbox(-1));
+$('#lbxNext').addEventListener('click',()=>stepLightbox(1));
+$('#lightbox').addEventListener('click',e=>{ if(e.target===e.currentTarget||e.target.tagName==='FIGURE') closeLightbox(); });
+/* Capture phase: while the viewer is open, Esc closes only the viewer, not the panel behind it. */
+window.addEventListener('keydown',e=>{
+  if($('#lightbox').hidden) return;
+  if(e.key==='Escape'){ e.preventDefault(); e.stopImmediatePropagation(); closeLightbox(); }
+  else if(e.key==='ArrowRight'){ e.preventDefault(); stepLightbox(1); }
+  else if(e.key==='ArrowLeft'){ e.preventDefault(); stepLightbox(-1); }
+  else if(e.key==='Tab'){   // keep focus inside the dialog
+    const f=[...$$('#lightbox button')].filter(b=>!b.hidden), i=f.indexOf(document.activeElement);
+    e.preventDefault(); f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();
+  }
+},true);
+function closeDetail({fromRoute=false}={}){
+  const was=!!CUR; CUR=null;
+  const ae=document.activeElement, focusInPanel=!!ae&&(ae===document.body||!!ae.closest('#drawer'));
+  $('#drawer').classList.remove('open'); document.body.classList.remove('panel-open');
+  guardOpening(false); $('#drawerBackdrop').hidden=true; bgInert(false);   // before focus goes back to the card
+  $$('#cards .acard.selected').forEach(c=>c.classList.remove('selected'));
+  if(was && !fromRoute) syncHash();
+  if(was) updateTitle();
+  /* Back to the card the panel was opened from (or the page heading if it isn't shown). */
+  if(was && !fromRoute && focusInPanel){
+    const c=detailReturnId&&$(`#cards .acard[data-id="${CSS.escape(detailReturnId)}"] .acard-open`);
+    (c||$('#exploreTitle')).focus();
+  }
+}
+$('#closeDrawer').addEventListener('click',()=>closeDetail());
+$('#copyLink').addEventListener('click',async()=>{
+  if(!CUR) return; const url=solutionLink(CUR);
+  track('share',solAttrs(CUR));
+  try{ await navigator.clipboard.writeText(url); toast('Link copied — paste it anywhere to share this solution'); }
+  catch(e){ window.prompt('Copy this link:',url); }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape' && CUR && !(e.target instanceof Element && e.target.closest('#heroForm'))) closeDetail();
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GET STARTED — the next step for a solution, chosen by the catalog generator
+   (nextStep): download the file to import, copy the Monaco / Terraform deploy
+   commands, or request the app. Falls back to the GitHub folder.
+   ═══════════════════════════════════════════════════════════════════════════ */
+const IMPORTABLE=['Dashboard','Notebook','Workflow','Agent instructions'];
+const IMPORT_HINT={
+  Dashboard:'In Dynatrace, open <strong>Dashboards</strong> → <strong>Upload</strong> and pick the file.',
+  Notebook:'In Dynatrace, open <strong>Notebooks</strong> → <strong>Upload</strong> and pick the file.',
+  Workflow:'In Dynatrace, open <strong>Workflows</strong> → <strong>Upload</strong> and pick the file.',
+  'Agent instructions':'Add the file to your AI assistant’s instructions — e.g. <span class="code">.github/</span> for Copilot, a steering file for Kiro, or a Claude project.'};
+const fmtSize=n=>n<1024?`${n} B`:n<1048576?`${(n/1024).toFixed(n<10240?1:0)} KB`:`${(n/1048576).toFixed(1)} MB`;
+function sparseClone(a,dir){
+  return ['git clone --depth 1 --filter=blob:none --sparse https://github.com/Dynatrace/community-examples.git',
+          'cd community-examples',
+          `git sparse-checkout set "${a.path}"`,
+          `cd "${a.path}${dir?'/'+dir:''}"`];
+}
+function deployCommands(a){
+  const ns=a.nextStep;
+  if(ns.kind==='monaco') return [...sparseClone(a,ns.dir),'monaco deploy manifest.yaml'].join('\n');
+  if(ns.kind==='terraform') return [...sparseClone(a,ns.dir),'terraform init','terraform plan','terraform apply'].join('\n');
+  return '';
+}
+function fileRow(f,i){
+  return `<li class="frow"><span class="tag ${IMPORTABLE.includes(f.kind)?'type':''}">${esc(f.kind)}</span>
+    <span class="fname" title="${esc(f.path)}">${esc(f.path)}</span><span class="fsize">${fmtSize(f.size)}</span>
+    <button class="btn btn-secondary btn-sm" data-dl="${i}" aria-label="Download ${esc(f.name)}">⤓ Download</button></li>`;
+}
+function getStartedHtml(a){
+  const ns=a.nextStep||{kind:'github'}, files=a.files||[];
+  const imp=files.filter(f=>IMPORTABLE.includes(f.kind)), other=files.filter(f=>!IMPORTABLE.includes(f.kind));
+  let body='';
+  if(ns.kind==='import'){
+    const kinds=[...new Set(imp.map(f=>f.kind))];
+    body=`<ol class="steps-ol"><li>Download the ${imp.length>1?'files — or all of them at once as a .zip':'file'} below.</li>
+      ${kinds.map(k=>`<li>${IMPORT_HINT[k]}</li>`).join('')}
+      <li>Follow the Setup notes below for anything to adjust in your environment.</li></ol>
+      <ul class="flist">${imp.map(f=>fileRow(f,files.indexOf(f))).join('')}</ul>
+      ${files.length>1?`<button class="btn btn-secondary btn-sm dl-all" data-dl-all>⤓ Download all (${files.length} files, .zip)</button>`:''}`;
+  } else if(ns.kind==='monaco'||ns.kind==='terraform'){
+    const tool=ns.kind==='monaco'?'Monaco CLI':'Terraform';
+    body=`<p class="gs-lead">Deploy it with ${tool}: fetch just this folder, then apply it to your environment.</p>
+      <div class="cmdblock"><div class="cmd-bar"><span>Terminal</span><button class="btn btn-sm cmd-copy" data-copy="deploy">Copy</button></div>
+        <pre id="deployCmd">${esc(deployCommands(a))}</pre></div>
+      <p class="gs-note">Needs the ${tool} and the credentials / environment variables described under Setup.</p>`;
+  } else if(ns.kind==='request'||ns.kind==='hub'){
+    body=ns.kind==='hub'
+      ?`<p class="gs-lead">This app is installed from the Dynatrace Hub.</p>`
+      :`<p class="gs-lead">This app is installed from the Dynatrace Hub on request. Send your account name and tenant ID to
+          <a href="mailto:${esc(ns.email)}">${esc(ns.email)}</a> — the <strong>Request the app</strong> button prepares the email.</p>`;
+  } else {
+    body=`<p class="gs-lead">Get the files from the GitHub folder and follow the Setup notes below.</p>`;
+  }
+  if(other.length && ns.kind!=='request'){
+    body+=`<details class="more-files"><summary>${ns.kind==='import'?'Other files':'Files in this solution'} (${other.length})</summary>
+      <ul class="flist">${other.map(f=>fileRow(f,files.indexOf(f))).join('')}</ul></details>`;
+  }
+  return `<div class="dsec getstarted"><h2 class="t-h5">Get started</h2>${body}`+
+    (a.setupHtml?`<h3 class="gs-sub">Setup</h3><div class="md">${a.setupHtml}</div>`:'')+'</div>';
+}
+/* Bottom actions: only apps get an extra button (request it, or get it on the Hub). Downloads and
+   deploy commands live in Get started. */
+function paintPrimary(a){
+  const b=$('#dPrimary'), ns=a.nextStep||{};
+  b.hidden=!(ns.kind==='request'||ns.kind==='hub');
+  if(ns.kind==='request'){
+    const mail=`mailto:${ns.email}?subject=${encodeURIComponent('App request: '+a.title)}&body=${encodeURIComponent('Hi,\n\nplease enable "'+a.title+'" for:\n\nAccount name:\nTenant ID:\n\nThanks!')}`;
+    b.textContent='Request app ✉';
+    b.onclick=()=>{ track('get_started',{...solAttrs(a),action:'request_access',location:'footer'}); location.href=mail; };
+  } else if(ns.kind==='hub'){
+    b.textContent='Get it on Dynatrace Hub';
+    b.onclick=()=>{ track('get_started',{...solAttrs(a),action:'open_hub',location:'footer'}); window.open(ns.url,'_blank','noopener'); };
+  }
+}
+/* "Download all": fetch every file of the solution and pack them into one .zip
+   (stored, uncompressed — the files are small text). No library needed. */
+const CRC_TABLE=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC_TABLE[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zipStore(files){
+  const enc=new TextEncoder(), parts=[], central=[]; let offset=0;
+  for(const f of files){
+    const name=enc.encode(f.name), size=f.data.length, crc=crc32(f.data);
+    const lh=new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true); lh.setUint16(4,20,true); lh.setUint16(6,0x0800,true);   // UTF-8 names
+    lh.setUint16(12,0x21,true);                                                              // 1980-01-01
+    lh.setUint32(14,crc,true); lh.setUint32(18,size,true); lh.setUint32(22,size,true); lh.setUint16(26,name.length,true);
+    parts.push(new Uint8Array(lh.buffer),name,f.data);
+    const ch=new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true); ch.setUint16(4,20,true); ch.setUint16(6,20,true); ch.setUint16(8,0x0800,true);
+    ch.setUint16(14,0x21,true); ch.setUint32(16,crc,true); ch.setUint32(20,size,true); ch.setUint32(24,size,true);
+    ch.setUint16(28,name.length,true); ch.setUint32(42,offset,true);
+    central.push(new Uint8Array(ch.buffer),name);
+    offset+=30+name.length+size;
+  }
+  const cdSize=central.reduce((n,p)=>n+p.length,0), end=new DataView(new ArrayBuffer(22));
+  end.setUint32(0,0x06054b50,true); end.setUint16(8,files.length,true); end.setUint16(10,files.length,true);
+  end.setUint32(12,cdSize,true); end.setUint32(16,offset,true);
+  return new Blob([...parts,...central,new Uint8Array(end.buffer)],{type:'application/zip'});
+}
+function saveBlob(blob,name){
+  const url=URL.createObjectURL(blob), el=document.createElement('a');
+  el.href=url; el.download=name; document.body.append(el); el.click(); el.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),5000);
+}
+async function downloadAll(a){
+  const files=a.files||[], slug=a.path.split('/').pop();
+  toast(`Preparing ${files.length} files…`);
+  try{
+    const data=await Promise.all(files.map(async f=>{
+      const r=await fetch(f.url); if(!r.ok) throw new Error(f.path+': '+r.status);
+      return {name:slug+'/'+f.path, data:new Uint8Array(await r.arrayBuffer())};
+    }));
+    saveBlob(zipStore(data),slug+'.zip'); toast(`Downloaded ${slug}.zip (${files.length} files)`);
+  }catch(e){ toast('Could not build the zip — opening the GitHub folder instead'); window.open(a.url,'_blank','noopener'); }
+}
+/* raw.githubusercontent.com allows cross-origin reads, so files download with
+   their real name instead of opening as text in a new tab. */
+async function downloadFile(f){
+  try{
+    const r=await fetch(f.url); if(!r.ok) throw new Error(r.status);
+    const url=URL.createObjectURL(await r.blob()), el=document.createElement('a');
+    el.href=url; el.download=f.name; document.body.append(el); el.click(); el.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),5000); toast(`Downloaded ${f.name}`);
+  }catch(e){ window.open(f.url,'_blank','noopener'); }
+}
+async function copyText(text,msg){
+  try{ await navigator.clipboard.writeText(text); toast(msg); }
+  catch(e){ window.prompt('Copy:',text); }
+}
+$('#drawerBody').addEventListener('click',e=>{
+  if(!CUR) return;
+  const gs=(action,extra={})=>track('get_started',{...solAttrs(CUR),action,location:'panel',...extra});
+  const d=e.target.closest('[data-dl]'); if(d){ const f=CUR.files[+d.dataset.dl];
+    gs('download_file',{'file.name':f.name,'file.kind':f.kind}); downloadFile(f); return; }
+  if(e.target.closest('[data-dl-all]')){ gs('download_zip'); downloadAll(CUR); return; }
+  if(e.target.closest('[data-copy="deploy"]')){ gs('copy_command'); copyText(deployCommands(CUR),'Deploy commands copied'); }
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FILTERS ON SMALL SCREENS — the sidebar becomes a slide-in panel
+   ═══════════════════════════════════════════════════════════════════════════ */
+function setRail(open){
+  const was=$('.rail').classList.contains('open');
+  $('.rail').classList.toggle('open',open); $('#railBackdrop').classList.toggle('open',open);
+  document.body.classList.toggle('rail-open',open);
+  if(open&&!was) $('#railTitle').focus({preventScroll:true});
+  else if(!open&&was) $('#filterBtn').focus({preventScroll:true});
+}
+/* While the slide-in panel covers the page, Tab stays inside it. */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Tab'||!$('.rail').classList.contains('open')) return;
+  const f=[...$$('.rail button,.rail input,.rail summary')].filter(x=>x.offsetParent!==null);
+  if(!f.length) return;
+  const i=f.indexOf(document.activeElement);
+  if(i===-1||(e.shiftKey&&i===0)||(!e.shiftKey&&i===f.length-1)){
+    e.preventDefault(); f[i===-1||!e.shiftKey?0:f.length-1].focus();
+  }
+});
+$('#filterBtn').addEventListener('click',()=>setRail(true));
+$('#railDone').addEventListener('click',()=>setRail(false));
+$('#railBackdrop').addEventListener('click',()=>setRail(false));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && $('.rail').classList.contains('open')) setRail(false); });
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAINTAINERS — read-only health view of the repo
+   ═══════════════════════════════════════════════════════════════════════════ */
+let mSort={key:'updated',dir:-1};
+function renderMaintainers(){
+  const noImg=ART.filter(a=>!a.images.length).length, noFm=ART.filter(a=>!a.hasFrontMatter).length;
+  const stale=ART.filter(a=>freshness(a.updated)==='stale').length;
+  $('#mStats').innerHTML=`
+    <div class="stat"><div class="n">${ART.length}</div><div class="l">Solutions in the repo</div></div>
+    <div class="stat ${noImg?'warn':''}"><div class="n">${noImg}</div><div class="l">Missing a screenshot</div></div>
+    <div class="stat ${noFm?'warn':''}"><div class="n">${noFm}</div><div class="l">Missing the README metadata header</div></div>
+    <div class="stat ${stale?'crit':''}"><div class="n">${stale}</div><div class="l">Not updated in 12+ months</div></div>`;
+  const K={title:a=>a.title.toLowerCase(),type:a=>TYPE[a.type].label,areas:a=>a.areas.join(','),added:a=>a.added,
+           updated:a=>a.updated,images:a=>a.images.length,fm:a=>a.hasFrontMatter?1:0};
+  const rows=[...ART].sort((x,y)=>{const a=K[mSort.key](x),b=K[mSort.key](y);return (a<b?-1:a>b?1:0)*mSort.dir;});
+  $$('#view-maintainers thead th').forEach(th=>th.setAttribute('aria-sort',
+    th.dataset.sort===mSort.key?(mSort.dir>0?'ascending':'descending'):'none'));
+  $('#mRows').innerHTML=rows.map(a=>{
+    const fr=freshness(a.updated);
+    return `<tr><td><a class="ttl" href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)}</a><span class="sub">${esc(a.path)}</span></td>
+      <td>${esc(TYPE[a.type].label)}</td><td>${a.areas.map(esc).join(', ')}</td><td>${fmtDate(a.added)}</td>
+      <td><span class="chip ${fr==='fresh'?'ok':fr==='aging'?'warn':'crit'}">${fmtDate(a.updated)}</span></td>
+      <td>${a.images.length?`<span class="yes">✓ ${a.images.length}</span>`:'<span class="no">✗ none</span>'}</td>
+      <td>${a.hasFrontMatter?'<span class="yes">✓</span>':'<span class="no">✗ missing</span>'}</td></tr>`;
+  }).join('');
+}
+$('#view-maintainers thead').addEventListener('click',e=>{
+  const th=e.target.closest('[data-sort]'); if(!th) return;
+  mSort={key:th.dataset.sort,dir:mSort.key===th.dataset.sort?-mSort.dir:(['added','updated','images','fm'].includes(th.dataset.sort)?-1:1)};
+  renderMaintainers();
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function init(){
+  const sync=C.sourceCommit?`Synced from ${C.repo.replace('https://github.com/','')} @ ${C.sourceCommit.slice(0,7)} (${fmtDate(C.sourceDate)}).`:'Catalog not generated yet.';
+  $('#mSync').textContent=sync;
+  $('#guideLink').href=$('#contribGuide').href=C.repo+'/blob/main/CONTRIBUTING.md';
+  $('#repoLink').href=$('#contribRepo').href=C.repo;
+  $('#contribTemplate').href=C.repo+'/blob/main/templates/EXAMPLE-README-template.md';
+  if(!ART.length) toast('data/catalog-repo.js is missing — run the sync workflow');
+  buildStrips(); renderAreas(); route();
+})();
+</script>
 </body>
 </html>
