@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Version history · Dynatrace Cookbook</title>
+<meta name="description" content="Release notes for the Dynatrace Cookbook page.">
+<style>
+:root{--fg:#2d2e4e;--muted:#5b5c81;--line:#e4e5eb;--blue:#1966ff;--purple:#312dad;--bg:#f9f9fa;--card:#fff;
+  --font:"DynatraceFlow","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;}
+header{background:linear-gradient(135deg,#312dad,#1966ff);color:#fff;}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+header a{color:#fff;text-decoration:none;font-weight:600;}
+header a:hover{text-decoration:underline;}
+h1{font-size:30px;line-height:1.25;margin:40px 0 8px;}
+.lead{color:var(--muted);margin:0 0 32px;}
+.release{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 28px;margin-bottom:24px;}
+.release h2{display:flex;align-items:center;gap:12px;margin:0 0 4px;font-size:22px;}
+.badge{font-size:12px;font-weight:700;letter-spacing:.4px;color:#fff;background:var(--blue);border-radius:999px;padding:2px 10px;}
+.date{color:var(--muted);font-size:13px;margin:0 0 16px;}
+.release h3{font-size:15px;margin:20px 0 6px;}
+.release ul{margin:0;padding-left:20px;}
+.release li{margin:3px 0;}
+.note{font-size:13px;color:var(--muted);}
+a{color:var(--blue);}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="index.html">← Dynatrace Labs</a>
+    <span>Version history</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Version history</h1>
+  <p class="lead">What changed in each release of the Dynatrace Labs page (earlier called "Developer Community" and then "Cookbook").
+    Solutions themselves are not versioned here — they are synced every hour from
+    <a href="https://github.com/Dynatrace/community-examples" target="_blank" rel="noopener">Dynatrace/community-examples</a>.</p>
+
+  <section class="release" id="cookbook-v0.3">
+    <h2>Cookbook 0.3 <span class="badge">Current</span></h2>
+    <p class="date">October 2026 · polish</p>
+
+    <h3>Solution overlay</h3>
+    <ul>
+      <li>Opening a solution no longer shakes: the overlay only fades in, nothing slides. A leftover slide-in animation from the old side panel was the cause.</li>
+      <li>A quick second tap or click right after opening (a double tap) no longer closes the overlay or presses a button inside it. Double-tap zoom is switched off; pinch zoom still works.</li>
+      <li>On phones the overlay is sized to the visible screen, so the buttons at the bottom are no longer cut off by the browser toolbar.</li>
+    </ul>
+
+    <h3>Buttons</h3>
+    <ul>
+      <li>No more arrows (&#8599;) in buttons that open another page, such as "View on GitHub" and "Report issue". These links still open in a new tab.</li>
+      <li>Buttons have no frames: no outline or ring on "Explore solutions", the theme and menu buttons, the secondary buttons, the &#10005; and copy-link buttons, pause/play and the page numbers. They use soft fills instead. The keyboard focus outline stays.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>New automated checks for the calm opening, the quick double click, the missing arrows and frames, the visible focus outline, and the overlay buttons on short phone screens.</li>
+    </ul>
+  </section>
+
+  <section class="release" id="cookbook-v0.2">
+    <h2>Cookbook 0.2</h2>
+    <p class="date">October 2026 · solution overlay and phone fixes</p>
+
+    <h3>Solutions</h3>
+    <ul>
+      <li>A solution opens as an overlay on top of the list: the page stays visible, dimmed, behind it and keeps its scroll position. Close with the &#10005; button, Escape or a click on the dimmed area; Tab stays inside the overlay.</li>
+      <li>Solutions without a screenshot no longer show an image area or placeholder.</li>
+      <li>The "Fresh out of the kitchen" tiles show only a centered type icon, without the icon text.</li>
+    </ul>
+
+    <h3>Phones</h3>
+    <ul>
+      <li>The page name is visible in the header again ("Cookbook" on narrow phones, "Dynatrace Cookbook" when there is room).</li>
+      <li>The search box says "Search for ready-to-use solutions", which fits instead of being cut off.</li>
+      <li>iPhones no longer zoom into the page when you use the search box or the filters: form fields use 16px text. Pinch zoom stays possible.</li>
+      <li>Clearing the search with the &#10005; no longer opens the keyboard. Keyboard users keep their focus in the search box.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>New automated checks for all of the above, and a check that the version badge and the newest release notes match.</li>
+    </ul>
+  </section>
+
+  <section class="release" id="cookbook-v0.1">
+    <h2>Cookbook 0.1</h2>
+    <p class="date">October 2026 · new name and one-page design</p>
+    <p class="note">The page is now called <strong>Dynatrace Cookbook</strong> and its version numbering starts again at 0.1. The releases below (0.1&ndash;0.4) are those of the page&rsquo;s earlier name, &ldquo;Developer Community&rdquo;.</p>
+
+    <h3>One page instead of two</h3>
+    <ul>
+      <li>The solution list with filters sits directly below the hero: no separate Explore page. Search filters the list as you type; the carousel gives way and the hero shrinks while you search.</li>
+      <li>Solutions open in the page instead of a side panel: Overview, Prerequisites, then Get started with the setup steps. Actions: View on GitHub, Report issue and, for apps, Request app.</li>
+      <li>"Fresh out of the kitchen" shows the 10 newest solutions as small icon cards, with pause/play next to the dots. "Most popular" and the category tiles are gone.</li>
+    </ul>
+
+    <h3>Filters and categories</h3>
+    <ul>
+      <li>Filters: Category, Technology, Type, all A&ndash;Z; the technology list has its own search field.</li>
+      <li>"Platform Governance" is now "Administration &amp; Governance" and no longer picks up every template; solutions without a category land in "Other".</li>
+      <li>Prepared the type "CLI &amp; Tooling" (appears once the repository has a <code>cli-and-tooling/</code> folder).</li>
+      <li>24 solutions per page, so rows are always full.</li>
+    </ul>
+
+    <p class="note">Usage analytics and accessibility fixes from 0.3 and 0.4 carry over unchanged.</p>
+  </section>
+
+  <section class="release" id="v0.4">
+    <h2>Version 0.4</h2>
+    <p class="date">October 2026 · usage analytics</p>
+
+    <h3>Analytics</h3>
+    <ul>
+      <li>Anonymous usage measurement with Dynatrace Real User Monitoring: page views, searches (including searches without results), filters, opened solutions and where they were opened from, downloads and other get-started actions, screenshot views, shared links and contribution clicks.</li>
+      <li>No names or e-mail addresses, no session replay; not active in automated tests or local previews.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>Automated checks that every tracked action sends the right event.</li>
+    </ul>
+  </section>
+
+  <section class="release" id="v0.3">
+    <h2>Version 0.3</h2>
+    <p class="date">October 2026 · accessibility release</p>
+
+    <h3>Keyboard</h3>
+    <ul>
+      <li>"Skip to main content" link on the first Tab.</li>
+      <li>Opening a solution moves focus into the panel; closing it returns to the card it was opened from.</li>
+      <li>Screenshots in the panel can be opened with the keyboard; closing the viewer returns to the screenshot.</li>
+      <li>On phones the filter panel takes focus, keeps Tab inside and gives focus back when it closes.</li>
+      <li>The maintainer table can be sorted with the keyboard.</li>
+      <li>Clear focus ring on the screenshot viewer buttons and the result cards.</li>
+    </ul>
+
+    <h3>Screen readers</h3>
+    <ul>
+      <li>The browser tab title says which page and which solution is open; a page change moves focus to the new page.</li>
+      <li>The number of results is announced when searching or filtering.</li>
+      <li>Result cards are real buttons; headings follow a correct order on every page and in the panel.</li>
+      <li>Sort order of the maintainer table is announced.</li>
+    </ul>
+
+    <h3>Visual and touch</h3>
+    <ul>
+      <li>Pause / Play button for the "Fresh out of the kitchen" carousel.</li>
+      <li>Readable link colour in dark mode; links in running text are underlined.</li>
+      <li>Darker orange for warnings in the maintainer view (it was hard to read on white).</li>
+      <li>Larger tap areas for the carousel dots and footer links.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>Accessibility scan (WCAG 2.2 AA, all severities) on every page, the panel and the viewer, in light and dark mode, and at phone size.</li>
+      <li>New keyboard and screen-reader tests for all of the above.</li>
+    </ul>
+  </section>
+
+  <section class="release" id="v0.2">
+    <h2>Version 0.2</h2>
+    <p class="date">October 2026 · mobile release</p>
+
+    <h3>Phones and small screens</h3>
+    <ul>
+      <li>Menu (☰) on phones with "AI &amp; Agents", "Contribute" and the version history — they were hidden before.</li>
+      <li>The detail panel fits the screen: no sideways scrolling, long file names truncate, and the page behind the panel no longer scrolls.</li>
+      <li>The maintainer view no longer stretches the page on phones.</li>
+      <li>Shorter screenshot area, full-width main button and less empty space at the top.</li>
+    </ul>
+
+    <h3>Navigation</h3>
+    <ul>
+      <li>Cards on the home page open Explore without a filter, with the solution in the side panel.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>New automated checks for phones: no sideways scrolling on any view, the panel fits and locks the page, the menu reaches every section.</li>
+    </ul>
+  </section>
+
+  <section class="release" id="v0.1">
+    <h2>Version 0.1</h2>
+    <p class="date">October 2026 · first versioned release</p>
+
+    <h3>Content &amp; automation</h3>
+    <ul>
+      <li>All solutions come from the <code>Dynatrace/community-examples</code> repository; nothing is curated by hand.</li>
+      <li>Hourly sync: new, changed and removed solutions appear on the page automatically.</li>
+      <li>Categories, technologies, files and the next step for each solution are derived from its README.</li>
+      <li>"Most popular" is ranked by unique visitors of each solution on GitHub.</li>
+    </ul>
+
+    <h3>Home</h3>
+    <ul>
+      <li>Hero with search suggestions and "Fresh out of the kitchen": the 8 newest solutions, 4 at a time.</li>
+      <li>Category cards for Agentic Operations, AI Observability and Developer, plus "And more".</li>
+      <li>Light and dark theme.</li>
+    </ul>
+
+    <h3>Explore</h3>
+    <ul>
+      <li>Search with relevance ranking, synonyms and typo tolerance; filters for technology, category and type.</li>
+      <li>"AI &amp; Agents" view in the header.</li>
+      <li>Detail panel next to the results, with a shareable link for every solution and a full-page screenshot viewer.</li>
+      <li>"Get started": download the file (or all files as a .zip), copy Monaco/Terraform deploy commands, or request an app.</li>
+    </ul>
+
+    <h3>Quality</h3>
+    <ul>
+      <li>Automated tests for the catalog generator and the page, run on every pull request.</li>
+      <li>The catalog is validated before every sync is published.</li>
+    </ul>
+
+  </section>
+</main>
+</body>
+</html>
