@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   STRATO DESIGN TOKENS · developer.dynatrace.com/design/design-tokens
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root[data-theme="light"]{
+  --bg-base:#f9f9fa; --bg-shell:#f2f2f5; --bg-surface:#ffffff; --bg-page:#ffffff;
+  --fg-default:#2d2e4e;
+  --neutral-10:#f2f2f5; --neutral-20:#ebecf0; --neutral-30:#e4e5eb; --neutral-40:#dadbe4;
+  --neutral-50:#d0d1dc; --neutral-60:#c6c7d5; --neutral-70:#5b5c81; --neutral-80:#4d4e72; --neutral-90:#404164;
+  --primary-10:#f1f2f9; --primary-20:#e9ecf8; --primary-30:#e1e5f7; --primary-40:#d5dbf6;
+  --primary-50:#c9d1f4; --primary-60:#bdc7f2; --primary-70:#474fcf; --primary-80:#3b3fbe; --primary-90:#312dad;
+  --success-30:#e0e7e6; --success-60:#bbccc9; --success-80:#1f5a54;
+  --warning-30:#f9f0e5; --warning-60:#f9e1c6; --warning-70:#eea53c;
+  --critical-30:#f8e1e1; --critical-60:#f3bebd; --critical-70:#c62239;
+  --shadow-sm:0 1px 2px rgba(45,46,78,.06),0 1px 3px rgba(45,46,78,.08);
+  --shadow-md:0 2px 4px rgba(45,46,78,.06),0 4px 12px rgba(45,46,78,.10);
+  --shadow-lg:0 8px 16px rgba(45,46,78,.08),0 16px 40px rgba(45,46,78,.14);
+  --hdr-solid:#ffffff;
+  --link-fg:#1557d9; --warning-fg:#8f5200;   /* text colours that pass 4.5:1 */
+}
+:root[data-theme="dark"]{
+  --bg-base:#19192c; --bg-shell:#141419; --bg-surface:#111122; --bg-page:#141426;
+  --fg-default:#f0f0f5;
+  --neutral-10:#212135; --neutral-20:#292a3e; --neutral-30:#323248; --neutral-40:#3b3b52;
+  --neutral-50:#44445c; --neutral-60:#4d4e66; --neutral-70:#a0a1c0; --neutral-80:#b0b1d0; --neutral-90:#bfc0e1;
+  --primary-10:#212138; --primary-20:#292944; --primary-30:#313150; --primary-40:#39395d;
+  --primary-50:#42426a; --primary-60:#4a4b78; --primary-70:#999bed; --primary-80:#a8abfe; --primary-90:#b8bbff;
+  --success-30:#273644; --success-60:#34545d; --success-80:#6ec1b9;
+  --warning-30:#403537; --warning-60:#6c523e; --warning-70:#eea746;
+  --critical-30:#3c2131; --critical-60:#602634; --critical-70:#e0566a;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.30),0 1px 3px rgba(0,0,0,.36);
+  --shadow-md:0 2px 4px rgba(0,0,0,.30),0 4px 12px rgba(0,0,0,.40);
+  --shadow-lg:0 8px 16px rgba(0,0,0,.36),0 16px 40px rgba(0,0,0,.50);
+  --hdr-solid:#111122;
+  --link-fg:#7aa2ff; --warning-fg:#eea746;
+}
+:root{
+  --dt-purple:#312dad; --dt-blue:rgb(25,102,255); --dt-blue-dk:#1557d9; --dt-mint:#17b894;
+  --sp-4:4px; --sp-8:8px; --sp-12:12px; --sp-16:16px; --sp-20:20px;
+  --sp-24:24px; --sp-32:32px; --sp-40:40px; --sp-48:48px; --sp-64:64px; --sp-80:80px;
+  --r-sm:4px; --r-md:6px; --r-lg:8px; --r-xl:12px; --r-2xl:16px; --r-full:999px;
+  --font:"DynatraceFlow","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --page-w:1360px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg-base);color:var(--fg-default);font-family:var(--font);
+  min-height:100vh;display:flex;flex-direction:column;
+  font-size:14px;line-height:1.43;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .18s,color .18s;}
+button{font-family:inherit;}
+a{color:var(--primary-70);text-decoration:none;}
+a:hover{text-decoration:underline;}
+/* Links inside running text are underlined, so they don't rely on colour alone. */
+p a:not(.btn),.md a,.kv a{text-decoration:underline;text-underline-offset:2px;}
+/* Skip link: off-screen until a keyboard user tabs to it. */
+.skip-link{position:absolute;left:var(--sp-16);top:-80px;z-index:300;padding:10px 16px;border-radius:var(--r-md);
+  background:var(--dt-blue);color:#fff;font-weight:600;text-decoration:none !important;box-shadow:var(--shadow-lg);}
+.skip-link:focus{top:12px;outline:2px solid #fff;outline-offset:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+/* Headings that receive focus after a page change don't need a focus ring. */
+[tabindex="-1"]:focus{outline:none;}
+img,svg{display:block;}
+.muted{color:var(--neutral-70);}
+.code{font-family:var(--mono);font-size:12px;background:var(--neutral-10);
+  padding:1px 5px;border-radius:var(--r-sm);border:1px solid var(--neutral-30);}
+.t-h2{font-size:28px;line-height:1.29;font-weight:600;}
+.t-h3{font-size:22px;line-height:1.3;font-weight:600;}
+.t-h4{font-size:18px;line-height:1.4;font-weight:600;}
+.t-h5{font-size:16px;line-height:1.5;font-weight:600;}
+.view[hidden]{display:none;}
+.view{width:100%;min-width:0;}   /* body is a flex column: without this a wide table sets the page width */
+.wrap{max-width:var(--page-w);margin:0 auto;padding:0 var(--sp-32);}
+.page{max-width:var(--page-w);margin:0 auto;padding:var(--sp-32) var(--sp-32) var(--sp-80);}
+.page.narrow{max-width:1100px;}
+/* flow-root keeps the last child's bottom margin inside the white section;
+   without it the body's grey shows as a stripe above the footer. */
+#view-welcome{background:var(--bg-page);}
+#view-welcome:not([hidden]){display:flow-root;}
+/* Preview: the home page is Explore, with the hero on top. */
+#view-explore:not([hidden]){display:flow-root;background:var(--bg-page);}
+#results{scroll-margin-top:72px;}
+/* Carousel cards ~30 % smaller (218 px instead of ~312 px), so more fit in one set. */
+.hero-fresh .mcard .th{height:98px;}
+.hero-fresh .mcard .tx{padding:8px 10px 10px;}
+/* While searching, the hero switches to a one-line headline and the search box. The layout
+   changes in one step; only opacity/transform are animated (GPU, cheap on slow machines). */
+.hero.searching{padding-top:calc(61px + var(--sp-24));padding-bottom:var(--sp-24);}
+#view-explore .hero.searching .hero-sub,#view-explore .hero.searching .hero-fresh{display:none;}
+.hero.searching h1{font-size:24px;line-height:1.3;margin-bottom:var(--sp-16);max-width:none;
+  animation:heroIn .15s ease-out;}
+.hero.unsearched .hero-sub,.hero.unsearched .hero-fresh{animation:heroIn .15s ease-out;}
+@keyframes heroIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+@media(max-width:720px){ .hero.searching h1{font-size:20px;} }
+/* Gap between the sets, so card shadows of the next (hidden) set never show at the edge. */
+.ftrack{gap:48px;}
+/* Dots and the round pause/play button in one row below the cards. */
+.fcontrols{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:var(--sp-8);}
+.fcontrols .fdots{margin-top:0;}
+.fcontrols .fpause{width:28px;height:28px;padding:0;justify-content:center;gap:0;}
+/* Our own clear button: the browser's X only shows while the box has focus. */
+.search input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;}
+.search input[type="search"]{padding-right:52px;}
+.search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;
+  border:0;border-radius:999px;background:transparent;color:var(--dt-blue);cursor:pointer;}
+.search-clear:hover{background:rgba(25,102,255,.1);}
+.search-clear:focus-visible{outline:2px solid var(--dt-blue);outline-offset:1px;}
+.search-clear[hidden]{display:none;}
+.search-clear svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;}
+/* Sort menu on the right. */
+.res-top select.input{margin-left:auto;}   /* must not override [hidden] */
+/* The visible view fills the space above the footer, so short pages show their own
+   background there instead of a grey band. */
+.view:not([hidden]){flex:1 0 auto;}
