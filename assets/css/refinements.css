@@ -1,0 +1,73 @@
+/* Labs: a solution opens as an overlay; the page stays visible (dimmed) behind it. */
+html{scrollbar-gutter:stable;}
+.drawer-backdrop{position:fixed;inset:0;z-index:150;background:rgba(20,20,43,.55);animation:dialogFade .15s ease-out;touch-action:none;}
+.drawer-backdrop[hidden]{display:none;}
+.drawer{top:5vh;right:0;bottom:auto;left:0;margin:0 auto;width:min(920px,calc(100% - 32px));max-height:90vh;z-index:151;
+  display:flex;flex-direction:column;overflow:hidden;background:var(--bg-surface);
+  border:1px solid var(--neutral-30);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);}
+.drawer.open{animation:dialogFade .12s ease-out;}
+.drawer .drawer-head{background:none;border-bottom:1px solid var(--neutral-30);padding:var(--sp-20) var(--sp-24);}
+.drawer .drawer-body{flex:1;min-height:0;overflow-y:auto;padding:var(--sp-24);}
+.drawer .drawer-foot{background:none;padding:var(--sp-16) var(--sp-24);border-top:1px solid var(--neutral-30);}
+#dTitle{font-size:24px;line-height:1.25;margin:4px 0 0;}
+#dMeta{display:none;}
+@keyframes dialogFade{from{opacity:0;}to{opacity:1;}}
+body.panel-open{overflow:hidden;}
+@media(max-width:640px){
+  .drawer{top:16px;width:calc(100% - 16px);max-height:calc(100vh - 28px);border-radius:var(--r-lg);}
+  .drawer .drawer-head,.drawer .drawer-body,.drawer .drawer-foot{padding-left:var(--sp-16);padding-right:var(--sp-16);}
+}
+.gs-sub{margin:var(--sp-20) 0 var(--sp-8);font-size:14px;}
+/* Filters scroll with the page: no second scroll bar. */
+@media(min-width:901px){ .rail{position:static;max-height:none;overflow:visible;} }
+/* Carousel cards show the type icon in a slim band instead of a screenshot. */
+.hero-fresh .mcard .th{height:52px;}
+.hero-fresh .mcard .ph{flex-direction:row;align-items:center;justify-content:center;}
+.hero-fresh .mcard .ph svg{width:26px;max-width:none;}
+.hero-fresh .mcard .ph-lbl{display:none;}   /* icon only, centered */
+#dPrimary[hidden]{display:none;}
+.fsearch{height:32px;font-size:13px;margin:var(--sp-8) 0 4px;}
+.fnone{margin:6px 7px;font-size:12px;color:var(--neutral-70);}
+.dsec>h2{margin:0 0 var(--sp-12);padding-bottom:var(--sp-8);border-bottom:1px solid var(--neutral-30);}
+.getstarted>h2{border-bottom-color:var(--primary-30);}
+.md h3{margin:var(--sp-16) 0 var(--sp-8);font-size:14px;}
+/* Phones: the logo is the Dynatrace logo, so on narrow screens the name is "Labs" (no ellipsis). */
+@media(max-width:450px){ .brand-dt{display:none;} }
+/* iOS Safari zooms into a field whose text is smaller than 16px and stays zoomed after the keyboard closes. */
+@media(max-width:900px){ input.input,select.input,.search .input{font-size:16px;} }
+/* The search box: room for the clear button only while it is shown (more space for the placeholder). */
+.search input.input{text-overflow:ellipsis;}
+@media(max-width:720px){
+  .search input[type="search"].input{padding-left:44px;padding-right:14px;}
+  .search:has(#qClear:not([hidden])) input[type="search"].input{padding-right:52px;}
+}
+/* Narrow phones: a tighter Explore button keeps "Labs" readable; below 340px only the logo fits. */
+@media(max-width:400px){ .hbtn-cta{padding:0 10px;font-size:13px;} .brand-txt{flex-shrink:0;} }
+@media(max-width:340px){ .brand-txt{display:none;} }
+/* Dialog: no inherited docked-panel motion; hidden completely when closed. */
+.drawer{transform:none;transition:none;}
+.drawer:not(.open){display:none;}
+.drawer .drawer-body{overscroll-behavior:contain;}
+/* Right after it opens, taps are ignored for a moment: a quick second tap (double tap) must neither close
+   the dialog nor hit a button inside it. The page behind is inert, so the tap is simply dropped. */
+body.dialog-opening .drawer,body.dialog-opening .drawer-backdrop{pointer-events:none;}
+/* No double-tap zoom (pinch zoom stays possible). */
+html{touch-action:manipulation;}
+/* Phones: size the dialog to the visible screen, not to the screen without browser toolbars (100vh),
+   which pushed the bottom buttons out of sight. */
+@supports(height:100dvh){
+  .drawer{top:5dvh;max-height:90dvh;}
+  @media(max-width:640px){ .drawer{top:16px;max-height:calc(100dvh - 32px);} }
+}
+@media(max-width:640px){ .drawer .drawer-foot{padding-bottom:max(var(--sp-16),env(safe-area-inset-bottom));} }
+/* Buttons have no frames: soft fills instead of outlines. Keyboard focus keeps its outline. */
+.hbtn-cta[aria-current="page"]{box-shadow:none;}
+.hbtn-icon,.hbtn-icon:hover{border-color:transparent;}
+.btn-secondary{background:var(--primary-20);border-color:transparent;}
+.btn-secondary:hover{background:var(--primary-30);}
+.closebtn{border-color:transparent;background:var(--neutral-10);}
+.closebtn:hover{background:var(--neutral-20);}
+.fpause{border-color:transparent;background:rgba(255,255,255,.18);}
+.fpause:hover{background:rgba(255,255,255,.28);}
+.pg{border-color:transparent;background:var(--neutral-10);}
+.pg.on{background:var(--dt-blue);}
