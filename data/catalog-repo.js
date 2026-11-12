@@ -12,6 +12,18 @@ window.CATALOG_REPO = {
    "date": "2026-11-10"
   }
  ],
+ "featured": [
+  "dynatrace-for-ai",
+  "dtctl",
+  "agents-and-prompts--create-postmortem",
+  "dynatrace-apps--claude-connector",
+  "dashboards--cost-allocation",
+  "workflows--kubernetes-stuck-pod-cleanup",
+  "observability-blueprints--ci-cd-pipeline",
+  "prompt-dt-troubleshoot-problem",
+  "configuration-as-code--service-level-objectives",
+  "cursor-plugin-dynatrace"
+ ],
  "types": [
   {
    "id": "agentic",
@@ -66,7 +78,7 @@ window.CATALOG_REPO = {
   "Application Observability",
   "Business Observability",
   "Digital Experience",
-  "Administration & Governance",
+  "Platform Management",
   "Other"
  ],
  "entries": [
@@ -79,7 +91,7 @@ window.CATALOG_REPO = {
    },
    "title": "Atlassian Rovo Dev Security Agent",
    "summary": "A security agent configuration for Atlassian Rovo Dev that integrates Dynatrace runtime security verification with Jira ticket management.",
-   "oneLiner": "A security agent configuration for Atlassian Rovo Dev that integrates Dynatrace runtime security verification with Jira…",
+   "oneLiner": "Raise Jira tickets only for vulnerabilities that Dynatrace runtime data confirms, from Atlassian Rovo Dev.",
    "type": "ecosystem",
    "types": [
     "ecosystem"
@@ -99,7 +111,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-11-03",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>A security agent configuration for <a href=\"https://support.atlassian.com/rovo/docs/use-rovo-dev-cli/\" target=\"_blank\" rel=\"noopener\">Atlassian Rovo Dev</a> that integrates Dynatrace runtime security verification with Jira ticket management.</p>",
+   "overviewHtml": "<p>Security teams working in Jira struggle to tell which vulnerabilities are really exploitable in production. This agent configuration for Atlassian Rovo Dev connects Dynatrace runtime security verification with Jira ticket management, so tickets reflect real risk instead of raw scanner output.</p><p><strong>What you get</strong></p><ul><li>A security agent definition for Atlassian Rovo Dev</li><li>Agent instructions that bring Dynatrace runtime verification into the review</li><li>An automation that creates Jira tickets for critical runtime vulnerability findings</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -133,7 +145,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Atlassian Rovo Dev, Jira and a Dynatrace environment.</p><ol><li>Review the agent and instruction files in the repository</li><li>Add the security agent configuration to Rovo Dev</li><li>Enable the automation that creates Jira tickets for critical findings</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agentic-ecosystem--github-custom-agent",
@@ -144,7 +162,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace GitHub Custom Agent",
    "summary": "From code to cloud: Consolidating observability for developers.",
-   "oneLiner": "From code to cloud: Consolidating observability for developers.",
+   "oneLiner": "Investigate production issues and validate deployments from inside GitHub with a Dynatrace custom agent for Copilot.",
    "type": "ecosystem",
    "types": [
     "ecosystem"
@@ -172,7 +190,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p><strong>From code to cloud: Consolidating observability for developers.</strong></p><p>The <strong>Dynatrace GitHub Custom Agent</strong> introduces a powerful new entry point for Dynatrace insights directly within GitHub repositories. This integration ensures developers can access critical observability and security data without leaving their familiar GitHub environment. Whether it&#x27;s triaging production errors, validating deployments, or responding to security vulnerabilities, the custom agent provides end-to-end visibility from code to production.</p><p>With the Dynatrace GitHub Custom Agent, you can:</p><ul><li>Investigate and resolve production failures directly within GitHub.</li><li>Validate deployments by comparing pre- and post-deployment metrics.</li><li>Monitor and categorize production errors to prioritize remediation efforts.</li><li>Detect performance regressions before they impact end-users.</li><li>Automate release validation and health checks.</li><li>Respond to security vulnerabilities and ensure compliance monitoring.</li></ul><p>Before using the Dynatrace GitHub Custom Agent, ensure you have configured your MCP server and GitHub repository as described in the setup instructions below.</p>",
+   "overviewHtml": "<p>Developers lose time switching between GitHub and observability tools when a deployment misbehaves or a vulnerability appears. The Dynatrace GitHub Custom Agent brings Dynatrace insights into the repository, combined with GitHub Copilot and an MCP server.</p><p><strong>What you get</strong></p><ul><li>Investigation of production failures without leaving GitHub</li><li>Deployment validation by comparing pre- and post-deployment metrics</li><li>Categorized production errors to prioritize remediation</li><li>Detection of performance regressions and automated release health checks</li><li>Responses to security vulnerabilities and compliance monitoring</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>The <strong>Dynatrace GitHub Custom Agent</strong> helps organizations:</p><ul><li>Achieve true end-to-end visibility from code to production.</li><li>Enhance developer productivity by integrating observability directly into GitHub workflows.</li><li>Improve operational excellence by enabling faster incident response and root cause analysis.</li><li>Ensure application reliability and security through automated monitoring and validation.</li></ul><p>The custom agent bridges the gap between development and production by combining the capabilities of Dynatrace with GitHub Copilot and its custom agents. This integration empowers developers to act on insights immediately, reducing delays and inefficiencies in the software development lifecycle.</p>",
    "files": [
@@ -192,7 +210,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a GitHub repository, GitHub Copilot and a configured Dynatrace MCP server.</p><ol><li>Set up the Dynatrace MCP server for your environment</li><li>Add the custom agent file to your GitHub repository</li><li>Ask the agent about errors, deployments or vulnerabilities</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agentic-ecosystem--github-dependabot-alert-triaging",
@@ -203,7 +227,7 @@ window.CATALOG_REPO = {
    },
    "title": "GitHub Dependabot Alert Triaging",
    "summary": "Automate, verify, and prioritize security vulnerability remediation using Dynatrace runtime intelligence and GitHub workflows.",
-   "oneLiner": "Automate, verify, and prioritize security vulnerability remediation using Dynatrace runtime intelligence and GitHub…",
+   "oneLiner": "Triage Dependabot alerts with Dynatrace runtime context and fix only the vulnerabilities that actually matter.",
    "type": "ecosystem",
    "types": [
     "ecosystem"
@@ -233,7 +257,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-11-03",
    "hasFrontMatter": false,
-   "overviewHtml": "<p><strong>Automate, verify, and prioritize security vulnerability remediation using Dynatrace runtime intelligence and GitHub workflows.</strong></p><p>By integrating Dynatrace Application Security insights with your GitHub repository, you can triage, validate, and resolve Dependabot alerts with precision—directly in your development workflows and observability platform. This use case package provides all the essential artifacts and configuration required for deployment on both GitHub and Dynatrace.</p><p>Key features:</p><ul><li>AI-assisted vulnerability verification using Dynatrace runtime context.</li><li>Automatic dismissal of alerts for unused code and libraries.</li><li>Automated fixes for confirmed vulnerabilities.</li><li>Human-in-the-loop reviews ensure every automated remediation meets your organization’s standards.</li></ul><p><strong>Learn more and follow step-by-step instructions in the official documentation:</strong> <a href=\"https://docs.dynatrace.com/docs/secure/use-cases/ai-remediation-github-copilot\" target=\"_blank\" rel=\"noopener\">Automate vulnerability remediation with GitHub Copilot and Dynatrace</a></p><p><strong>Scenario 1: GitHub-based workflow</strong></p><p><strong>Scenario 2: Dynatrace-driven workflow</strong></p>",
+   "overviewHtml": "<p>Dependabot floods teams with alerts, and many concern code or libraries that never run in production. This package combines Dynatrace Application Security insights with GitHub Copilot to verify, prioritize and remediate them.</p><p><strong>What you get</strong></p><ul><li>AI-assisted vulnerability verification using Dynatrace runtime context</li><li>Automatic dismissal of alerts for unused code and libraries</li><li>Automated fixes for confirmed vulnerabilities</li><li>Human review of every automated remediation</li><li>Two scenarios: GitHub-based and Dynatrace-driven workflow</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -281,7 +305,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need GitHub with Dependabot and Copilot, plus Dynatrace Application Security.</p><ol><li>Add the Copilot instructions and security agent file to your repository</li><li>Import the Dynatrace workflows for alert verification and issue creation</li><li>Pick the GitHub-based or Dynatrace-driven scenario and run it</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agentic-ecosystem--kiro-cli-security-agent",
@@ -292,7 +322,7 @@ window.CATALOG_REPO = {
    },
    "title": "Kiro CLI security agent",
    "summary": "Automate cloud misconfiguration triaging and remediation with Kiro CLI and Dynatrace.",
-   "oneLiner": "Automate cloud misconfiguration triaging and remediation with Kiro CLI and Dynatrace.",
+   "oneLiner": "Triage and remediate AWS cloud misconfigurations in Kiro CLI, verified against Dynatrace runtime context.",
    "type": "ecosystem",
    "types": [
     "ecosystem"
@@ -322,7 +352,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-11-03",
    "hasFrontMatter": false,
-   "overviewHtml": "<p><strong>Automate cloud misconfiguration triaging and remediation with Kiro CLI and Dynatrace.</strong></p><p>By integrating AWS Security Hub findings and Dynatrace insights, you can triage, validate, and remediate cloud misconfigurations right in the Kiro CLI. This use case package provides all the essential artifacts and configuration required for deployment on both Kiro CLI and Dynatrace.</p><p>Key features:</p><ul><li>AI-assisted cloud misconfigurations verification using Dynatrace runtime context.</li><li>AI-assisted remediation of the misconfigurations.</li><li>AWS Security Hub integration-based Jira ticket creation.</li></ul><p><strong>Learn more and follow step-by-step instructions in the official documentation:</strong> <a href=\"https://docs.dynatrace.com/docs/shortlink/kiro-triaging-remediation\" target=\"_blank\" rel=\"noopener\">Automate cloud misconfiguration triaging and remediation with Kiro CLI and Dynatrace</a></p><p><strong>Scenario 1: Kiro CLI-based triaging</strong></p><p><strong>Scenario 2: Dynatrace-driven triaging</strong></p>",
+   "overviewHtml": "<p>Cloud security findings pile up in AWS Security Hub, and teams cannot easily tell which misconfigurations matter. This package uses Kiro CLI and Dynatrace to triage, validate and remediate them.</p><p><strong>What you get</strong></p><ul><li>AI-assisted verification of cloud misconfigurations using Dynatrace runtime context</li><li>AI-assisted remediation of confirmed misconfigurations</li><li>Jira ticket creation based on AWS Security Hub integration</li><li>Two scenarios: Kiro CLI-based and Dynatrace-driven triaging</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -356,7 +386,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Kiro CLI, AWS Security Hub, Jira and a Dynatrace environment.</p><ol><li>Add the agent and instruction files to Kiro CLI</li><li>Import the Dynatrace workflow template for Security Hub triaging</li><li>Choose a triaging scenario and run it</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agentic-ecosystem--kiro-power",
@@ -367,7 +403,7 @@ window.CATALOG_REPO = {
    },
    "title": "Kiro Agent Instructions for Dynatrace",
    "summary": "This folder contains the dynatrace.md steering file of the Dynatrace Kiro power, designed to enable the Kiro agent to interact seamlessly with your Dynatrace environment.",
-   "oneLiner": "This folder contains the dynatrace.md steering file of the Dynatrace Kiro power, designed to enable the Kiro agent to…",
+   "oneLiner": "Give Kiro a Dynatrace steering file so it can query Grail and investigate issues like an observability expert.",
    "type": "ecosystem",
    "types": [
     "ecosystem"
@@ -390,7 +426,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The <span class=\"code\">dynatrace.md</span> file serves as a comprehensive guide for the Kiro agent. It defines the capabilities and usage patterns for various Dynatrace MCP tools, enabling the agent to act as an expert observability assistant.</p>",
+   "overviewHtml": "<p>Out of the box, an AI coding agent does not know how to use Dynatrace tools. This steering file from the Dynatrace Kiro power guides the Kiro agent in using the Dynatrace MCP tools correctly.</p><p><strong>What you get</strong></p><ul><li>A guide that defines capabilities and usage patterns for Dynatrace MCP tools</li><li>DQL queries against Grail and access to topology data</li><li>Example prompts for slow services, error logs, pod memory and JavaScript errors</li></ul>",
    "prereqsHtml": "<ul><li>A running Kiro agent instance.</li><li>Access to a Dynatrace environment with permissions to query Grail (DQL) and access topology data.</li></ul>",
    "setupHtml": "<p>To use this steering file with Kiro:</p><ol><li><strong>Download:</strong> Download the <span class=\"code\">dynatrace.md</span> file.</li><li><strong>Install:</strong> Place the file in your Kiro <span class=\"code\">steering</span> directory (.kiro/steering) or import it via the agent configuration.</li><li><strong>Interact:</strong> Ask Kiro questions such as:</li></ol><ul><li><em>&quot;Investigate the slow response times on the checkout service.&quot;</em></li><li><em>&quot;Show me the most frequent error logs in production for the last hour.&quot;</em></li><li><em>&quot;Analyze the memory usage of the payment-service pods.&quot;</em></li><li><em>&quot;What are the top JavaScript errors affecting our users right now?&quot;</em></li></ul>",
    "files": [
@@ -410,7 +446,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a running Kiro agent and a Dynatrace environment with Grail and topology access.</p><ol><li>Download the steering file</li><li>Place it in your Kiro steering directory or import it via agent configuration</li><li>Ask Kiro to investigate a service or error</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agents-and-prompts--agentic-weekly-operations-report",
@@ -421,7 +463,7 @@ window.CATALOG_REPO = {
    },
    "title": "Agentic Weekly Operations Report",
    "summary": "Skip the fixed weekly template that reports the same five metrics no matter what happened. This workflow reads the week against the week before, decides for itself what actually changed, and reports only what's worth attention.",
-   "oneLiner": "Skip the fixed weekly template that reports the same five metrics no matter what happened.",
+   "oneLiner": "Get a Monday report that covers only what changed in your Davis problems, not the same five fixed metrics.",
    "type": "agentic",
    "types": [
     "agentic"
@@ -463,7 +505,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-21",
    "updated": "2026-10-05",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Every Monday morning, this workflow runs three DQL queries against <span class=\"code\">dt.davis.problems</span> — problem volume and downtime by category, chronic vs. new-or-stopped problem signatures against a three-week baseline, and the entities carrying the most downtime — then hands all three result sets to an agentic AI prompt task.</p><p>The agent isn&#x27;t asked to summarize metrics. It&#x27;s instructed to work out what changed, decide what&#x27;s worth surfacing, and write a structured report: an executive one-liner, a &quot;what moved&quot; table, a &quot;new and stopped&quot; table (treating brand-new problem signatures as the highest-value finding even when their counts are small), a &quot;where the time went&quot; table, and exactly three prioritized next actions. It&#x27;s told explicitly to skip a section if it&#x27;s genuinely empty rather than pad a quiet week into a busy-sounding report, and to never invent a number or entity that isn&#x27;t in the data. The finished report is emailed automatically.</p><p><a href=\"https://video.dynatrace.com/watch/uX9fGyuCmX7dpejLAqwUwM\" target=\"_blank\" rel=\"noopener\">▶ Watch it run</a></p>",
+   "overviewHtml": "<p>Fixed weekly reports repeat the same metrics whatever happened. This workflow lets an agentic AI prompt decide what actually changed and what deserves attention.</p><p><strong>What you get</strong></p><ul><li>Three DQL queries on <span class=\"code\">dt.davis.problems</span>: volume, chronic versus new problems, downtime by entity</li><li>An executive one-liner and tables for what moved, new and stopped, and where time went</li><li>Exactly three prioritized next actions</li><li>Quiet weeks stay short; the agent never invents numbers</li><li>Automatic email delivery</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace tenant with Davis problems being generated (any monitored environment)</li><li>Apps: <span class=\"code\">dynatrace.automations</span> (Workflows), <span class=\"code\">dynatrace.davis.workflow.actions</span> (Agentic AI prompt action), <span class=\"code\">dynatrace.email</span></li><li>An email connection configured for the <span class=\"code\">dynatrace.email:send-email</span> action</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">agentic-weekly-operations-report.workflow-template.yaml</span>.</li><li>In your Dynatrace environment, open <strong>Workflows</strong> → <strong>Create workflow</strong> → <strong>Upload YAML</strong> (or the <span class=\"code\">...</span> menu → <strong>Import</strong>) and select the file.</li><li>Open the <span class=\"code\">mail_report</span> task and set the actual <strong>to</strong> recipients (the template ships with empty <span class=\"code\">to</span>/<span class=\"code\">cc</span>/<span class=\"code\">bcc</span>).</li><li>Review the schedule (<span class=\"code\">0 8 * * 1</span>, Mondays 08:00 Europe/Vienna) and adjust the cron/timezone if needed.</li><li>Enable the workflow.</li></ol>",
    "files": [
@@ -483,7 +525,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Davis problems in your tenant and an email connection.</p><ol><li>Import the workflow template into Workflows</li><li>Set the email recipients</li><li>Check the schedule and enable the workflow</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agents-and-prompts--chronic-problem-pattern-advisor",
@@ -494,7 +542,7 @@ window.CATALOG_REPO = {
    },
    "title": "Chronic Problem Pattern Advisor",
    "summary": "Stop living with a problem signature that has fired 300 times because nobody added up what it costs. This workflow ranks 30 days of chronic problem signatures by accumulated downtime and tells you, for each one, whether to fix it, tune it, or suppress it — with the evidence to confirm the cause before you act.",
-   "oneLiner": "Stop living with a problem signature that has fired 300 times because nobody added up what it costs.",
+   "oneLiner": "Rank recurring problems by accumulated downtime and get a fix, tune or suppress call for each.",
    "type": "agentic",
    "types": [
     "agentic"
@@ -536,7 +584,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-21",
    "updated": "2026-10-05",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Weekly, this workflow runs two DQL queries against <span class=\"code\">dt.davis.problems</span>: the top recurring problem signatures of the last 30 days ranked by total downtime, and the same signatures compared week-over-week to show whether each pattern is growing, shrinking, or flat. Both result sets go to an agentic AI prompt task.</p><p>The agent classifies every signature as <strong>FIX</strong>, <strong>TUNE</strong>, or <strong>SUPPRESS</strong>, separating genuine flapping (many occurrences, short median duration) from real sustained impact, and states the specific evidence that would confirm the cause before anyone acts on it — rather than just handing over a ranked list. The recommendations are emailed automatically.</p><p><a href=\"https://video.dynatrace.com/watch/AAkxcC3w3Q6VYpAYyrPz8s\" target=\"_blank\" rel=\"noopener\">▶ Watch it run</a></p>",
+   "overviewHtml": "<p>Some problem signatures fire hundreds of times because nobody added up what they cost. This workflow weighs 30 days of chronic problems and tells you what to do about each one.</p><p><strong>What you get</strong></p><ul><li>Two DQL queries on <span class=\"code\">dt.davis.problems</span>: top signatures by downtime and week-over-week trend</li><li>FIX, TUNE or SUPPRESS classification for every signature</li><li>Separation of flapping from sustained impact</li><li>The evidence that would confirm the cause before you act</li><li>Recommendations delivered by email every week</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace tenant with Davis problems being generated (any monitored environment)</li><li>Apps: <span class=\"code\">dynatrace.automations</span> (Workflows), <span class=\"code\">dynatrace.davis.workflow.actions</span> (Agentic AI prompt action), <span class=\"code\">dynatrace.email</span></li><li>An email connection configured for the <span class=\"code\">dynatrace.email:send-email</span> action</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">chronic-problem-pattern-advisor.workflow-template.yaml</span>.</li><li>In your Dynatrace environment, open <strong>Workflows</strong> → <strong>Create workflow</strong> → <strong>Upload YAML</strong> (or the <span class=\"code\">...</span> menu → <strong>Import</strong>) and select the file.</li><li>Open the <span class=\"code\">mail_report</span> task and set the actual <strong>to</strong> recipients (the template ships with empty <span class=\"code\">to</span>/<span class=\"code\">cc</span>/<span class=\"code\">bcc</span>).</li><li>Review the schedule (<span class=\"code\">0 7 * * 1</span>, Mondays 07:00 Europe/Vienna) and adjust the cron/timezone if needed.</li><li>Enable the workflow.</li></ol>",
    "files": [
@@ -556,7 +604,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Davis problems in your tenant and an email connection.</p><ol><li>Import the workflow template into Workflows</li><li>Set the email recipients</li><li>Check the schedule and enable the workflow</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agents-and-prompts--cloud-cost-optimization-review",
@@ -567,7 +621,7 @@ window.CATALOG_REPO = {
    },
    "title": "Cloud Cost Optimization Review",
    "summary": "Generate a customer-ready cloud cost optimization report from a Dynatrace tenant with the Cloud Native Connection enabled — in minutes, not hours.",
-   "oneLiner": "Generate a customer-ready cloud cost optimization report from a Dynatrace tenant with the Cloud Native Connection…",
+   "oneLiner": "Produce a customer-ready cloud cost optimization report from a Dynatrace tenant in minutes instead of hours.",
    "type": "agentic",
    "types": [
     "agentic"
@@ -610,7 +664,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-21",
    "updated": "2026-10-05",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>This example gives you two prompt variants — one for <strong>Claude Code</strong> (using <span class=\"code\">dtctl</span>), one for <strong>Dynatrace Assist</strong> — that analyse a customer&#x27;s Dynatrace tenant for cloud cost savings opportunities and produce a polished, customer-ready HTML report you can print to PDF and hand to an AE or customer.</p><p>The prompts cover AWS and Azure idle/dangling resource detection (EBS volumes, EC2/VMs, EIPs, NAT gateways, Lambdas, managed disks), Kubernetes over-provisioning analysis, and on-demand pricing estimates — with careful logic to exclude DR/HA resources, apply the right billing model per cluster type, and write in collaborative rather than alarm-red language.</p><p>This was built and proved in the field for customer ROI conversations. It&#x27;s a fast way to show how Dynatrace&#x27;s Cloud Native Connection surfaces actionable cost intelligence.</p>",
+   "overviewHtml": "<p>Preparing a cloud cost review by hand is slow, and ROI conversations need a polished result. Two prompt variants analyze a tenant with the Cloud Native Connection and produce a printable HTML report.</p><p><strong>What you get</strong></p><ul><li>Prompts for Claude Code with <span class=\"code\">dtctl</span> and for Dynatrace Assist</li><li>Detection of idle AWS and Azure resources such as volumes, VMs, NAT gateways and Lambdas</li><li>Kubernetes over-provisioning analysis and on-demand pricing estimates</li><li>Exclusion of DR and HA resources and collaborative wording</li></ul>",
    "prereqsHtml": "<ul><li><strong>Dynatrace tenant</strong> with <a href=\"https://docs.dynatrace.com/docs/shortlink/cloud-native-connection\" target=\"_blank\" rel=\"noopener\">Cloud Native Connection</a> enabled for AWS and/or Azure</li><li><strong>For the Claude Code variant:</strong> <span class=\"code\">dtctl</span> configured with a context for the target tenant; Claude Code installed</li><li><strong>For the Dynatrace Assist variant:</strong> Access to the Dynatrace Assist playground or a tenant with Assist enabled (no local tooling needed)</li><li>Kubernetes over-provisioning analysis requires a K8s footprint monitored by Dynatrace</li></ul>",
    "setupHtml": "",
    "files": [
@@ -637,7 +691,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a tenant with the Cloud Native Connection enabled for AWS or Azure.</p><ol><li>Choose the Claude Code or Dynatrace Assist prompt</li><li>Run it against the target tenant</li><li>Print the HTML report to PDF to share</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agents-and-prompts--create-postmortem",
@@ -648,7 +708,7 @@ window.CATALOG_REPO = {
    },
    "title": "Create Postmortem",
    "summary": "Stop starting the postmortem from a blank page three days late. This workflow finds yesterday's most costly resolved incident, drafts the postmortem, and builds a Dynatrace Notebook with the narrative plus supporting charts — every morning, automatically.",
-   "oneLiner": "Stop starting the postmortem from a blank page three days late.",
+   "oneLiner": "Draft a postmortem every morning for the most costly resolved incident and review it in a Dynatrace Notebook.",
    "type": "agentic",
    "types": [
     "agentic"
@@ -684,7 +744,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-21",
    "updated": "2026-10-05",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Daily, this workflow queries <span class=\"code\">dt.davis.problems</span> for the most costly incidents resolved in the last three days and how often the same problem signature has occurred in the last 30 days, then hands both result sets to an agentic AI prompt task that drafts the postmortem: timeline, impact, a likely root cause with a stated confidence level, and owner-tagged corrective actions. It also renders a verdict on whether the incident was a one-off or the latest instance of a chronic pattern.</p><p>The draft, a problem link, and supporting charts are assembled into a Dynatrace Notebook, and only the notebook link is emailed out — not the full text — so the recipient opens the notebook to review and edit it in place.</p><p><a href=\"https://video.dynatrace.com/watch/kJcCZ9mEAwfiaVdL2oxnFt\" target=\"_blank\" rel=\"noopener\">▶ Watch it run</a></p>",
+   "overviewHtml": "<p>Postmortems often start from a blank page days after the incident. This workflow drafts one automatically for the incident that cost the most.</p><p><strong>What you get</strong></p><ul><li>Daily DQL queries on <span class=\"code\">dt.davis.problems</span> for costly incidents and 30-day recurrence</li><li>A draft with timeline, impact, likely root cause with confidence and owner-tagged actions</li><li>A verdict on one-off versus chronic pattern</li><li>A Notebook with supporting charts, shared by emailed link</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace tenant with Davis problems being generated (any monitored environment)</li><li>Apps: <span class=\"code\">dynatrace.automations</span> (Workflows), <span class=\"code\">dynatrace.davis.workflow.actions</span> (Agentic AI prompt action), <span class=\"code\">dynatrace.email</span></li><li>An email connection configured for the <span class=\"code\">dynatrace.email:send-email</span> action</li><li>Notebooks app available in the tenant (for the generated postmortem document)</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">create-postmortem.workflow-template.yaml</span>.</li><li>In your Dynatrace environment, open <strong>Workflows</strong> → <strong>Create workflow</strong> → <strong>Upload YAML</strong> (or the <span class=\"code\">...</span> menu → <strong>Import</strong>) and select the file.</li><li>Open the <span class=\"code\">mail_link</span> task and set the actual <strong>to</strong> recipients (the template ships with empty <span class=\"code\">to</span>/<span class=\"code\">cc</span>/<span class=\"code\">bcc</span>).</li><li>Review the schedule (<span class=\"code\">30 6 * * *</span>, daily 06:30 Europe/Vienna) and adjust the cron/timezone if needed.</li><li>Enable the workflow.</li></ol>",
    "files": [
@@ -704,7 +764,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Davis problems, the Notebooks app and an email connection.</p><ol><li>Import the workflow template into Workflows</li><li>Set the email recipients</li><li>Check the schedule and enable the workflow</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "agents-and-prompts--workflow-authoring-agent-instructions",
@@ -715,7 +781,7 @@ window.CATALOG_REPO = {
    },
    "title": "Workflow Authoring Agent Instructions",
    "summary": "Teach your AI coding assistant to write and review correct Dynatrace workflows, instead of inventing action names and template syntax.",
-   "oneLiner": "Teach your AI coding assistant to write and review correct Dynatrace workflows, instead of inventing action names and…",
+   "oneLiner": "Teach your AI coding assistant to write and review correct Dynatrace workflows instead of inventing syntax.",
    "type": "agentic",
    "types": [
     "agentic"
@@ -752,7 +818,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-21",
    "updated": "2026-10-21",
    "hasFrontMatter": true,
-   "overviewHtml": "<p><span class=\"code\">AGENTS.md</span> is an instruction file for AI coding assistants such as GitHub Copilot, Cursor, Claude Code and Kiro. It covers:</p><ul><li>the three workflow formats: YAML templates for UI import and export, JSON for the API, and Terraform;</li><li>workflow structure: metadata, tasks, conditions, triggers and <span class=\"code\">withItems</span> loops;</li><li>common actions with examples, such as DQL, JavaScript, HTTP, email, Jira, Slack, Microsoft Teams, ownership and sub-workflows;</li><li>Jinja2 template expressions;</li><li>best practices and troubleshooting;</li><li>a pull request review checklist covering syntax, security (no hard-coded secrets, use <span class=\"code\">secret()</span>), DQL and Jinja2.</li></ul>",
+   "overviewHtml": "<p>AI assistants often invent action names and template syntax when asked for Dynatrace workflows. This <span class=\"code\">AGENTS.md</span> instruction file gives them the correct rules.</p><p><strong>What you get</strong></p><ul><li>Coverage of YAML templates, API JSON and Terraform formats</li><li>Workflow structure: tasks, conditions, triggers and loops</li><li>Examples for DQL, JavaScript, HTTP, email, Jira, Slack and Teams actions</li><li>Jinja2 expressions, best practices and troubleshooting</li><li>A pull request review checklist for syntax, security and DQL</li></ul>",
    "prereqsHtml": "<ul><li>An AI coding assistant that reads <span class=\"code\">AGENTS.md</span>, or that lets you add custom instructions</li><li>Dynatrace SaaS with Workflows, to import and test the generated workflows</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">AGENTS.md</span>.</li><li>Put it in the root of the repository where you keep your workflows. Assistants that support the <span class=\"code\">AGENTS.md</span> convention pick it up automatically. For others, add its content as custom instructions, for example <span class=\"code\">.github/copilot-instructions.md</span> or a Cursor rule.</li><li>Ask the assistant to create or review a workflow, then import the result in <strong>Workflows</strong> and test it.</li></ol>",
    "files": [
@@ -772,7 +838,66 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an AI assistant that reads AGENTS.md or custom instructions, and Dynatrace Workflows.</p><ol><li>Download the instruction file</li><li>Place it in your workflow repository or add it as custom instructions</li><li>Ask the assistant to create or review a workflow, then test it</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
+  },
+  {
+   "id": "ai-observability-instrumentation-examples",
+   "path": "ai-observability-instrumentation-examples",
+   "title": "AI observability instrumentation examples",
+   "summary": "Instrument AI agents and coding agents for Dynatrace with worked examples across many SDKs and frameworks.",
+   "oneLiner": "Instrument AI agents and coding agents for Dynatrace with worked examples across many SDKs and frameworks.",
+   "type": "blueprint",
+   "types": [
+    "blueprint"
+   ],
+   "areas": [
+    "AI Observability",
+    "Developer"
+   ],
+   "tech": [
+    "OpenTelemetry",
+    "OneAgent",
+    "OpenInference"
+   ],
+   "tags": [
+    "Instrumentation",
+    "GenAI",
+    "Tracing",
+    "Coding agents"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2025-07-09",
+   "updated": "2026-11-12",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Agentic workloads are hard to reason about because behavior is spread across prompt flows, tool calls and downstream services.</p><p><strong>What you get</strong></p><ul><li>Demos for model SDKs such as AWS Bedrock, Anthropic, OpenAI and Mistral</li><li>Demos for frameworks such as LangGraph, CrewAI, Google ADK and LiteLLM</li><li>Setup guides for coding agents such as Claude Code and Codex CLI</li><li>Examples using OneAgent, OpenTelemetry or an OTel Collector</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/dynatrace-oss/dynatrace-ai-agent-instrumentation-examples",
+   "readmeUrl": "https://github.com/dynatrace-oss/dynatrace-ai-agent-instrumentation-examples",
+   "source": {
+    "name": "dynatrace-oss/dynatrace-ai-agent-instrumentation-examples",
+    "repo": "https://github.com/dynatrace-oss/dynatrace-ai-agent-instrumentation-examples"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/dynatrace-oss/dynatrace-ai-agent-instrumentation-examples/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment and an AI workload to instrument.</p><ol><li>Pick your SDK or framework from the demo tables</li><li>Choose OneAgent, OpenTelemetry or a Collector</li><li>Follow that folder&#x27;s example and check the traces</li></ol>",
+   "curated": [
+    "entry"
+   ]
   },
   {
    "id": "configuration-as-code--VM-RIght-Sizing",
@@ -783,7 +908,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace VM Right-Sizing Example",
    "summary": "This repository will help you deploy a configuration that will right-size your infrastructure using Dynatrace Automation Workflows. All configuration is deployed automatically using Dynatrace Configuration as Code solution Monaco.",
-   "oneLiner": "This repository will help you deploy a configuration that will right-size your infrastructure using Dynatrace…",
+   "oneLiner": "Detect over- and under-used hosts and resize them through a Jira-approved Dynatrace workflow, deployed with Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -810,7 +935,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The example will help you detect improperly sized hosts, trigger an approval workflow in external tools such as Jira, ServiceNow ... and then react to that approval with a workflow to right-size the environment based on metadata stored in tags by calling the respective infrastructure automation APIs such as Azure, GCP, AWS, Kubernetes, OpenShift, VMWare, Ansible.</p><p>Monaco will deploy 4 different configurations - Slack for Workflows, Jira for Workflows and two Workflows(Host Resize - Calculate &amp; Ticket and Host Resize - Event Triggered).</p><p>Here&#x27;s a breakdown of what each workflow will do:</p><ol><li>Host Resize - Calculate &amp; Ticket will use DQL to query the current CPU usage for hosts that belong to an Azure environment. It will also use a filter that will only take hosts that are either using above 90% or below 15% of CPU at any given time.</li><li>Workflow will open a Jira ticket(using Jira for workflows) with hosts that need to be resized.</li><li>Workflow will move the ticket to pending automatically so it can be worked at.</li><li>Workflow will send a notification to a slack channel(using Slack for workflows).</li><li>In the Jira project, you need to go and define an automation that will react to the ticket that got moved to pending and send a POST event back to Dynatrace.</li></ol><ul><li>First automation - Auto approve pending - When issue transitioned from Open to Pending &gt; Approve it. (Skip if there&#x27;s a team who does this manually)</li><li>Second automation - Post event for approval - When approved by previous automation(or team) &gt; Send web request (URL - e.g. https://.apps.dynatrace.com/api/v2/events/ingest) Payload: { &quot;eventType&quot;: &quot;CUSTOM_INFO&quot;, &quot;title&quot;: &quot;Jira approval granted: {{issue.key}}&quot;, &quot;properties&quot;: { &quot;issuekey&quot;: &quot;{{issue.key}}&quot;, &quot;issueurl&quot;: &quot;{{issue.url}}&quot;, &quot;issueid&quot;: &quot;{{issue.id}}&quot;, &quot;issuedescription&quot;: &quot;{{issue.description.replaceAll(&quot;(\\n)&quot;,&quot;,&quot;)}}&quot; } }</li></ul><ol><li>Host Resize - Event Triggered will react to the event that Jira automation sent and use DQL to query, extract certain information, and make a decision which hosts need to be resied.</li><li>Workflow will obtain a bearer token.</li><li>Workflow will upsize/downize a Host based on certain conditions from previous steps.</li><li>Workflow will close the Jira ticket.</li></ol><p>To learn more about this use case, check out the <a href=\"https://youtu.be/dGWlnd1lNGQ\" target=\"_blank\" rel=\"noopener\">Dynatrace Tips &amp; Tricks Community Episode</a>.</p>",
+   "overviewHtml": "<p>Hosts are often sized wrongly, and resizing needs approval and manual work across tools. This example automates the loop with Dynatrace Workflows.</p><p><strong>What you get</strong></p><ul><li>A workflow that finds hosts above 90% or below 15% CPU with DQL</li><li>Jira ticket creation, Slack notification and approval handling</li><li>A second workflow that resizes hosts through infrastructure APIs and closes the ticket</li><li>Slack and Jira connections deployed by Monaco</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To download the CLI, head over to the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code/releases\" target=\"_blank\" rel=\"noopener\">dynatrace-configuration-as-code GitHub repository</a>.</p><p>If you&#x27;re new to Monaco and want to learn more, check out the <a href=\"https://dt-url.net/monaco-observability-clinic\" target=\"_blank\" rel=\"noopener\">Observability Clinic on Monaco 2.0</a>.</p><p>After your Monaco setup is done and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the input-needed.sh as well as the environment url in the manifest.yaml file.</li><li>Run the script to record the values</li><li>Run the monaco project</li><li>Go to Settings&gt;Dynatrace Apps&gt;Slack/Jira to check your Slack and Jira connections and go to the new Workflows apps to check your 2 newly created workflows.</li></ol><p>In case you need to delete the configuration, feel free to run the monaco delete command with the delete.yaml.</p>",
    "files": [
@@ -894,7 +1019,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, Jira, Slack and an environment with Workflows.</p><ol><li>Fill in the input script and manifest for your environment</li><li>Deploy the project with Monaco</li><li>Add the Jira automations that send approval events to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--access-control",
@@ -905,14 +1036,14 @@ window.CATALOG_REPO = {
    },
    "title": "Access control for settings objects",
    "summary": "This example shows how to manage [access control] for settings objects in Dynatrace using Monaco.",
-   "oneLiner": "This example shows how to manage [access control] for settings objects in Dynatrace using Monaco.",
+   "oneLiner": "Manage who can read or edit settings objects in Dynatrace with Monaco, using three ready-made configurations.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [
     "Monaco"
@@ -923,7 +1054,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This example shows how to manage [access control] for settings objects in Dynatrace using Monaco.</p><p>Managing the access of other users is done via the <span class=\"code\">allUsers</span> property. This property can have the value <span class=\"code\">none</span>, <span class=\"code\">read</span>, or <span class=\"code\">write</span>, giving other users no access, read access or full access, respectively.</p><p>The example provides the <span class=\"code\">access-control</span> project with three configurations. First, the <span class=\"code\">access-control-read</span> configuration, which gives all users read access to the specified settings object, second, the <span class=\"code\">access-control-write</span> configuration, which gives all users full access to the specified settings object, and third, the <span class=\"code\">access-control-none</span> configuration, which removes all access for other users to the specified settings object.</p>",
+   "overviewHtml": "<p>Settings objects are often shared too broadly or too narrowly across users. This example shows how to set access with the <span class=\"code\">allUsers</span> property, which takes the value none, read or write, in Monaco.</p><p><strong>What you get</strong></p><ul><li>An <span class=\"code\">access-control</span> Monaco project with three configurations</li><li>Read access for all users</li><li>Full write access for all users</li><li>Removal of access for other users</li></ul>",
    "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.23.0+</span></li><li>Dynatrace Platform environment</li><li>An [OAuth client][OAuth credentials], with the scopes <span class=\"code\">settings:objects:read</span>, <span class=\"code\">settings:objects:write</span>, and <span class=\"code\">settings:schemas:read</span>.</li><li>The targeted Settings 2.0 object must support owner-based access control, as indicated by its schema having <span class=\"code\">ownerBasedAccessControl</span> set to <span class=\"code\">true</span>.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -993,7 +1124,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, an OAuth client and a settings object that supports owner-based access control.</p><ol><li>Point the manifest at your environment and settings object</li><li>Pick the read, write or none configuration</li><li>Deploy it with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--account-monaco-admin-access",
@@ -1004,7 +1142,7 @@ window.CATALOG_REPO = {
    },
    "title": "Configuring your Dynatrace Account with Monaco",
    "summary": "This is a sample for configuring Dynatrace Account configuration using monaco.",
-   "oneLiner": "This is a sample for configuring Dynatrace Account configuration using monaco.",
+   "oneLiner": "Configure your Dynatrace account and set up the policies and groups Monaco needs, all as code.",
    "type": "cac",
    "types": [
     "cac"
@@ -1021,7 +1159,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This is a sample for configuring Dynatrace Account configuration using monaco.</p><p>It is also a sample for setting up the required Policies and Groups to use Monaco to configure Grail Buckets and Automations on a Dynatrace Platform environment.</p>",
+   "overviewHtml": "<p>Automating account configuration needs the right groups and policies in place first. This sample sets up both for Monaco to manage Grail buckets and automations.</p><p><strong>What you get</strong></p><ul><li>Account configuration deployed with Monaco</li><li>Policies, boundaries and groups for Monaco admin access</li><li>User assignments for Config-as-Code OAuth clients</li><li>A script to fill in environment ID and user email</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><strong>Pre-requisites</strong></p><ul><li>Monaco CLI version 2.11.0+</li><li>An OAuth token granting Dynatrace Account access</li><li>The following environment variables defined</li><li>ACCOUNT_UUID ... the UUID of your account</li><li>ACCOUNT_OAUTH_CLIENT_ID ... your oAuth client&#x27;s ID</li><li>ACCOUNT_OAUTH_CLIENT_SECRET ... your oAuth client&#x27;s secret</li></ul><p>You will also need to fill the sample configuration with actual values for your environment ID and the user you will tie Config-as-Code admin oAuth clients to.</p><p>You can do this either by manually replacing the following values:</p><ul><li>%YOUR_ENVIRONMENT_ID% in groups.yaml</li><li>%YOUR_USER_EMAIL% in users.yaml and delete.yaml</li></ul><p>Or by setting your desired values as environment variables <span class=\"code\">YOUR_ENVIRONMENT_ID</span> and <span class=\"code\">YOUR_USER_EMAIL</span> and running the configure.sh shell script. (Requires <span class=\"code\">sed</span> command line tool to be installed)</p><p>Then you can deploy your configurations using monaco</p><pre class=\"codeblock\">monaco account deploy -m manifest-account.yaml</pre>",
    "files": [
@@ -1083,7 +1221,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and an OAuth client with account access.</p><ol><li>Set the account environment variables</li><li>Fill in your environment ID and user email</li><li>Deploy the account manifest with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--argocd_observability",
@@ -1094,7 +1238,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your ArgoCD syncs with Dashboards and normalized SDLC events through OpenPipeline (Monaco)",
    "summary": "Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications? For this use case, you'll",
-   "oneLiner": "Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications?",
+   "oneLiner": "Watch ArgoCD syncs and application health in Dynatrace dashboards with normalized SDLC events, deployed with Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -1121,7 +1265,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications? For this use case, you&#x27;ll</p><ul><li>Integrate ArgoCD and Dynatrace.</li><li>Use Dashboards to observe ArgoCD syncs and deployment health.</li><li>Use this information to optimize deployments with ArgoCD.</li></ul>",
+   "overviewHtml": "<p>Teams running deployments with ArgoCD lack a view of sync activity and application states. This project integrates ArgoCD with Dynatrace so you can see sync history and deployment health in one place.</p><p><strong>What you get</strong></p><ul><li>Dashboards for ArgoCD application lifecycle and platform observability</li><li>OpenPipeline ingest source and pipeline for normalized SDLC events</li><li>Insight to optimize your ArgoCD deployments</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
    "setupHtml": "<ol><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/guides/create-platform-token\" target=\"_blank\" rel=\"noopener\">Create a Platform token</a> with the following permissions.</li></ol><ul><li>Run apps: <span class=\"code\">app-engine:apps:run</span></li><li>View OpenPipeline configurations: <span class=\"code\">settings:objects:read</span></li><li>Edit OpenPipeline configurations: <span class=\"code\">settings:objects:write</span></li><li>Create and edit documents: <span class=\"code\">document:documents:write</span></li><li>View documents: <span class=\"code\">document:documents:read</span></li></ul><ol><li>Store the retrieved platform token in an environment variable.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><ol><li>Clone the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code-samples\" target=\"_blank\" rel=\"noopener\">Dynatrace configuration as code sample</a> repository and go to <span class=\"code\">argocd_observability</span>.</li></ol><pre class=\"codeblock\">    git clone https://github.com/Dynatrace/dynatrace-configuration-as-code-samples.git\n    cd dynatrace-configuration-as-code-samples/argocd_observability</pre><ol><li>Edit the <span class=\"code\">manifest.yaml</span> by exchanging the `` placeholder with your Dynatrace environment ID.</li></ol><pre class=\"codeblock\">    manifestVersion: 1.0\n    projects:\n      - name: pipeline_observability\n    environmentGroups:\n      - name: group\n        environments:\n          - name: &lt;YOUR-DT-ENV-ID&gt;\n            url:\n              type: value\n              value: https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com\n            auth:\n              platformToken:\n                name: DYNATRACE_PLATFORM_TOKEN</pre>",
    "files": [
@@ -1191,7 +1335,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and a Dynatrace platform token.</p><ol><li>Create a platform token and store it in an environment variable</li><li>Enter your environment ID in the manifest</li><li>Deploy the project with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--argocd_observability_terraform",
@@ -1202,7 +1352,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your ArgoCD syncs with Dashboards and normalized SDLC events through OpenPipeline (Terraform)",
    "summary": "Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications? For this use case, you'll",
-   "oneLiner": "Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications?",
+   "oneLiner": "Watch ArgoCD syncs and application health in Dynatrace dashboards with normalized SDLC events, deployed with Terraform.",
    "type": "cac",
    "types": [
     "cac"
@@ -1229,7 +1379,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your ArgoCD sync activities and deployment states of your ArgoCD applications? For this use case, you&#x27;ll</p><ul><li>Integrate ArgoCD and Dynatrace.</li><li>Use Dashboards to observe ArgoCD syncs and deployment health.</li><li>Use this information to optimize deployments with ArgoCD.</li></ul>",
+   "overviewHtml": "<p>Teams running deployments with ArgoCD lack a view of sync activity and application states. This Terraform project integrates ArgoCD with Dynatrace so you can see sync history and deployment health in one place.</p><p><strong>What you get</strong></p><ul><li>Dashboards for ArgoCD application lifecycle and platform observability</li><li>OpenPipeline ingest source and pipeline for normalized SDLC events</li><li>Insight to optimize your ArgoCD deployments</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
    "setupHtml": "<ol><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-api-support-access-permission-handling#create-platform-tokens\" target=\"_blank\" rel=\"noopener\">Create a Platform token</a> with the following permissions.</li></ol><ul><li>Run apps: <span class=\"code\">app-engine:apps:run</span></li><li>View OpenPipeline configurations: <span class=\"code\">settings:objects:read</span></li><li>Edit OpenPipeline configurations: <span class=\"code\">settings:objects:write</span></li><li>Create and edit documents: <span class=\"code\">document:documents:write</span></li><li>View documents: <span class=\"code\">document:documents:read</span></li></ul><ol><li>Store the retrieved platform token in an environment variable.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><ol><li>Store your Dynatrace environment URL in an environment variable. Make sure to replace `<span class=\"code\"> with your Dynatrace environment ID, e.g. </span>abc12345`.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_ENV_URL=&#x27;https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_ENV_URL=&#x27;https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com&#x27;</pre><ol><li>Clone the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code-samples\" target=\"_blank\" rel=\"noopener\">Dynatrace configuration as code sample</a> repository using the following commands and move to the <span class=\"code\">argocd_observability_terraform</span> directory.</li></ol><pre class=\"codeblock\">    git clone https://github.com/Dynatrace/dynatrace-configuration-as-code-samples.git\n    cd dynatrace-configuration-as-code-samples/argocd_observability_terraform</pre>",
    "files": [
@@ -1313,7 +1463,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Terraform and a Dynatrace platform token.</p><ol><li>Create a platform token and set your environment URL</li><li>Apply the Terraform configuration</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--azure_devops_observability",
@@ -1324,7 +1480,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your Azure DevOps Pipelines and Pull Requests with Dashboards and normalized SDLC events through OpenPipeline",
    "summary": "Excited to dive into your Azure DevOps Pipeline performance and uncover the secrets behind your Pull Requests timings? For this use case, you'll",
-   "oneLiner": "Excited to dive into your Azure DevOps Pipeline performance and uncover the secrets behind your Pull Requests timings?",
+   "oneLiner": "Track Azure DevOps pipeline and pull request performance in Dynatrace dashboards with normalized SDLC events.",
    "type": "cac",
    "types": [
     "cac"
@@ -1347,7 +1503,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your Azure DevOps Pipeline performance and uncover the secrets behind your Pull Requests timings? For this use case, you&#x27;ll</p><ul><li>Integrate Azure DevOps and Dynatrace.</li><li>Use Dashboards to observe Azure DevOps pipelines and pull requests.</li><li>Use this information to make decisions about streamlining CI/CD pipelines, improving productivity, and getting data-driven insights.</li></ul>",
+   "overviewHtml": "<p>Slow pipelines and long pull request times are hard to see across Azure DevOps projects. This project integrates Azure DevOps with Dynatrace to turn pipeline and pull request activity into data you can act on.</p><p><strong>What you get</strong></p><ul><li>Dashboards for Azure DevOps pipelines and pull requests</li><li>Business events, logs and deployments from the integration</li><li>Data to streamline CI/CD and improve productivity</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
    "setupHtml": "",
    "files": [
@@ -1452,7 +1608,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and an Azure DevOps organization.</p><ol><li>Review the manifest for your environment</li><li>Deploy the project with Monaco</li><li>Connect Azure DevOps to send data to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--basic-templates-monaco",
@@ -1463,7 +1625,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Basic Templates (Monaco)",
    "summary": "This repository will help you deploy a few basic templates and allow you to have a headstart when working with Monaco. All configuration is deployed automatically using Dynatrace Configuration as Code solution Monaco.",
-   "oneLiner": "This repository will help you deploy a few basic templates and allow you to have a headstart when working with Monaco.",
+   "oneLiner": "Start with Monaco using ready-made templates for common Dynatrace settings such as alerting, SLOs and ownership.",
    "type": "cac",
    "types": [
     "cac"
@@ -1480,7 +1642,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The repository consists of 2 folders:</p><ol><li>env_variables</li></ol><ul><li>Default script that will run before Monaco runs to make sure all environment variables are exported properly</li></ul><ol><li>monaco</li></ol><ul><li>Contains all json and yaml configurations needed to deploy everything to your Dynatrace environment</li></ul><p>In general, the provided example in this repository serves as a practical guide to gaining a comprehensive understanding of the fundamentals of configuration as code with Monaco in the context of Dynatrace. By leveraging the templates and configurations included, users can initiate and streamline the deployment of essential components within their Dynatrace environment. The key configurations covered in this example encompass various aspects of Dynatrace settings/configurations:</p><ol><li>Alerting Profile Configuration</li></ol><ul><li>Establish default filters for alerting profiles. Users are encouraged to review the configuration and customize it to align with their specific monitoring requirements.</li></ul><ol><li>Application Detection Rule</li></ol><ul><li>Set up default filters for application detection rules, allowing users to identify and define applications effectively. As with other configurations, customization is recommended based on individual needs.</li></ul><ol><li>Web Application Configuration</li></ol><ul><li>Create a web application with default filters, offering a starting point for users to configure web applications according to their monitoring criteria.</li></ul><ol><li>Synthetic Monitor Setup</li></ol><ul><li>Configure synthetic monitors with specific tags applied. Users should refer to the provided configuration for customization options.</li></ul><ol><li>Maintenance Window Configuration</li></ol><ul><li>Define a default maintenance window set to a weekly schedule. Users are advised to adjust this schedule to fit their specific maintenance needs.</li></ul><ol><li>Management Zone Definition</li></ol><ul><li>Establish a management zone with certain tags applied. This configuration provides a foundation for managing and organizing monitored entities within the Dynatrace environment.</li></ul><ol><li>Ownership Configuration</li></ol><ul><li>Set up ownership configurations to assign responsibility for specific entities. Users are encouraged to review and customize these configurations to reflect their organizational structure.</li></ul><ol><li>Problem Notification Configuration</li></ol><ul><li>Configure problem notifications based on specific criteria. Users should tailor these configurations to align with their incident response and notification preferences.</li></ul><ol><li>Service Level Objectives (SLOs)</li></ol><ul><li>Define service level objectives with default settings. Users can adapt these configurations to match the desired performance and reliability standards for their applications and services.</li></ul><p>By exploring and deploying these configurations, users will gain practical insights into the implementation of Dynatrace Configuration as Code using Monaco. The provided example not only facilitates a head start in utilizing Monaco but also encourages users to adapt and customize configurations based on their unique monitoring and management requirements.</p>",
+   "overviewHtml": "<p>Learning configuration as code is easier with a working example. These templates deploy common settings that you can review and adapt to your own needs.</p><p><strong>What you get</strong></p><ul><li>Alerting profile, problem notification and ownership configurations</li><li>Application detection, web application and synthetic monitor setup</li><li>Maintenance window, management zone and SLO definitions</li><li>An environment variable script to run before deployment</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To download the CLI, head over to the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code/releases\" target=\"_blank\" rel=\"noopener\">dynatrace-configuration-as-code GitHub repository</a>.</p><p>If you&#x27;re new to Monaco and want to learn more, check out the <a href=\"https://dt-url.net/monaco-observability-clinic\" target=\"_blank\" rel=\"noopener\">Observability Clinic on Monaco 2.0</a>.</p><p>After your Monaco setup is done, and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the default.sh in the env_variables folder.</li><li>Run the script to export the variables - execute &quot;source env_variables/default.sh&quot;</li><li>Run &quot;monaco deploy manifest.yaml --dry-run&quot; to very syntax of all files is correct.</li><li>Run the monaco project with &quot;monaco deploy manifest.yaml&quot;</li><li>Explore your Dynatrace environment and check out what got deployed</li></ol><p>In case you need to <strong>delete</strong> the configuration, feel free to explore the <a href=\"https://docs.dynatrace.com/docs/manage/configuration-as-code/monaco/reference/commands#delete\" target=\"_blank\" rel=\"noopener\">delete command</a>.</p>",
    "files": [
@@ -1578,7 +1740,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Fill in the environment variables script and export it</li><li>Run a dry run, then deploy with Monaco</li><li>Explore what was created and adapt it</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--basic-templates-terraform",
@@ -1589,7 +1757,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Basic Templates (Terraform)",
    "summary": "This repository will help you deploy a few basic templates and allow you to have a headstart when working with Terraform and Dynatrace. All configuration is deployed automatically using Terraform.",
-   "oneLiner": "This repository will help you deploy a few basic templates and allow you to have a headstart when working with…",
+   "oneLiner": "Start with Terraform using ready-made templates for common Dynatrace settings such as alerting and ownership.",
    "type": "cac",
    "types": [
     "cac"
@@ -1606,7 +1774,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The repository consists of 1 folder and a few Terraform files in the main directory:</p><ol><li>env_variables</li></ol><ul><li>Default script that will run before Terraform runs to make sure all environment variables are exported properly</li></ul><ol><li>main.tf</li></ol><ul><li>Contains all terraform configuration needed to deploy everything to your Dynatrace environment</li></ul><ol><li>providers.tf</li></ol><ul><li>Contains the Dynatrace Terraform provider - https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs</li></ul><ol><li>variables.tf</li></ol><ul><li>Contains all defined environment variables</li></ul><p>In general, the provided example in this repository serves as a practical guide to gaining a comprehensive understanding of the fundamentals of configuration as code with Terraform in the context of Dynatrace. By leveraging the templates and configurations included, users can initiate and streamline the deployment of essential components within their Dynatrace environment. The key configurations covered in this example encompass various aspects of Dynatrace settings/configurations:</p><ol><li>Alerting Profile Configuration</li></ol><ul><li>Establish default filters for alerting profiles. Users are encouraged to review the configuration and customize it to align with their specific monitoring requirements.</li></ul><ol><li>Web Application Configuration</li></ol><ul><li>Create a web application with default filters, offering a starting point for users to configure web applications according to their monitoring criteria.</li></ul><ol><li>Application Detection Rule</li></ol><ul><li>Set up default filters for application detection rules, allowing users to identify and define applications effectively. As with other configurations, customization is recommended based on individual needs.</li></ul><ol><li>Synthetic Monitor Setup</li></ol><ul><li>Configure synthetic monitors with specific tags applied. Users should refer to the provided configuration for customization options.</li></ul><ol><li>Auto Tag Creation</li></ol><ul><li>Define an auto tag configuration. Users are encouraged to review the configuration and customize it to align with their specific monitoring requirements.</li></ul><ol><li>Management Zone Definition</li></ol><ul><li>Establish a management zone with certain tags applied. This configuration provides a foundation for managing and organizing monitored entities within the Dynatrace environment.</li></ul><ol><li>Ownership Configuration</li></ol><ul><li>Set up ownership configurations to assign responsibility for specific entities. Users are encouraged to review and customize these configurations to reflect their organizational structure.</li></ul><ol><li>Ownership Teams</li></ol><ul><li>Set up ownership teams to make sure you are aware of the responsibility that exists in your environment. Users are encouraged to review and customize these configurations to reflect their organizational structure.</li></ul><ol><li>Problem Notification Configuration</li></ol><ul><li>Configure problem notifications based on specific criteria. Users should tailor these configurations to align with their incident response and notification preferences.</li></ul><ol><li>Service Level Objectives (SLOs)</li></ol><ul><li>Define service level objectives with default settings. Users can adapt these configurations to match the desired performance and reliability standards for their applications and services.</li></ul><p class=\"more-on-gh\">…continued in the full README on GitHub.</p>",
+   "overviewHtml": "<p>Learning Terraform for Dynatrace is easier with a working example. These templates deploy common settings that you can review and adapt to your own needs.</p><p><strong>What you get</strong></p><ul><li>Alerting profile, application detection and web application configurations</li><li>Synthetic monitor, auto tag and management zone setup</li><li>Ownership configuration and ownership teams</li><li>Provider and variable files plus an environment variable script</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To install the CLI, head over to the <a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">install terraform CLI documentation</a>.</p><p>If you&#x27;re new to Terraform and want to learn more, check out the <a href=\"https://www.youtube.com/watch?v=uAudyJNpda0&amp;t=3746s\" target=\"_blank\" rel=\"noopener\">Getting Started with Dynatrace Terraform</a>.</p><p>After your Terraform setup is done, and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the default.sh in the env_variables folder.</li><li>Run the script to export the variables - execute &quot;source env_variables/default.sh&quot;</li><li>Run &quot;terraform init&quot; to initiate and fetch the Dynatrace Terraform provider.</li><li>Run &quot;terraform plan&quot; to verify syntax of all files and see what will be deployed into your tenant.</li><li>Run &quot;terraform apply&quot; to apply your configuration.</li><li>Explore your Dynatrace environment and check out what got deployed</li></ol><p>In case you need to <strong>delete</strong> the configuration, feel free to run &quot;terraform destroy&quot;. Feel free to refer to <a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/teraform-basic-example#delete-the-configuration\" target=\"_blank\" rel=\"noopener\">delete configuration documentation page</a>.</p>",
    "files": [
@@ -1648,7 +1816,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Terraform and a Dynatrace environment.</p><ol><li>Fill in the environment variables script and export it</li><li>Run init, plan and apply</li><li>Explore what was created and adapt it</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--dashboards",
@@ -1659,7 +1833,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dashboards",
    "summary": "These are sample dashboards based on configuration as code for deployment. The dashboards are designed to be deployed via Monaco, a tool that allows for the management of Dynatrace configurations as code. This repository contains various dashboards that can be used to monitor and visualize different aspects of your Dynatrace environment.",
-   "oneLiner": "These are sample dashboards based on configuration as code for deployment.",
+   "oneLiner": "Deploy sample Dynatrace dashboards, including an executive view and an SLI view, with Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -1685,7 +1859,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>These are sample dashboards based on configuration as code for deployment. The dashboards are designed to be deployed via Monaco, a tool that allows for the management of Dynatrace configurations as code. This repository contains various dashboards that can be used to monitor and visualize different aspects of your Dynatrace environment.</p>",
+   "overviewHtml": "<p>Maintaining dashboards by hand across environments is error-prone and hard to repeat. These samples show how to deploy dashboards as code with Monaco, so the same views can be rolled out repeatably to any environment you manage.</p><p><strong>What you get</strong></p><ul><li>Sample dashboards for monitoring and visualizing your environment</li><li>An executive dashboard</li><li>An SLI dashboard for service level indicators</li><li>A Monaco project with manifest and config, ready to deploy</li></ul>",
    "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.15.0</span></li><li>Dynatrace Platform environment with Dashboards installed.</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">document:documents:write, document:documents:read, document:documents:delete, document:trash.documents:delete</span>. This returns value for the environment variables <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -1727,7 +1901,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and an OAuth client with document scopes.</p><ol><li>Set the client ID and secret variables</li><li>Deploy the project with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--dynatrace_template_hub",
@@ -1738,7 +1918,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Template Hub",
    "summary": "This is a Dynatrace CaC project of monaco v2 templates for every configuration and setting in Dynatrace.",
-   "oneLiner": "This is a Dynatrace CaC project of monaco v2 templates for every configuration and setting in Dynatrace.",
+   "oneLiner": "Reuse Monaco v2 templates for Dynatrace settings, with parameters you edit and deploy per project.",
    "type": "cac",
    "types": [
     "cac"
@@ -1755,7 +1935,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This is a Dynatrace CaC project of monaco v2 templates for every configuration and setting in Dynatrace.</p>",
+   "overviewHtml": "<p>Writing Monaco configuration for each setting from scratch takes time. This project collects ready-made templates for Dynatrace configurations and settings so you can start from a working base.</p><p><strong>What you get</strong></p><ul><li>Monaco v2 projects with a config file and object definition each</li><li>A global directory for globally applied settings</li><li>Commented parameters, such as service anomaly detection</li><li>A default option to reset a setting</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>There are several directories which will contain monaco projects. The directory &quot;global&quot; will contain projects which can only be applied globally.</p><p>Each directory will contain many sub-directories of monaco projects, which contain a folder with a config.yaml and object.json.</p><h4>Service Anomaly Detection</h4><ol><li>Edit the anomalyDetection\\serviceAnom\\config.yaml file.</li></ol><p>Replace the parameter values with your own values.</p><pre class=\"codeblock\">        resp:\n          ###################\n          ## resp - responseTime\n          ## Fields:\n          ## enabled - enabled\n          ## mode - detectionMode - &quot;auto&quot;,&quot;fixed&quot;\n          ## degMilli (both) - degradationMilliseconds \n          ## degPercent (auto) - degradationPercent\n          ## degSlowestMilli (both) - slowestDegradationMilliseconds\n          ## degSlowestPercent (auto) - slowestDegradationPercent\n          ## reqPerMin (both) - requestsPerMinute\n          ## abState (both) - minutesAbnormalState\n          ## sens (fixed) - sensitivity - &quot;low&quot;,&quot;medium&quot;,&quot;high&quot;\n          ##############\n          type: value\n          value:\n            enabled: true\n            mode: &quot;auto&quot;\n            degMilli: 399\n            degPercent: 10\n            degSlowestMilli: 1000\n            degSlowestPercent: 100\n            reqPerMin: 15\n            abState: 1\n            sens: &quot;low&quot;</pre><p>Most Monaco v2 projects contain a &quot;default&quot; parameter. Which returns the setting/configuration back to defaults if set to true.</p><ol><li>Run the monaco command</li></ol><pre class=\"codeblock\">monaco deploy manifest.yaml --project serviceAnom -e ENV_NAME</pre><h4>Workflow of multiple configurations</h4><p>There are several configurations where the id/name should be used as input to another configuration.</p><p>ex: managementZone -&gt; alertingProfile</p><ol><li>Copy the folders alertingProfile and managementZone, add them to a <em>new project folder</em>.</li></ol><ol><li>Add the <em>new project folder name</em> under list of projects in manifest.yaml</li></ol><pre class=\"codeblock\">  projects:\n  - name: {YOUR PROJECT NAME}\n    type: grouping\n    path: {YOUR PROJECT NAME}/</pre><ol><li>Edit the alertingProfile &gt; config.yaml to make a reference to the id of one of the managementZone configs</li></ol><pre class=\"codeblock\">    ...\n    parameters:\n      managementZone:\n        type: reference\n        project: managementZone\n        configType: builtin:management-zones\n        configId: {YOUR CONFIG MZ ID}\n        property: id\n    ...</pre><ol><li>Run the monaco command in the /project directory</li></ol><pre class=\"codeblock\">monaco deploy manifest.yaml --project {YOUR PROJECT NAME} -e ENV_NAME</pre>",
    "files": [
@@ -1873,7 +2053,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Choose the project for the setting you want</li><li>Edit its config with your values</li><li>Deploy it with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--github_pipeline_observability",
@@ -1884,7 +2070,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your GitHub actions (workflows) and pull requests with Dashboards and normalized SDLC events through OpenPipeline (Monaco)",
    "summary": "Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings? For this use case, you'll",
-   "oneLiner": "Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings?",
+   "oneLiner": "Track GitHub Actions and pull request performance in Dynatrace dashboards with normalized SDLC events.",
    "type": "cac",
    "types": [
     "cac"
@@ -1915,7 +2101,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings? For this use case, you&#x27;ll</p><ul><li>Integrate GitHub and Dynatrace.</li><li>Use Dashboards to observe GitHub workflows and pull requests.</li><li>Use this information to make decisions about streamlining CI/CD workflows, improving productivity, and getting data-driven insights.</li></ul>",
+   "overviewHtml": "<p>Slow workflows and long pull request times are hard to spot. This project integrates GitHub with Dynatrace so you can turn workflow and pull request activity into data you can act on.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitHub workflows and pull requests</li><li>OpenPipeline ingest source and pipelines for jobs, pull requests and workflows</li><li>Data to streamline CI/CD and improve productivity</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
    "setupHtml": "",
    "files": [
@@ -1999,7 +2185,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and a GitHub organization.</p><ol><li>Review the manifest for your environment</li><li>Deploy the project with Monaco</li><li>Connect GitHub to send events to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--github_pipeline_observability_terraform",
@@ -2010,7 +2202,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your GitHub actions (workflows) and pull requests with Dashboards and normalized SDLC events through OpenPipeline (Terraform)",
    "summary": "Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings? For this use case, you'll",
-   "oneLiner": "Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings?",
+   "oneLiner": "Spot slow GitHub workflows and pull requests with ready-made dashboards, deployed as Terraform.",
    "type": "cac",
    "types": [
     "cac"
@@ -2041,7 +2233,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your GitHub workflow performance and uncover the secrets behind your pull request timings? For this use case, you&#x27;ll</p><ul><li>Integrate GitHub and Dynatrace.</li><li>Use Dashboards to observe GitHub workflows and pull requests.</li><li>Use this information to make decisions about streamlining CI/CD workflows, improving productivity, and getting data-driven insights.</li></ul>",
+   "overviewHtml": "<p>Teams running CI/CD on GitHub often lack visibility into how long workflows and pull requests really take. This example turns GitHub activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li><span class=\"code\">github.workflow_pulse</span> dashboard for GitHub workflow performance</li><li><span class=\"code\">github.pull_requests</span> dashboard for pull request timings</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>Terraform files that deploy dashboards, ingest sources and pipelines</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
    "setupHtml": "",
    "files": [
@@ -2125,7 +2317,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Terraform.</p><ol><li>Configure the Terraform provider and variables for your environment</li><li>Apply the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitHub so its events reach Dynatrace</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--gitlab_pipeline_observability",
@@ -2136,7 +2334,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your GitLab pipelines and merge requests with Dashboards and normalized SDLC events through OpenPipeline (Monaco)",
    "summary": "Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings? For this use case, you'll",
-   "oneLiner": "Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings?",
+   "oneLiner": "Spot slow GitLab pipelines and merge requests with ready-made dashboards, deployed with Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -2167,7 +2365,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings? For this use case, you&#x27;ll</p><ul><li>Integrate GitLab and Dynatrace.</li><li>Use Dashboards to observe GitLab pipelines and merge requests.</li><li>Use this information to make decisions about streamlining CI/CD pipelines, improving productivity, and getting data-driven insights.</li></ul>",
+   "overviewHtml": "<p>Teams running CI/CD on GitLab often lack visibility into how long pipelines and merge requests really take. This example turns GitLab activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitLab deployments, merge requests and pipelines</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>OpenPipeline rules for deployment, job and merge request events</li><li>Monaco project with manifest and configs ready to deploy</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
    "setupHtml": "",
    "files": [
@@ -2272,7 +2470,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Monaco.</p><ol><li>Adjust the Monaco manifest for your Dynatrace environment</li><li>Deploy the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitLab so its events reach Dynatrace</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--gitlab_pipeline_observability_terraform",
@@ -2283,7 +2487,7 @@ window.CATALOG_REPO = {
    },
    "title": "Observe your GitLab pipelines and merge requests with Dashboards and normalized SDLC events through OpenPipeline (Terraform)",
    "summary": "Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings? For this use case, you'll",
-   "oneLiner": "Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings?",
+   "oneLiner": "Spot slow GitLab pipelines and merge requests with ready-made dashboards, deployed as Terraform.",
    "type": "cac",
    "types": [
     "cac"
@@ -2314,7 +2518,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Excited to dive into your GitLab pipeline performance and uncover the secrets behind your merge request timings? For this use case, you&#x27;ll</p><ul><li>Integrate GitLab and Dynatrace.</li><li>Use Dashboards to observe GitLab pipelines and merge requests.</li><li>Use this information to make decisions about streamlining CI/CD pipelines, improving productivity, and getting data-driven insights.</li></ul>",
+   "overviewHtml": "<p>Teams running CI/CD on GitLab often lack visibility into how long pipelines and merge requests really take. This example turns GitLab activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitLab deployments and merge requests</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>Ingest sources and pipelines defined in Terraform</li><li>A starting point for CI/CD productivity decisions</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
    "setupHtml": "",
    "files": [
@@ -2405,7 +2609,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Terraform.</p><ol><li>Configure the Terraform provider and variables for your environment</li><li>Apply the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitLab so its events reach Dynatrace</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--grail_buckets",
@@ -2416,14 +2626,15 @@ window.CATALOG_REPO = {
    },
    "title": "Grail Bucket definitions",
    "summary": "This is a simple example of how to configure and use custom Grail buckets using Monaco.",
-   "oneLiner": "This is a simple example of how to configure and use custom Grail buckets using Monaco.",
+   "oneLiner": "Route specific logs into a custom Grail bucket with a ready-to-deploy Monaco example.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Logs",
+    "Developer"
    ],
    "tech": [
     "Monaco"
@@ -2434,7 +2645,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This is a simple example of how to configure and use <a href=\"https://www.dynatrace.com/support/help/platform/grail/data-model#custom-grail-buckets\" target=\"_blank\" rel=\"noopener\">custom Grail buckets</a> using Monaco.</p><p>It will create a new custom bucket and a rule to route specific logs to the new bucket.</p>",
+   "overviewHtml": "<p>Teams that want to separate log data in Grail, for example for retention or access, need a working bucket and routing rule to start from.</p><p><strong>What you get</strong></p><ul><li>Monaco project that creates a custom Grail bucket</li><li>A rule that routes specific logs to the new bucket</li><li>Manifest and config files ready to adapt</li><li>A simple pattern for managing buckets as code</li></ul>",
    "prereqsHtml": "<ul><li>Monaco &gt;=<span class=\"code\">v2.9.0</span></li><li>Dynatrace Platform environment</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -2476,7 +2687,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client.</p><ol><li>Point the Monaco manifest at your environment</li><li>Adjust the bucket definition and log routing rule</li><li>Deploy the project with Monaco</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--iam_tf_sample",
@@ -2487,14 +2705,14 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace IAM Terraform Sample",
    "summary": "This repository demonstrates best practices for managing Dynatrace IAM (Identity and Access Management) using Terraform. The goal is to provide a practical, modular, and scalable approach to IAM policy management, leveraging both default policies with policy boundaries, as well as custom policies with policy templating. This enables organizations to implement fine-grained access control for classic observability teams (such as Central Admin, Observability, Engineering. etc.) as well as for specialized teams working on particular projects.",
-   "oneLiner": "This repository demonstrates best practices for managing Dynatrace IAM (Identity and Access Management) using Terraform.",
+   "oneLiner": "Manage Dynatrace IAM policies, groups and permissions as modular Terraform code.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [
     "Terraform"
@@ -2510,7 +2728,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "",
+   "overviewHtml": "<p>Organizations need fine-grained access control for central admin, observability and engineering teams, and doing it by hand does not scale. The sample shows a scalable pattern you can adapt to your own teams.</p><p><strong>What you get</strong></p><ul><li>Default policies with policy boundaries</li><li>Custom policies built from templates</li><li>Config file that drives buckets, segments, pipelines, teams and permissions</li><li>Modular Terraform code for central teams and project teams</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>To get this project running on your system:</p><ol><li><strong>Clone the repository</strong></li><li><strong>Install Terraform</strong> (<a href=\"https://developer.hashicorp.com/terraform/install\" target=\"_blank\" rel=\"noopener\">Install Guide</a>)</li><li><strong>Generate OAuth client</strong> (<a href=\"https://myaccount.dynatrace.com\" target=\"_blank\" rel=\"noopener\">Account Management</a>)</li></ol><ul><li>To support all resource creation here, esure you include the following scopes:</li></ul><p><span class=\"code\">account-env-read</span>, <span class=\"code\">iam:groups:read</span>, <span class=\"code\">account-idm-read</span>, <span class=\"code\">account-idm-write</span>, <span class=\"code\">iam-policies-management</span>, <span class=\"code\">storage:filter-segments:admin</span>, <span class=\"code\">storage:bucket-definitions:read</span>, <span class=\"code\">storage:bucket-definitions:write</span>, <span class=\"code\">storage:bucket-definitions:delete</span>, <span class=\"code\">openpipeline:configurations:read</span>, <span class=\"code\">openpipeline:configurations:write</span>, <span class=\"code\">storage:filter-segments:read</span>, <span class=\"code\">storage:filter-segments:write</span>, <span class=\"code\">storage:filter-segments:delete</span>, <span class=\"code\">storage:filter-segments:admin</span></p><ol><li><strong>Set required environment variables:</strong></li></ol><pre class=\"codeblock\">    export DYNATRACE_ENV_URL=&lt;your_env_url&gt;\n    export DT_CLIENT_ID=&lt;your_client_id&gt;\n    export DT_CLIENT_SECRET=&lt;your_client_secret&gt;\n    export TF_VAR_DT_ACCOUNT_ID=&lt;your_account_id&gt;\n\n5. **Enter your environment IDs in ./config/config.yaml:**\n   Speficy at least one environment ID the config.yaml file\n\n6. **Optionally modify ./config/config.yaml:**\n   You might want to modify the config file that drives the Terraform code by adding additional buckets, segments, pipelines, teams, or modify permission assignments to better match your access scenario\n\n7. **Optionally modify the location of the Terraform statefile:**\n   You can do so by changing the `backend` section of the providers.tf file. It is advisable for production environments to store this Terraform state file in secure cloud location rather than on the local machine.\n\n8. **Initialize Terraform:**</pre><p>terraform init</p><pre class=\"codeblock\">9. **Review the plan:**</pre><p>terraform plan</p><pre class=\"codeblock\">10. **Apply the configuration:**\n</pre><p>terraform apply</p><pre class=\"codeblock\">    Note that due to a `race condition` situation with the provider, policies still beng created report as completed, thus causing downstream errors (The argument &quot;policy.1.id&quot; is required, but no definition was found). To remedy, either run `terraform apply` again or consider implementing time_sleep or null_resource workarounds in main.tf.</pre>",
    "files": [
@@ -2573,7 +2791,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Terraform and a Dynatrace OAuth client for your account.</p><ol><li>Clone the repository and create an OAuth client with the listed scopes</li><li>Enter your environment IDs in the config file</li><li>Adapt teams and permissions, then run Terraform</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--learn-monaco-auto-tag",
@@ -2584,14 +2809,14 @@ window.CATALOG_REPO = {
    },
    "title": "Getting started sample",
    "summary": "This sample project provides a reference for the Deploy your first configuration guide from the documentation.",
-   "oneLiner": "This sample project provides a reference for the Deploy your first configuration guide from the documentation.",
+   "oneLiner": "Learn Monaco by deploying your first auto-tag configuration with a ready-made sample project.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [
     "Monaco"
@@ -2602,7 +2827,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This sample project provides a reference for the <a href=\"https://www.dynatrace.com/support/help/shortlink/configuration-as-code-manage-configuration\" target=\"_blank\" rel=\"noopener\">Deploy your first configuration</a> guide from the documentation.</p><p>To run it, you will need to modify the URL in the manifest file and export an API token as environment variable <span class=\"code\">devToken</span>.</p>",
+   "overviewHtml": "<p>New users of Configuration as Code need a small, working project to follow along with the documentation. This sample is a safe place to practice before touching real configuration.</p><p><strong>What you get</strong></p><ul><li>Reference project for the Deploy your first configuration guide</li><li>Monaco manifest and an auto-tag configuration</li><li>A delete file to remove what you deployed</li><li>Minimal setup: your environment URL and an API token</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -2644,7 +2869,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Set your environment URL in the manifest file</li><li>Export your API token as an environment variable</li><li>Deploy the project with Monaco</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--observability_clinic_sample",
@@ -2655,7 +2887,7 @@ window.CATALOG_REPO = {
    },
    "title": "Monaco 2.0 - Observability Clinic Demo",
    "summary": "This folder contains sample projects used in the Demo section of the Observability Clinic on Monaco 2.0.",
-   "oneLiner": "This folder contains sample projects used in the Demo section of the Observability Clinic on Monaco 2.0.",
+   "oneLiner": "Try Monaco 2.0 with the demo projects from the Observability Clinic, including v1 to v2 conversion.",
    "type": "cac",
    "types": [
     "cac"
@@ -2672,7 +2904,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This folder contains sample projects used in the Demo section of the <a href=\"https://dt-url.net/monaco-observability-clinic\" target=\"_blank\" rel=\"noopener\">Observability Clinic on Monaco 2.0</a>.</p><p>You find the following things in here:</p><pre class=\"codeblock\">/commands\n    --&gt; shell scrips that simplify the monaco calls used in the demo\n/existing_v1_config\n    --&gt; a monaco v1 project\n/expected_v2_config\n    --&gt; the expected outcome of converting the v1 project using monaco 2.0.0 (just for reference)\n/settings-demo\n    --&gt; a monaco v2 project configuring Settings in addition to Configs</pre><p>In each of the sample folders you will find a <span class=\"code\">README.md</span> file with more information about the sample.</p><h4>Prerequisites</h4>",
+   "overviewHtml": "<p>Teams moving from Monaco v1 to Monaco 2.0 benefit from seeing a real conversion and the new Settings support in action.</p><p><strong>What you get</strong></p><ul><li>A Monaco v1 project that creates a web application, synthetic monitor, auto-tag and SLO</li><li>The expected result of converting it to Monaco 2.0</li><li>A v2 project that configures Settings</li><li>Shell scripts that simplify the Monaco calls</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<pre class=\"codeblock\">./commands/deploy-v1.sh</pre><p>Starting from an empty Dynatrace environment deploy v1 - this is pretty boring if you know monaco and Dynatrace.</p><p>Then you will find a Web Application, a Synthetic Monitor, an Auto-Tag and an SLO in your environment.</p>",
    "files": [
@@ -2791,7 +3023,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an empty Dynatrace environment to try it.</p><ol><li>Deploy the v1 project with the provided script</li><li>Convert it to v2 and deploy the converted project</li><li>Deploy the Settings demo, then clean up</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--problem_notification_sample",
@@ -2802,14 +3040,14 @@ window.CATALOG_REPO = {
    },
    "title": "Problem Notification - Sample Project",
    "summary": "This is a sample project configuring problem notifications based on auto-tagging rules.",
-   "oneLiner": "This is a sample project configuring problem notifications based on auto-tagging rules.",
+   "oneLiner": "Route Dynatrace problems to the responsible team using auto-tags, alerting profiles and notifications.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [],
    "tags": [],
@@ -2818,7 +3056,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This is a sample project configuring problem notifications based on auto-tagging rules.</p><p>This covers a use-case organizations see frequently:</p><p>Development teams own Applications that are made up several services, databases, etc and run on different host or cloud infrastructures.</p><p>If something goes wrong with any of these components it is vital that Dynatrace problems find their way to the responsible team.</p><p>This sample shows the recommended best-practice to leverage auto-tagging to ensure everything a team owns gets a tag applied to it. This tag is then used for an altering-profile, defining for what problems an alert should be created. This alerting-profile is then used to configure notifications.</p>",
+   "overviewHtml": "<p>Development teams own applications spread across services, databases and different infrastructures, and problems must reach the team that owns them. This sample shows the recommended best practice.</p><p><strong>What you get</strong></p><ul><li>Auto-tagging rules that tag everything a team owns</li><li>Alerting profiles that select which problems alert</li><li>Notification configuration, including email, based on those profiles</li><li>Templates for host, Kubernetes and AWS Kubernetes setups</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -2909,7 +3147,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Adjust the manifest and tagging rules to your teams</li><li>Set the alerting profile and notification recipients</li><li>Deploy the project with Monaco</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--release-monitoring",
@@ -2920,7 +3165,7 @@ window.CATALOG_REPO = {
    },
    "title": "Release Monitoring",
    "summary": "This package provides a preconfigured Dynatrace dashboard for monitoring and analyzing software releases across your environments. The dashboards deliver both high-level overviews and detailed insights into release activities, validation results, and associated risks such as detected vulnerabilities.",
-   "oneLiner": "This package provides a preconfigured Dynatrace dashboard for monitoring and analyzing software releases across your…",
+   "oneLiner": "Track releases across environments, their validation results and vulnerability risk in one dashboard.",
    "type": "cac",
    "types": [
     "cac"
@@ -2946,7 +3191,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Comprehensive Release Overview:</strong> Visualize all releases across environments at a glance.</li><li><strong>Detailed Filtering:</strong> Drill down to specific releases or environments for more granular analysis.</li><li><strong>Risk &amp; Validation Tracking:</strong> Quickly identify validation outcomes and potential risks (e.g., vulnerabilities) associated with each release.</li><li><strong>Ready-to-Use Dashboards:</strong> Get started quickly with pre-built dashboards and example configurations.</li></ul>",
+   "overviewHtml": "<p>Teams shipping often need one place to see which releases are running where and whether they carry risk. Without it, release status and risk are scattered across tools and hard to compare.</p><p><strong>What you get</strong></p><ul><li>Overview of all releases across environments</li><li>Filtering by release or environment</li><li>Validation outcomes and risks such as vulnerabilities</li><li>Pre-built dashboard with example configuration</li></ul>",
    "prereqsHtml": "<p>To enable accurate release detection and ensure the dashboards work as intended:</p><ul><li>Review and implement Dynatrace <a href=\"https://docs.dynatrace.com/docs/deliver/release-monitoring/version-detection-strategies\" target=\"_blank\" rel=\"noopener\">version detection strategies</a>.</li><li>Ensure all required prerequisites listed in the Dynatrace documentation are met.</li></ul>",
    "setupHtml": "<ol><li><strong>Clone or Download</strong> this repository.</li><li><strong>Import the Dashboard:</strong> Follow the instructions in the dashboard JSON or documentation to import it into your Dynatrace environment.</li><li><strong>Configure Version Detection:</strong> Set up version detection according to the <a href=\"https://docs.dynatrace.com/docs/deliver/release-monitoring/version-detection-strategies\" target=\"_blank\" rel=\"noopener\">official documentation</a>.</li><li><strong>Customize as Needed:</strong> Adjust the dashboards or detection rules to fit your organization’s release processes.</li></ol>",
    "files": [
@@ -2981,7 +3226,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need version detection set up for accurate release data.</p><ol><li>Configure version detection as described in Dynatrace documentation</li><li>Import the dashboard into your environment</li><li>Adjust the dashboard and detection rules to your release process</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--segment-with-dashboard",
@@ -2992,14 +3243,14 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Segments",
    "summary": "This example shows how [Dynatrace Segments] can be configured and managed using Monaco.",
-   "oneLiner": "This example shows how [Dynatrace Segments] can be configured and managed using Monaco.",
+   "oneLiner": "Manage Dynatrace Segments and a dashboard that uses them as code with Monaco.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [
     "Monaco"
@@ -3010,7 +3261,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This example shows how [Dynatrace Segments] can be configured and managed using Monaco.</p><p>The example provides the <span class=\"code\">segments</span> project with two configurations. First, the <span class=\"code\">segment</span> configuration, and second, the <span class=\"code\">dashboard</span> configuration.\\ The dashboard depends on the segment to automatically include the segment. The dashboard will get the ID <span class=\"code\">dashboard-with-segment</span>.</p>",
+   "overviewHtml": "<p>Teams that share Segments across dashboards need a repeatable way to create and keep them in sync. Doing this manually in the UI makes changes hard to track across environments.</p><p><strong>What you get</strong></p><ul><li>A segment configuration managed with Monaco</li><li>A dashboard configuration that depends on the segment</li><li>Automatic inclusion of the segment in the dashboard</li><li>Manifest and delete files for deploy and cleanup</li></ul>",
    "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.19.0+</span></li><li>Dynatrace Platform environment</li><li>OAuth credentials as described [here][OAuth credentials], including the additional scopes: <span class=\"code\">storage:filter-segments:read</span>, <span class=\"code\">storage:filter-segments:write</span>, <span class=\"code\">storage:filter-segments:delete</span>.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -3059,7 +3310,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client with segment scopes.</p><ol><li>Point the Monaco manifest at your environment</li><li>Deploy the project to create the segment and dashboard</li><li>Adapt the segment definition to your needs</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--service-level-objective-hub",
@@ -3070,7 +3328,7 @@ window.CATALOG_REPO = {
    },
    "title": "Service Level Objective Hub",
    "summary": "This is a hub of SLOs templates to be simplify the rollout of standardized SLOs via configuration as code.",
-   "oneLiner": "This is a hub of SLOs templates to be simplify the rollout of standardized SLOs via configuration as code.",
+   "oneLiner": "Roll out standardized SLOs from a library of templates using Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -3093,7 +3351,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This is a hub of SLOs templates to be simplify the rollout of standardized SLOs via configuration as code.</p>",
+   "overviewHtml": "<p>Teams that want consistent SLOs across services need ready templates instead of building each objective from scratch. The hub simplifies rollout across many services.</p><p><strong>What you get</strong></p><ul><li>SLO templates for HTTP availability and performance</li><li>Templates for synthetic monitor availability and performance</li><li>Service availability and Kubernetes cluster CPU and memory efficiency templates</li><li>Monaco project for rolling them out as code</li></ul>",
    "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.22.0</span></li><li>Dynatrace Platform environment with SLOs installed.</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">slo:slos:read, slo:slos:write, slo:objective-templates:read</span>. This returns value for the environment variables <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -3184,7 +3442,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, SLOs in your Dynatrace environment and an OAuth client.</p><ol><li>Set up the OAuth client and environment variables</li><li>Choose the SLO templates you need</li><li>Deploy them with Monaco</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--service-level-objectives",
@@ -3195,7 +3459,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Service Level Objectives",
    "summary": "This example shows how [Dynatrace Service Level Objectives] can be configured and managed using Monaco.",
-   "oneLiner": "This example shows how [Dynatrace Service Level Objectives] can be configured and managed using Monaco.",
+   "oneLiner": "Define Dynatrace SLOs as code with Monaco, from custom indicators to segment-aware objectives.",
    "type": "cac",
    "types": [
     "cac"
@@ -3213,7 +3477,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This example shows how [Dynatrace Service Level Objectives] can be configured and managed using Monaco.</p><p>The example provides the <span class=\"code\">service-lebel-objectives</span> project with three configurations. First, the <span class=\"code\">custom-sli</span> configuration, second, the <span class=\"code\">sli-reference</span> configuration, and third, the <span class=\"code\">custom-sli-with-segments</span> configuration.\\</p>",
+   "overviewHtml": "<p>Teams that manage SLOs by hand struggle to keep them consistent and reviewable. The example shows three ways to define an objective, so you can pick the one that fits your service and reuse it across teams.</p><p><strong>What you get</strong></p><ul><li>Custom SLI configuration</li><li>SLI reference configuration</li><li>Custom SLI with segments configuration</li><li>Monaco manifest and delete files for deploy and cleanup</li></ul>",
    "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.22.0+</span></li><li>Dynatrace Platform environment</li><li>OAuth credentials as described [here][OAuth credentials], including the additional scopes: <span class=\"code\">slo:slos:read</span> and <span class=\"code\">slo:slos:write</span>.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -3283,7 +3547,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client with SLO scopes.</p><ol><li>Point the Monaco manifest at your environment</li><li>Deploy the project to create the SLOs</li><li>Adapt the SLI definitions to your services</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--service_monitoring_validation",
@@ -3294,7 +3564,7 @@ window.CATALOG_REPO = {
    },
    "title": "Service Monitoring and Validation Sample",
    "summary": "This package provides a preconfigured Dynatrace dashboard for monitoring and validating the health and performance of a selected service. It contains sections for the four golden signals, release validation results, service-level objectives, and SLO fast error budget burn rate alerts. Additionally, it provides a simple alert notification workflow to send an email in case of a high error budget burn rate alert. The sample demonstrates how to use Dynatrace resources together to monitor key metrics, (automated) Site Reliability Guardian release validations, continuous performance evaluation via SLOs, and alert notifications in case an SLO is at risk.",
-   "oneLiner": "This package provides a preconfigured Dynatrace dashboard for monitoring and validating the health and performance of a…",
+   "oneLiner": "Monitor one service's health, release validation and SLO burn rate from one dashboard and alert workflow.",
    "type": "cac",
    "types": [
     "cac"
@@ -3318,7 +3588,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Comprehensive service status overview:</strong> Visualizes the current service health via its key metrics (four golden signals), results of historic release validations, continuous evaluation of performance and availability SLOs, and past alerts indicating a too high error budget consumption.</li><li><strong>References for further analysis:</strong> Links to the underlying automation, such as automated release validation and alert notifications, are given.</li></ul>",
+   "overviewHtml": "<p>Site reliability teams need a single view of a service&#x27;s health, release quality and error budget, plus an alert when the budget burns too fast.</p><p><strong>What you get</strong></p><ul><li>Dashboard with the four golden signals</li><li>Release validation results from Site Reliability Guardian</li><li>Availability and performance SLOs</li><li>Fast burn rate alert and a workflow that sends an email</li></ul>",
    "prereqsHtml": "<p>To ensure that the Dynatrace configurations work as intended:</p><ul><li>Monaco version <span class=\"code\">v2.24.0+</span></li><li>Platform token (<a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-create-platform-token\" target=\"_blank\" rel=\"noopener\">See our documentation</a>) covering the needed permissions: Documents, Automation, SLO v2, Settings, email, and additionally <span class=\"code\">app-engine:apps:run</span></li></ul>",
    "setupHtml": "<ol><li><strong>Clone or Download</strong> this repository.</li><li>In <strong><span class=\"code\">service_monitoring_sample\\config.yaml</span></strong>, configure an email address by replacing &quot;myteam@mycompany.com&quot; with your email address, set proper names, tags and event filter parameters as indicated by &quot;#INPUT&quot; comments in the file.</li><li><strong>Set your environment variables</strong>: You need a Dynatrace Platform environment and the following environment variables to try this out:</li></ol><ul><li><span class=\"code\">DT_ENV_URL</span>: https://YOUR-DT-ENVIRONMENT-ID.apps.dynatrace.com</li><li><span class=\"code\">PLATFORM_TOKEN</span>: <em>Returned when creating the platform token</em> (see:<a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-create-platform-token\" target=\"_blank\" rel=\"noopener\">docs</a>)</li><li><span class=\"code\">SERVICE_ID</span>: Add the Dynatrace service entity ID that shall be used in the sample, in the format: &quot;SERVICE-XYXYXYXYXYXYXYXY&quot;</li></ul><ol><li><strong>Deploy Dynatrace configurations:</strong> Deploy the Dynatrace configurations to your target environment. If you&#x27;re new to Monaco, see <a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-commands\" target=\"_blank\" rel=\"noopener\">Monaco deploy command</a> for further help.</li><li><strong>Set up your CI/CD tool:</strong> Set up your CI/CD tool to send deployment events for triggering the release validation <a href=\"https://docs.dynatrace.com/docs/shortlink/usecase-release-validation\" target=\"_blank\" rel=\"noopener\">official documentation</a>.</li><li><strong>Customize as Needed:</strong> Adjust the dashboards or detection rules to fit your organization’s release and monitoring processes.</li></ol>",
    "files": [
@@ -3402,7 +3672,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and a platform token.</p><ol><li>Set your email address, names and filters in the config</li><li>Set the environment variables, including your service ID</li><li>Deploy with Monaco and send deployment events from your CI/CD tool</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--site_reliability_guardian_sample",
@@ -3413,7 +3689,7 @@ window.CATALOG_REPO = {
    },
    "title": "Site Reliability Guardian",
    "summary": "This sample provides the configuration for a guardian in the Site Reliability Guardian and an automation workflow leveraging Workflows.",
-   "oneLiner": "This sample provides the configuration for a guardian in the Site Reliability Guardian and an automation workflow…",
+   "oneLiner": "Deploy a Site Reliability Guardian and its automation workflow as code with Monaco.",
    "type": "cac",
    "types": [
     "cac"
@@ -3431,7 +3707,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This sample provides the configuration for a guardian in the <a href=\"https://www.dynatrace.com/support/help/platform-modules/cloud-automation/site-reliability-guardian\" target=\"_blank\" rel=\"noopener\">Site Reliability Guardian</a> and an automation workflow leveraging <a href=\"https://www.dynatrace.com/support/help/platform-modules/cloud-automation/workflows\" target=\"_blank\" rel=\"noopener\">Workflows</a>.</p>",
+   "overviewHtml": "<p>Teams that validate releases with guardians want them versioned and repeatable instead of built by hand in the UI. Keeping them as code makes release validation easy to review, share and redeploy across environments.</p><p><strong>What you get</strong></p><ul><li>A guardian configuration for Site Reliability Guardian</li><li>An automation workflow built on Workflows</li><li>Monaco manifest and configs ready to deploy</li></ul>",
    "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.6.0</span></li><li>Dynatrace Platform environment with <a href=\"https://www.dynatrace.com/support/help/platform-modules/cloud-automation/site-reliability-guardian#install-update-or-uninstall\" target=\"_blank\" rel=\"noopener\">Site Reliability Guardian installed</a></li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">app-engine:apps:run</span>. This returns value for the environment varaibles <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -3473,7 +3749,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Monaco, Site Reliability Guardian and an OAuth client.</p><ol><li>Set up the OAuth client and environment variables</li><li>Adjust the guardian and workflow definitions</li><li>Deploy them with Monaco</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--terraform_dql_example",
@@ -3484,7 +3766,7 @@ window.CATALOG_REPO = {
    },
    "title": "Using Terraform to run and use DQL",
    "summary": "This repository details how you can utilize DQL as a data block within your Terraform to query the state of your Dynatrace environment and then act on that as code.",
-   "oneLiner": "This repository details how you can utilize DQL as a data block within your Terraform to query the state of your…",
+   "oneLiner": "Query your environment with DQL inside Terraform and configure resources from the results.",
    "type": "cac",
    "types": [
     "cac"
@@ -3501,7 +3783,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This repository details how you can utilize DQL as a <span class=\"code\">data</span> block within your Terraform to query the state of your Dynatrace environment and then act on that as code.</p><p>This is intended as a simple example to get started, which can be taken forward for your specific use cases.</p><h4>Getting Started</h4><p>The DQL data source requires an oAuth or Platform token with the ability to read the data in grail you are trying to access - as described on on the <a href=\"https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs/data-sources/dql\" target=\"_blank\" rel=\"noopener\">provider documentation</a>. Please read this fully to understand the permissions and considerations before using this sample.</p><p>The sample contains only one Terraform file, <span class=\"code\">host-group-log-rules.tf</span> which is detailed below.</p><h4>DQL Datasources</h4><p>As the size of an environment grows the number of configuration changes that must be made against specific entities also grows.</p><p>When making these changes we require the entity ID to reference to specific settings object to change. This is where we can use DQL (<a href=\"https://docs.dynatrace.com/docs/discover-dynatrace/platform/grail/dynatrace-query-language\" target=\"_blank\" rel=\"noopener\">Dynatrace Query Language</a>) to fetch the right IDs.</p><p>The sample host-group-log-rules.tf shows how to query for host groups:</p><pre class=\"codeblock\">fetch dt.entity.host_group\n| filter startsWith(entity.name, &quot;a_team1&quot;)</pre><p>The output of the data source needs to be processed into a json object - as a local variable.</p><pre class=\"codeblock\">hostGroups = jsondecode(data.dynatrace_dql.host_group_dql.records)</pre><p>Then we can create the required resource using a for each</p><pre class=\"codeblock\">for_each = { for hg in local.hostGroups : hg.id =&gt; hg }</pre><p>Use this as a pattern to deploy configurations and maintain their values as the number of objects to create these settings on changes.</p>",
+   "overviewHtml": "<p>As environments grow, configuration changes target many entities, and you need their IDs to reference the right settings objects.</p><p><strong>What you get</strong></p><ul><li>A DQL data source that fetches host groups by name</li><li>Results decoded into a local variable</li><li>A <span class=\"code\">for_each</span> pattern that creates log rules per host group</li><li>A simple starting point to adapt to your own cases</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -3529,7 +3811,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an OAuth or platform token that can read the Grail data you query.</p><ol><li>Review the provider documentation for DQL permissions</li><li>Adapt the DQL query and resource in the sample</li><li>Run Terraform plan and apply</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--terraform_modules",
@@ -3540,7 +3828,7 @@ window.CATALOG_REPO = {
    },
    "title": "Modules",
    "summary": "This repository is an example of how to create company specific modules for resources to enable best practice deployment, and easy integration with input files and data sources.",
-   "oneLiner": "This repository is an example of how to create company specific modules for resources to enable best practice…",
+   "oneLiner": "Build company-specific Terraform modules for synthetic monitors with input files and best practices.",
    "type": "cac",
    "types": [
     "cac"
@@ -3557,7 +3845,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This repository is an example of how to create company specific modules for resources to enable best practice deployment, and easy integration with input files and data sources.</p><h4>Getting started</h4><p>To use this repository you will need to create an API token with the ability to manage Synthetic monitors, the scope for which is described on the <a href=\"https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs/resources/http_monitor\" target=\"_blank\" rel=\"noopener\">HTTP resource</a> and <a href=\"https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs/resources/network_monitor\" target=\"_blank\" rel=\"noopener\">Network Monitor Resource</a>.</p>",
+   "overviewHtml": "<p>Teams deploying many synthetic monitors benefit from standard modules that enforce best practices and take simple input files. Modules keep every team deploying monitors the same way, with less copy-paste Terraform.</p><p><strong>What you get</strong></p><ul><li>Module for HTTP monitors</li><li>Module for network availability monitors</li><li>JSON input files that drive the modules</li><li>Terraform test file and shared provider setup</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -3641,7 +3929,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an API token that can manage synthetic monitors.</p><ol><li>Create an API token with the synthetic monitor scopes</li><li>Edit the input files for your monitors</li><li>Run Terraform to deploy them</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--terraform_team_onboarding",
@@ -3652,14 +3946,14 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace IAM Team Based Onboarding Terraform Sample",
    "summary": "This repository shows how to create policies, and groups based on input files - while integrating with Azure Entra ID for SAML.",
-   "oneLiner": "This repository shows how to create policies, and groups based on input files - while integrating with Azure Entra ID…",
+   "oneLiner": "Onboard teams to Dynatrace by creating IAM policies and groups from input files with Azure Entra ID.",
    "type": "cac",
    "types": [
     "cac"
    ],
    "areas": [
-    "Developer",
-    "Administration & Governance"
+    "Platform Management",
+    "Developer"
    ],
    "tech": [
     "Azure",
@@ -3672,7 +3966,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This repository shows how to create policies, and groups based on input files - while integrating with Azure Entra ID for SAML.</p><h4>Getting started</h4>",
+   "overviewHtml": "<p>Onboarding each team to Dynatrace by hand is slow, and group membership should follow your identity provider. Manual setup also invites drift between access in Azure and in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Policies and groups created from input files</li><li>SAML integration with Azure Entra ID groups</li><li>Terraform for admin, automation and default user groups</li><li>Environment and service inputs in YAML and JSON</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>Update group references to match the groups you use in Azure, and export the environment variables required for <a href=\"https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group\" target=\"_blank\" rel=\"noopener\">AzureAd Group Datasource</a>.</p><p>Next Export environment variables for the oAuth client following the <a href=\"https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs\" target=\"_blank\" rel=\"noopener\">Dynatrace terraform provider documentation</a>.</p><p>You will now be ready to plan and apply.</p>",
    "files": [
@@ -3791,7 +4085,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Terraform, a Dynatrace OAuth client and Azure Entra ID access.</p><ol><li>Update the group references to match your Azure groups</li><li>Export the Azure and Dynatrace environment variables</li><li>Run Terraform plan and apply</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "configuration-as-code--well_architected_framework_validation",
@@ -3802,7 +4103,7 @@ window.CATALOG_REPO = {
    },
    "title": "Well-Architected Framework Six Pillars Workflow and Site Reliability Guardian Template",
    "summary": "",
-   "oneLiner": "",
+   "oneLiner": "Validate the Well-Architected six pillars with a workflow and Site Reliability Guardian templates.",
    "type": "cac",
    "types": [
     "cac"
@@ -3831,7 +4132,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "",
+   "overviewHtml": "<p>Teams assessing workloads against the Well-Architected Framework need repeatable checks across all six pillars. Setting this up by hand across applications, SLOs and guardians is slow and error-prone, so this template bundles the pieces.</p><p><strong>What you get</strong></p><ul><li>A six pillars workflow</li><li>Site Reliability Guardian templates, including cost and operational ones</li><li>Application, detection rule, ownership and SLO configs</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -3950,7 +4251,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Review the files in the repository</li><li>Adjust the manifest to your environment</li><li>Deploy the configuration</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "cost-intelligence-blueprints--cli-based-cost-data-with-dtctl",
@@ -3961,9 +4268,10 @@ window.CATALOG_REPO = {
    },
    "title": "Extract usage data via CLI with dtctl",
    "summary": "Fetches DPS usage data from your tenant and outputs it in your preferred format (JSON, CSV, or others).",
-   "oneLiner": "Fetches DPS usage data from your tenant and outputs it in your preferred format (JSON, CSV, or others).",
-   "type": "blueprint",
+   "oneLiner": "Pull DPS usage data from the terminal with dtctl and export it as JSON or CSV.",
+   "type": "cli",
    "types": [
+    "cli",
     "blueprint"
    ],
    "areas": [
@@ -3993,7 +4301,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-20",
    "updated": "2026-08-24",
    "hasFrontMatter": true,
-   "overviewHtml": "<ol><li>Connects to your Dynatrace platform with one command</li><li>Executes a given DQL query directly from the terminal</li><li>Exports output in a given format</li></ol>",
+   "overviewHtml": "<p>Analyzing Dynatrace Platform Subscription usage often means leaving the terminal and clicking through the UI. A scripted query makes the data easy to reuse in reports and automation.</p><p><strong>What you get</strong></p><ul><li>One-command connection to your Dynatrace platform</li><li>DQL query run directly from the terminal</li><li>Output in your preferred format, such as JSON or CSV</li><li>Sample <span class=\"code\">demo.dql</span> query to start from</li></ul>",
    "prereqsHtml": "<ul><li><a href=\"https://github.com/dynatrace-oss/dtctl\" target=\"_blank\" rel=\"noopener\">dtctl</a> installed</li><li>A Dynatrace environment URL (e.g. <span class=\"code\">https://abc12345.apps.dynatrace.com</span>)</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
    "setupHtml": "",
    "files": [
@@ -4013,7 +4321,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need dtctl and your Dynatrace environment URL.</p><ol><li>Install dtctl</li><li>Connect it to your environment</li><li>Run the sample DQL query and choose an output format</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview",
+    "type"
+   ]
   },
   {
    "id": "cost-intelligence-blueprints--email-monthly-budgets-workflow",
@@ -4024,7 +4339,7 @@ window.CATALOG_REPO = {
    },
    "title": "Email Monthly Cost Status",
    "summary": "A Dynatrace Automation workflow that fetches month-to-date DPS costs from the Account Management API and sends a formatted email summary when spend reaches a configurable percentage of your monthly budget.",
-   "oneLiner": "A Dynatrace Automation workflow that fetches month-to-date DPS costs from the Account Management API and sends a…",
+   "oneLiner": "Get an email cost breakdown when month-to-date DPS spend reaches your budget threshold.",
    "type": "blueprint",
    "types": [
     "blueprint"
@@ -4057,7 +4372,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-03",
    "updated": "2026-08-13",
    "hasFrontMatter": true,
-   "overviewHtml": "<ol><li>Fetches current month costs from the Account Management API, broken down by environment and capability</li><li>Calculates spend as a percentage of your configured <span class=\"code\">MONTHLY_BUDGET</span></li><li>Sends an email with a cost breakdown when the budget threshold condition is met</li></ol><p>The email step is conditional - the threshold percentage is configured directly on the workflow step condition, not in the script. If month-to-date spend is below the threshold, the workflow completes without sending anything.</p>",
+   "overviewHtml": "<p>Cost owners want early notice when spend approaches the monthly budget, without checking reports. If spend stays below the threshold, nothing is sent.</p><p><strong>What you get</strong></p><ul><li>Month-to-date costs from the Account Management API by environment and capability</li><li>Spend calculated as a percentage of your <span class=\"code\">MONTHLY_BUDGET</span></li><li>Email with cost breakdown when the threshold is met</li><li>Threshold set on the workflow step condition</li></ul>",
    "prereqsHtml": "<ul><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope</li><li>A Credential Vault entry named <span class=\"code\">DPS Budget Tracker OAuth</span></li><li>The <span class=\"code\">dynatrace.email</span> connector enabled in your environment</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
    "setupHtml": "",
    "files": [
@@ -4077,7 +4392,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an OAuth client, a Credential Vault entry and the email connector.</p><ol><li>Create the OAuth client and store it in Credential Vault</li><li>Import the workflow and set your monthly budget</li><li>Set the threshold and recipients</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "cost-intelligence-blueprints--example-script-for-cost-api-data",
@@ -4088,9 +4409,10 @@ window.CATALOG_REPO = {
    },
    "title": "Python Script - Cost Data from Account Management API",
    "summary": "A local Python script that fetches DPS cost data from the Dynatrace Account Management API, prints a structured summary to the terminal, and optionally sends business events to your Dynatrace tenant for trend analysis and alerting.",
-   "oneLiner": "A local Python script that fetches DPS cost data from the Dynatrace Account Management API, prints a structured summary…",
-   "type": "blueprint",
+   "oneLiner": "Fetch DPS cost data with a Python script, check it against budget and send business events.",
+   "type": "cli",
    "types": [
+    "cli",
     "blueprint"
    ],
    "areas": [
@@ -4121,7 +4443,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-03",
    "updated": "2026-08-13",
    "hasFrontMatter": true,
-   "overviewHtml": "<ol><li>Authenticates against the Account Management API using OAuth 2.0 client credentials</li><li>Resolves your subscription automatically (or uses a pinned UUID from <span class=\"code\">.env</span>)</li><li>Fetches cost-per-environment data for the current month (up to yesterday)</li><li>Aggregates totals by capability and by environment</li><li>Checks spend against your configured <span class=\"code\">DT_MONTHLY_BUDGET</span> if set</li><li>Sends business events to your Dynatrace tenant if <span class=\"code\">DT_ENVIRONMENT_URL</span> and <span class=\"code\">DT_INGEST_TOKEN</span> are set</li><li>Saves raw API responses and the aggregated summary as JSON files in <span class=\"code\">results/</span> (see <span class=\"code\">example-results/</span> for sample output)</li></ol>",
+   "overviewHtml": "<p>Teams tracking Dynatrace Platform Subscription spend need cost data from the Account Management API in a usable form. The script runs locally, so you can start without building a pipeline.</p><p><strong>What you get</strong></p><ul><li>Cost per environment for the current month, aggregated by capability and environment</li><li>Budget check against your <span class=\"code\">DT_MONTHLY_BUDGET</span></li><li>Optional business events sent to your tenant</li><li>Raw and summary results saved as JSON files</li></ul>",
    "prereqsHtml": "<ul><li>Python 3.10 or later</li><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope on your Dynatrace account</li><li>(Optional) A Dynatrace API token with <span class=\"code\">bizevents.ingest</span> scope to send events to your tenant</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
    "setupHtml": "",
    "files": [
@@ -4225,7 +4547,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Python 3.10 or later and an OAuth client for your account.</p><ol><li>Create an OAuth client with the cost read scope</li><li>Configure the script with your settings</li><li>Run the script and review the summary</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview",
+    "type"
+   ]
   },
   {
    "id": "cost-intelligence-blueprints--send-cost-events-to-tenant-workflow",
@@ -4236,7 +4565,7 @@ window.CATALOG_REPO = {
    },
    "title": "Send Cost Events to Tenant",
    "summary": "A Dynatrace Automation workflow that fetches yesterday's DPS costs from the Account Management API and ingests them as business events into your Dynatrace tenant - enabling cost trend analysis, dashboards, and alerting via DQL.",
-   "oneLiner": "A Dynatrace Automation workflow that fetches yesterday's DPS costs from the Account Management API and ingests them as…",
+   "oneLiner": "Turn yesterday's DPS costs into business events you can query, chart, and alert on with DQL.",
    "type": "blueprint",
    "types": [
     "blueprint"
@@ -4272,7 +4601,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-03",
    "updated": "2026-08-13",
    "hasFrontMatter": true,
-   "overviewHtml": "<ol><li>Authenticates against the Account Management API using OAuth 2.0</li><li>Fetches the <em>previous day&#x27;s</em> costs broken down by environment and capability</li><li>Aggregates costs by capability (summed across all environments) and by environment (summed across all capabilities)</li><li>Ingests four business event types into the <span class=\"code\">bizevents</span> table - one per capability, one per environment and capability, one per environment, one daily total</li></ol><p><strong>Workflow step chain:</strong></p><pre class=\"codeblock\">fetching_costs -&gt; aggregate_data -&gt; send_biz_events</pre>",
+   "overviewHtml": "<p>Dynatrace platform costs live in the Account Management API, which makes trend analysis and alerting on them hard. Teams want that cost data next to the rest of their observability data.</p><p><strong>What you get</strong></p><ul><li>Daily workflow that fetches the previous day&#x27;s costs from the Account Management API</li><li>Costs aggregated by capability and by environment</li><li>Four business event types ingested into the bizevents table, including a daily total</li><li>Data ready for DQL queries, dashboards, and alerting</li></ul>",
    "prereqsHtml": "<ul><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope</li><li>A Credential Vault entry named <span class=\"code\">DPS Budget Tracker OAuth</span></li></ul><p>See SETUP.md for step-by-step instructions.</p>",
    "setupHtml": "",
    "files": [
@@ -4292,7 +4621,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need an OAuth client for the Account Management API and a Credential Vault entry.</p><ol><li>Create the OAuth client and store it in the Credential Vault</li><li>Import the workflow JSON into Dynatrace</li><li>Run it and query the cost events in the bizevents table</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "cost-intelligence-blueprints--set-quotas-with-workflow",
@@ -4303,7 +4638,7 @@ window.CATALOG_REPO = {
    },
    "title": "Log Query Quota Workflow",
    "summary": "A Dynatrace Automation workflow that enforces a daily per-user log-query quota — automatically blocking over-quota users, notifying them by email, and resetting access at midnight UTC.",
-   "oneLiner": "A Dynatrace Automation workflow that enforces a daily per-user log-query quota — automatically blocking over-quota…",
+   "oneLiner": "Cap daily log-query volume per user: over-quota users are blocked, notified, and reset at midnight UTC.",
    "type": "blueprint",
    "types": [
     "blueprint"
@@ -4311,7 +4646,7 @@ window.CATALOG_REPO = {
    "areas": [
     "Logs",
     "Cost Intelligence",
-    "Administration & Governance"
+    "Platform Management"
    ],
    "tech": [],
    "tags": [
@@ -4357,7 +4692,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-05",
    "updated": "2026-08-13",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Every minute the workflow checks how much log-query volume each user has consumed today (from <span class=\"code\">dt.system.events</span> billing events). Any user who exceeds the configurable threshold (default: <strong>10 TB ≈ 35 USD</strong>) is handled in three steps:</p><ol><li>Added to the <strong>&quot;Quota exceeded&quot;</strong> IAM group, which carries a <span class=\"code\">DENY storage:logs:read</span> policy — log queries immediately return &quot;Access Denied&quot;</li><li>Sent an email explaining the block and how to get access restored</li><li>Logged with a <span class=\"code\">log.quota.exceeded</span> business event for auditing and de-duplication (prevents repeat notifications on subsequent checks)</li></ol><p>At <strong>midnight UTC</strong> a separate task removes all users from the group so everyone starts the next day with a clean slate. Admins can also unlock a user early by manually removing them from the group.</p>",
+   "overviewHtml": "<p>Unlimited log queries can drive up costs fast, and a few heavy users are often responsible. Admins need an automatic guardrail instead of manual monitoring.</p><p><strong>What you get</strong></p><ul><li>Every-minute check of each user&#x27;s daily log-query volume from billing events</li><li>Configurable threshold, 10 TB by default</li><li>Over-quota users added to an IAM group that denies log reads</li><li>Email notification and a business event for auditing and de-duplication</li><li>Automatic reset at midnight UTC, or manual early unlock</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS tenant with Automation Workflows and the <span class=\"code\">dynatrace.email</span> connector enabled</li><li>Account Management access to create IAM policies, groups, service users, and OAuth clients</li><li>The <span class=\"code\">dynatrace.automations ^1.3208.0</span> and <span class=\"code\">dynatrace.email ^1.10.8</span> apps available in your environment</li></ul><p>See SETUP.md for the full step-by-step instructions.</p>",
    "setupHtml": "<p>The setup takes roughly 15 minutes and involves six steps:</p><ol><li>Create two IAM policies — one to deny log reads, one for the workflow to run with</li><li>Create the <strong>&quot;Quota exceeded&quot;</strong> group and attach the deny policy</li><li>[OPTIONAL (Recommened)]Create a service user <strong>&quot;Quota Exceeded Check User&quot;</strong> as the workflow actor</li><li>Create an OAuth client (requires an account manager as the subject user)</li><li>Store the OAuth credentials in the Credential Vault as <strong>&quot;Quota check OAuth&quot;</strong></li><li>Import <span class=\"code\">workflow.yaml</span> and set the actor to the service user</li></ol>",
    "files": [
@@ -4377,7 +4712,67 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Automation Workflows, the email connector, and Account Management access.</p><ol><li>Create the IAM policies and the quota-exceeded group</li><li>Create an OAuth client and store it in the Credential Vault</li><li>Import the workflow and set its actor</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
+  },
+  {
+   "id": "cursor-plugin-dynatrace",
+   "path": "cursor-plugin-dynatrace",
+   "title": "Cursor plugin: Dynatrace for Cursor",
+   "summary": "Investigate production issues from the Cursor editor with live Dynatrace data and Dynatrace skills.",
+   "oneLiner": "Investigate production issues from the Cursor editor with live Dynatrace data and Dynatrace skills.",
+   "type": "ecosystem",
+   "types": [
+    "ecosystem"
+   ],
+   "areas": [
+    "Agentic Operations",
+    "Developer"
+   ],
+   "tech": [
+    "Cursor",
+    "MCP",
+    "dtctl",
+    "DQL"
+   ],
+   "tags": [
+    "Cursor",
+    "IDE",
+    "Skills",
+    "Marketplace"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-07-09",
+   "updated": "2026-11-02",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Debugging a production failure from the editor usually means copying logs into the chat by hand, so the agent guesses without live context.</p><p><strong>What you get</strong></p><ul><li>A Dynatrace MCP server connection from Cursor to your environment</li><li>Dynatrace skills for DQL, dashboards, notebooks and alerting</li><li>Live logs, metrics and traces available to the coding agent</li><li>Support for private team marketplaces in enterprise setups</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://cursor.com/marketplace/dynatrace",
+   "readmeUrl": "https://cursor.com/marketplace/dynatrace",
+   "source": {
+    "name": "cursor-marketplace",
+    "repo": "https://cursor.com/marketplace/dynatrace"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "getStartedHtml": "<p>You need Cursor and a Dynatrace environment with a platform token.</p><ol><li>Open the Cursor Marketplace and install the Dynatrace plugin</li><li>Set your environment URL and platform token</li><li>Ask the agent about a failing service</li></ol>",
+   "curated": [
+    "entry"
+   ]
   },
   {
    "id": "dashboards--active-directory-audit",
@@ -4388,7 +4783,7 @@ window.CATALOG_REPO = {
    },
    "title": "Active Directory Audit Dashboards",
    "summary": "This repository contains a collection of Dynatrace dashboards designed to provide deep visibility into Active Directory activity, security events, and change auditing.",
-   "oneLiner": "This repository contains a collection of Dynatrace dashboards designed to provide deep visibility into Active Directory…",
+   "oneLiner": "Audit Active Directory logins, lockouts, and directory changes with a set of ready-made dashboards.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4439,7 +4834,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-07-29",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Provides a <strong>quick snapshot of your Active Directory login and change activity</strong>, focusing on authentication behavior, security events, and directory modifications.</p><p>This dashboard is ideal as a <strong>starting point</strong> for daily monitoring and executive-level visibility.</p>",
+   "overviewHtml": "<p>Active Directory changes and lockouts are hard to trace across raw logs. Security and IT teams need a clear audit trail for daily monitoring and investigations.</p><p><strong>What you get</strong></p><ul><li>Executive summary of login and change activity</li><li>Dashboards for password changes, account changes, and group modifications</li><li>Lockout source investigation and root cause views</li><li>Tracking for user OU movement, GPO changes, extended attributes, and DFS file audits</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "",
    "files": [
@@ -4522,7 +4917,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 49,
     "visitors14d": 49
-   }
+   },
+   "getStartedHtml": "<ol><li>Import the dashboard JSON files into the Dashboards app</li><li>Make sure your Active Directory logs are ingested into Dynatrace</li><li>Start with the executive summary, then drill into the detail dashboards</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--ai-cost-overview",
@@ -4533,7 +4934,7 @@ window.CATALOG_REPO = {
    },
    "title": "AI cost overview",
    "summary": "This dashboard provides an overview of billing events related to AI-generated usage. For official billing figures, please visit your Account Management portal.",
-   "oneLiner": "This dashboard provides an overview of billing events related to AI-generated usage.",
+   "oneLiner": "See what AI-generated usage costs you, broken down by billing unit.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4558,7 +4959,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-17",
    "updated": "2026-10-08",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>Total cost (based on list price) and breakdown per billing unit: AI Units, related query cost, and related Standard Function calls.</p>",
+   "overviewHtml": "<p>AI features add usage to your Dynatrace bill, and it is not obvious which part drives it. This dashboard makes AI-related billing events visible in one place. For official figures, use your Account Management portal.</p><p><strong>What you get</strong></p><ul><li>Total cost based on list price</li><li>Breakdown per billing unit: AI Units</li><li>Related query cost</li><li>Related Standard Function calls</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>Total cost (based on list price) and breakdown per billing unit: AI Units, related query cost, and related Standard Function calls.</p>",
    "files": [
@@ -4578,7 +4979,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 103,
     "visitors14d": 103
-   }
+   },
+   "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Pick the timeframe you want to review</li><li>Compare the figures with your Account Management portal</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--apdex-dashboard",
@@ -4589,7 +4996,7 @@ window.CATALOG_REPO = {
    },
    "title": "Apdex Dashboard",
    "summary": "This dashboard provides insights into service performance and user satisfaction using the Apdex (Application Performance Index) metric, built with Dynatrace Dashboards.",
-   "oneLiner": "This dashboard provides insights into service performance and user satisfaction using the Apdex (Application…",
+   "oneLiner": "Gauge user satisfaction with Apdex scores that show how well your services perform for end users.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4613,7 +5020,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The dashboard helps you quickly understand <strong>how well services perform from an end-user perspective</strong> within your application. It categorizes requests into <strong>Satisfied</strong>, <strong>Tolerating</strong>, or <strong>Frustrated</strong> groups and visualizes Apdex trends over time.</p>",
+   "overviewHtml": "<p>Response times alone do not tell you whether users are happy. Apdex condenses performance into one satisfaction score, so teams can see how services perform from the end-user perspective.</p><p><strong>What you get</strong></p><ul><li>Requests grouped as Satisfied, Tolerating, or Frustrated</li><li>Apdex trends over time</li><li>Insight into service performance from the end-user perspective</li><li>Filters for namespace, cluster, and service name</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">Apdex Dashboard.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards app</strong>.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol><ul><li>The <strong>namespace</strong> and <strong>cluster filters</strong> if your environment differs.</li><li>Any <strong>service name filters</strong> to match your setup.</li></ul><ol><li>Save the dashboard and start exploring your Apdex data.</li></ol>",
    "files": [
@@ -4633,7 +5040,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Import the dashboard JSON in the Dashboards app</li><li>Adjust the namespace, cluster, and service name filters to your environment</li><li>Save it and explore your Apdex data</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--cost-allocation",
@@ -4644,7 +5057,7 @@ window.CATALOG_REPO = {
    },
    "title": "DPS Cost Allocation Dashboard v3.12",
    "summary": "Understand your costs. Stay in control.",
-   "oneLiner": "Understand your costs.",
+   "oneLiner": "Break down Dynatrace usage and cost per environment, cost center, and product for showback.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4668,7 +5081,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-11-03",
    "hasFrontMatter": false,
-   "overviewHtml": "<p><strong>Understand your costs. Stay in control.</strong></p><p>The <strong>Cost Allocation Dashboard</strong> helps you break down and explore usage and cost data per environment — giving you the transparency you need to manage resources effectively.</p><p>With this dashboard, you can:</p><ul><li>View total usage and costs for any selected period.</li><li>Apply service fees on top of Dynatrace rate cards — different dashboards can use different rate card configurations.</li><li>Track how costs evolve over time.</li><li>Drill down by cost center or product.</li><li>Trace each usage item back to its source.</li></ul><p>Whether you&#x27;re showing costs back to teams or investigating optimization opportunities, the dashboard gives you the visibility to make informed decisions.</p><p><strong>Simple. Transparent. Secure.</strong></p><p>Before using the Cost Allocation Dashboard, make sure you have configured <a href=\"https://docs.dynatrace.com/docs/license/cost-allocation\" target=\"_blank\" rel=\"noopener\">Dynatrace Cost Allocation</a>.</p><p>For questions and support, join the conversation in the <a href=\"https://community.dynatrace.com/t5/DPS-Cost-Allocation/gh-p/DPSCostAllocationpublic\" target=\"_blank\" rel=\"noopener\">Dynatrace Community</a>.</p>",
+   "overviewHtml": "<p>Teams that share a Dynatrace environment need to know who uses what and what it costs. This dashboard gives the transparency to show costs back to teams and find optimization opportunities.</p><p><strong>What you get</strong></p><ul><li>Total usage and costs for any selected period</li><li>Service fees applied on top of Dynatrace rate cards</li><li>Cost trends over time</li><li>Drill-down by cost center or product</li><li>Tracing of each usage item back to its source</li></ul>",
    "prereqsHtml": "<p>Before you begin, ensure you have:</p><ul><li>A Dynatrace environment with access to the Dashboards app.</li><li>Appropriate permissions to import and edit dashboards.</li><li>Appropriate permissions to view System Events.</li><li>DPS Cost Allocation properly set up.</li></ul>",
    "setupHtml": "",
    "files": [
@@ -4716,7 +5129,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 106,
     "visitors14d": 106
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Cost Allocation configured and permission to view system events.</p><ol><li>Import the dashboard JSON into the Dashboards app</li><li>Choose the dashboard variant and rate card settings you need</li><li>Select a period and explore costs by cost center or product</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--dql-usage-overview",
@@ -4727,14 +5146,14 @@ window.CATALOG_REPO = {
    },
    "title": "DQL Usage Overview",
    "summary": "This dashboard provides insights into DQL usage, execution cost, and optimization opportunities across a Dynatrace environment. It is designed to help teams understand where DQL is used, how much it costs, and where improvements can reduce overall consumption.",
-   "oneLiner": "This dashboard provides insights into DQL usage, execution cost, and optimization opportunities across a Dynatrace…",
+   "oneLiner": "Find which users and queries drive your DQL cost, and where optimizing would cut consumption.",
    "type": "dashboard",
    "types": [
     "dashboard"
    ],
    "areas": [
     "Cost Intelligence",
-    "Administration & Governance"
+    "Platform Management"
    ],
    "tech": [],
    "tags": [],
@@ -4756,7 +5175,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The dashboard helps you quickly understand <strong>DQL cost drivers and usage behavior</strong> from an operational and financial perspective.</p><p>It enables you to:</p><ul><li>Track overall DQL usage and cost trends</li><li>Identify heavy users, expensive queries, and costly data sources</li><li>Detect inefficient or un‑optimized DQL usage</li><li>Support governance, FinOps, and optimization initiatives</li></ul>",
+   "overviewHtml": "<p>DQL queries consume budget, and it is rarely clear who runs the expensive ones. Governance and FinOps teams need visibility into usage and cost drivers across the environment.</p><p><strong>What you get</strong></p><ul><li>Total DQL cost and cost over time</li><li>Data scanned in GB and execution counts</li><li>Heavy users, expensive queries, and costly data sources</li><li>Detection of inefficient or unoptimized DQL usage</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>High‑level KPIs and trends including:</p><ul><li>Total DQL cost</li><li>Cost over time</li><li>Data scanned (GB)</li><li>Execution counts</li></ul>",
    "files": [
@@ -4776,7 +5195,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Review the KPIs and trends for your timeframe</li><li>Follow up with heavy users or costly queries</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--dynatrace-platform-adoption",
@@ -4787,13 +5213,13 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace Platform Adoption",
    "summary": "The Dynatrace Platform Adoption Dashboard gives platform owners and administrators a real-time view of how their Dynatrace environment is actually being used — who's active, which apps and capabilities are gaining traction, and how adoption is trending over time.",
-   "oneLiner": "The Dynatrace Platform Adoption Dashboard gives platform owners and administrators a real-time view of how their…",
+   "oneLiner": "Track who uses your Dynatrace environment, which apps gain traction, and how adoption trends over time.",
    "type": "dashboard",
    "types": [
     "dashboard"
    ],
    "areas": [
-    "Administration & Governance"
+    "Platform Management"
    ],
    "tech": [],
    "tags": [],
@@ -4819,7 +5245,7 @@ window.CATALOG_REPO = {
    "added": "2026-07-02",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The <strong>Dynatrace Platform Adoption Dashboard</strong> gives platform owners and administrators a real-time view of how their Dynatrace environment is actually being used — who&#x27;s active, which apps and capabilities are gaining traction, and how adoption is trending over time.</p><p>All metrics are powered by Grail audit telemetry and exclude system accounts and internal services, so you see real human usage.</p>",
+   "overviewHtml": "<p>Platform owners often lack a clear picture of how Dynatrace is actually used. This dashboard shows real human usage, excluding system accounts and internal services.</p><p><strong>What you get</strong></p><ul><li>Active users and adoption trends over time</li><li>Apps and capabilities gaining traction</li><li>Metrics powered by Grail audit telemetry</li><li>Default view of the last 30 days</li></ul>",
    "prereqsHtml": "<ul><li>A Dynatrace (Gen3) environment with <strong>Grail</strong></li><li>The <strong>Dashboards</strong> app</li><li>Permission to query audit telemetry (<span class=\"code\">dt.system.events</span>, <span class=\"code\">AUDIT_EVENT</span>)</li><li>Default time range: last 30 days</li></ul>",
    "setupHtml": "<ol><li>Open the <strong>Dashboards</strong> app in your Dynatrace environment.</li><li>Use <strong>Upload</strong> to import <span class=\"code\">Dynatrace Platform Adoption.json</span>.</li><li>That&#x27;s it — the dashboard reads your own environment&#x27;s audit telemetry live. There are no hard-coded IDs or environment-specific settings, so it works out of the box.</li></ol>",
    "files": [
@@ -4839,7 +5265,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a Dynatrace environment with Grail and permission to query audit telemetry.</p><ol><li>Open the Dashboards app</li><li>Upload the dashboard JSON</li><li>Review adoption across your environment</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--insurance-claims-processing",
@@ -4850,7 +5283,7 @@ window.CATALOG_REPO = {
    },
    "title": "Insurance Claims Processing",
    "summary": "This dashboard focuses on a business observability use case, visualizing the performance and status of an insurance claims process.",
-   "oneLiner": "This dashboard focuses on a business observability use case, visualizing the performance and status of an insurance…",
+   "oneLiner": "Follow the performance and status of an insurance claims process as a business observability example.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4874,7 +5307,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "",
+   "overviewHtml": "<p>Business processes like claims handling are hard to see from infrastructure metrics alone. This dashboard shows how to visualize one process end to end in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Performance and status of an insurance claims process</li><li>Dashboard JSON ready to import</li><li>Sample log data to try it out</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">Dashboard - insurance claims processing.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards app</strong>.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol>",
    "files": [
@@ -4901,7 +5334,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Ingest the sample log data or point it at your own</li><li>Review and adjust the dashboard to your process</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--linux-syslog",
@@ -4912,7 +5351,7 @@ window.CATALOG_REPO = {
    },
    "title": "Linux Syslog Overview Dashboard",
    "summary": "This dashboard provides real-time visibility into system activity and operational health across Linux environments by analyzing Syslog data ingested into Dynatrace.",
-   "oneLiner": "This dashboard provides real-time visibility into system activity and operational health across Linux environments by…",
+   "oneLiner": "Spot error spikes and authentication failures across Linux hosts with a Syslog overview dashboard.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4943,7 +5382,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>The Linux Syslog Overview dashboard helps you:</p><ul><li><strong>Monitor high-volume or high-severity system events</strong></li><li><strong>Identify spikes</strong> in warnings, errors, or authentication failures</li><li><strong>Track Syslog event patterns over time</strong></li><li><strong>Explore raw log data</strong> for detailed troubleshooting</li><li><strong>Compare Syslog activity across regions or server groups</strong></li><li><strong>Deep dive into specific log types</strong> for root-cause analysis</li></ul><p>This dashboard is ideal for <strong>Linux operations, platform engineering, and SRE teams</strong> looking for centralized Syslog observability.</p>",
+   "overviewHtml": "<p>Syslog data from many Linux servers is noisy and spread out. Operations and SRE teams need one central view of system activity and health.</p><p><strong>What you get</strong></p><ul><li>High-volume and high-severity system events</li><li>Spikes in warnings, errors, and authentication failures</li><li>Syslog patterns over time and comparison across regions or server groups</li><li>Raw log exploration for root-cause analysis</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">[SYSTEM] Syslog Overview.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards</strong> app.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol><ul><li><strong>OpenPipeline configuration</strong>, using out-of-the-box Syslog parsers</li><li><strong>Country or region extraction</strong>, using DPL if multiple rsyslog deployments are in use</li><li><strong>Filters</strong> for hosts, host groups, log source, and regions</li><li><strong>Drilldown links</strong>, updating them with your Dynatrace tenant-specific URLs</li><li><strong>Field mappings</strong>, ensuring your Syslog ingestion pipeline (e.g., rsyslog, syslog-ng, journald exports) aligns with the dashboard’s expected schema</li></ul><ol><li>Save the dashboard and begin exploring your <strong>Linux Syslog data in real time</strong>.</li></ol>",
    "files": [
@@ -4963,7 +5402,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Syslog data ingested into Dynatrace.</p><ol><li>Import the dashboard JSON into the Dashboards app</li><li>Adjust filters, drilldown links, and field mappings to your setup</li><li>Save it and explore your Syslog data</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dashboards--vulnerability-likelihood-and-impact",
@@ -4974,7 +5419,7 @@ window.CATALOG_REPO = {
    },
    "title": "Vulnerability Likelihood and Impact",
    "summary": "This dashboard turns raw vulnerability findings into a clear, risk-based remediation view. It combines security coverage (how much of your estate Dynatrace is watching) with Risk Probability and Likelihood, which enriches every vulnerability with runtime and business context so teams can focus on the findings that actually matter.",
-   "oneLiner": "This dashboard turns raw vulnerability findings into a clear, risk-based remediation view.",
+   "oneLiner": "Focus remediation on the vulnerabilities that matter by combining runtime and business risk context.",
    "type": "dashboard",
    "types": [
     "dashboard"
@@ -4999,7 +5444,7 @@ window.CATALOG_REPO = {
    "added": "2026-07-02",
    "updated": "2026-11-03",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>This dashboard turns raw vulnerability findings into a clear, risk-based remediation view. It combines <strong>security coverage</strong> (how much of your estate Dynatrace is watching) with <strong>Risk Probability and Likelihood</strong>, which enriches every vulnerability with runtime and business context so teams can focus on the findings that actually matter.</p>",
+   "overviewHtml": "<p>Long lists of raw vulnerability findings make it hard to decide what to fix first. This dashboard turns them into a risk-based remediation view.</p><p><strong>What you get</strong></p><ul><li>Security coverage showing how much of your estate Dynatrace watches</li><li>Risk Probability and Likelihood for every vulnerability</li><li>Runtime and business context on each finding</li><li>Vulnerable function in use analysis, currently for Java</li></ul>",
    "prereqsHtml": "<ul><li>A Dynatrace (Gen3) environment with <strong>Grail</strong></li><li><strong>Application Security</strong> enabled, with third-party vulnerability detection / Runtime Vulnerability Analytics configured — see <a href=\"https://docs.dynatrace.com/docs/secure/application-security/vulnerability-analytics/third-party-vulnerabilities/define-monitoring-rules-tpv\" target=\"_blank\" rel=\"noopener\">monitoring rules for third-party vulnerabilities</a></li><li>The <strong>Dashboards</strong> app</li><li>Data source: <span class=\"code\">security.events</span> (built-in security events bucket)</li></ul><p><strong>Note:</strong> the &quot;vulnerable function in use&quot; analysis currently covers Java.</p>",
    "setupHtml": "<ol><li>Open the <strong>Dashboards</strong> app in your Dynatrace environment.</li><li>Use <strong>Upload</strong> to import <span class=\"code\">Vulnerability Likelihood and Impact.json</span>.</li><li>The dashboard reads your environment&#x27;s security events live — there are no hard-coded IDs or environment-specific settings, so it works out of the box.</li></ol>",
    "files": [
@@ -5019,7 +5464,170 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a Dynatrace environment with Grail and Application Security enabled.</p><ol><li>Open the Dashboards app</li><li>Upload the dashboard JSON</li><li>Prioritize findings by likelihood and impact</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
+  },
+  {
+   "id": "dtctl",
+   "path": "dtctl",
+   "title": "dtctl: Dynatrace platform CLI",
+   "summary": "Manage Dynatrace workflows, dashboards and DQL queries from the terminal, built for people and AI agents.",
+   "oneLiner": "Manage Dynatrace workflows, dashboards and DQL queries from the terminal, built for people and AI agents.",
+   "type": "cli",
+   "types": [
+    "cli"
+   ],
+   "areas": [
+    "Developer",
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Go",
+    "DQL"
+   ],
+   "tags": [
+    "CLI",
+    "Automation",
+    "Config as code",
+    "AI-operable"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-01-09",
+   "updated": "2026-11-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Anything you do in the Dynatrace UI eventually needs to be repeatable, in CI, in runbooks or across several environments. <span class=\"code\">dtctl</span> follows <span class=\"code\">kubectl</span> conventions, so commands are easy to guess for people and AI agents alike.</p><p><strong>What you get</strong></p><ul><li>Verbs like <span class=\"code\">get</span>, <span class=\"code\">describe</span>, <span class=\"code\">apply</span> and <span class=\"code\">delete</span> for workflows, dashboards, SLOs and more</li><li>DQL query execution with structured output for automation</li><li>Multiple environments with safety levels against accidental changes</li><li>A bundled Agent Skill that teaches AI assistants to operate Dynatrace</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dtctl",
+   "readmeUrl": "https://github.com/Dynatrace/dtctl",
+   "source": {
+    "name": "Dynatrace/dtctl",
+    "repo": "https://github.com/Dynatrace/dtctl"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dtctl/issues",
+   "getStartedHtml": "<p>You need a Dynatrace SaaS environment you can sign in to.</p><ol><li>Install dtctl with Homebrew, a script or PowerShell</li><li>Sign in with OAuth and run the built-in check</li><li>List resources or apply a configuration file</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "dtmgd",
+   "path": "dtmgd",
+   "title": "dtmgd: Dynatrace Managed CLI",
+   "summary": "Query problems, logs, metrics and SLOs across Dynatrace Managed environments from one terminal.",
+   "oneLiner": "Query problems, logs, metrics and SLOs across Dynatrace Managed environments from one terminal.",
+   "type": "cli",
+   "types": [
+    "cli"
+   ],
+   "areas": [
+    "Developer",
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Go",
+    "Dynatrace Managed"
+   ],
+   "tags": [
+    "CLI",
+    "Self-hosted",
+    "Multi-environment",
+    "AI-operable"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-11-09",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Managed environments multiply across production, staging and development, and answering one question means signing in to each in turn.</p><p><strong>What you get</strong></p><ul><li>Terminal access to problems, entities, events, logs, metrics, SLOs and vulnerabilities</li><li>One named context per environment, with queries that fan out across all of them</li><li>Read-only contexts by default, running on your workstation</li><li>The same tool coverage as the Managed MCP server</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/dynatrace-oss/dtmgd",
+   "readmeUrl": "https://github.com/dynatrace-oss/dtmgd",
+   "source": {
+    "name": "dynatrace-oss/dtmgd",
+    "repo": "https://github.com/dynatrace-oss/dtmgd"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/dynatrace-oss/dtmgd/issues",
+   "getStartedHtml": "<p>You need one or more Dynatrace Managed environments and an API token for each.</p><ol><li>Install dtmgd with Homebrew, a script or Go</li><li>Create a context per environment and store its token</li><li>Run the doctor check, then list open problems</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "dtwiz",
+   "path": "dtwiz",
+   "title": "dtwiz: Dynatrace ingest CLI",
+   "summary": "Get telemetry flowing fast: inspects your system and deploys the best-fit OneAgent or OpenTelemetry setup.",
+   "oneLiner": "Get telemetry flowing fast: inspects your system and deploys the best-fit OneAgent or OpenTelemetry setup.",
+   "type": "cli",
+   "types": [
+    "cli"
+   ],
+   "areas": [
+    "Developer",
+    "Infrastructure Observability"
+   ],
+   "tech": [
+    "Go",
+    "OneAgent",
+    "OpenTelemetry"
+   ],
+   "tags": [
+    "CLI",
+    "Onboarding",
+    "Data ingest",
+    "Getting started"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-03-16",
+   "updated": "2026-11-11",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Getting data into Dynatrace is where many people stall, because choosing between OneAgent and an OpenTelemetry Collector takes knowledge you may not have on day one.</p><p><strong>What you get</strong></p><ul><li>Detection of your platform, containers, Kubernetes, existing agents and cloud</li><li>Ranked ingestion recommendations and guided installation</li><li>Support for OneAgent, OpenTelemetry, Kubernetes, AWS, Azure and Google Cloud</li><li>A live watch for newly ingested data</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/dynatrace-oss/dtwiz",
+   "readmeUrl": "https://github.com/dynatrace-oss/dtwiz",
+   "source": {
+    "name": "dynatrace-oss/dtwiz",
+    "repo": "https://github.com/dynatrace-oss/dtwiz"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/dynatrace-oss/dtwiz/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment URL and a platform token.</p><ol><li>Set the environment URL and token as variables</li><li>Run the install script for your operating system</li><li>Run the setup command and follow the recommendation</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "entry"
+   ]
   },
   {
    "id": "dynatrace-apps--audit-logs-viewer",
@@ -5030,7 +5638,7 @@ window.CATALOG_REPO = {
    },
    "title": "Audit Logs Viewer — Dynatrace App",
    "summary": "View, search, and quickly filter audit logs across your Dynatrace environment — both modern platform audit logs (via Grail) and classic API-based audit logs — in a single unified interface.",
-   "oneLiner": "View, search, and quickly filter audit logs across your Dynatrace environment — both modern platform audit logs (via…",
+   "oneLiner": "Search and filter all audit logs, platform and classic API, in one unified view.",
    "type": "app",
    "types": [
     "app"
@@ -5050,7 +5658,7 @@ window.CATALOG_REPO = {
    "added": "2026-08-14",
    "updated": "2026-08-17",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Unified audit log view</strong>: combines Grail-based platform audit logs and legacy environment API audit logs in one place.</li><li><strong>Filter bar</strong>: filter by timeframe, user, event type, category, and more.</li><li><strong>User enrichment</strong>: resolves user IDs to human-readable names and emails via the IAM service.</li></ul>",
+   "overviewHtml": "<p>Audit data is split between Grail-based platform logs and legacy environment API logs. Admins need one place to search both.</p><p><strong>What you get</strong></p><ul><li>Unified view of Grail platform audit logs and legacy API audit logs</li><li>Filter bar for timeframe, user, event type, and category</li><li>User IDs resolved to names and emails via the IAM service</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Audit Logs Viewer is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Audit Logs Viewer</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, open <strong>Hub</strong>, search for <strong>Audit Logs Viewer</strong>, and install it.</li></ol>",
    "files": [],
@@ -5063,7 +5671,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app from Hub</li><li>Open it and filter your audit logs</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--ci-cd-pipeline",
@@ -5074,7 +5688,7 @@ window.CATALOG_REPO = {
    },
    "title": "CI/CD Observability — Dynatrace App",
    "summary": "Unified observability for pipelines, jobs, stages and PRs across multiple CI/CD providers (Azure DevOps, GitHub, GitLab, etc.) inside Dynatrace Platform.",
-   "oneLiner": "Unified observability for pipelines, jobs, stages and PRs across multiple CI/CD providers (Azure DevOps, GitHub…",
+   "oneLiner": "See pipelines, jobs, stages, and PRs from Azure DevOps, GitHub, and GitLab in one Dynatrace app.",
    "type": "app",
    "types": [
     "app"
@@ -5110,7 +5724,7 @@ window.CATALOG_REPO = {
    "added": "2026-02-13",
    "updated": "2026-10-22",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Pipeline view</strong>: status, total time, history, recent runs.</li><li><strong>Stage/Job view</strong>: start/end, duration, outcome, metadata (pipeline, project/repo).</li><li><strong>Filters (Filter Bar)</strong>: timeframe, action name/ID, session, status.</li><li><strong>Pipeline Execution Flamegraph</strong>: hierarchical view of the job execution in that pipeline.</li><li><strong>OpenPipeline Setup</strong>:</li><li>Setup wizard for importing and removing OpenPipeline rules</li><li><strong>Support to Custom CI/CD Providers</strong>:</li><li>Any tool that can send an HTTP request, see Custom Events below</li><li><strong>Supported Technologies</strong>:</li><li><strong>Azure Devops</strong></li><li><strong>Gitlab Pipelines</strong></li><li><strong>Github Actions (Workflows)</strong></li></ul>",
+   "overviewHtml": "<p>CI/CD data is scattered across providers, which makes slow or failing pipelines hard to diagnose. This app unifies them in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Pipeline view with status, total time, history, and recent runs</li><li>Stage and job view with duration, outcome, and metadata</li><li>Pipeline execution flamegraph</li><li>Setup wizard for OpenPipeline rules and custom providers via HTTP events</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>CI/CD Observability is available as a Dynatrace app to all customers upon request. It is delivered via a Hub subscription.</p><ol><li>Email community-apps@dynatrace.com with your <strong>account name</strong> and <strong>tenant ID</strong>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, open the app and navigate to the <strong>Setup</strong> tab to find your target technology. Follow the instructions to <strong>set up the webhooks on the chosen provider</strong>.</li><li>Select <strong>Import Configuration</strong> to import the OpenPipeline rules to your environment. Those rules translate the incoming webhook events into SDLC events (OpenTelemetry standard), which are then consumed by the app.</li></ol><ol><li>Start exploring the data.</li></ol><p><strong>Note:</strong> Filters are only applied after clicking the refresh button to avoid unnecessary queries.</p>",
    "files": [],
@@ -5123,7 +5737,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 59,
     "visitors14d": 59
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app and open its Setup tab</li><li>Configure webhooks on your provider and import the OpenPipeline rules</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--claude-connector",
@@ -5134,7 +5754,7 @@ window.CATALOG_REPO = {
    },
    "title": "Claude Connector for Dynatrace Workflows",
    "summary": "Connect Claude with Dynatrace using this action for Workflows. It allows to define a prompt, execute within Claude and receive and process the result and data within Dynatrace for further analysis.",
-   "oneLiner": "Connect Claude with Dynatrace using this action for Workflows.",
+   "oneLiner": "Run Claude prompts from Dynatrace Workflows and analyze the responses with your observability data.",
    "type": "app",
    "types": [
     "app"
@@ -5172,7 +5792,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Connect:</strong> manage connections to Claude with support for different models (using API key)</li><li><strong>Execute prompt:</strong> define and execute the prompt defined in the workflow action</li><li><strong>Handle response:</strong> store and analyze response</li></ul><p><em>Dynatrace workflow with Claude action</em></p><p><em>Illustrative example querying for log data and asking Claude for further error analysis.</em></p>",
+   "overviewHtml": "<p>Teams want AI analysis inside their automations without leaving Dynatrace. This connector brings Claude into Workflows as an action.</p><p><strong>What you get</strong></p><ul><li>Managed connections to Claude with support for different models, using an API key</li><li>Prompt defined and executed directly in the workflow action</li><li>Response stored and analyzed in Dynatrace</li><li>Example workflow that queries logs and asks Claude for error analysis</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Claude Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Claude Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, search for <em>Claude</em> in Workflows to find it as a new action.</li></ol>",
    "files": [],
@@ -5185,7 +5805,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app from Hub</li><li>Add the Claude action to a workflow and create a connection</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--cloud-sre-agents",
@@ -5196,15 +5822,14 @@ window.CATALOG_REPO = {
    },
    "title": "Cloud SRE Agents",
    "summary": "When Dynatrace Intelligence detects a problem, Cloud SRE Agents calls in the cloud-native specialists — AWS DevOps Agent, Azure SRE Agent, Google Gemini Cloud Assist — to pull the deeper evidence only they can reach: CloudTrail history, Azure subscription policy, GCP project IAM, recent deployments, native runbooks. They run in parallel the moment the problem fires; their findings (and, for AWS and Azure, a suggested remediation) land on the same problem screen the on-call SRE is already reading.",
-   "oneLiner": "When Dynatrace Intelligence detects a problem, Cloud SRE Agents calls in the cloud-native specialists — AWS DevOps…",
+   "oneLiner": "Bring AWS, Azure, and Google cloud agent findings onto the Dynatrace problem screen automatically.",
    "type": "app",
    "types": [
     "app"
    ],
    "areas": [
     "Agentic Operations",
-    "Developer",
-    "Administration & Governance"
+    "Infrastructure Observability"
    ],
    "tech": [
     "AWS",
@@ -5218,7 +5843,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "",
+   "overviewHtml": "<p>When a problem fires, the deeper cloud evidence sits in provider tools the on-call SRE has to check separately. This app collects it for you.</p><p><strong>What you get</strong></p><ul><li>AWS DevOps Agent, Azure SRE Agent, and Gemini Cloud Assist called in parallel on each problem</li><li>Evidence such as CloudTrail history, Azure policy, GCP IAM, and recent deployments</li><li>Suggested remediation for AWS and Azure</li><li>Findings shown on the problem screen the SRE already reads</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Cloud SRE Agents is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Cloud SRE Agents</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li></ol>",
    "files": [],
@@ -5231,7 +5856,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 58,
     "visitors14d": 58
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app once you receive the instructions</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--gemini-connector",
@@ -5242,7 +5874,7 @@ window.CATALOG_REPO = {
    },
    "title": "Gemini Connector for Dynatrace Workflows",
    "summary": "Connect Google Gemini with Dynatrace using this action for Workflows. It allows to define a prompt, execute within Gemini and receive and process the result and data within Dynatrace for further analysis.",
-   "oneLiner": "Connect Google Gemini with Dynatrace using this action for Workflows.",
+   "oneLiner": "Run Gemini prompts from Dynatrace Workflows and analyze the responses with your observability data.",
    "type": "app",
    "types": [
     "app"
@@ -5280,7 +5912,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Connect:</strong> manage connections to Gemini with support for different models (using API key)</li><li><strong>Execute prompt:</strong> define and execute the prompt defined in the workflow action</li><li><strong>Handle response:</strong> store and analyze response</li></ul><p><em>Dynatrace workflow with Gemini action</em></p><p><em>Illustrative example querying for log data and asking Gemini for further error analysis.</em></p>",
+   "overviewHtml": "<p>Teams want AI analysis inside their automations without leaving Dynatrace. This connector brings Gemini into Workflows as an action.</p><p><strong>What you get</strong></p><ul><li>Managed connections to Gemini with support for different models, using an API key</li><li>Prompt defined and executed directly in the workflow action</li><li>Response stored and analyzed in Dynatrace</li><li>Example workflow that queries logs and asks Gemini for error analysis</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Gemini Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Gemini Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, search for <em>Gemini</em> in Workflows to find it as a new action.</li></ol>",
    "files": [],
@@ -5293,7 +5925,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app from Hub</li><li>Add the Gemini action to a workflow and create a connection</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--gremlin-reliability-management",
@@ -5304,7 +5942,7 @@ window.CATALOG_REPO = {
    },
    "title": "Gremlin Reliability Management",
    "summary": "Gremlin runs the failure tests, maps the dependencies, and scores every service for reliability. Gremlin Reliability Management brings that data directly into Dynatrace, next to the metrics and services you're already watching, so you can see what's resilient and where the risk is without switching tools.",
-   "oneLiner": "Gremlin runs the failure tests, maps the dependencies, and scores every service for reliability.",
+   "oneLiner": "See Gremlin reliability scores and risks next to your services without switching tools.",
    "type": "app",
    "types": [
     "app"
@@ -5321,7 +5959,7 @@ window.CATALOG_REPO = {
    "added": "2026-07-24",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "",
+   "overviewHtml": "<p>Reliability test results usually live in a separate tool from your monitoring data. This app brings Gremlin&#x27;s data into Dynatrace, so you see what is resilient and where the risk is.</p><p><strong>What you get</strong></p><ul><li>Gremlin failure test results</li><li>Mapped service dependencies</li><li>Reliability score for every service</li><li>Resilience and risk shown next to the metrics and services you already watch</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Gremlin Reliability Management is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Gremlin Reliability Management</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li></ol>",
    "files": [],
@@ -5334,7 +5972,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app once you receive the instructions</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--linear-connector",
@@ -5345,7 +5989,7 @@ window.CATALOG_REPO = {
    },
    "title": "Linear Connector for Dynatrace Workflows",
    "summary": "Connect Linear with Dynatrace using this Workflow Connector app. It syncs Dynatrace problems to Linear issues and keeps comments in sync between both platforms — so your engineering team can track incidents in Linear without leaving their workflow.",
-   "oneLiner": "Connect Linear with Dynatrace using this Workflow Connector app.",
+   "oneLiner": "Sync Dynatrace problems and comments with Linear issues so engineers stay in their workflow.",
    "type": "app",
    "types": [
     "app"
@@ -5379,7 +6023,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-28",
    "updated": "2026-09-28",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Sync problems:</strong> automatically create or update a Linear issue whenever a Dynatrace problem fires</li><li><strong>Sync comments (Dynatrace → Linear):</strong> push new Dynatrace problem comments to their corresponding Linear issue</li><li><strong>Sync comments (Linear → Dynatrace):</strong> pull new Linear issue comments back into the Dynatrace problem</li><li><strong>Loop prevention:</strong> tagged comments and hidden markers prevent the same comment from bouncing back and forth</li><li><strong>Multiple connections:</strong> manage one connection per Linear team from the app&#x27;s Home page</li></ul><p>The app provides three Automation Workflow actions:</p>",
+   "overviewHtml": "<p>Engineers who track work in Linear should not have to watch Dynatrace for incidents. This connector keeps both sides in sync.</p><p><strong>What you get</strong></p><ul><li>Linear issue created or updated whenever a Dynatrace problem fires</li><li>Two-way comment sync between Dynatrace and Linear</li><li>Loop prevention with tagged comments and hidden markers</li><li>One connection per Linear team, managed from the app</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>Linear Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Linear Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, open the app from the Dynatrace App Launcher to manage connections and import workflow templates.</li></ol>",
    "files": [],
@@ -5392,7 +6036,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app and create a connection per Linear team</li><li>Import the workflow templates</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "dynatrace-apps--openai-connector",
@@ -5403,7 +6053,7 @@ window.CATALOG_REPO = {
    },
    "title": "OpenAI Connector for Dynatrace Workflows",
    "summary": "Connect OpenAI with Dynatrace using this action for Workflows. It allows to define a prompt, execute within OpenAI and receive and process the result and data within Dynatrace for further analysis.",
-   "oneLiner": "Connect OpenAI with Dynatrace using this action for Workflows.",
+   "oneLiner": "Run OpenAI prompts from Dynatrace Workflows and analyze the responses with your observability data.",
    "type": "app",
    "types": [
     "app"
@@ -5441,7 +6091,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-08-13",
    "hasFrontMatter": false,
-   "overviewHtml": "<ul><li><strong>Connect:</strong> manage connections to OpenAI with support for different models (using API key)</li><li><strong>Execute prompt:</strong> define and execute the prompt defined in the workflow action</li><li><strong>Handle response:</strong> store and analyze response</li></ul><p><em>Dynatrace workflow with OpenAI action</em></p><p><em>Illustrative example querying for log data and asking OpenAI for further error analysis.</em></p>",
+   "overviewHtml": "<p>Teams want AI analysis inside their automations without leaving Dynatrace. This connector brings OpenAI into Workflows as an action.</p><p><strong>What you get</strong></p><ul><li>Managed connections to OpenAI with support for different models, using an API key</li><li>Prompt defined and executed directly in the workflow action</li><li>Response stored and analyzed in Dynatrace</li><li>Example workflow that queries logs and asks OpenAI for error analysis</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p><em>OpenAI Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>OpenAI Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, search for <em>OpenAI</em> in Workflows to find it as a new action.</li></ol>",
    "files": [],
@@ -5454,7 +6104,118 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app from Hub</li><li>Add the OpenAI action to a workflow and create a connection</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
+  },
+  {
+   "id": "dynatrace-for-ai",
+   "path": "dynatrace-for-ai",
+   "title": "Dynatrace for AI: agent skills, plugins and prompts",
+   "summary": "Give AI coding agents the Dynatrace knowledge to write correct DQL and investigate production issues.",
+   "oneLiner": "Give AI coding agents the Dynatrace knowledge to write correct DQL and investigate production issues.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations",
+    "Developer"
+   ],
+   "tech": [
+    "Agent Skills",
+    "MCP",
+    "dtctl"
+   ],
+   "tags": [
+    "Agent Skills",
+    "Prompts",
+    "Plugin"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-03-31",
+   "updated": "2026-11-09",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>An agent with access to Dynatrace still does not know how DQL behaves or how to structure an investigation, so it writes broken queries and wastes tokens.</p><p><strong>What you get</strong></p><ul><li>Skills in the open Agent Skills format for DQL, services, logs, problems and Kubernetes</li><li>Plugins for Claude Code, Cursor, Google Antigravity and Devin</li><li>Reusable prompts for health checks and incident response</li><li>Compatibility with GitHub Copilot, OpenCode and other agents</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>Skills carry knowledge only, so pair them with dtctl or the Dynatrace MCP server for live data.</p><ol><li>Install the plugin or skills package for your agent</li><li>Set your environment URL and platform token</li><li>Ask the agent to investigate a service</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "dynatrace-managed-mcp",
+   "path": "dynatrace-managed-mcp",
+   "title": "Dynatrace Managed MCP server",
+   "summary": "Let AI assistants query problems, logs, metrics and SLOs across self-hosted Dynatrace Managed environments.",
+   "oneLiner": "Let AI assistants query problems, logs, metrics and SLOs across self-hosted Dynatrace Managed environments.",
+   "type": "cli",
+   "types": [
+    "cli"
+   ],
+   "areas": [
+    "Agentic Operations",
+    "Developer"
+   ],
+   "tech": [
+    "TypeScript",
+    "MCP",
+    "Dynatrace Managed"
+   ],
+   "tags": [
+    "MCP",
+    "Self-hosted",
+    "Multi-environment",
+    "Historical data"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2025-10-27",
+   "updated": "2026-11-02",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>The Dynatrace MCP server targets SaaS, so teams on Dynatrace Managed, or with historical data left behind after a migration, cannot use AI-assisted investigation.</p><p><strong>What you get</strong></p><ul><li>Problems, security problems, entities, SLOs, events, logs and metrics as MCP tools</li><li>Queries across one or many Managed environments from one server</li><li>Local (stdio) and remote (HTTP/SSE) modes</li><li>Support for assistants such as VS Code, Claude, Cursor, Kiro and GitHub Copilot</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/dynatrace-oss/dynatrace-managed-mcp",
+   "readmeUrl": "https://github.com/dynatrace-oss/dynatrace-managed-mcp",
+   "source": {
+    "name": "dynatrace-oss/dynatrace-managed-mcp",
+    "repo": "https://github.com/dynatrace-oss/dynatrace-managed-mcp"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/dynatrace-oss/dynatrace-managed-mcp/issues",
+   "getStartedHtml": "<p>You need one or more Dynatrace Managed deployments and an API token with read scopes.</p><ol><li>Create the API token</li><li>List your environments in a configuration file</li><li>Add the server to your assistant&#x27;s MCP configuration</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "entry"
+   ]
   },
   {
    "id": "observability-blueprints--ci-cd-pipeline",
@@ -5465,7 +6226,7 @@ window.CATALOG_REPO = {
    },
    "title": "CI/CD Pipeline Observability Blueprint",
    "summary": "This blueprint provides end-to-end observability for your CI/CD pipelines — from build and test execution to artifact promotion and deployment — built with Dynatrace Dashboards, Workflows, and OpenTelemetry integrations.",
-   "oneLiner": "This blueprint provides end-to-end observability for your CI/CD pipelines — from build and test execution to artifact…",
+   "oneLiner": "Get end-to-end visibility from build to deployment, and find slow or flaky pipeline stages.",
    "type": "blueprint",
    "types": [
     "blueprint"
@@ -5515,7 +6276,7 @@ window.CATALOG_REPO = {
    "added": "2026-06-19",
    "updated": "2026-06-19",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>CI/CD pipelines can feel like black boxes. This blueprint helps you answer the questions that matter most:</p><ul><li><strong>Where is my pipeline right now, and why is it slow or unstable?</strong></li><li><strong>Which tests are flaky and delaying releases?</strong></li><li><strong>How fast can artifacts reach production?</strong></li><li><strong>Which phase is slowing down my delivery?</strong></li></ul><p>By combining distributed tracing, metrics, and SDLC event ingestion, this blueprint gives teams real-time visibility across every stage of the software delivery lifecycle.</p>",
+   "overviewHtml": "<p>CI/CD pipelines often behave like black boxes: slow, unstable, with flaky tests. This blueprint combines tracing, metrics, and SDLC events to show what is happening.</p><p><strong>What you get</strong></p><ul><li>Real-time view of where a pipeline is and why it is slow</li><li>Dashboards for Azure Pipelines and GitLab build performance</li><li>Workflows that pull pipeline details into SDLC events</li><li>OpenTelemetry collector configs for instrumentation</li></ul>",
    "prereqsHtml": "",
    "setupHtml": "<p>This blueprint supports three instrumentation approaches. Choose the one that fits your setup:</p>",
    "files": [
@@ -5598,7 +6359,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<ol><li>Choose the instrumentation approach that fits your CI/CD setup</li><li>Import the dashboards and workflows into Dynatrace</li><li>Configure the collector or pipeline integration</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "observability-blueprints--dynatrace-on-rafay-kubernetes",
@@ -5609,7 +6376,7 @@ window.CATALOG_REPO = {
    },
    "title": "Dynatrace on Rafay-managed Kubernetes",
    "summary": "Deploy Dynatrace Operator, DynaKube, and monitoring tokens as a Rafay golden cluster blueprint, so every cluster in a fleet is observable from the moment it is provisioned.",
-   "oneLiner": "Deploy Dynatrace Operator, DynaKube, and monitoring tokens as a Rafay golden cluster blueprint, so every cluster in a…",
+   "oneLiner": "Make every Rafay-managed cluster observable from provisioning by shipping Dynatrace in the golden blueprint.",
    "type": "blueprint",
    "types": [
     "blueprint"
@@ -5677,7 +6444,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-05",
    "updated": "2026-10-05",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Platform teams running fleets of Kubernetes clusters on the <a href=\"https://rafay.co\" target=\"_blank\" rel=\"noopener\">Rafay Platform</a> usually instrument clusters one at a time, which leaves gaps and drift. This blueprint packages Dynatrace as three versioned Rafay add-ons inside a Golden Blueprint, so observability becomes part of the platform baseline every cluster inherits rather than a day-2 task.</p><p>One blueprint serves the whole fleet. Cluster identity is injected through Rafay cluster variables at sync time, so only two things vary per environment: the tokens in <span class=\"code\">tokens-secret.yaml</span> and a <span class=\"code\">dtEnvId</span> cluster label. Operator upgrades and configuration changes become new blueprint versions that can be published progressively and rolled back per cluster.</p><p>Coverage delivered in a single sync: Kubernetes platform monitoring, application observability, log monitoring, OTLP telemetry ingest, and Kubernetes Security Posture Management (KSPM).</p>",
+   "overviewHtml": "<p>Platform teams running Kubernetes fleets on Rafay often instrument clusters one at a time, leaving gaps and drift. This blueprint makes observability part of the baseline.</p><p><strong>What you get</strong></p><ul><li>Dynatrace Operator, DynaKube, and tokens as three versioned Rafay add-ons</li><li>One blueprint for the whole fleet, with cluster identity injected at sync time</li><li>Kubernetes monitoring, application and log monitoring, OTLP ingest, and KSPM</li><li>Upgrades published progressively and rolled back per cluster</li></ul>",
    "prereqsHtml": "<ul><li><strong>Dynatrace environment</strong> — SaaS environment ID (for example <span class=\"code\">abc12345</span>), used to build <span class=\"code\">spec.apiUrl</span>.</li><li><strong>Access tokens</strong> — an operator token and a data-ingest token. Use the <span class=\"code\">Kubernetes: Dynatrace Operator</span> and <span class=\"code\">Kubernetes: Data Ingest</span> templates so the required scopes are applied. See <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/tokens-permissions\" target=\"_blank\" rel=\"noopener\">Access tokens and permissions</a>.</li><li><strong>Rafay permissions</strong> — a project in which you can manage Repositories, Add-Ons, Blueprints, and Clusters. Screenshots were taken on Rafay Controller v3.1.</li><li><strong>Clusters</strong> — one or more clusters imported into or provisioned by Rafay, on a <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/supported-technologies\" target=\"_blank\" rel=\"noopener\">supported distribution</a>.</li><li><strong>Connectivity</strong> — outbound access from cluster nodes to the Dynatrace environment and to the chart and image registries in use.</li></ul><p>[!NOTE] Every chart, image, and API version referenced here is an example that was current when the screenshots were taken. Check the <a href=\"https://docs.dynatrace.com/docs/whats-new/dynatrace-operator\" target=\"_blank\" rel=\"noopener\">Dynatrace Operator release notes</a> for the current release before adopting.</p>",
    "setupHtml": "<p>First, choose how to source Dynatrace Operator — App Catalog or custom Helm repository</p><p>Rafay can source the operator from its own curated App Catalog or from a Helm repository you register yourself.</p><p><strong>App Catalog</strong> is the fast path: search the catalog for <em>Dynatrace</em>, open <span class=\"code\">dynatrace-operator</span> from the <span class=\"code\">default-helm</span> catalog, and choose <strong>Create Add-On</strong>. Catalog indexing lags upstream chart releases, so the newest operator version may not be selectable, and air-gapped environments cannot reach the catalog endpoint at all.</p><p><strong>Custom Helm repository</strong> is the recommended option for production and is what the steps below use. It pins the exact chart version, keeps the values file under your control, and is reproducible through the Rafay RCTL CLI or a GitOps pipeline.</p><p>If you use the App Catalog instead, skip steps 1 and 2 and continue from step 3.</p>",
    "files": [
@@ -5711,7 +6478,318 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a Dynatrace environment, access tokens, and a Rafay project with clusters.</p><ol><li>Create the Dynatrace add-ons in Rafay</li><li>Add them to a golden blueprint</li><li>Apply the blueprint to your clusters</li></ol><p>Full setup instructions are in the README.</p>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
+  },
+  {
+   "id": "prompt-dt-daily-standup",
+   "path": "prompt-dt-daily-standup",
+   "title": "Prompt: Daily standup report",
+   "summary": "Prepare a daily standup report for your services: health, metrics, incidents and deployments in one summary.",
+   "oneLiner": "Prepare a daily standup report for your services: health, metrics, incidents and deployments in one summary.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Standup",
+    "Reporting"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Standup prep means opening several screens each morning and summarizing them by hand. This prompt runs that pass for you, so the team hears what changed and what broke before the meeting starts.</p><p><strong>What you get</strong></p><ul><li>Health status per service: healthy, degraded or critical</li><li>Response time, error and throughput comparison, today against yesterday</li><li>Incidents and problems from the last 24 hours</li><li>Recent deployments and action items as shareable bullets</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-daily-standup.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-daily-standup.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Name the services to include, or let it infer them</li><li>Share the generated bullets with your team</li></ol>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "prompt-dt-health-check",
+   "path": "prompt-dt-health-check",
+   "title": "Prompt: Service health check",
+   "summary": "Check whether a production service is healthy, with metrics, problems, deployments and vulnerabilities in one pass.",
+   "oneLiner": "Check whether a production service is healthy, with metrics, problems, deployments and vulnerabilities in one pass.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Health check",
+    "Triage"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>&quot;Is this service healthy?&quot; is asked often and answered differently each time. This prompt makes the check repeatable, so every review covers the same signals and ends with a clear verdict.</p><p><strong>What you get</strong></p><ul><li>Current response time, errors and throughput</li><li>Active problems and alerts</li><li>Recent deployments and their impact</li><li>The five slowest endpoints and any security vulnerabilities</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-health-check.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-health-check.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Name the service, or let it infer it from your workspace</li><li>Review the summary and follow up on flagged issues</li></ol>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "prompt-dt-incident-response",
+   "path": "prompt-dt-incident-response",
+   "title": "Prompt: Incident response",
+   "summary": "Work an active production incident end to end, from Davis Problems to a shareable incident report.",
+   "oneLiner": "Work an active production incident end to end, from Davis Problems to a shareable incident report.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Incident response",
+    "Root cause",
+    "On-call"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>During an incident the hard part is staying methodical under pressure. This prompt keeps the sequence consistent, from triage to root cause, and leaves a write-up behind that you can share.</p><p><strong>What you get</strong></p><ul><li>All active Davis Problems checked in one sweep</li><li>Root cause explained in plain English</li><li>User impact, error logs and distributed traces per critical problem</li><li>Mitigation suggestions, business-impact priority and an incident report</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-incident-response.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-incident-response.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Run it when an incident is active</li><li>Share the generated report with responders</li></ol>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "prompt-dt-investigate-error",
+   "path": "prompt-dt-investigate-error",
+   "title": "Prompt: Investigate errors",
+   "summary": "Investigate service errors starting from Davis Problems, then drill into the related logs and traces.",
+   "oneLiner": "Investigate service errors starting from Davis Problems, then drill into the related logs and traces.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Errors",
+    "Davis problems",
+    "Logs",
+    "Traces"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Starting from raw error logs means sifting through noise, while problems are already correlated. This prompt begins with Davis Problems and follows the trail into logs and traces.</p><p><strong>What you get</strong></p><ul><li>Relevant Davis Problems with their timeframe and affected entities</li><li>ERROR logs scoped to that context and grouped by message</li><li>Example log entries and related traces for the top three errors</li><li>Suggested root cause and remediation steps</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-investigate-error.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-investigate-error.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Give it a service or timeframe, or let it infer the service</li><li>Review the root cause and remediation steps</li></ol>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "prompt-dt-performance-regression",
+   "path": "prompt-dt-performance-regression",
+   "title": "Prompt: Performance regression check",
+   "summary": "Find out whether a recent deployment slowed a service by comparing metrics before and after the release.",
+   "oneLiner": "Find out whether a recent deployment slowed a service by comparing metrics before and after the release.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Regression",
+    "Deployment",
+    "Release validation"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>&quot;Did my deploy make it slower?&quot; often gets answered by looking at a chart. This prompt runs a proper before and after comparison and stops early when nothing regressed.</p><p><strong>What you get</strong></p><ul><li>An investigation window anchored on the latest deployment event</li><li>Before and after comparison of P95 response time, error rate and throughput</li><li>Regression thresholds that decide whether to dig deeper</li><li>Trace investigation and a rollback or hotfix recommendation</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-performance-regression.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-performance-regression.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Confirm the service and when the regression began</li><li>Review the comparison and the recommendation</li></ol>",
+   "curated": [
+    "entry"
+   ]
+  },
+  {
+   "id": "prompt-dt-troubleshoot-problem",
+   "path": "prompt-dt-troubleshoot-problem",
+   "title": "Prompt: Troubleshoot a problem",
+   "summary": "Troubleshoot an existing Dynatrace problem with a structured log and trace investigation.",
+   "oneLiner": "Troubleshoot an existing Dynatrace problem with a structured log and trace investigation.",
+   "type": "agentic",
+   "types": [
+    "agentic"
+   ],
+   "areas": [
+    "Agentic Operations"
+   ],
+   "tech": [
+    "Agent Skills",
+    "Prompts"
+   ],
+   "tags": [
+    "Prompt",
+    "Troubleshooting",
+    "Logs",
+    "Traces"
+   ],
+   "capabilities": [],
+   "images": [],
+   "added": "2026-04-10",
+   "updated": "2026-04-10",
+   "hasFrontMatter": true,
+   "overviewHtml": "<p>Two engineers investigating the same problem rarely take the same path. This prompt fixes the method, always starting from the problem, so results are reproducible and queries stay scoped.</p><p><strong>What you get</strong></p><ul><li>Active problems listed in a table, or a pre-filled problem recognized</li><li>Log queries scoped to the problem timeframe</li><li>Classification of actionable errors</li><li>A handoff to trace investigation</li></ul>",
+   "prereqsHtml": "",
+   "setupHtml": "",
+   "files": [],
+   "nextStep": {
+    "kind": "github"
+   },
+   "url": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-troubleshoot-problem.prompt.md",
+   "readmeUrl": "https://github.com/Dynatrace/dynatrace-for-ai/blob/main/prompts/dt-troubleshoot-problem.prompt.md",
+   "source": {
+    "name": "Dynatrace/dynatrace-for-ai",
+    "repo": "https://github.com/Dynatrace/dynatrace-for-ai"
+   },
+   "popularity": {
+    "score": 0,
+    "visitors14d": 0
+   },
+   "issuesUrl": "https://github.com/Dynatrace/dynatrace-for-ai/issues",
+   "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Describe the problem, or pick one from the list</li><li>Follow the investigation through logs and traces</li></ol>",
+   "curated": [
+    "entry"
+   ]
   },
   {
    "id": "workflows--ai-units-quota-workflow",
@@ -5722,7 +6800,7 @@ window.CATALOG_REPO = {
    },
    "title": "AI Units Quota Workflow",
    "summary": "A Dynatrace Automation workflow that monitors per-user AI Units consumption and enforces daily quotas by restricting access to AI-powered features when a threshold is exceeded.",
-   "oneLiner": "A Dynatrace Automation workflow that monitors per-user AI Units consumption and enforces daily quotas by restricting…",
+   "oneLiner": "Keep AI Units spending in check: enforces daily per-user quotas on AI-powered features.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -5738,7 +6816,7 @@ window.CATALOG_REPO = {
    "added": "2026-09-29",
    "updated": "2026-09-30",
    "hasFrontMatter": false,
-   "overviewHtml": "<p>A Dynatrace Automation workflow that monitors per-user AI Units consumption and enforces daily quotas by restricting access to AI-powered features when a threshold is exceeded.</p><p>This blueprint is adapted from the <a href=\"https://github.com/Dynatrace/community-examples/tree/main/cost-intelligence-blueprints/set-quotas-with-workflow\" target=\"_blank\" rel=\"noopener\">Log Query Quota Workflow</a> in the Dynatrace Community Examples repository.</p>",
+   "overviewHtml": "<p>AI-powered features consume AI Units, and a few heavy users can use up a shared budget before anyone notices. Teams need a way to cap consumption per person.</p><p><strong>What you get</strong></p><ul><li>Monitoring of per-user AI Units consumption from billing events in Grail</li><li>Daily quota check against a threshold you define</li><li>Automatic restriction of access to AI-powered features when the threshold is exceeded</li><li>Email notification and business events for each enforcement</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace platform with Account Management permissions</li><li><span class=\"code\">storage:events:write</span> permission for the workflow actor (to ingest business events)</li><li>Email connector enabled in your Dynatrace environment</li><li>Billing events data available in Grail (<span class=\"code\">dt.system.events</span>)</li></ul>",
    "setupHtml": "",
    "files": [
@@ -5758,7 +6836,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 63,
     "visitors14d": 63
-   }
+   },
+   "getStartedHtml": "<p>You need a Dynatrace environment with Account Management permissions and the Email connector.</p><ol><li>Upload the workflow in Dynatrace Workflows</li><li>Set your daily quota threshold and notification recipients</li><li>Grant the workflow actor permission to write business events</li><li>Activate the trigger</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--alienvault-threat-intelligence",
@@ -5769,7 +6853,7 @@ window.CATALOG_REPO = {
    },
    "title": "AlienVault Threat Intelligence Analysis",
    "summary": "Check whether the threats in your AlienVault OTX feed show up in your environment.",
-   "oneLiner": "Check whether the threats in your AlienVault OTX feed show up in your environment.",
+   "oneLiner": "Check whether the threats in your AlienVault OTX feed show up in your own environment.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -5795,7 +6879,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>This parent workflow gets the threat pulses you subscribe to in <a href=\"https://otx.alienvault.com/\" target=\"_blank\" rel=\"noopener\">AlienVault OTX</a>. It passes each pulse, with its indicators of compromise, to a sub-workflow of your choice, which checks your Dynatrace data for those indicators to assess your exposure.</p>",
+   "overviewHtml": "<p>Threat feeds list indicators of compromise, but security teams still have to check by hand whether any of them touch their systems.</p><p><strong>What you get</strong></p><ul><li>A parent workflow that fetches the threat pulses you subscribe to in AlienVault OTX</li><li>Each pulse, with its indicators of compromise, passed to a sub-workflow you choose</li><li>A way to assess exposure by searching your Dynatrace data for those indicators</li><li>Manual or scheduled runs</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>An AlienVault OTX account and API key</li><li><span class=\"code\">otx.alienvault.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>A sub-workflow that analyzes one pulse, for example by searching logs and network data in Grail for its indicators. <strong>It isn&#x27;t included here.</strong></li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">alienvault-pulses-analysis.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In <span class=\"code\">get-alienvault-pulses</span>, add your AlienVault API key, for example as an <span class=\"code\">X-OTX-API-KEY</span> header from the credential vault.</li><li>In <span class=\"code\">analyze-alert</span>, select the sub-workflow that processes each pulse.</li><li>Run it manually, or add a schedule trigger.</li></ol>",
    "files": [
@@ -5815,7 +6899,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, an AlienVault OTX API key and a sub-workflow that analyzes one pulse.</p><ol><li>Upload the workflow template in Workflows</li><li>Add your AlienVault API key</li><li>Select the sub-workflow that analyzes each pulse</li><li>Run it manually or add a schedule</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--aws-s3-store-bizevents",
@@ -5826,7 +6916,7 @@ window.CATALOG_REPO = {
    },
    "title": "Store Business Events in an AWS S3 Bucket",
    "summary": "A minimal, self-contained example of the AWS for Workflows S3 actions: copy the latest business event into an S3 bucket.",
-   "oneLiner": "A minimal, self-contained example of the AWS for Workflows S3 actions: copy the latest business event into an S3 bucket.",
+   "oneLiner": "Learn the AWS for Workflows S3 actions by copying the latest business event into a bucket.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -5855,7 +6945,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>The workflow uses <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/aws\" target=\"_blank\" rel=\"noopener\">AWS for Workflows</a> and runs on demand:</p><ol><li><strong>S3 list buckets:</strong> lists the buckets in <span class=\"code\">eu-central-1</span>.</li><li><strong>S3 create bucket:</strong> creates <span class=\"code\">dynatrace-bizevents</span> in <span class=\"code\">eu-central-1</span> if it doesn&#x27;t exist yet.</li><li><strong>Fetch BizEvent:</strong> gets the most recent business event with DQL. The result is empty if there were no business events in the last 30 days.</li><li><strong>S3 put object:</strong> stores the event in the bucket, with the current timestamp as the key.</li></ol><p>A CloudFormation template creates the AWS side for you.</p>",
+   "overviewHtml": "<p>Teams that want to archive Dynatrace data in AWS need a working example of the S3 actions before building their own workflow.</p><p><strong>What you get</strong></p><ul><li>Listing of S3 buckets and creation of a <span class=\"code\">dynatrace-bizevents</span> bucket if missing</li><li>A DQL task that fetches the most recent business event</li><li>An S3 put object task that stores the event with a timestamp key</li><li>A CloudFormation template that creates the AWS role and identity provider</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the AWS for Workflows app</li><li>An AWS account and the <a href=\"https://aws.amazon.com/cli/\" target=\"_blank\" rel=\"noopener\">AWS CLI</a>, with permission to create IAM resources</li><li>Business events in Grail</li></ul>",
    "setupHtml": "<ol><li><strong>Create the AWS resources</strong> with <span class=\"code\">cloudformation-store-bizevents-in-s3-bucket.json</span>. This is step 2 of the <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/aws/aws-workflows-setup\" target=\"_blank\" rel=\"noopener\">AWS for Workflows setup</a>. The template creates:</li></ol><ul><li>an IAM identity provider that trusts identities issued by <span class=\"code\">https://token.dynatrace.com</span>;</li><li>an IAM role that trusts this provider, with inline policies for <span class=\"code\">account:ListRegions</span>, <span class=\"code\">s3:PutObject</span>, <span class=\"code\">s3:ListAllMyBuckets</span> and <span class=\"code\">s3:CreateBucket</span>.</li></ul><p>Replace <span class=\"code\">[TENANT-ID]</span> and run:</p><pre class=\"codeblock\">   aws cloudformation create-stack --stack-name dynatrace-s3-workflow-example --template-url https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/aws-s3-store-bizevents/cloudformation-store-bizevents-in-s3-bucket.json --parameters ParameterKey=TenantUrl,ParameterValue=[TENANT-ID].apps.dynatrace.com ParameterKey=ConnectionName,ParameterValue=S3-Example --capabilities CAPABILITY_IAM</pre><p>CloudFormation&#x27;s <span class=\"code\">--template-url</span> normally expects an S3 URL. If AWS rejects the GitHub URL, download the file and use <span class=\"code\">--template-body file://cloudformation-store-bizevents-in-s3-bucket.json</span> instead.</p><ol><li><strong>Create the connection in Dynatrace</strong> (step 3 of the setup). Name it <span class=\"code\">S3-Example</span> and use the ARN of the new role. Get the ARN with:</li></ol><pre class=\"codeblock\">   aws iam list-roles --query &#x27;Roles[?starts_with(RoleName, `DynatraceS3WorkflowExample`)].Arn&#x27;</pre><ol><li><strong>Import and run the workflow.</strong> Upload <span class=\"code\">store-bizevent-in-s3-bucket.workflow-template.yaml</span> in <strong>Workflows</strong>, select the <span class=\"code\">S3-Example</span> connection in the three S3 tasks, and choose <strong>Run</strong>.</li></ol>",
    "files": [
@@ -5882,7 +6972,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows with the AWS for Workflows app and an AWS account.</p><ol><li>Create the AWS resources with the CloudFormation template</li><li>Create the connection in Dynatrace using the new role</li><li>Upload the workflow, select the connection and run it</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--azure-security-incident-response",
@@ -5893,7 +6989,7 @@ window.CATALOG_REPO = {
    },
    "title": "Azure Security Incident Response",
    "summary": "Isolate a compromised Azure VM within minutes of a Microsoft Sentinel alert, and preserve its disks for forensic analysis.",
-   "oneLiner": "Isolate a compromised Azure VM within minutes of a Microsoft Sentinel alert, and preserve its disks for forensic…",
+   "oneLiner": "Isolate a compromised Azure VM within minutes of a Microsoft Sentinel alert and preserve its disks.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -5921,7 +7017,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>When Microsoft Sentinel reports an intrusion or suspicious activity on a VM, the parent workflow gets the VM details and runs three sub-workflows:</p><ul><li><strong>Isolate Vulnerable VM</strong> locks down the VM:</li><li>adds resource locks (<span class=\"code\">SEC-INVEST-DONOTDELETE</span>, <span class=\"code\">SEC-INVEST-DONOTMODIFY</span>);</li><li>disables managed identities;</li><li>blocks anonymous blob access;</li><li>attaches an isolation network security group that blocks all inbound and outbound traffic except from an allow-list.</li><li><strong>Incident RG + Networking</strong> creates a separate investigation resource group with a virtual network, subnet, public IP and network interface.</li><li><strong>Snapshot, Disks, and VM</strong> snapshots the OS and data disks, creates disks from those snapshots, and deploys an investigation VM with the copies attached.</li></ul><p>The compromised VM is cut off from the network immediately, and its state is preserved without risk of tampering. The steps follow established Azure response procedures.</p>",
+   "overviewHtml": "<p>When Sentinel reports an intrusion on a VM, every minute of delay gives an attacker more room, and manual isolation risks losing forensic evidence.</p><p><strong>What you get</strong></p><ul><li>Resource locks, disabled managed identities and blocked anonymous blob access on the VM</li><li>An isolation network security group that blocks all traffic except an allow-list</li><li>A separate investigation resource group with its own network</li><li>Snapshots of OS and data disks and an investigation VM with the copies attached</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/shortlink/automation-workflows-azure-setup\" target=\"_blank\" rel=\"noopener\">Azure for Workflows</a> with a connection that may manage compute, network, storage, locks and role assignments in the subscription</li><li>Microsoft Sentinel alerts ingested into Dynatrace (the trigger listens for <span class=\"code\">event.provider == &quot;Microsoft Sentinel&quot;</span> on virtual machines)</li><li>An SSH key pair for the investigation VM</li></ul>",
    "setupHtml": "<ol><li><strong>Optional: create a test VM.</strong> In the Azure portal, create a resource group (for example <span class=\"code\">demo-incident-workflow</span>) and a VM (for example <span class=\"code\">vulnerable-vm</span>) with any region and size. Choose password authentication and set <em>Public inbound ports</em> to <em>None</em>. Copy the subscription ID.</li><li><strong>Upload all four templates</strong> in <strong>Workflows</strong>:</li></ol><ul><li><span class=\"code\">azure-security-incident-workflow-parent.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-incident-rg-networking.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-isolate-vulnerable-vm.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-snapshot-disks-and-vm.workflow-template.yaml</span></li></ul><p>Select your Azure connection in each one.</p><ol><li><strong>Link the sub-workflows</strong> in the parent. For example, <span class=\"code\">isolate_vulnerable_vm</span> must point to <em>Azure Security Investigation - Isolate Vulnerable VM</em>.</li><li><strong>Add your SSH public key</strong> in the <span class=\"code\">public_ssh_keys</span> task of <em>Snapshot, Disks, and VM</em>.</li><li><strong>Test it.</strong> In the parent workflow, choose <strong>Run</strong> with this example event:</li></ol><pre class=\"codeblock\">   {\n     &quot;azure.subscription&quot;: &quot;&lt;YOUR_SUBSCRIPTION_ID&gt;&quot;,\n     &quot;azure.resource.group&quot;: &quot;&lt;YOUR_RESOURCE_GROUP&gt;&quot;,\n     &quot;azure.resource.name&quot;: &quot;&lt;YOUR_VM_NAME&gt;&quot;\n   }</pre><p>After a successful run, Azure has a new <span class=\"code\">incident-workflow</span> resource group with the investigation VM, the disk snapshots, an isolation NSG and the cloned disks.</p>",
    "files": [
@@ -5962,7 +7058,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Azure for Workflows and Sentinel alerts ingested into Dynatrace.</p><ol><li>Upload the parent workflow and its three sub-workflows</li><li>Select your Azure connection and link the sub-workflows</li><li>Add the SSH public key for the investigation VM</li><li>Test with an example event for a non-production VM</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--dql-result-conditional-branches",
@@ -5973,13 +7075,13 @@ window.CATALOG_REPO = {
    },
    "title": "DQL Result Conditional Branches",
    "summary": "Learn how to branch a workflow on the result of a DQL query, with and without a JavaScript step.",
-   "oneLiner": "Learn how to branch a workflow on the result of a DQL query, with and without a JavaScript step.",
+   "oneLiner": "Learn how to branch a workflow on a DQL result, with or without a JavaScript step.",
    "type": "workflow",
    "types": [
     "workflow"
    ],
    "areas": [
-    "Kubernetes"
+    "Developer"
    ],
    "tech": [
     "Kubernetes"
@@ -6010,7 +7112,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Both workflows run a DQL query, which uses the <span class=\"code\">data</span> command to generate test data with error counts per Kubernetes namespace, and then continue into one of three branches:</p><ul><li><strong>A:</strong> production error count &gt; 100</li><li><strong>B:</strong> production error count between 0 and 100</li><li><strong>C:</strong> production namespace not found</li></ul><p><strong>Parse DQL with JavaScript</strong> (<span class=\"code\">parse-dql-with-javascript.*</span>) iterates over the DQL result array in a JavaScript task and branches on the processed result with Jinja conditions. Use it when you need custom logic before deciding. <strong>Conditions only</strong> (<span class=\"code\">conditions-only.*</span>) is the shorter version: it evaluates the DQL result directly in each branch&#x27;s condition, with no JavaScript task.</p>",
+   "overviewHtml": "<p>Workflows often need to act differently depending on what a query returns, and it is not obvious how to evaluate a DQL result in a condition.</p><p><strong>What you get</strong></p><ul><li>Two example workflows that branch on error counts per Kubernetes namespace</li><li>A version that parses the DQL result in a JavaScript task before branching</li><li>A shorter conditions-only version with no JavaScript task</li><li>Self-generated test data, so no connections or apps are needed</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>No connections or external apps. The DQL query generates its own test data.</li></ul>",
    "setupHtml": "<ol><li>Download one of the workflows. Each comes in two formats:</li></ol><ul><li><span class=\"code\">*.workflow-template.yaml</span>: workflow template. Import it in <strong>Workflows</strong> with <strong>Upload</strong>.</li><li><span class=\"code\">*.workflow.json</span>: JSON export for the Automation API.</li></ul><ol><li>Import it and choose <strong>Run</strong>. The workflow uses the on-demand trigger.</li><li>Open the execution to see which branch ran.</li></ol>",
    "files": [
@@ -6051,7 +7153,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You only need Dynatrace Workflows.</p><ol><li>Download one of the workflows and upload it in Workflows</li><li>Run it on demand</li><li>Open the execution to see which branch ran</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--email-entity-owner-notification",
@@ -6088,7 +7197,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>When a matching event arrives, the workflow fetches the related logs with DQL, looks up the entity&#x27;s owners through Dynatrace ownership, and sends them an email that includes the log lines. It&#x27;s a minimal starting point for owner-targeted email notifications.</p>",
+   "overviewHtml": "<p>Alerts often reach a shared inbox, and the people who own the affected service have to dig for context in the logs before they can act on the event.</p><p><strong>What you get</strong></p><ul><li>A trigger on matching events</li><li>A DQL query that fetches the related log lines</li><li>An owner lookup through Dynatrace ownership</li><li>An email to the owners that includes the logs</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/email\" target=\"_blank\" rel=\"noopener\">Email for Workflows</a> (the workflow actor needs <span class=\"code\">email:emails:send</span>)</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams with email contacts assigned to your entities</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">email-entity-owner-notification.workflow-template.yaml</span>.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and select the file.</li><li>Adjust the trigger (see Configuration) and activate the workflow.</li></ol>",
    "files": [
@@ -6108,7 +7217,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Email for Workflows and ownership teams with email contacts.</p><ol><li>Upload the workflow template in Workflows</li><li>Adjust the trigger to the events you care about</li><li>Activate the workflow</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--external-security-findings-notifications",
@@ -6119,7 +7234,7 @@ window.CATALOG_REPO = {
    },
    "title": "External Security Findings Notifications",
    "summary": "Turn vulnerability findings from third-party scanners into Jira tickets, Slack messages or emails, and focus on the ones that actually affect hosts Dynatrace monitors.",
-   "oneLiner": "Turn vulnerability findings from third-party scanners into Jira tickets, Slack messages or emails, and focus on the…",
+   "oneLiner": "Turn third-party vulnerability findings into Jira tickets, Slack messages or emails.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6152,7 +7267,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-11-03",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>These workflows act on vulnerability findings that third-party tools ingest into Dynatrace:</p>",
+   "overviewHtml": "<p>Scanners from other vendors produce long lists of findings, and it is hard to tell which ones matter or who should act on them.</p><p><strong>What you get</strong></p><ul><li>Jira ticket workflows for critical vulnerabilities and critical container vulnerabilities</li><li>Slack notification workflows for the same findings</li><li>An email workflow for critical security findings</li><li>A Jira workflow that only covers hosts Dynatrace monitors, shown with Qualys data</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Vulnerability findings from a third-party tool in the <span class=\"code\">security.events</span> table. The verified-host example uses Qualys data.</li><li>A connection for Jira or Slack for Workflows, or Email for Workflows</li></ul>",
    "setupHtml": "<ol><li>Download the workflow template(s) you need.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong>, select the file and assign the connection.</li><li>Run it once manually, then activate the trigger.</li></ol>",
    "files": [
@@ -6207,7 +7322,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, findings in the security.events table and a Jira, Slack or email connection.</p><ol><li>Download the workflow templates you need</li><li>Upload them in Workflows and assign the connection</li><li>Run once manually, then activate the trigger</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--iam-group-management",
@@ -6218,13 +7339,13 @@ window.CATALOG_REPO = {
    },
    "title": "IAM Group Management",
    "summary": "Create a read-only user group with scoped policies in one workflow run, instead of clicking through Account Management for every team.",
-   "oneLiner": "Create a read-only user group with scoped policies in one workflow run, instead of clicking through Account Management…",
+   "oneLiner": "Create a read-only user group with scoped policies in one run instead of clicking through Account Management.",
    "type": "workflow",
    "types": [
     "workflow"
    ],
    "areas": [
-    "Administration & Governance"
+    "Platform Management"
    ],
    "tech": [],
    "tags": [
@@ -6244,7 +7365,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>The workflow calls the Dynatrace Account Management (IAM) API with an OAuth client. In one run it:</p><ul><li>creates a group;</li><li>binds the default policies (<span class=\"code\">AppEngine - User</span>, <span class=\"code\">Extensions - User access</span>, <span class=\"code\">Hub Catalog Read</span>);</li><li>binds parameterized policies that limit read access to one management zone, security context or host group;</li><li>grants the environment-level permission <em>Manage support tickets</em>.</li></ul><p>It binds the policies in both a non-production and a production environment.</p><p>The parameterized policies it binds:</p><pre class=\"codeblock\">ALLOW environment:roles:viewer WHERE environment:management-zone = &quot;${bindParam:mz-name}&quot;;\nALLOW environment:roles:replay-sessions-with-masking WHERE environment:management-zone = &quot;${bindParam:mz-name}&quot;;\nALLOW environment:roles:view-sensitive-request-data WHERE environment:management-zone = &quot;${bindParam:mz-name}&quot;;\nALLOW environment:roles:view-security-problems WHERE environment:management-zone = &quot;${bindParam:mz-name}&quot;;\nALLOW storage:buckets:read;\nALLOW storage:entities:read WHERE storage:dt.security_context = &quot;${bindParam:mz-name}&quot;;\nALLOW storage:events:read WHERE storage:dt.host_group.id IN (&quot;${bindParam:hg-name}&quot;);\nALLOW storage:bizevents:read WHERE storage:dt.host_group.id IN (&quot;${bindParam:hg-name}&quot;);\nALLOW storage:metrics:read WHERE storage:dt.host_group.id IN (&quot;${bindParam:hg-name}&quot;);\nALLOW storage:spans:read WHERE storage:dt.host_group.id IN (&quot;${bindParam:hg-name}&quot;);\nALLOW storage:logs:read WHERE storage:dt.host_group.id IN (&quot;${bindParam:hg-name}&quot;);</pre>",
+   "overviewHtml": "<p>Setting up access for each new team in Account Management means repeating the same clicks for groups, policies and environments.</p><p><strong>What you get</strong></p><ul><li>Group creation through the Account Management API</li><li>Default policies such as <span class=\"code\">AppEngine - User</span> and <span class=\"code\">Hub Catalog Read</span></li><li>Parameterized policies limiting read access to a management zone, security context or host group</li><li>Bindings in both a non-production and a production environment</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Account Management access to create an <a href=\"https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients\" target=\"_blank\" rel=\"noopener\">OAuth client</a> with permission to manage groups and policies</li><li>The custom parameterized policy above, created in your account</li><li><span class=\"code\">api.dynatrace.com</span> and <span class=\"code\">sso.dynatrace.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li></ul>",
    "setupHtml": "<ol><li>Create the OAuth client.</li><li>Store the client secret in the credential vault of the environment where the workflow will run.</li><li>Download <span class=\"code\">iam-group-management.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In the <span class=\"code\">groups_definition</span> task, replace `` with your group details.</li><li>In the <span class=\"code\">env_var</span> task, replace `` with your account ID, client ID, the credential vault ID of the secret, and the other required fields.</li><li>Run the workflow.</li></ol>",
    "files": [
@@ -6264,7 +7385,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows and an OAuth client with permission to manage groups and policies.</p><ol><li>Create the OAuth client and store its secret in the credential vault</li><li>Upload the workflow template in Workflows</li><li>Fill in your group and account details</li><li>Run the workflow</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--jira-slack-targeted-notifications",
@@ -6275,7 +7403,7 @@ window.CATALOG_REPO = {
    },
    "title": "Jira and Slack Targeted Notifications",
    "summary": "Send each issue to the team that owns the affected entity, with the relevant logs attached, instead of one shared channel for everyone.",
-   "oneLiner": "Send each issue to the team that owns the affected entity, with the relevant logs attached, instead of one shared…",
+   "oneLiner": "Send each issue to the team that owns the affected entity, with logs attached.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6307,7 +7435,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>When a matching Davis event arrives, the workflow fetches the related logs with DQL and looks up the owning team of the affected entity through Dynatrace ownership. It then creates a Jira issue and posts a Slack message, both targeted at that team and enriched with the log lines.</p>",
+   "overviewHtml": "<p>One shared channel for every issue buries the people who can act, and they still have to look up the relevant logs.</p><p><strong>What you get</strong></p><ul><li>A trigger on matching Davis events</li><li>A DQL query that fetches related logs</li><li>A lookup of the owning team through Dynatrace ownership</li><li>A Jira issue and a Slack message targeted at that team, enriched with log lines</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> and <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a>, each with a connection</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams assigned to your entities</li><li>Logs in Grail for the entities you monitor</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">jira-slack-targeted-notifications.workflow.json</span>.</li><li>Import it in <strong>Workflows</strong> (upload the file) or with the Automation API.</li><li>Select your Jira and Slack connections in the <span class=\"code\">create_jira_issue</span> and <span class=\"code\">send_message_to_dyn_channel</span> tasks.</li><li>Activate the trigger.</li></ol>",
    "files": [
@@ -6327,7 +7455,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Jira and Slack connections and ownership teams on your entities.</p><ol><li>Import the workflow in Workflows</li><li>Select your Jira and Slack connections</li><li>Activate the trigger</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--kubernetes-misconfiguration-agent-trigger",
@@ -6338,7 +7472,7 @@ window.CATALOG_REPO = {
    },
    "title": "Kubernetes Misconfiguration Agent Trigger",
    "summary": "Hand every critical Kubernetes workload misconfiguration to a remediation agent automatically, instead of working through compliance findings by hand.",
-   "oneLiner": "Hand every critical Kubernetes workload misconfiguration to a remediation agent automatically, instead of working…",
+   "oneLiner": "Hand critical Kubernetes misconfigurations to a remediation agent instead of working through findings by hand.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6370,7 +7504,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Every three hours, the workflow uses DQL to get the critical and high Kubernetes workload misconfiguration findings from the last three hours, optionally limited to one cluster. For each finding, it starts a sub-workflow (a &quot;Kubernetes Operations Agent&quot;) and passes it:</p><ul><li>the Kubernetes object;</li><li>the number of occurrences;</li><li>the object type;</li><li>the finding title;</li><li>the compliance control.</li></ul><p>That sub-workflow then suggests or applies fixes.</p>",
+   "overviewHtml": "<p>Compliance findings for Kubernetes workloads pile up, and security and platform teams spend time triaging them one by one.</p><p><strong>What you get</strong></p><ul><li>A DQL query every three hours for critical and high workload misconfigurations</li><li>Optional filtering to a single cluster</li><li>A sub-workflow started per finding with the object, type, title, occurrences and compliance control</li><li>A hook for an agent that suggests or applies fixes</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Security posture management / compliance findings for Kubernetes in Grail</li><li>A sub-workflow that processes one finding, for example an agentic AI workflow that suggests Kubernetes fixes. <strong>It isn&#x27;t included here.</strong></li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">trigger-kubernetes-operations-agent.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In <span class=\"code\">suggest_k8s_fixes</span>, select the sub-workflow that should handle each finding (<span class=\"code\">workflowId</span>).</li><li>Run it once manually, then activate the schedule. It&#x27;s inactive by default.</li></ol>",
    "files": [
@@ -6390,7 +7524,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Kubernetes compliance findings in Grail and a sub-workflow that handles one finding.</p><ol><li>Upload the workflow template in Workflows</li><li>Select the sub-workflow that handles each finding</li><li>Run once manually, then activate the schedule</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--kubernetes-stuck-pod-cleanup",
@@ -6401,7 +7541,7 @@ window.CATALOG_REPO = {
    },
    "title": "Kubernetes Stuck Pod Cleanup",
    "summary": "Force-delete pods that hang in the terminating phase automatically, instead of waiting for someone to notice and run kubectl by hand.",
-   "oneLiner": "Force-delete pods that hang in the terminating phase automatically, instead of waiting for someone to notice and run…",
+   "oneLiner": "Force-delete pods stuck in the terminating phase automatically instead of running kubectl by hand.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6429,7 +7569,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Dynatrace Kubernetes anomaly detection raises a Davis event when a pod is stuck in the terminating phase. This workflow reacts to that event and uses the Kubernetes Automation connector (through EdgeConnect) to force-delete the pod. The folder also contains the Kubernetes manifests you need to set up Kubernetes Automation with the Dynatrace Operator, plus a test pod that you can use to simulate the problem.</p>",
+   "overviewHtml": "<p>Pods that hang while terminating block rollouts and need someone to notice and clean them up manually.</p><p><strong>What you get</strong></p><ul><li>A trigger on the Davis event for pods stuck in the terminating phase</li><li>Force-deletion through the Kubernetes Automation connector and EdgeConnect</li><li>Kubernetes manifests for the secret, role, service account and EdgeConnect</li><li>A test pod to simulate the problem</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the Kubernetes app</li><li>Kubernetes cluster monitored by the Dynatrace Operator</li><li><a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/guides/deployment-and-configuration/edgeconnect/kubernetes-automation\" target=\"_blank\" rel=\"noopener\">Kubernetes Automation</a> with EdgeConnect (the <span class=\"code\">dynatrace.kubernetes.connector</span> app)</li><li>An OAuth client for EdgeConnect</li><li><span class=\"code\">kubectl</span> access to the cluster</li></ul>",
    "setupHtml": "<ol><li><strong>Set up Kubernetes Automation with the Operator.</strong> Follow the <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/guides/deployment-and-configuration/edgeconnect/kubernetes-automation/edge-connect-kubernetes-automation-operator-supported-setup\" target=\"_blank\" rel=\"noopener\">operator-supported setup</a> and apply each manifest with <span class=\"code\">kubectl apply -f .yaml</span>:</li></ol><ul><li><span class=\"code\">secret.yaml</span>: stores the OAuth client for EdgeConnect.</li><li><span class=\"code\">role.yaml</span>: the permissions for the automation use cases.</li><li><span class=\"code\">serviceaccount.yaml</span>: the service account that EdgeConnect impersonates to call the Kubernetes API server.</li><li><span class=\"code\">rolebinding.yaml</span>: links the service account to the role.</li><li><span class=\"code\">edgeconnect.yaml</span>: deploys EdgeConnect in the <span class=\"code\">dynatrace</span> namespace and creates the Kubernetes connection in Dynatrace.</li></ul><ol><li><strong>Turn on anomaly detection.</strong> In <strong>Settings &gt; Anomaly Detection &gt; Workloads</strong>, enable detection of pods stuck in the pending and terminating phases (<a href=\"https://docs.dynatrace.com/docs/observe/infrastructure-monitoring/container-platform-monitoring/kubernetes-app/reference/anomaly-detectors\" target=\"_blank\" rel=\"noopener\">details</a>).</li><li><strong>Import the workflow.</strong> In <strong>Workflows</strong>, choose <strong>Upload</strong> and select <span class=\"code\">kubernetes-stuck-pod-cleanup.workflow-template.yaml</span>. Select the connection that you created with <span class=\"code\">edgeconnect.yaml</span>, then activate the trigger.</li><li><strong>Optional: simulate the problem.</strong> Apply <span class=\"code\">podtermination.yaml</span> to create a pod that stays in the terminating phase once deleted, then run <span class=\"code\">kubectl delete pods pod-stuck</span>. If your security rules require it, replace the image with one you trust.</li><li><strong>Watch it work.</strong> Open the Kubernetes app, select <strong>Pods</strong> and filter for your test cluster. After the detection timeframe (10 minutes by default), the workflow runs and force-deletes the pod.</li></ol>",
    "files": [
@@ -6491,7 +7631,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need a Kubernetes cluster monitored by the Dynatrace Operator and an OAuth client for EdgeConnect.</p><ol><li>Set up Kubernetes Automation with the provided manifests</li><li>Enable anomaly detection for stuck pods</li><li>Import the workflow and select the connection</li><li>Optionally simulate a stuck pod to test</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--kubernetes-threat-detection",
@@ -6502,7 +7648,7 @@ window.CATALOG_REPO = {
    },
    "title": "Kubernetes Threat Detection",
    "summary": "Detect suspicious activity in your clusters with DQL and alert the owners of the affected workloads immediately.",
-   "oneLiner": "Detect suspicious activity in your clusters with DQL and alert the owners of the affected workloads immediately.",
+   "oneLiner": "Detect suspicious activity in your clusters with DQL and alert the owners of affected workloads.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6539,7 +7685,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<ul><li><strong>Service account unauthorized access</strong> (<span class=\"code\">service-account-unauthorized-access.workflow-template.yaml</span>) runs every 10 minutes. It uses DQL to find potentially compromised Kubernetes service accounts, filters them against an allow-list, and writes the results as detection findings to <span class=\"code\">security.events</span>. It&#x27;s part of a <a href=\"https://dt-url.net/en230wg\" target=\"_blank\" rel=\"noopener\">documented use case</a> and a starting point for other threat vectors: change the query, look up owners, or add response actions such as deleting pods.</li><li><strong>Critical finding instant notification</strong> (<span class=\"code\">critical-finding-instant-notification.workflow-template.yaml</span>) fires on every new high or critical Kubernetes detection finding. It finds the owners of the affected components and starts the notification sender.</li><li><strong>Notification sender</strong> (<span class=\"code\">notification-sender-sub-workflow.workflow-template.yaml</span>) is a sub-workflow that sends the finding details by email, Slack and/or Microsoft Teams, based on the input object it receives.</li></ul>",
+   "overviewHtml": "<p>Attacks on Kubernetes often show up as small anomalies in audit logs, and alerts rarely reach the team that owns the workload.</p><p><strong>What you get</strong></p><ul><li>A check every 10 minutes for potentially compromised service accounts, with an allow-list</li><li>Detection findings written to <span class=\"code\">security.events</span></li><li>An instant workflow for new high and critical findings that finds the owners</li><li>A notification sub-workflow for email, Slack and Microsoft Teams</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Kubernetes audit logs in Grail, for service account detection (see the <a href=\"https://dt-url.net/en230wg\" target=\"_blank\" rel=\"noopener\">use case documentation</a>)</li><li>Permission for the workflow to ingest into <span class=\"code\">security.events</span></li><li>Slack, Microsoft Teams and/or Email for Workflows, for notifications</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your Kubernetes workloads</li></ul>",
    "setupHtml": "<ol><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import <span class=\"code\">notification-sender-sub-workflow.workflow-template.yaml</span> first. Assign the notification connections.</li><li>Import <span class=\"code\">critical-finding-instant-notification.workflow-template.yaml</span> and replace `<span class=\"code\"> in </span>trigger_notification_sender` with the sender&#x27;s ID.</li><li>Import <span class=\"code\">service-account-unauthorized-access.workflow-template.yaml</span>.</li><li>Run each one manually once, then activate the triggers.</li></ol>",
    "files": [
@@ -6573,7 +7719,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Kubernetes audit logs in Grail and ownership teams on your workloads.</p><ol><li>Import the notification sender sub-workflow first</li><li>Import the finding notification and detection workflows</li><li>Link them, run each once, then activate the triggers</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--ntfy-push-notifications",
@@ -6584,13 +7736,13 @@ window.CATALOG_REPO = {
    },
    "title": "ntfy.sh Push Notifications",
    "summary": "Send a push notification to your phone or desktop from any workflow, using a single HTTP request to ntfy.sh.",
-   "oneLiner": "Send a push notification to your phone or desktop from any workflow, using a single HTTP request to ntfy.sh.",
+   "oneLiner": "Send a push notification to your phone or desktop from any workflow with one HTTP request.",
    "type": "workflow",
    "types": [
     "workflow"
    ],
    "areas": [
-    "Other"
+    "Developer"
    ],
    "tech": [],
    "tags": [
@@ -6607,7 +7759,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>The template has one HTTP request task that posts a message to an ntfy.sh topic. Anyone subscribed to that topic in the ntfy app or web client receives the message as a push notification. Copy the task into your own workflows to notify on problems, deployments or workflow results.</p>",
+   "overviewHtml": "<p>Teams that want a quick, lightweight alert on problems, deployments or workflow results often have no simple way to reach a phone.</p><p><strong>What you get</strong></p><ul><li>One HTTP request task that posts a message to an ntfy.sh topic</li><li>Push notifications in the ntfy app or web client for everyone subscribed</li><li>A task you can copy into your own workflows</li><li>Support for self-hosted ntfy servers</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><span class=\"code\">ntfy.sh</span> (or your self-hosted ntfy server) in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>The ntfy app, subscribed to your topic</li></ul>",
    "setupHtml": "<ol><li>Download <span class=\"code\">ntfy-push-notification.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>Replace <span class=\"code\">YourTopicHere</span> in the URL with your topic name.</li><li>Choose <strong>Run</strong>. The message arrives on every subscribed device.</li></ol>",
    "files": [
@@ -6627,7 +7779,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows and the ntfy app subscribed to a topic.</p><ol><li>Upload the workflow template in Workflows</li><li>Replace the placeholder with your topic name</li><li>Run it and check your device</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--ownership-team-import",
@@ -6638,13 +7797,13 @@ window.CATALOG_REPO = {
    },
    "title": "Ownership Team Import",
    "summary": "Keep Dynatrace ownership teams in sync with the team data you already maintain elsewhere, instead of creating them by hand.",
-   "oneLiner": "Keep Dynatrace ownership teams in sync with the team data you already maintain elsewhere, instead of creating them by…",
+   "oneLiner": "Keep Dynatrace ownership teams in sync with the team data you already maintain elsewhere.",
    "type": "workflow",
    "types": [
     "workflow"
    ],
    "areas": [
-    "Administration & Governance"
+    "Platform Management"
    ],
    "tech": [
     "Azure",
@@ -6668,7 +7827,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>Three workflows import <a href=\"https://docs.dynatrace.com/docs/manage/ownership/ownership-teams#import-teams\" target=\"_blank\" rel=\"noopener\">ownership teams</a> into Dynatrace with the <span class=\"code\">import_teams</span> action:</p><ul><li><strong>From Microsoft Entra ID</strong> (<span class=\"code\">import-teams-from-entra-id.workflow-template.yaml</span>) gets groups with <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/microsoft-entra-id\" target=\"_blank\" rel=\"noopener\">Azure for Workflows</a> and imports them as teams. It runs every 720 minutes.</li><li><strong>From ServiceNow</strong> (<span class=\"code\">import-teams-from-servicenow.workflow-template.yaml</span>) gets groups with <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/service-now\" target=\"_blank\" rel=\"noopener\">ServiceNow for Workflows</a> and imports them as teams. It runs every 720 minutes.</li><li><strong>From a custom source</strong> (<span class=\"code\">import-teams-from-custom-source.workflow-template.yaml</span>) downloads a team file in a custom format, maps it to the <span class=\"code\">builtin:ownership.config</span> <a href=\"https://docs.dynatrace.com/docs/dynatrace-api/environment-api/settings/schemas/get-schema\" target=\"_blank\" rel=\"noopener\">settings schema</a>, and imports the teams. It runs on demand. <span class=\"code\">example-teams.json</span> is the sample input.</li></ul>",
+   "overviewHtml": "<p>Creating ownership teams by hand is slow and drifts out of date as people and groups change in other systems.</p><p><strong>What you get</strong></p><ul><li>A workflow that imports groups from Microsoft Entra ID as teams</li><li>A workflow that imports groups from ServiceNow as teams</li><li>A workflow for a custom team file mapped to the ownership settings schema</li><li>Scheduled syncs and an example input file</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the Ownership app</li><li>Depending on the source: an Azure for Workflows connection with Entra ID group read access, or a ServiceNow for Workflows connection</li><li>For the custom source: the host of your team file in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a>. For the sample file that&#x27;s <span class=\"code\">raw.githubusercontent.com</span>.</li></ul>",
    "setupHtml": "<ol><li>Download the workflow template for your source.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong>, select the file and assign the connection.</li><li>Run it once manually, check the imported teams in <strong>Settings &gt; Ownership &gt; Teams</strong>, then keep the schedule active.</li></ol>",
    "files": [
@@ -6709,7 +7868,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, the Ownership app and a connection to your team source.</p><ol><li>Download the template for your source</li><li>Upload it in Workflows and assign the connection</li><li>Run once, check the teams, then keep the schedule active</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--red-hat-ansible-auto-remediation",
@@ -6720,14 +7886,14 @@ window.CATALOG_REPO = {
    },
    "title": "Red Hat Ansible Auto-Remediation",
    "summary": "Close the loop from Davis problem to fix: Dynatrace detects the problem, Red Hat Ansible remediates it, and the ticket documents what happened.",
-   "oneLiner": "Close the loop from Davis problem to fix: Dynatrace detects the problem, Red Hat Ansible remediates it, and the ticket…",
+   "oneLiner": "Close the loop from Davis problem to fix: Dynatrace detects, Red Hat Ansible remediates, ServiceNow documents.",
    "type": "workflow",
    "types": [
     "workflow",
     "notebook"
    ],
    "areas": [
-    "Other"
+    "Infrastructure Observability"
    ],
    "tech": [
     "Slack",
@@ -6764,7 +7930,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>The artifacts support the blog post <a href=\"https://www.dynatrace.com/news/blog/how-red-hat-and-dynatrace-intelligently-automate-your-production-environment/\" target=\"_blank\" rel=\"noopener\">How Red Hat and Dynatrace intelligently automate your production environment</a>, which describes two variants:</p><ul><li><strong>Variant 1: Ansible Automation Controller.</strong> When Davis detects a problem, the workflow:</li><li>creates or updates a ServiceNow incident;</li><li>finds the remediation action with DQL;</li><li>launches an Ansible job template;</li><li>comments the result on the incident and the problem;</li><li>notifies the owning team in Slack.</li></ul><p>Two workflow files implement it: <span class=\"code\">auto-remediation-with-ticketing.workflow-template.yaml</span> and the shorter <span class=\"code\">core-journey-auto-remediation.workflow-template.yaml</span>.</p><ul><li><strong>Variant 2: Event-Driven Ansible.</strong> <span class=\"code\">mitigate-with-event-driven-ansible.workflow-template.yaml</span>:</li><li>collects problem and entity details;</li><li>forecasts the service load with Davis AI;</li><li>notifies the owners;</li><li>sends an event to an Event-Driven Ansible rulebook (<span class=\"code\">rulebook.yml</span>), which runs the playbook <span class=\"code\">playbook.yml</span>.</li></ul><p>The <span class=\"code\">red-hat-tutorial.notebook.json</span> notebook walks you through the setup step by step.</p>",
+   "overviewHtml": "<p>Detecting a problem is only half the job. Remediation and ticket updates still depend on manual hand-offs between tools.</p><p><strong>What you get</strong></p><ul><li>Variant with Ansible Automation Controller: ServiceNow incident, DQL-found remediation, job template launch</li><li>Result comments on the incident and the problem, plus a Slack message to the owning team</li><li>Variant with Event-Driven Ansible: load forecast with Davis AI and a rulebook-triggered playbook</li><li>A step-by-step tutorial notebook</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and Notebooks</li><li>Red Hat Ansible Automation Platform (Automation Controller and/or Event-Driven Ansible)</li><li>From Dynatrace Hub: Red Hat Ansible for Workflows, ServiceNow for Workflows and Slack for Workflows, each with a connection</li><li>The hosts of your systems in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a>. Use <a href=\"https://docs.dynatrace.com/docs/setup-and-configuration/edgeconnect\" target=\"_blank\" rel=\"noopener\">EdgeConnect</a> if they are behind a firewall.</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your entities, used for targeted notifications</li></ul>",
    "setupHtml": "<ol><li>In <strong>Notebooks</strong>, choose <strong>Import</strong> and select <span class=\"code\">red-hat-tutorial.notebook.json</span>. Follow it step by step.</li><li>Create the connections to Red Hat Ansible, ServiceNow and Slack.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import the workflow template(s) for the variant you want. Assign the connections when prompted.</li><li>For variant 2, deploy <span class=\"code\">rulebook.yml</span> and <span class=\"code\">playbook.yml</span> in Event-Driven Ansible.</li><li>Use the notebook to ingest a test event and watch the remediation run.</li></ol>",
    "files": [
@@ -6819,7 +7985,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Red Hat Ansible Automation Platform and connections for ServiceNow and Slack.</p><ol><li>Import the tutorial notebook and follow it</li><li>Create the Ansible, ServiceNow and Slack connections</li><li>Upload the workflow templates for your variant</li><li>Ingest a test event and watch the remediation</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--servicenow-incident-management",
@@ -6830,13 +8003,13 @@ window.CATALOG_REPO = {
    },
    "title": "ServiceNow Incident Management",
    "summary": "Create or update one ServiceNow incident per Davis problem, with the right CI, support group, impact and urgency already filled in.",
-   "oneLiner": "Create or update one ServiceNow incident per Davis problem, with the right CI, support group, impact and urgency…",
+   "oneLiner": "Create or update one ServiceNow incident per Davis problem, with CI, support group, impact and urgency filled in.",
    "type": "workflow",
    "types": [
     "workflow"
    ],
    "areas": [
-    "Other"
+    "Application Observability"
    ],
    "tech": [
     "Slack",
@@ -6869,7 +8042,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>This solution contains two workflows:</p><ul><li><strong>ServiceNow Incident Management</strong> (<span class=\"code\">servicenow-incident-management.workflow-template.yaml</span>) runs once Davis has identified a problem&#x27;s root cause. Its steps:</li></ul><ol><li>Adds related logs to the description.</li><li>Finds the configuration item in the ServiceNow CMDB.</li><li>Gets the support group from Dynatrace ownership.</li><li>Calculates impact and urgency.</li><li>Creates a new incident or comments on an existing one, so no duplicate tickets are created.</li></ol><ul><li><strong>ServiceNow Severity from Impact</strong> (<span class=\"code\">servicenow-severity-from-impact.workflow-template.yaml</span>) is a shorter example. It calculates the incident severity from the problem&#x27;s impact, creates the incident and posts a Slack message.</li></ul>",
+   "overviewHtml": "<p>Problems that open duplicate or half-empty tickets slow down resolution, because the service desk must add context by hand.</p><p><strong>What you get</strong></p><ul><li>A trigger once Davis identifies the root cause, skipping maintenance windows</li><li>Related logs added to the description</li><li>CMDB configuration item and support group from Dynatrace ownership</li><li>Impact and urgency calculation, and a new incident or a comment on an existing one</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/service-now\" target=\"_blank\" rel=\"noopener\">ServiceNow for Workflows</a> with a connection</li><li>The ServiceNow <strong>Service Graph Connector for Dynatrace</strong>, which maps Dynatrace entities to CMDB CIs (needed by <span class=\"code\">get_cmdb_ci</span>)</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams assigned to your entities</li><li>For the severity example: <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a></li><li>For the email step: <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/email\" target=\"_blank\" rel=\"noopener\">Email for Workflows</a></li></ul>",
    "setupHtml": "<ol><li>Download the workflow template(s) in this folder.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and select the file. The upload guides you through selecting connections.</li><li>Review the trigger and the tasks described below, then activate the workflow.</li></ol><p>How the main workflow works:</p><ul><li><strong>Trigger:</strong> a Davis problem trigger. A custom filter fires once the root cause is identified and skips problems during maintenance windows. Adjust the entity tags to your needs.</li><li><strong><span class=\"code\">get_cmdb_ci</span>:</strong> searches the CMDB base class by <span class=\"code\">correlation_id</span>.</li><li><strong><span class=\"code\">get_supportgroup</span>:</strong> finds the owner of the root-cause entity.</li><li><strong><span class=\"code\">get_problem_impact</span> and <span class=\"code\">estimate_problem_urgency</span>:</strong> JavaScript examples of impact and urgency calculations. Change the logic to match your process.</li><li><strong><span class=\"code\">search_incidents</span>, then <span class=\"code\">comment_on_an_incident</span> or <span class=\"code\">create_incident</span>:</strong> updates an existing incident or creates a new one.</li></ul>",
    "files": [
@@ -6896,7 +8069,14 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, ServiceNow for Workflows and the Service Graph Connector for Dynatrace.</p><ol><li>Upload the workflow templates in Workflows</li><li>Select your connections when prompted</li><li>Adjust the trigger and impact logic, then activate</li></ol>",
+   "curated": [
+    "areas",
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--vm-right-sizing",
@@ -6907,7 +8087,7 @@ window.CATALOG_REPO = {
    },
    "title": "VM Right-Sizing Workflows",
    "summary": "Detect over- and under-sized Azure VMs, get a human approval in Jira, then resize them automatically.",
-   "oneLiner": "Detect over- and under-sized Azure VMs, get a human approval in Jira, then resize them automatically.",
+   "oneLiner": "Detect over- and under-sized Azure VMs, get human approval in Jira, then resize them automatically.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -6941,7 +8121,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>This solution has two workflows that work together through Jira:</p><ol><li><strong>Host Resize - Calculate &amp; Ticket</strong> (<span class=\"code\">host-resize-calculate-and-ticket.workflow.json</span>)</li></ol><ul><li>Uses DQL to find Azure hosts whose CPU usage is above 90% or below 15%.</li><li>Opens a Jira ticket that lists those hosts and moves it to <em>Pending</em>.</li><li>Notifies a Slack channel.</li></ul><ol><li><strong>Host Resize - Event Triggered</strong> (<span class=\"code\">host-resize-event-triggered.workflow.json</span>)</li></ol><ul><li>Reacts to the approval event that a Jira automation sends back to Dynatrace.</li><li>Reads the hosts from the ticket and gets an Azure bearer token.</li><li>Calls the Azure Compute API to upsize or downsize each VM, then closes the Jira ticket.</li></ul><p>These are the plain workflow exports for direct import. A Monaco version of the same use case that also deploys the Jira and Slack connections lives in VM Right-Sizing (Configuration as Code). That README also explains the Jira automation setup in detail.</p>",
+   "overviewHtml": "<p>Over-provisioned VMs waste money and under-provisioned ones hurt performance, yet resizing needs an approval step.</p><p><strong>What you get</strong></p><ul><li>A DQL check for Azure hosts with CPU usage above 90% or below 15%</li><li>A Jira ticket that lists the hosts, plus a Slack notification</li><li>A second workflow that reacts to the approval event sent back from Jira</li><li>Resizing through the Azure Compute API, then closing the ticket</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows, and Azure VMs monitored by OneAgent. The hosts need Azure subscription and resource group metadata.</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> and <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a> connections</li><li>An Azure app registration (service principal) with permission to resize the VMs</li><li><span class=\"code\">login.microsoftonline.com</span> and <span class=\"code\">management.azure.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>A Jira automation that sends an event to Dynatrace when the ticket is approved</li></ul>",
    "setupHtml": "<ol><li>Import both JSON files in <strong>Workflows</strong> (upload) or with the Automation API.</li><li>In each Jira and Slack task, select your connections. The connection IDs were removed from the export.</li><li>In Jira, create the approval automation. When an issue moves from <em>Open</em> to <em>Pending</em>, approve it (or let a team approve it), then send a web request to <span class=\"code\">https://.apps.dynatrace.com/api/v2/events/ingest</span> with a <span class=\"code\">CUSTOM_INFO</span> event. That event carries the issue key, URL, ID and description, as shown in the Configuration as Code README.</li><li>Set the event trigger of <strong>Host Resize - Event Triggered</strong> to match that event.</li></ol>",
    "files": [
@@ -6968,7 +8148,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, OneAgent on Azure VMs, Jira and Slack connections and an Azure service principal.</p><ol><li>Import both workflows and select your connections</li><li>Create the Jira approval automation</li><li>Match the event trigger to that automation</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--vulnerability-notifications",
@@ -6979,7 +8165,7 @@ window.CATALOG_REPO = {
    },
    "title": "Critical Vulnerability Notifications and Tickets",
    "summary": "Route new critical vulnerabilities found by Dynatrace into the tools your teams already use: chat, ticketing, or a third-party security tool.",
-   "oneLiner": "Route new critical vulnerabilities found by Dynatrace into the tools your teams already use: chat, ticketing, or a…",
+   "oneLiner": "Route new critical vulnerabilities into chat, ticketing or a third-party security tool.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -7016,7 +8202,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-11-03",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>These workflows act on vulnerability events that <a href=\"https://docs.dynatrace.com/docs/shortlink/vulnerability-analytics-hub\" target=\"_blank\" rel=\"noopener\">Dynatrace Runtime Vulnerability Analytics</a> writes to the <span class=\"code\">security.events</span> table:</p><p><strong>Two trigger approaches:</strong></p><ul><li><strong>Per event</strong> fires immediately for every new vulnerability event on an affected entity.</li><li><strong>Periodic</strong> queries the last time period. It allows aggregation, for example per host, and better deduplication of notifications.</li></ul>",
+   "overviewHtml": "<p>Critical vulnerabilities are easy to miss in a dashboard, and teams want them in the tools they already use.</p><p><strong>What you get</strong></p><ul><li>Workflows for Slack, Microsoft Teams, ServiceNow and Jira</li><li>Jira tickets per host that use ownership details</li><li>An OCSF workflow that sends findings to another security tool</li><li>Per-event or periodic triggers, with aggregation per host and deduplication</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and Runtime Vulnerability Analytics</li><li>Security events in the <span class=\"code\">security.events</span> table (see the <a href=\"https://docs.dynatrace.com/docs/secure/threat-observability/migration\" target=\"_blank\" rel=\"noopener\">migration guide</a>)</li><li>Depending on the workflow: a connection for Slack, Microsoft Teams, ServiceNow or Jira for Workflows. For the OCSF workflow, the target host in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a>.</li><li>For the Jira workflow: <a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams with Jira details on your hosts</li></ul>",
    "setupHtml": "<ol><li>Download the workflow template(s) you need.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong>, select the file and assign the connection.</li><li>Adjust the configuration below, run it once manually, then activate the trigger.</li></ol>",
    "files": [
@@ -7064,7 +8250,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Runtime Vulnerability Analytics and a connection for your target tool.</p><ol><li>Download the workflow templates you need</li><li>Upload them in Workflows and assign the connection</li><li>Adjust the configuration, run once, then activate</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--vulnerable-products-to-jira",
@@ -7075,7 +8267,7 @@ window.CATALOG_REPO = {
    },
    "title": "Vulnerable Products to Jira",
    "summary": "One Jira ticket per vulnerability per product, not one per process, so teams get a de-duplicated backlog they can actually work through.",
-   "oneLiner": "One Jira ticket per vulnerability per product, not one per process, so teams get a de-duplicated backlog they can…",
+   "oneLiner": "Get one Jira ticket per vulnerability per product, not per process, for a de-duplicated backlog.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -7109,7 +8301,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-11-03",
    "hasFrontMatter": true,
-   "overviewHtml": "<p>The solution combines security events in Grail with release monitoring to group open vulnerabilities by product, and keeps them in sync with Jira:</p><ul><li><strong>AppSec Trigger</strong> (<span class=\"code\">appsec-trigger.workflow-template.yaml</span>) runs every 30 minutes. It queries open vulnerabilities from <span class=\"code\">security.events</span> and starts the sub-workflow once per product and vulnerability.</li><li><strong>AppSec Ticket Creation</strong> (<span class=\"code\">appsec-ticket-creation-sub-workflow.workflow-template.yaml</span>) checks whether a Jira ticket already exists. If not, it finds the owner and creates the ticket with a tracking link back to Dynatrace.</li></ul><p>This was demonstrated in the Automation Guild session on 27 May 2024 (<a href=\"https://community.dynatrace.com/t5/Automation-Guild/All-Guild-Meetings-recordings-in-this-single-spot/td-p/243437\" target=\"_blank\" rel=\"noopener\">recordings</a>).</p>",
+   "overviewHtml": "<p>Vulnerabilities reported per process create floods of duplicate tickets, which teams struggle to work through.</p><p><strong>What you get</strong></p><ul><li>A trigger every 30 minutes that queries open vulnerabilities in <span class=\"code\">security.events</span></li><li>Grouping by product using release monitoring</li><li>A sub-workflow that checks for an existing Jira ticket</li><li>Owner lookup and ticket creation with a tracking link back to Dynatrace</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and Runtime Vulnerability Analytics</li><li>Release monitoring (product and version information) for your processes</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> with a connection</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your entities</li></ul>",
    "setupHtml": "<ol><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import the sub-workflow <span class=\"code\">appsec-ticket-creation-sub-workflow.workflow-template.yaml</span> <strong>first</strong>. Assign the Jira connection.</li><li>Copy the new sub-workflow&#x27;s ID.</li><li>Import <span class=\"code\">appsec-trigger.workflow-template.yaml</span> and replace `` with that ID.</li><li>Run the trigger once manually, then activate the schedule.</li></ol>",
    "files": [
@@ -7136,7 +8328,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows, Runtime Vulnerability Analytics, release monitoring and a Jira connection.</p><ol><li>Import the ticket creation sub-workflow and assign Jira</li><li>Import the trigger and point it at the sub-workflow</li><li>Run once, then activate the schedule</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--workflow-import-export-api",
@@ -7147,7 +8345,7 @@ window.CATALOG_REPO = {
    },
    "title": "Workflow Import and Export via API",
    "summary": "Back up, move or version your workflows with the Automation API, from the command line or from a workflow itself.",
-   "oneLiner": "Back up, move or version your workflows with the Automation API, from the command line or from a workflow itself.",
+   "oneLiner": "Back up, move or version your workflows with the Automation API or from a workflow itself.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -7173,7 +8371,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "<ul><li><span class=\"code\">api-examples.txt</span>: example <span class=\"code\">curl</span> calls for the Automation API: list all workflows, get one workflow, and create a workflow from JSON.</li><li><span class=\"code\">export-all-workflows-to-github.workflow.json</span>: a workflow that reads all workflow definitions and commits each one as a JSON file to a GitHub repository.</li><li><span class=\"code\">import-workflows-from-github.workflow.json</span>: a workflow that reads a workflow definition from a GitHub repository and creates it in your environment.</li></ul>",
+   "overviewHtml": "<p>Workflows live in one environment, and teams need a way to back them up, promote them to another environment or keep them in version control.</p><p><strong>What you get</strong></p><ul><li>Example curl calls to list, get and create workflows</li><li>A workflow that commits every workflow definition to a GitHub repository</li><li>A workflow that creates a workflow from a definition in GitHub</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>For the API: an <a href=\"https://developer.dynatrace.com/develop/access-platform-apis-from-outside/\" target=\"_blank\" rel=\"noopener\">OAuth client</a> with the scopes <span class=\"code\">automation:workflows:read</span>, <span class=\"code\">automation:workflows:write</span> and <span class=\"code\">automation:workflows:run</span></li><li>For the GitHub workflows: a GitHub repository and token, and <span class=\"code\">api.github.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li></ul>",
    "setupHtml": "<p><strong>API:</strong></p><ol><li>Create the OAuth client and get a bearer token.</li><li>To browse the API, open the <strong>API documentation</strong> app from the Launcher and select the <em>Automation</em> definition. You can also download the OpenAPI file there.</li><li>Use the calls in <span class=\"code\">api-examples.txt</span>: <span class=\"code\">GET /platform/automation/v1/workflows</span> and <span class=\"code\">GET /platform/automation/v1/workflows/{id}</span> to export, <span class=\"code\">POST /platform/automation/v1/workflows</span> to import.</li></ol><p><strong>Workflows:</strong></p><ol><li>Import the JSON file through the API (or upload it in <strong>Workflows</strong>).</li><li>Fill in the GitHub details (see Configuration) and run it.</li></ol>",
    "files": [
@@ -7207,7 +8405,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows and, for the GitHub workflows, a repository and token.</p><ol><li>Create an OAuth client and get a bearer token</li><li>Try the example API calls</li><li>Import a GitHub workflow and fill in your repository details</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   },
   {
    "id": "workflows--workflow-javascript-snippets",
@@ -7218,7 +8422,7 @@ window.CATALOG_REPO = {
    },
    "title": "Workflow JavaScript Snippets",
    "summary": "Ready-to-paste code for the Run JavaScript action, for tasks that the built-in actions don't cover.",
-   "oneLiner": "Ready-to-paste code for the Run JavaScript action, for tasks that the built-in actions don't cover.",
+   "oneLiner": "Paste ready-made code into the Run JavaScript action for tasks the built-in actions don't cover.",
    "type": "workflow",
    "types": [
     "workflow"
@@ -7249,7 +8453,7 @@ window.CATALOG_REPO = {
    "added": "2026-10-20",
    "updated": "2026-10-20",
    "hasFrontMatter": true,
-   "overviewHtml": "",
+   "overviewHtml": "<p>Built-in workflow actions don&#x27;t cover every case, and writing custom JavaScript for the Run JavaScript action from scratch takes time that teams would rather spend elsewhere.</p><p><strong>What you get</strong></p><ul><li>Code snippets for the Run JavaScript action</li><li>Examples that use SDK calls for settings, entities and synthetic monitors</li><li>A copy-and-paste approach that needs no setup beyond permissions</li><li>Snippets that you can adapt to your own logic</li></ul>",
    "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>The permissions that each snippet&#x27;s SDK calls need, for example <span class=\"code\">settings:objects:read</span> for settings, and the permissions to read entities and run synthetic monitors</li></ul>",
    "setupHtml": "<ol><li>In your workflow, add a task and choose <strong>Run JavaScript</strong>.</li><li>Paste the snippet into the task.</li><li>Run the workflow and check the task result.</li></ol>",
    "files": [],
@@ -7261,7 +8465,13 @@ window.CATALOG_REPO = {
    "popularity": {
     "score": 0,
     "visitors14d": 0
-   }
+   },
+   "getStartedHtml": "<p>You need Dynatrace Workflows and the permissions each snippet&#x27;s SDK calls require.</p><ol><li>Add a Run JavaScript task to your workflow</li><li>Paste the snippet</li><li>Run the workflow and check the result</li></ol>",
+   "curated": [
+    "getStarted",
+    "oneLiner",
+    "overview"
+   ]
   }
  ]
 };

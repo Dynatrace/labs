@@ -8,7 +8,8 @@ const ART = C.entries;
 const TYPE = Object.fromEntries(C.types.map(t=>[t.id,t]));
 const AREA_COUNT = {};
 ART.forEach(a=>a.areas.forEach(x=>AREA_COUNT[x]=(AREA_COUNT[x]||0)+1));
-const AREAS = C.areas.filter(x=>AREA_COUNT[x]);
+/* "Other" (no category) is never offered as a filter. */
+const AREAS = C.areas.filter(x=>AREA_COUNT[x]&&x!=='Other');
 
 /* Home-page category cards. The last one ("And more") lists every other area. */
 const FEATURED = [
@@ -55,7 +56,7 @@ document.addEventListener('error',e=>{
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ROUTING — #/explore?area=Logs, #/explore?id=…, #/contribute, #/maintainers
+   ROUTING — #/explore?area=Logs, #/explore?id=…, #/about, #/contribute, #/maintainers
    ═══════════════════════════════════════════════════════════════════════════ */
-const VIEWS=['welcome','explore','contribute','maintainers'];
+const VIEWS=['welcome','explore','about','contribute','maintainers'];
 let CURRENT_VIEW=null;
