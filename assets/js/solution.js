@@ -32,13 +32,15 @@ function openDetail(id,{fromRoute=false}={}){
   OPEN_SOURCE=null;
   const fr=freshness(a.updated);
   $('#dChips').innerHTML=typesOf(a).map(t=>`<span class="tag type">${esc(TYPE[t].label)}</span>`).join('')+
-    a.areas.map(x=>`<span class="tag">${esc(x)}</span>`).join('')+
+    a.areas.filter(x=>x!=='Other').map(x=>`<span class="tag">${esc(x)}</span>`).join('')+
     (daysAgo(a.added)<30?'<span class="chip new">New</span>':'')+
     (fr==='stale'?'<span class="chip crit">Not updated in 12+ months</span>':'');
   $('#dTitle').textContent=a.title;
   $('#dMeta').textContent=`Added ${fmtDate(a.added)} · updated ${relDate(a.updated)}`;
   $('#dRepo').href=a.url; paintPrimary(a);
-  const issue=`${(a.source&&a.source.repo)||C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`; $('#dIssue').href=issue;   /* issues go to the solution's own source repo */
+  /* Issues go to the solution's own source repo; curated entries may name their own issue tracker. */
+  const issue=a.issuesUrl||`${(a.source&&a.source.repo)||C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`;
+  $('#dIssue').href=issue; $('#dIssue').hidden=!/^https:\/\/github\.com\//.test(issue);
   const tags=[...a.capabilities,...a.tags];
   $('#drawerBody').innerHTML=`
     ${a.images.length?`<div class="gallery">
@@ -46,10 +48,10 @@ function openDetail(id,{fromRoute=false}={}){
       <div class="cap" id="galCap">${esc(a.images[0].caption||'Screenshot 1 of '+a.images.length)}</div>
       ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}" aria-label="Screenshot ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
     </div>`:''}
-    <div class="dsec"><h2 class="t-h5">Overview</h2><div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div>
-      ${tags.length?`<div style="display:flex;gap:5px;flex-wrap:wrap;">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>`:''}</div>
-    ${a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:''}
-    ${getStartedHtml(a)}`;
+    <div class="dsec"><h2 class="t-h5">Overview</h2><div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div></div>
+    ${a.getStartedHtml?'':(a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:'')}
+    ${getStartedHtml(a)}
+    ${tags.length?`<div class="dsec dtags"><h2 class="t-h5">Tags</h2><div class="tagrow">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div>`:''}`;
   $('#drawer').classList.add('open'); document.body.classList.add('panel-open');
   guardOpening(true); $('#drawerBackdrop').hidden=false; bgInert(true); $('#drawerBody').scrollTop=0;   // the page behind keeps its scroll position
   $$('#cards .acard').forEach(c=>c.classList.toggle('selected',c.dataset.id===a.id));

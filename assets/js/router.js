@@ -1,7 +1,7 @@
 /* The browser tab says where you are, including the open solution. */
 function updateTitle(){
   const v=CURRENT_VIEW, base='Dynatrace Labs';
-  const page=v==='explore'?($('#exploreTitle').textContent==='AI & Agents'?'AI & Agents':''):v==='contribute'?'Contribute a solution':v==='maintainers'?'Maintainer overview':'';
+  const page=v==='explore'?($('#exploreTitle').textContent==='AI & Agents'?'AI & Agents':''):v==='about'?'About':v==='contribute'?'Contribute a solution':v==='maintainers'?'Maintainer overview':'';
   document.title=[v==='explore'&&CUR?CUR.title:'',page,base].filter(Boolean).join(' – ');
 }
 /* After a page change keyboard and screen-reader users start on the new page,
@@ -60,12 +60,12 @@ function updateNavState(){
   const isAI=onExplore && F.area.size===AI_AREAS.length && AI_AREAS.every(x=>F.area.has(x))
              && !F.tech.size && !F.type.size && !F.id;
   $('#navAI').toggleAttribute('aria-current',isAI); if(isAI) $('#navAI').setAttribute('aria-current','page');
-  const ex=$('#navExplore');
-  ex.toggleAttribute('aria-current',onExplore&&!isAI); if(onExplore&&!isAI) ex.setAttribute('aria-current','page');
+  const ab=$('#navAbout'), onAbout=!$('#view-about').hidden;
+  ab.toggleAttribute('aria-current',onAbout); if(onAbout) ab.setAttribute('aria-current','page');
   $('#exploreTitle').textContent=isAI?'AI & Agents':'All solutions';
   updateTitle();
 }
-/* "Explore solutions" in the header scrolls to the results on the home page. */
+/* "Browse all solutions" (About) scrolls to the results on the home page. */
 const jumpToResults=()=>$('#results').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 document.addEventListener('click',e=>{
   const j=e.target.closest('[data-jump]'); if(j){

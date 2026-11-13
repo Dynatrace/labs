@@ -3,7 +3,18 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 const F={tech:new Set(),area:new Set(),type:new Set(),id:null};
 let PAGE=1, techAll=false; const PAGE_SIZE=24, TECH_SHOWN=8;
-const DEFAULT_SORT='added';
+const DEFAULT_SORT='recommended';
+/* Recommended: featured solutions first, then the newest of each type in turn
+   (dashboard, workflow, app, ...), so no single type fills the first rows. */
+const RANK=(()=>{
+  const r={}, feat=(C.featured||[]).filter(id=>ART.some(a=>a.id===id));
+  feat.forEach((id,i)=>r[id]=i);
+  const byType={}; ART.filter(a=>!(a.id in r)).sort(byAdded).forEach(a=>(byType[a.type]=byType[a.type]||[]).push(a));
+  const queues=Object.values(byType).sort((x,y)=>byAdded(x[0],y[0]));
+  let n=feat.length;
+  while(queues.some(q=>q.length)) queues.forEach(q=>{ if(q.length) r[q.shift().id]=n++; });
+  return r;
+})();
 const TECH_COUNT={}; ART.forEach(a=>a.tech.forEach(t=>TECH_COUNT[t]=(TECH_COUNT[t]||0)+1));
 const TECHS=Object.keys(TECH_COUNT).sort((x,y)=>TECH_COUNT[y]-TECH_COUNT[x]||x.localeCompare(y));
 const DIM={tech:a=>a.tech, area:a=>a.areas, type:a=>typesOf(a)};
@@ -17,9 +28,10 @@ function matches(a,skip){
 function results(){
   const q=$('#q').value.trim(), terms=queryTerms(q), qn=norm(q);
   const list=ART.filter(a=>matches(a)).map(a=>({a,s:scoreOf(a,terms,qn)})).filter(x=>x.s>0);
-  const S={relevance:(x,y)=>y.s-x.s||byPopular(x.a,y.a),added:(x,y)=>byAdded(x.a,y.a),popular:(x,y)=>byPopular(x.a,y.a),
+  const S={relevance:(x,y)=>y.s-x.s||byPopular(x.a,y.a),recommended:(x,y)=>RANK[x.a.id]-RANK[y.a.id],
+           added:(x,y)=>byAdded(x.a,y.a),popular:(x,y)=>byPopular(x.a,y.a),
            updated:(x,y)=>byUpdated(x.a,y.a),name:(x,y)=>x.a.title.localeCompare(y.a.title)};
-  return list.sort(S[$('#sortBy').value]||S.popular).map(x=>x.a);
+  return list.sort(S[$('#sortBy').value]||S.recommended).map(x=>x.a);
 }
 function syncRail(){
   const q=$('#q').value.trim(), terms=queryTerms(q), qn=norm(q);
@@ -84,6 +96,8 @@ $('#q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault();
 $('#qClear').addEventListener('click',e=>{ const q=$('#q'); q.value=''; q.dispatchEvent(new Event('input')); if(e.detail===0) q.focus(); });   // Enter or leaving the box
 $('#sortBy').addEventListener('change',()=>{ sortTouched=true; PAGE=1; refresh(); });
 
+/* Tiles show the curated one-liner (content/overrides) when there is one, else the README summary. */
+const tileText=a=>(a.curated||[]).some(k=>k==='oneLiner'||k==='entry')?a.oneLiner:a.summary;
 function render(){
   const list=results(), q=$('#q').value.trim();
   { const h=$('#view-explore .hero'), was=h.classList.contains('searching');
@@ -116,7 +130,7 @@ function render(){
       <div class="body">
         <div class="tags"><span class="tag type">${esc(TYPE[a.type].label)}</span>${(a.tech[0]?[a.tech[0]]:a.areas.slice(0,1)).map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>
         <h3><button class="acard-open" type="button">${highlight(esc(a.title),q)}</button></h3>
-        <p class="desc">${highlight(esc(a.summary),q)}</p>
+        <p class="desc">${highlight(esc(tileText(a)),q)}</p>
       </div></article>`;
   }).join('');
   $('#pager').innerHTML=pages>1?[`<button class="pg" data-page="${PAGE-1}" ${PAGE===1?'disabled':''}>‹</button>`,
@@ -201,3 +215,17 @@ $('#heroForm').addEventListener('submit',e=>{
   e.preventDefault(); $('#heroSuggest').hidden=true;
   const q=$('#heroQ').value.trim(); if(q) SEARCH_SOURCE='hero'; go('explore',q?{q}:{});
 });
+
+/* The search stays at hand while scrolling (as on dynatrace.com/hub): once the
+   search box in the hero is out of view, the same search appears in the header. */
+{
+  const hq=$('#hdrQ'), q=$('#q');
+  hq.addEventListener('input',()=>{ q.value=hq.value; q.dispatchEvent(new Event('input')); });
+  q.addEventListener('input',()=>{ if(hq.value!==q.value) hq.value=q.value; });
+  $('#hdrSearch').addEventListener('submit',e=>{ e.preventDefault(); trackSearch(); jumpToResults(); });
+  const dock=on=>{ document.body.classList.toggle('search-docked',on); hq.tabIndex=on?0:-1; };
+  const box=$('#view-explore .search');
+  const check=()=>dock(!$('#view-explore').hidden && box.getBoundingClientRect().bottom<60);   // 60px: header height
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('hashchange',()=>setTimeout(check,0));
+}

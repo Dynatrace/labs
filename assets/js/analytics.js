@@ -3,7 +3,7 @@
    Anonymous: a random id per browser tab, no names or e-mail addresses. Events wait
    until the RUM script has loaded; without RUM (tests, local preview, blocked by the
    browser) they are dropped. */
-const ANALYTICS_VERSION='cookbook-0.3';
+const ANALYTICS_VERSION='labs-1';
 const DC_SESSION=(()=>{ try{ let s=sessionStorage.getItem('dtDevCommunity.sid');
   if(!s){ s=Math.random().toString(36).slice(2,10)+Date.now().toString(36); sessionStorage.setItem('dtDevCommunity.sid',s); }
   return s; }catch(e){ return 'no-storage'; } })();

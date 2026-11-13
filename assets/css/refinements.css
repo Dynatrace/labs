@@ -71,3 +71,43 @@ html{touch-action:manipulation;}
 .fpause:hover{background:rgba(255,255,255,.28);}
 .pg{border-color:transparent;background:var(--neutral-10);}
 .pg.on{background:var(--dt-blue);}
+
+/* Header search: appears once the hero search has scrolled out of view (dynatrace.com/hub style). */
+.hdr-search{display:none;position:relative;flex:1;max-width:520px;margin:0 var(--sp-16);}
+body.search-docked .hdr-search{display:flex;align-items:center;}
+.hdr-search .mag{position:absolute;left:12px;top:50%;transform:translateY(-50%);display:flex;pointer-events:none;color:var(--neutral-70);}
+.hdr-search .mag svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+.hdr-search .input{width:100%;height:36px;padding-left:36px;font-size:16px;border-radius:var(--r-full);}
+body.search-docked .hdr .grow{display:none;}
+@media (max-width:639px){
+  body.search-docked .hdr-search{margin:0 4px;}
+  body.search-docked .brand-txt,body.search-docked #navAI{display:none;}
+  .cta-long{display:none;}
+}
+/* Detail panel: tags in their own section at the end. */
+.dtags .tagrow{display:flex;gap:5px;flex-wrap:wrap;}
+/* About */
+.about-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--sp-48);align-items:center;
+  padding:72px 80px;border-radius:24px;color:#fff;margin:var(--sp-8) 0 var(--sp-32);
+  background:radial-gradient(60% 90% at 52% 0%,rgba(150,90,220,.85),transparent 70%),
+             radial-gradient(50% 80% at 100% 70%,rgba(40,200,210,.75),transparent 70%),
+             linear-gradient(115deg,#1840c8 0%,#1a3bb0 45%,#2b5fe0 75%,#1e8be6 100%);}
+.about-card h1{font-size:44px;line-height:1.2;margin:0 0 var(--sp-20);color:#fff;font-weight:700;}
+.about-card p{font-size:18px;line-height:1.7;margin:0 0 var(--sp-32);color:rgba(255,255,255,.92);max-width:46ch;}
+.about-btn{background:#fff;color:var(--dt-purple);height:48px;padding:0 var(--sp-32);font-size:17px;font-weight:600;border-radius:var(--r-md);}
+.about-btn:hover{background:#f0e7f8;}
+.about-btn:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+.about-list{margin:0;display:grid;gap:var(--sp-32);}
+.about-list dt{font-size:20px;font-weight:700;margin:0 0 4px;}
+.about-list dd{margin:0;font-size:17px;color:rgba(255,255,255,.85);}
+@media (max-width:899px){
+  .about-card{grid-template-columns:1fr;padding:40px 28px;gap:var(--sp-32);}
+  .about-card h1{font-size:32px;}
+}
+/* Footer social links */
+.footer-social{display:flex;gap:var(--sp-16);align-items:center;}
+.footer-inner .footer-social a.social{margin:0;padding:6px;display:inline-flex;color:rgba(255,255,255,.8);border-radius:var(--r-md);}
+.footer-inner .footer-social a.social:hover{color:#fff;background:rgba(255,255,255,.08);}
+.footer-social svg{width:22px;height:22px;fill:currentColor;}
+/* A hidden button stays hidden (.btn sets display:inline-flex). */
+.btn[hidden]{display:none;}
