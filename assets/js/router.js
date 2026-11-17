@@ -20,6 +20,18 @@ function route(){
   let view=VIEWS.includes(m&&m[1])?m[1]:'welcome';
   if(view==='welcome') view='explore';   // preview: the home page is Explore
   const p=new URLSearchParams((m&&m[2])||'');
+  /* Back/Forward between a solution and the list only opens or closes the panel: the list keeps
+     its page and scroll position (see syncHash in explore.js). */
+  if(view==='explore' && CURRENT_VIEW==='explore' && LIST_STATE!==null){
+    const rest=new URLSearchParams(p); rest.delete('s');
+    if(rest.toString()===LIST_STATE){
+      const sel=p.get('s');
+      if(sel&&ART.some(a=>a.id===sel)) openDetail(sel,{fromRoute:true});
+      else { DETAIL_PUSHED=false; closeDetail({fromRoute:true}); }
+      updateTitle();
+      return;
+    }
+  }
   const prevView=CURRENT_VIEW; CURRENT_VIEW=view;
   VIEWS.forEach(v=>$('#view-'+v).hidden=v!==view);
   $$('[data-go]').forEach(b=>b.toggleAttribute('aria-current',b.dataset.go===view&&view!=='welcome'));
@@ -35,6 +47,7 @@ function route(){
     if(sel) ART.some(a=>a.id===sel)?openDetail(sel,{fromRoute:true}):closeDetail({fromRoute:true});
   } else closeDetail({fromRoute:true});
   if(view==='maintainers') renderMaintainers();
+  if(view==='explore') LIST_STATE=listState();
   updateNavState();
   setMenu(false);
   if(document.activeElement&&document.activeElement.closest('#freshStrip')) document.activeElement.blur();
