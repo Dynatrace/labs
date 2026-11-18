@@ -32,7 +32,6 @@ body.panel-open{overflow:hidden;}
 .getstarted>h2{border-bottom-color:var(--primary-30);}
 .md h3{margin:var(--sp-16) 0 var(--sp-8);font-size:14px;}
 /* Phones: the logo is the Dynatrace logo, so on narrow screens the name is "Labs" (no ellipsis). */
-@media(max-width:450px){ .brand-dt{display:none;} }
 /* iOS Safari zooms into a field whose text is smaller than 16px and stays zoomed after the keyboard closes. */
 @media(max-width:900px){ input.input,select.input,.search .input{font-size:16px;} }
 /* The search box: room for the clear button only while it is shown (more space for the placeholder). */
@@ -43,7 +42,7 @@ body.panel-open{overflow:hidden;}
 }
 /* Narrow phones: a tighter Explore button keeps "Labs" readable; below 340px only the logo fits. */
 @media(max-width:400px){ .hbtn-cta{padding:0 10px;font-size:13px;} .brand-txt{flex-shrink:0;} }
-@media(max-width:340px){ .brand-txt{display:none;} }
+@media(max-width:340px){ .brand-logo{height:22px;} }
 /* Dialog: no inherited docked-panel motion; hidden completely when closed. */
 .drawer{transform:none;transition:none;}
 .drawer:not(.open){display:none;}
@@ -111,3 +110,31 @@ body.search-docked .hdr .grow{display:none;}
 .footer-social svg{width:22px;height:22px;fill:currentColor;}
 /* A hidden button stays hidden (.btn sets display:inline-flex). */
 .btn[hidden]{display:none;}
+
+/* Labs next to the Dynatrace logo: ordinary text, not a lockup. */
+.brand-txt{font-size:18px;font-weight:600;line-height:1;}
+/* Less space between the header and the hero heading on desktop (phones and the compact search hero keep theirs). */
+@media (min-width:721px){ .hero:not(.searching){padding-top:calc(61px + var(--sp-40));} }
+
+/* Demo video stills: a play button; the click opens the video. */
+.gal-video{position:relative;display:block;}
+.gal-video .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;
+  background:rgba(20,20,43,.72);display:grid;place-items:center;transition:transform .15s,background .15s;}
+.gal-video .play svg{width:30px;height:30px;fill:#fff;margin-left:3px;}
+.gal-video:hover .play,.gal-video:focus-visible .play{background:var(--dt-blue,#1966ff);transform:scale(1.06);}
+/* Pagination: "Page x of y" next to the page buttons. */
+.pager .pg-info{margin-left:var(--sp-12);font-size:13px;color:var(--neutral-70);align-self:center;}
+
+/* Chips, following the Strato Chip: condensed, rounded, no frame, colors from design tokens only.
+   Type = primary emphasized; categories = neutral; tags (bottom of the panel) = neutral outlined,
+   so they read differently from the type and categories at the top. */
+.tag{display:inline-flex;align-items:center;height:20px;padding:0 8px;border:0;border-radius:var(--r-full);
+  font-size:12px;font-weight:500;line-height:1;background:var(--neutral-20);color:var(--fg-default);}
+.tag.type{background:color-mix(in srgb,var(--primary-70) 16%,transparent);color:var(--primary-90);font-weight:600;}
+:root[data-theme="dark"] .tag.type{color:var(--primary-80);}
+.dtags .tag{background:transparent;box-shadow:inset 0 0 0 1px var(--neutral-50);color:var(--neutral-80);font-weight:400;}
+/* Get started: the way to the full instructions. */
+.getstarted .gs-more{margin:var(--sp-12) 0 0;font-size:14px;}
+/* "Labs" next to the logo never truncates: with DT Flow installed it can be a fraction of a pixel
+   wider than its box, and the old ellipsis rule then cut it to "L…". */
+.brand-txt{overflow:visible;text-overflow:clip;flex-shrink:0;}

@@ -10,9 +10,7 @@
   display:flex;align-items:center;gap:var(--sp-12);}
 .brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;
   color:var(--hdr-fg);min-width:0;}
-.brand-mark{height:28px;width:auto;flex-shrink:0;transition:filter .2s;}
-.site-header.solid .brand-mark{filter:invert(1);}
-:root[data-theme="dark"] .site-header.solid .brand-mark{filter:none;}
+.brand-logo{height:26px;width:auto;flex-shrink:0;display:block;}
 .brand-txt{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .brand:hover .brand-txt{text-decoration:underline;}
 .proto-chip{text-decoration:none !important;flex-shrink:0;background:#fff;color:var(--dt-purple);font-size:10px;font-weight:700;
