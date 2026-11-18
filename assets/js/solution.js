@@ -23,6 +23,9 @@ document.addEventListener('keydown',e=>{
 const h3=html=>(html||'').replace(/<(\/?)h4>/g,'<$1h3>');
 /* The screenshot is a button: keyboard users can open the viewer too. */
 function galMainHtml(a,i){
+  const im=a.images[i];
+  /* A still of a demo video plays the video (in a new tab) instead of opening the screenshot viewer. */
+  if(im&&im.video) return `<a class="gal-video" href="${esc(im.video)}" target="_blank" rel="noopener" aria-label="Play the video (opens in a new tab)">${preview(a,i)}<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a>`;
   return a.images.length?`<button class="gal-open" type="button" aria-label="Open screenshot ${i+1} of ${a.images.length} full page">${preview(a,i)}</button>`:preview(a,i);
 }
 const solutionLink=a=>location.href.split('#')[0]+'#/explore?s='+encodeURIComponent(a.id);
@@ -41,7 +44,10 @@ function openDetail(id,{fromRoute=false}={}){
   /* Issues go to the solution's own source repo; curated entries may name their own issue tracker. */
   const issue=a.issuesUrl||`${(a.source&&a.source.repo)||C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`;
   $('#dIssue').href=issue; $('#dIssue').hidden=!/^https:\/\/github\.com\//.test(issue);
-  const tags=[...a.capabilities,...a.tags];
+  /* Capabilities and tags often repeat each other ("Notebooks" / "notebooks", "Davis Problems" / "davis-problems"):
+     one entry per name, ignoring case and separators, keeping the first (capitalized) spelling. */
+  const tagKey=x=>String(x).toLowerCase().replace(/[-_\s]+/g,' ').trim();
+  const tags=[...a.capabilities,...a.tags].filter((x,i,all)=>all.findIndex(y=>tagKey(y)===tagKey(x))===i);
   $('#drawerBody').innerHTML=`
     ${a.images.length?`<div class="gallery">
       <div class="main" id="galMain">${galMainHtml(a,0)}</div>
@@ -55,7 +61,7 @@ function openDetail(id,{fromRoute=false}={}){
   $('#drawer').classList.add('open'); document.body.classList.add('panel-open');
   guardOpening(true); $('#drawerBackdrop').hidden=false; bgInert(true); $('#drawerBody').scrollTop=0;   // the page behind keeps its scroll position
   $$('#cards .acard').forEach(c=>c.classList.toggle('selected',c.dataset.id===a.id));
-  if(!fromRoute) syncHash();
+  if(!fromRoute) syncHash(prevId?'replace':'push');
   updateTitle();
   /* Remember the card to come back to, and take the keyboard to the panel —
      otherwise it is only reachable after tabbing through every card. */
@@ -71,7 +77,7 @@ function showShot(i){
 $('#drawerBody').addEventListener('click',e=>{
   if(!CUR) return;
   const b=e.target.closest('[data-shot]'); if(b){ showShot(+b.dataset.shot); return; }
-  if(e.target.closest('#galMain') && CUR.images.length) openLightbox(SHOT);
+  if(e.target.closest('#galMain') && !e.target.closest('.gal-video') && CUR.images.length) openLightbox(SHOT);
 });
 
 /* Full-page screenshot viewer. Arrow keys / ‹ › step through the solution's
@@ -116,7 +122,10 @@ function closeDetail({fromRoute=false}={}){
   $('#drawer').classList.remove('open'); document.body.classList.remove('panel-open');
   guardOpening(false); $('#drawerBackdrop').hidden=true; bgInert(false);   // before focus goes back to the card
   $$('#cards .acard.selected').forEach(c=>c.classList.remove('selected'));
-  if(was && !fromRoute) syncHash();
+  if(was && !fromRoute){
+    /* Closing a solution that was opened here goes back one step, so Back does not reopen it. */
+    if(DETAIL_PUSHED){ DETAIL_PUSHED=false; history.back(); } else syncHash();
+  }
   if(was) updateTitle();
   /* Back to the card the panel was opened from (or the page heading if it isn't shown). */
   if(was && !fromRoute && focusInPanel){

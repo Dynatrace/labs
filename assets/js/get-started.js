@@ -7,7 +7,8 @@ function getStartedHtml(a){
   const body=a.getStartedHtml
     ? `<div class="md">${h3(a.getStartedHtml)}</div>`
     : `<p class="gs-lead">Follow the setup in the source repository: <strong>View source</strong> has the files and full instructions.</p>`;
-  return `<div class="dsec getstarted"><h2 class="t-h5">Get started</h2>${body}</div>`;
+  const more=a.url?`<p class="gs-more">Full setup instructions: <a href="${esc(a.url)}" target="_blank" rel="noopener">View source</a></p>`:'';
+  return `<div class="dsec getstarted"><h2 class="t-h5">Get started</h2>${body}${a.getStartedHtml?more:''}</div>`;
 }
 /* Bottom actions: "View source" is the main button; apps that are installed from the
    Hub (or on request) get that as the main action instead. */

@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 const F={tech:new Set(),area:new Set(),type:new Set(),id:null};
 let PAGE=1, techAll=false; const PAGE_SIZE=24, TECH_SHOWN=8;
-const DEFAULT_SORT='recommended';
+const DEFAULT_SORT='added';
 /* Recommended: featured solutions first, then the newest of each type in turn
    (dashboard, workflow, app, ...), so no single type fills the first rows. */
 const RANK=(()=>{
@@ -71,9 +71,16 @@ function exploreParams(){
   if(CUR) p.set('s',CUR.id);
   return p;
 }
-function syncHash(){
+/* The list state in the address, without the open solution: Back/Forward between "open" and
+   "closed" then only toggles the panel (router.js). Opening a solution adds a history step,
+   so Back closes it again; switching to another solution or changing filters does not. */
+let LIST_STATE=null, DETAIL_PUSHED=false;
+function listState(){ const p=exploreParams(); p.delete('s'); return p.toString(); }
+function syncHash(mode='replace'){
   if($('#view-explore').hidden) return;
-  const qs=exploreParams().toString(); history.replaceState(null,'','#/explore'+(qs?'?'+qs:''));
+  const qs=exploreParams().toString(), url='#/explore'+(qs?'?'+qs:'');
+  if(mode==='push'){ history.pushState(null,'',url); DETAIL_PUSHED=true; } else history.replaceState(null,'',url);
+  LIST_STATE=listState();
 }
 function refresh(){ syncRail(); render(); syncHash(); updateNavState(); }
 function resetAll(){ $('#techSearch').value=''; F.tech.clear(); F.area.clear(); F.type.clear(); F.id=null; $('#q').value=''; setSortForQuery(); PAGE=1; refresh(); }
@@ -120,7 +127,9 @@ function render(){
   const nF=F.tech.size+F.area.size+F.type.size;
   $('#filterCount').textContent=nF?`(${nF})`:'';
   $('#railDone').textContent=`Show ${list.length} solution${list.length===1?'':'s'}`;
-  $('#resCount').textContent=`${list.length} of ${ART.length} solutions`+(q?` for “${q}”`:'');
+  const first=list.length?(PAGE-1)*PAGE_SIZE+1:0, last=Math.min(PAGE*PAGE_SIZE,list.length);
+  $('#resCount').textContent=(list.length>PAGE_SIZE?`${first}–${last} of ${list.length} solutions`:`${list.length} solution${list.length===1?'':'s'}`)
+    +(q?` for “${q}”`:'')+(list.length<ART.length?` (${ART.length} in total)`:'');
   $('#empty').hidden=list.length>0;
   $('#emptyTech').innerHTML=TECHS.slice(0,6).map(t=>`<button class="af" data-try-tech="${esc(t)}">${esc(t)}</button>`).join('');
   $('#cards').innerHTML=slice.map(a=>{
@@ -135,7 +144,8 @@ function render(){
   }).join('');
   $('#pager').innerHTML=pages>1?[`<button class="pg" data-page="${PAGE-1}" ${PAGE===1?'disabled':''}>‹</button>`,
     ...Array.from({length:pages},(_,i)=>`<button class="pg ${i+1===PAGE?'on':''}" data-page="${i+1}">${i+1}</button>`),
-    `<button class="pg" data-page="${PAGE+1}" ${PAGE===pages?'disabled':''}>›</button>`].join(''):'';
+    `<button class="pg" data-page="${PAGE+1}" ${PAGE===pages?'disabled':''}>›</button>`,
+    `<span class="pg-info">Page ${PAGE} of ${pages}</span>`].join(''):'';
 }
 $('#activeF').addEventListener('click',e=>{
   const b=e.target.closest('[data-clear]'); if(!b) return;
