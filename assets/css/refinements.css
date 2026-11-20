@@ -138,3 +138,15 @@ body.search-docked .hdr .grow{display:none;}
 /* "Labs" next to the logo never truncates: with DT Flow installed it can be a fraction of a pixel
    wider than its box, and the old ellipsis rule then cut it to "L…". */
 .brand-txt{overflow:visible;text-overflow:clip;flex-shrink:0;}
+
+/* Full Dynatrace logo (official Color / Color-Rev: the mark keeps its colors, the wordmark follows the
+   header text color) + "Labs" as product name, as on other Dynatrace sites. No hover effect. */
+.brand{gap:14px;}
+.brand-logo{height:24px;color:var(--hdr-fg);}
+.site-header.solid .brand-logo{color:#1A1A1A;}
+:root[data-theme="dark"] .site-header.solid .brand-logo{color:#fff;}
+.brand:hover .brand-txt{text-decoration:none;}
+.brand-txt{font-size:17px;font-weight:700;}
+.footer-brand .brand-logo{height:20px;color:#fff;}
+@media(max-width:640px){ .brand{gap:10px;} .brand-logo{height:19px;} .brand-txt{font-size:15px;} }
+@media(max-width:380px){ .brand-logo{height:16px;} .brand{gap:8px;} }
