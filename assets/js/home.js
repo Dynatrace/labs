@@ -10,10 +10,11 @@ const FRESH=(C.featured&&C.featured.length
   ? C.featured.map(id=>ART.find(a=>a.id===id)).filter(Boolean)
   : [...ART.filter(a=>a.images.length).sort(byAdded),...ART.filter(a=>!a.images.length).sort(byAdded)]).slice(0,10);
 
+/* Featured card: type icon and title in the blue band, the one-liner below. */
 function stripCard(a,hidden){
-  return `<button class="mcard" data-open="${esc(a.id)}" ${hidden?'tabindex="-1" aria-hidden="true"':''} title="${esc(a.oneLiner||a.title)}">
-    <span class="th">${ph(a)}</span>
-    <span class="tx"><span class="tt">${esc(a.title)}</span><span class="ds">${esc(a.oneLiner)}</span></span></button>`;
+  return `<button class="mcard fcard" data-open="${esc(a.id)}" ${hidden?'tabindex="-1" aria-hidden="true"':''} title="${esc(a.oneLiner||a.title)}">
+    <span class="fhead"><svg class="ficon" viewBox="0 0 24 24" aria-hidden="true">${TYPE_SVG[a.type]||TYPE_SVG.blueprint}</svg><span class="tt">${esc(a.title)}</span></span>
+    <span class="tx"><span class="ds">${esc(a.oneLiner)}</span></span></button>`;
 }
 const FP={page:0,pages:0,per:0};
 function freshDotLabel(i,per){

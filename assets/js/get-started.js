@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   GET STARTED — a high-level summary of how to adopt the solution (curated in
-   content/overrides/<id>.json, "getStarted"). The full steps live in the
+   GET STARTED — a high-level summary of how to adopt the solution (written in
+   content/entries/<id>.json, "getStarted"). The full steps live in the
    source repository ("View source"), so there are no downloads or commands here.
    ═══════════════════════════════════════════════════════════════════════════ */
 function getStartedHtml(a){

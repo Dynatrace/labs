@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 const F={tech:new Set(),area:new Set(),type:new Set(),id:null};
 let PAGE=1, techAll=false; const PAGE_SIZE=24, TECH_SHOWN=8;
-const DEFAULT_SORT='added';
+const DEFAULT_SORT='updated';
 /* Recommended: featured solutions first, then the newest of each type in turn
    (dashboard, workflow, app, ...), so no single type fills the first rows. */
 const RANK=(()=>{
@@ -103,8 +103,8 @@ $('#q').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault();
 $('#qClear').addEventListener('click',e=>{ const q=$('#q'); q.value=''; q.dispatchEvent(new Event('input')); if(e.detail===0) q.focus(); });   // Enter or leaving the box
 $('#sortBy').addEventListener('change',()=>{ sortTouched=true; PAGE=1; refresh(); });
 
-/* Tiles show the curated one-liner (content/overrides) when there is one, else the README summary. */
-const tileText=a=>(a.curated||[]).some(k=>k==='oneLiner'||k==='entry')?a.oneLiner:a.summary;
+/* Tiles show the entry's one-liner, in full (content/entries/<id>.json, max. 120 characters). */
+const tileText=a=>a.oneLiner||a.summary;
 function render(){
   const list=results(), q=$('#q').value.trim();
   { const h=$('#view-explore .hero'), was=h.classList.contains('searching');
