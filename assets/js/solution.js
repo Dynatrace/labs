@@ -24,6 +24,8 @@ const h3=html=>(html||'').replace(/<(\/?)h4>/g,'<$1h3>');
 /* The screenshot is a button: keyboard users can open the viewer too. */
 function galMainHtml(a,i){
   const im=a.images[i];
+  /* A Vidyard video plays right here, in Vidyard's own player. */
+  if(im&&im.embed) return `<iframe class="gal-embed" src="${esc(im.embed)}" title="${esc(im.caption||'Video: '+a.title)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
   /* A still of a demo video plays the video (in a new tab) instead of opening the screenshot viewer. */
   if(im&&im.video) return `<a class="gal-video" href="${esc(im.video)}" target="_blank" rel="noopener" aria-label="Play the video (opens in a new tab)">${preview(a,i)}<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a>`;
   return a.images.length?`<button class="gal-open" type="button" aria-label="Open screenshot ${i+1} of ${a.images.length} full page">${preview(a,i)}</button>`:preview(a,i);
@@ -39,7 +41,8 @@ function openDetail(id,{fromRoute=false}={}){
     (daysAgo(a.added)<30?'<span class="chip new">New</span>':'')+
     (fr==='stale'?'<span class="chip crit">Not updated in 12+ months</span>':'');
   $('#dTitle').textContent=a.title;
-  $('#dMeta').textContent=`Added ${fmtDate(a.added)} · updated ${relDate(a.updated)}`;
+  $('#dMeta').textContent=`Added ${fmtDate(a.added)} · updated ${relDate(a.updated)}`+
+    (a.solutionCreated&&a.solutionCreated!==a.added?` · created on GitHub ${fmtDate(a.solutionCreated)}`:'');
   $('#dRepo').href=a.url; paintPrimary(a);
   /* Issues go to the solution's own source repo; curated entries may name their own issue tracker. */
   const issue=a.issuesUrl||`${(a.source&&a.source.repo)||C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`;
@@ -52,9 +55,9 @@ function openDetail(id,{fromRoute=false}={}){
     ${a.images.length?`<div class="gallery">
       <div class="main" id="galMain">${galMainHtml(a,0)}</div>
       <div class="cap" id="galCap">${esc(a.images[0].caption||'Screenshot 1 of '+a.images.length)}</div>
-      ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}" aria-label="Screenshot ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
+      ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}${im.video?' is-video':''}" aria-label="${im.video?'Video':'Screenshot'} ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
     </div>`:''}
-    <div class="dsec"><h2 class="t-h5">Overview</h2><div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div></div>
+    <div class="dsec"><h2 class="t-h5">Overview</h2>${a.oneLiner?`<p class="d-oneliner">${esc(a.oneLiner)}</p>`:''}<div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div></div>
     ${a.getStartedHtml?'':(a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:'')}
     ${getStartedHtml(a)}
     ${tags.length?`<div class="dsec dtags"><h2 class="t-h5">Tags</h2><div class="tagrow">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div>`:''}`;
@@ -77,7 +80,7 @@ function showShot(i){
 $('#drawerBody').addEventListener('click',e=>{
   if(!CUR) return;
   const b=e.target.closest('[data-shot]'); if(b){ showShot(+b.dataset.shot); return; }
-  if(e.target.closest('#galMain') && !e.target.closest('.gal-video') && CUR.images.length) openLightbox(SHOT);
+  if(e.target.closest('#galMain') && !e.target.closest('.gal-video,.gal-embed') && CUR.images.length && !CUR.images[SHOT].video) openLightbox(SHOT);
 });
 
 /* Full-page screenshot viewer. Arrow keys / ‹ › step through the solution's
@@ -100,7 +103,10 @@ function closeLightbox(){
   /* Stepping through screenshots re-renders the panel's button, so fall back to the new one. */
   const r=lbReturn&&lbReturn.isConnected?lbReturn:$('#galMain .gal-open'); if(r) r.focus();
 }
-function stepLightbox(d){ const n=CUR.images.length; showShot((SHOT+d+n)%n); paintLightbox(); }
+/* Videos play in the panel, so the viewer steps over them. */
+function stepLightbox(d){ const n=CUR.images.length; let i=SHOT;
+  for(let k=0;k<n;k++){ i=(i+d+n)%n; if(!CUR.images[i].video) break; }
+  showShot(i); paintLightbox(); }
 $('#lbxClose').addEventListener('click',closeLightbox);
 $('#lbxPrev').addEventListener('click',()=>stepLightbox(-1));
 $('#lbxNext').addEventListener('click',()=>stepLightbox(1));

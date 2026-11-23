@@ -138,3 +138,36 @@ body.search-docked .hdr .grow{display:none;}
 /* "Labs" next to the logo never truncates: with DT Flow installed it can be a fraction of a pixel
    wider than its box, and the old ellipsis rule then cut it to "L…". */
 .brand-txt{overflow:visible;text-overflow:clip;flex-shrink:0;}
+
+/* Full Dynatrace logo (official Color / Color-Rev: the mark keeps its colors, the wordmark follows the
+   header text color) + "Labs" as product name, as on other Dynatrace sites. No hover effect. */
+.brand{gap:14px;}
+.brand-logo{height:24px;color:var(--hdr-fg);}
+.site-header.solid .brand-logo{color:#1A1A1A;}
+:root[data-theme="dark"] .site-header.solid .brand-logo{color:#fff;}
+.brand:hover .brand-txt{text-decoration:none;}
+.brand-txt{font-size:17px;font-weight:700;}
+.footer-brand .brand-logo{height:20px;color:#fff;}
+@media(max-width:640px){ .brand{gap:10px;} .brand-logo{height:19px;} .brand-txt{font-size:15px;} }
+@media(max-width:380px){ .brand-logo{height:16px;} .brand{gap:8px;} }
+
+/* ── Solution panel: the one-liner opens the Overview, in bold. ─────────────── */
+.d-oneliner{margin:0 0 var(--sp-12);font-size:15px;line-height:1.55;font-weight:700;color:var(--fg-default);}
+/* Vidyard videos play embedded in the gallery. */
+.gallery .main .gal-embed{width:100%;height:100%;border:0;display:block;background:#000;}
+.gallery .main:has(.gal-embed)::after{content:none;}
+.gallery .strip button.is-video{position:relative;}
+.gallery .strip button.is-video::after{content:"▶";position:absolute;inset:0;margin:auto;width:22px;height:22px;border-radius:50%;
+  background:rgba(0,0,0,.6);color:#fff;font-size:10px;line-height:22px;text-align:center;pointer-events:none;}
+/* Tiles show the whole one-liner (max. 120 characters), never cut off. */
+.acard .desc{display:block;-webkit-line-clamp:unset;overflow:visible;}
+
+/* ── Featured cards: icon and title in the blue band, the one-liner below. ─── */
+.hero-fresh .mcard.fcard .fhead{display:flex;align-items:center;gap:10px;min-height:64px;padding:10px 12px;
+  background:radial-gradient(120% 120% at 100% 0%,rgba(23,184,148,.25),transparent 55%),linear-gradient(135deg,#312dad,#1966ff);}
+.hero-fresh .mcard.fcard .ficon{flex:none;width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.95;}
+.hero-fresh .mcard.fcard .tt{color:#fff;font-size:14px;font-weight:600;line-height:1.3;min-height:0;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.hero-fresh .mcard.fcard .tx{padding:10px 12px 12px;flex:1;}
+.hero-fresh .mcard.fcard .ds{-webkit-line-clamp:5;min-height:0;font-size:12.5px;line-height:1.45;}
