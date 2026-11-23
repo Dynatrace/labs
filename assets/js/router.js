@@ -15,7 +15,15 @@ function go(view,params={}){
   const hash='#/'+(view==='welcome'?'':view)+(qs?'?'+qs:'');
   if(location.hash===hash) route(); else location.hash=hash;
 }
+/* Old solution ids (<folder>--<solution>) still open the solution: the address is rewritten to the current id. */
+function resolveAliases(){
+  const A=C.aliases||{}, m=location.hash.match(/^(#\/[a-z]*\?)(.*)$/); if(!m) return;
+  const p=new URLSearchParams(m[2]); let hit=false;
+  ['s','id'].forEach(k=>{ const v=p.get(k); if(v&&A[v]){ p.set(k,A[v]); hit=true; } });
+  if(hit) history.replaceState(null,'',m[1]+p.toString());
+}
 function route(){
+  resolveAliases();
   const m=location.hash.match(/^#\/([a-z]*)(?:\?(.*))?$/);
   let view=VIEWS.includes(m&&m[1])?m[1]:'welcome';
   if(view==='welcome') view='explore';   // preview: the home page is Explore
