@@ -1,0 +1,85 @@
+{
+ "overviewHtml": "<p>Teams running CI/CD on GitLab often lack visibility into how long pipelines and merge requests really take. This example turns GitLab activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitLab deployments and merge requests</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>Ingest sources and pipelines defined in Terraform</li><li>A starting point for CI/CD productivity decisions</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Terraform.</p><ol><li>Configure the Terraform provider and variables for your environment</li><li>Apply the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitLab so its events reach Dynatrace</li></ol>",
+ "files": [
+  {
+   "name": "dashboards.gitlab.tf",
+   "path": "dashboards.gitlab.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/dashboards.gitlab.tf",
+   "size": 712
+  },
+  {
+   "name": "events.sdlc.gitlab.ingest-sources.tf",
+   "path": "events.sdlc.gitlab.ingest-sources.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/events.sdlc.gitlab.ingest-sources.tf",
+   "size": 4512
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.tf",
+   "path": "events.sdlc.gitlab.pipelines.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/events.sdlc.gitlab.pipelines.tf",
+   "size": 21680
+  },
+  {
+   "name": "locals.tf",
+   "path": "locals.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/locals.tf",
+   "size": 741
+  },
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/main.tf",
+   "size": 2698
+  },
+  {
+   "name": "outputs.tf",
+   "path": "outputs.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/outputs.tf",
+   "size": 1197
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/providers.tf",
+   "size": 394
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/variables.tf",
+   "size": 0
+  },
+  {
+   "name": "gitlab.deployments.json",
+   "path": "dashboards/gitlab.deployments.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/dashboards/gitlab.deployments.json",
+   "size": 44589
+  },
+  {
+   "name": "gitlab.merge_request.json",
+   "path": "dashboards/gitlab.merge_request.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/dashboards/gitlab.merge_request.json",
+   "size": 21807
+  },
+  {
+   "name": "gitlab.pipeline.json",
+   "path": "dashboards/gitlab.pipeline.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability_terraform/dashboards/gitlab.pipeline.json",
+   "size": 50822
+  }
+ ]
+}

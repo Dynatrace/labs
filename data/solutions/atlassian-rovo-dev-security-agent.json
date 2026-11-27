@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Security teams working in Jira struggle to tell which vulnerabilities are really exploitable in production. This agent configuration for Atlassian Rovo Dev connects Dynatrace runtime security verification with Jira ticket management, so tickets reflect real risk instead of raw scanner output.</p><p><strong>What you get</strong></p><ul><li>A security agent definition for Atlassian Rovo Dev</li><li>Agent instructions that bring Dynatrace runtime verification into the review</li><li>An automation that creates Jira tickets for critical runtime vulnerability findings</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Atlassian Rovo Dev, Jira and a Dynatrace environment.</p><ol><li>Review the agent and instruction files in the repository</li><li>Add the security agent configuration to Rovo Dev</li><li>Enable the automation that creates Jira tickets for critical findings</li></ol>",
+ "files": [
+  {
+   "name": "create-jira-tickets-for-rva-critical-vulnerabilities.yaml",
+   "path": "create-jira-tickets-for-rva-critical-vulnerabilities.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/atlassian-rovo-dev-security-agent/create-jira-tickets-for-rva-critical-vulnerabilities.yaml",
+   "size": 11388
+  },
+  {
+   "name": "dynatrace-security-agent.md",
+   "path": "dynatrace-security-agent.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/atlassian-rovo-dev-security-agent/dynatrace-security-agent.md",
+   "size": 18760
+  },
+  {
+   "name": "instructions.md",
+   "path": "instructions.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/atlassian-rovo-dev-security-agent/instructions.md",
+   "size": 15578
+  }
+ ]
+}

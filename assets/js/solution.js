@@ -47,20 +47,8 @@ function openDetail(id,{fromRoute=false}={}){
   /* Issues go to the solution's own source repo; curated entries may name their own issue tracker. */
   const issue=a.issuesUrl||`${(a.source&&a.source.repo)||C.repo}/issues/new?title=${encodeURIComponent('['+a.path+'] ')}`;
   $('#dIssue').href=issue; $('#dIssue').hidden=!/^https:\/\/github\.com\//.test(issue);
-  /* Capabilities and tags often repeat each other ("Notebooks" / "notebooks", "Davis Problems" / "davis-problems"):
-     one entry per name, ignoring case and separators, keeping the first (capitalized) spelling. */
-  const tagKey=x=>String(x).toLowerCase().replace(/[-_\s]+/g,' ').trim();
-  const tags=[...a.capabilities,...a.tags].filter((x,i,all)=>all.findIndex(y=>tagKey(y)===tagKey(x))===i);
-  $('#drawerBody').innerHTML=`
-    ${a.images.length?`<div class="gallery">
-      <div class="main" id="galMain">${galMainHtml(a,0)}</div>
-      <div class="cap" id="galCap">${esc(a.images[0].caption||'Screenshot 1 of '+a.images.length)}</div>
-      ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}${im.video?' is-video':''}" aria-label="${im.video?'Video':'Screenshot'} ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
-    </div>`:''}
-    <div class="dsec"><h2 class="t-h5">Overview</h2>${a.oneLiner?`<p class="d-oneliner">${esc(a.oneLiner)}</p>`:''}<div class="md">${h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`}</div></div>
-    ${a.getStartedHtml?'':(a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:'')}
-    ${getStartedHtml(a)}
-    ${tags.length?`<div class="dsec dtags"><h2 class="t-h5">Tags</h2><div class="tagrow">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div>`:''}`;
+  paintBody(a);
+  if(!a._loaded) loadDetail(a).then(()=>{ if(CUR===a) paintBody(a); });
   $('#drawer').classList.add('open'); document.body.classList.add('panel-open');
   guardOpening(true); $('#drawerBackdrop').hidden=false; bgInert(true); $('#drawerBody').scrollTop=0;   // the page behind keeps its scroll position
   $$('#cards .acard').forEach(c=>c.classList.toggle('selected',c.dataset.id===a.id));
@@ -71,6 +59,23 @@ function openDetail(id,{fromRoute=false}={}){
   const from=document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.acard');
   detailReturnId=from?from.dataset.id:a.id;
   if(!fromRoute) $('#dTitle').focus({preventScroll:true});
+}
+/* The panel body. Until the solution's file has loaded, the texts show a short loading line. */
+function paintBody(a){
+  const tagKey=x=>String(x).toLowerCase().replace(/[-_\s]+/g,' ').trim();
+  const tags=[...a.capabilities,...a.tags].filter((x,i,all)=>all.findIndex(y=>tagKey(y)===tagKey(x))===i);
+  const wait=!a._loaded;
+  $('#drawerBody').setAttribute('aria-busy',String(wait));
+  $('#drawerBody').innerHTML=`
+    ${a.images.length?`<div class="gallery">
+      <div class="main" id="galMain">${galMainHtml(a,0)}</div>
+      <div class="cap" id="galCap">${esc(a.images[0].caption||'Screenshot 1 of '+a.images.length)}</div>
+      ${a.images.length>1?`<div class="strip">${a.images.map((im,i)=>`<button data-shot="${i}" class="${i?'':'on'}${im.video?' is-video':''}" aria-label="${im.video?'Video':'Screenshot'} ${i+1}">${preview(a,i)}</button>`).join('')}</div>`:''}
+    </div>`:''}
+    <div class="dsec"><h2 class="t-h5">Overview</h2>${a.oneLiner?`<p class="d-oneliner">${esc(a.oneLiner)}</p>`:''}<div class="md">${wait?(a._failed?`<p>${esc(a.summary)}</p>`:'<p class="d-loading">Loading…</p>'):(h3(a.overviewHtml)||`<p>${esc(a.summary)}</p>`)}</div></div>
+    ${wait?'':a.getStartedHtml?'':(a.prereqsHtml?`<div class="dsec"><h2 class="t-h5">Prerequisites</h2><div class="md">${h3(a.prereqsHtml)}</div></div>`:'')}
+    ${wait?'':getStartedHtml(a)}
+    ${tags.length?`<div class="dsec dtags"><h2 class="t-h5">Tags</h2><div class="tagrow">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div>`:''}`;
 }
 function showShot(i){
   SHOT=i; $('#galMain').innerHTML=galMainHtml(CUR,SHOT);

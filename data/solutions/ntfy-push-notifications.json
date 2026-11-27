@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Teams that want a quick, lightweight alert on problems, deployments or workflow results often have no simple way to reach a phone.</p><p><strong>What you get</strong></p><ul><li>One HTTP request task that posts a message to an ntfy.sh topic</li><li>Push notifications in the ntfy app or web client for everyone subscribed</li><li>A task you can copy into your own workflows</li><li>Support for self-hosted ntfy servers</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><span class=\"code\">ntfy.sh</span> (or your self-hosted ntfy server) in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>The ntfy app, subscribed to your topic</li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">ntfy-push-notification.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>Replace <span class=\"code\">YourTopicHere</span> in the URL with your topic name.</li><li>Choose <strong>Run</strong>. The message arrives on every subscribed device.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows and the ntfy app subscribed to a topic.</p><ol><li>Upload the workflow template in Workflows</li><li>Replace the placeholder with your topic name</li><li>Run it and check your device</li></ol>",
+ "files": [
+  {
+   "name": "ntfy-push-notification.workflow-template.yaml",
+   "path": "ntfy-push-notification.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ntfy-push-notifications/ntfy-push-notification.workflow-template.yaml",
+   "size": 651
+  }
+ ]
+}

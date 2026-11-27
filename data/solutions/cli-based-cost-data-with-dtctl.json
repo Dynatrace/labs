@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Analyzing Dynatrace Platform Subscription usage often means leaving the terminal and clicking through the UI. A scripted query makes the data easy to reuse in reports and automation.</p><p><strong>What you get</strong></p><ul><li>One-command connection to your Dynatrace platform</li><li>DQL query run directly from the terminal</li><li>Output in your preferred format, such as JSON or CSV</li><li>Sample <span class=\"code\">demo.dql</span> query to start from</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://github.com/dynatrace-oss/dtctl\" target=\"_blank\" rel=\"noopener\">dtctl</a> installed</li><li>A Dynatrace environment URL (e.g. <span class=\"code\">https://abc12345.apps.dynatrace.com</span>)</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need dtctl and your Dynatrace environment URL.</p><ol><li>Install dtctl</li><li>Connect it to your environment</li><li>Run the sample DQL query and choose an output format</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "demo.dql",
+   "path": "demo.dql",
+   "kind": "DQL query",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/cli-based-cost-data-with-dtctl/demo.dql",
+   "size": 754
+  }
+ ]
+}

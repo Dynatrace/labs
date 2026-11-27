@@ -1,0 +1,43 @@
+{
+ "overviewHtml": "<p>Dependabot floods teams with alerts, and many concern code or libraries that never run in production. This package combines Dynatrace Application Security insights with GitHub Copilot to verify, prioritize and remediate them.</p><p><strong>What you get</strong></p><ul><li>AI-assisted vulnerability verification using Dynatrace runtime context</li><li>Automatic dismissal of alerts for unused code and libraries</li><li>Automated fixes for confirmed vulnerabilities</li><li>Human review of every automated remediation</li><li>Two scenarios: GitHub-based and Dynatrace-driven workflow</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need GitHub with Dependabot and Copilot, plus Dynatrace Application Security.</p><ol><li>Add the Copilot instructions and security agent file to your repository</li><li>Import the Dynatrace workflows for alert verification and issue creation</li><li>Pick the GitHub-based or Dynatrace-driven scenario and run it</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "copilot-instructions.md",
+   "path": "copilot-instructions.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-dependabot-alert-triaging/copilot-instructions.md",
+   "size": 7605
+  },
+  {
+   "name": "dependabot-alerts-processing.yml",
+   "path": "dependabot-alerts-processing.yml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-dependabot-alert-triaging/dependabot-alerts-processing.yml",
+   "size": 14260
+  },
+  {
+   "name": "dynatrace-security-agent.md",
+   "path": "dynatrace-security-agent.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-dependabot-alert-triaging/dynatrace-security-agent.md",
+   "size": 16508
+  },
+  {
+   "name": "GitHub Dependabot alert verification [parent].yml",
+   "path": "GitHub Dependabot alert verification [parent].yml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-dependabot-alert-triaging/GitHub%20Dependabot%20alert%20verification%20%5Bparent%5D.yml",
+   "size": 14789
+  },
+  {
+   "name": "GitHub issue creation and Copilot assignment [sub-workflow].yml",
+   "path": "GitHub issue creation and Copilot assignment [sub-workflow].yml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-dependabot-alert-triaging/GitHub%20issue%20creation%20and%20Copilot%20assignment%20%5Bsub-workflow%5D.yml",
+   "size": 4624
+  }
+ ]
+}

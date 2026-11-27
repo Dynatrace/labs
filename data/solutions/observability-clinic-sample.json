@@ -1,0 +1,113 @@
+{
+ "overviewHtml": "<p>Teams moving from Monaco v1 to Monaco 2.0 benefit from seeing a real conversion and the new Settings support in action.</p><p><strong>What you get</strong></p><ul><li>A Monaco v1 project that creates a web application, synthetic monitor, auto-tag and SLO</li><li>The expected result of converting it to Monaco 2.0</li><li>A v2 project that configures Settings</li><li>Shell scripts that simplify the Monaco calls</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<pre class=\"codeblock\">./commands/deploy-v1.sh</pre><p>Starting from an empty Dynatrace environment deploy v1 - this is pretty boring if you know monaco and Dynatrace.</p><p>Then you will find a Web Application, a Synthetic Monitor, an Auto-Tag and an SLO in your environment.</p>",
+ "getStartedHtml": "<p>You need an empty Dynatrace environment to try it.</p><ol><li>Deploy the v1 project with the provided script</li><li>Convert it to v2 and deploy the converted project</li><li>Deploy the Settings demo, then clean up</li></ol>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/delete.yaml",
+   "size": 214
+  },
+  {
+   "name": "cleanup.sh",
+   "path": "commands/cleanup.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/commands/cleanup.sh",
+   "size": 240
+  },
+  {
+   "name": "convert-v1.sh",
+   "path": "commands/convert-v1.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/commands/convert-v1.sh",
+   "size": 251
+  },
+  {
+   "name": "deploy-v1.sh",
+   "path": "commands/deploy-v1.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/commands/deploy-v1.sh",
+   "size": 551
+  },
+  {
+   "name": "deploy-v2-converted.sh",
+   "path": "commands/deploy-v2-converted.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/commands/deploy-v2-converted.sh",
+   "size": 413
+  },
+  {
+   "name": "deploy-v2-settings.sh",
+   "path": "commands/deploy-v2-settings.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/commands/deploy-v2-settings.sh",
+   "size": 389
+  },
+  {
+   "name": "environments.yaml",
+   "path": "existing_v1_config/environments.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/environments.yaml",
+   "size": 119
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "expected_v2_config/manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/expected_v2_config/manifest.yaml",
+   "size": 234
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "settings-demo/manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/settings-demo/manifest.yaml",
+   "size": 238
+  },
+  {
+   "name": "application.json",
+   "path": "existing_v1_config/project/application-web/application.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/application-web/application.json",
+   "size": 3754
+  },
+  {
+   "name": "application.yaml",
+   "path": "existing_v1_config/project/application-web/application.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/application-web/application.yaml",
+   "size": 84
+  },
+  {
+   "name": "application-tagging.json",
+   "path": "existing_v1_config/project/auto-tag/application-tagging.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/auto-tag/application-tagging.json",
+   "size": 506
+  },
+  {
+   "name": "tagging.yaml",
+   "path": "existing_v1_config/project/auto-tag/tagging.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/auto-tag/tagging.yaml",
+   "size": 156
+  },
+  {
+   "name": "slo.json",
+   "path": "existing_v1_config/project/slo/slo.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/slo/slo.json",
+   "size": 472
+  },
+  {
+   "name": "slo.yaml",
+   "path": "existing_v1_config/project/slo/slo.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/observability_clinic_sample/existing_v1_config/project/slo/slo.yaml",
+   "size": 251
+  }
+ ]
+}

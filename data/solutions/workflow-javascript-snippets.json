@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Built-in workflow actions don&#x27;t cover every case, and writing custom JavaScript for the Run JavaScript action from scratch takes time that teams would rather spend elsewhere.</p><p><strong>What you get</strong></p><ul><li>Code snippets for the Run JavaScript action</li><li>Examples that use SDK calls for settings, entities and synthetic monitors</li><li>A copy-and-paste approach that needs no setup beyond permissions</li><li>Snippets that you can adapt to your own logic</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>The permissions that each snippet&#x27;s SDK calls need, for example <span class=\"code\">settings:objects:read</span> for settings, and the permissions to read entities and run synthetic monitors</li></ul>",
+ "setupHtml": "<ol><li>In your workflow, add a task and choose <strong>Run JavaScript</strong>.</li><li>Paste the snippet into the task.</li><li>Run the workflow and check the task result.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows and the permissions each snippet&#x27;s SDK calls require.</p><ol><li>Add a Run JavaScript task to your workflow</li><li>Paste the snippet</li><li>Run the workflow and check the result</li></ol>",
+ "files": []
+}

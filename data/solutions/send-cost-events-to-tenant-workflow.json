@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Dynatrace platform costs live in the Account Management API, which makes trend analysis and alerting on them hard. Teams want that cost data next to the rest of their observability data.</p><p><strong>What you get</strong></p><ul><li>Daily workflow that fetches the previous day&#x27;s costs from the Account Management API</li><li>Costs aggregated by capability and by environment</li><li>Four business event types ingested into the bizevents table, including a daily total</li><li>Data ready for DQL queries, dashboards, and alerting</li></ul>",
+ "prereqsHtml": "<ul><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope</li><li>A Credential Vault entry named <span class=\"code\">DPS Budget Tracker OAuth</span></li></ul><p>See SETUP.md for step-by-step instructions.</p>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need an OAuth client for the Account Management API and a Credential Vault entry.</p><ol><li>Create the OAuth client and store it in the Credential Vault</li><li>Import the workflow JSON into Dynatrace</li><li>Run it and query the cost events in the bizevents table</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "daily-cost-events-ingest-workflow.json",
+   "path": "templates/daily-cost-events-ingest-workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/send-cost-events-to-tenant-workflow/templates/daily-cost-events-ingest-workflow.json",
+   "size": 14103
+  }
+ ]
+}

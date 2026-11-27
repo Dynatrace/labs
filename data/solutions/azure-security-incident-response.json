@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>When Sentinel reports an intrusion on a VM, every minute of delay gives an attacker more room, and manual isolation risks losing forensic evidence.</p><p><strong>What you get</strong></p><ul><li>Resource locks, disabled managed identities and blocked anonymous blob access on the VM</li><li>An isolation network security group that blocks all traffic except an allow-list</li><li>A separate investigation resource group with its own network</li><li>Snapshots of OS and data disks and an investigation VM with the copies attached</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/shortlink/automation-workflows-azure-setup\" target=\"_blank\" rel=\"noopener\">Azure for Workflows</a> with a connection that may manage compute, network, storage, locks and role assignments in the subscription</li><li>Microsoft Sentinel alerts ingested into Dynatrace (the trigger listens for <span class=\"code\">event.provider == &quot;Microsoft Sentinel&quot;</span> on virtual machines)</li><li>An SSH key pair for the investigation VM</li></ul>",
+ "setupHtml": "<ol><li><strong>Optional: create a test VM.</strong> In the Azure portal, create a resource group (for example <span class=\"code\">demo-incident-workflow</span>) and a VM (for example <span class=\"code\">vulnerable-vm</span>) with any region and size. Choose password authentication and set <em>Public inbound ports</em> to <em>None</em>. Copy the subscription ID.</li><li><strong>Upload all four templates</strong> in <strong>Workflows</strong>:</li></ol><ul><li><span class=\"code\">azure-security-incident-workflow-parent.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-incident-rg-networking.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-isolate-vulnerable-vm.workflow-template.yaml</span></li><li><span class=\"code\">azure-security-investigation-snapshot-disks-and-vm.workflow-template.yaml</span></li></ul><p>Select your Azure connection in each one.</p><ol><li><strong>Link the sub-workflows</strong> in the parent. For example, <span class=\"code\">isolate_vulnerable_vm</span> must point to <em>Azure Security Investigation - Isolate Vulnerable VM</em>.</li><li><strong>Add your SSH public key</strong> in the <span class=\"code\">public_ssh_keys</span> task of <em>Snapshot, Disks, and VM</em>.</li><li><strong>Test it.</strong> In the parent workflow, choose <strong>Run</strong> with this example event:</li></ol><pre class=\"codeblock\">   {\n     &quot;azure.subscription&quot;: &quot;&lt;YOUR_SUBSCRIPTION_ID&gt;&quot;,\n     &quot;azure.resource.group&quot;: &quot;&lt;YOUR_RESOURCE_GROUP&gt;&quot;,\n     &quot;azure.resource.name&quot;: &quot;&lt;YOUR_VM_NAME&gt;&quot;\n   }</pre><p>After a successful run, Azure has a new <span class=\"code\">incident-workflow</span> resource group with the investigation VM, the disk snapshots, an isolation NSG and the cloned disks.</p>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Azure for Workflows and Sentinel alerts ingested into Dynatrace.</p><ol><li>Upload the parent workflow and its three sub-workflows</li><li>Select your Azure connection and link the sub-workflows</li><li>Add the SSH public key for the investigation VM</li><li>Test with an example event for a non-production VM</li></ol>",
+ "files": [
+  {
+   "name": "azure-security-incident-workflow-parent.workflow-template.yaml",
+   "path": "azure-security-incident-workflow-parent.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/azure-security-incident-response/azure-security-incident-workflow-parent.workflow-template.yaml",
+   "size": 10919
+  },
+  {
+   "name": "azure-security-investigation-incident-rg-networking.workflow-template.yaml",
+   "path": "azure-security-investigation-incident-rg-networking.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/azure-security-incident-response/azure-security-investigation-incident-rg-networking.workflow-template.yaml",
+   "size": 5334
+  },
+  {
+   "name": "azure-security-investigation-isolate-vulnerable-vm.workflow-template.yaml",
+   "path": "azure-security-investigation-isolate-vulnerable-vm.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/azure-security-incident-response/azure-security-investigation-isolate-vulnerable-vm.workflow-template.yaml",
+   "size": 10802
+  },
+  {
+   "name": "azure-security-investigation-snapshot-disks-and-vm.workflow-template.yaml",
+   "path": "azure-security-investigation-snapshot-disks-and-vm.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/azure-security-incident-response/azure-security-investigation-snapshot-disks-and-vm.workflow-template.yaml",
+   "size": 7861
+  }
+ ]
+}

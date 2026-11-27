@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Skip the noise and get a breakdown on what has happened the last week, compared with the weeks before and focus on what matters: summary, chronical issues, what is new and what has stopped.</p><p><strong>What you get</strong></p><ul><li>Workflow template that runs on a schedule</li><li>Weekly assessment comparing your problem volume against the week before</li><li>Detailed analysis delivered as report directly in your inbox</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace tenant with Davis problems being generated (any monitored environment)</li><li>Apps: <span class=\"code\">dynatrace.automations</span> (Workflows), <span class=\"code\">dynatrace.davis.workflow.actions</span> (Agentic AI prompt action), <span class=\"code\">dynatrace.email</span></li><li>An email connection configured for the <span class=\"code\">dynatrace.email:send-email</span> action</li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">agentic-weekly-operations-report.workflow-template.yaml</span>.</li><li>In your Dynatrace environment, open <strong>Workflows</strong> → <strong>Create workflow</strong> → <strong>Upload YAML</strong> (or the <span class=\"code\">...</span> menu → <strong>Import</strong>) and select the file.</li><li>Open the <span class=\"code\">mail_report</span> task and set the actual <strong>to</strong> recipients (the template ships with empty <span class=\"code\">to</span>/<span class=\"code\">cc</span>/<span class=\"code\">bcc</span>).</li><li>Review the schedule (<span class=\"code\">0 8 * * 1</span>, Mondays 08:00 Europe/Vienna) and adjust the cron/timezone if needed.</li><li>Enable the workflow.</li></ol>",
+ "getStartedHtml": "<p>You need an email connection.</p><ol><li>Import the workflow template into Workflows</li><li>Set the email recipients</li><li>Check the schedule and enable the workflow</li></ol>",
+ "files": [
+  {
+   "name": "agentic-weekly-operations-report.workflow-template.yaml",
+   "path": "agentic-weekly-operations-report.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agents-and-prompts/agentic-weekly-operations-report/agentic-weekly-operations-report.workflow-template.yaml",
+   "size": 23810
+  }
+ ]
+}

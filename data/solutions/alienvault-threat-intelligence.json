@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Threat feeds list indicators of compromise, but security teams still have to check by hand whether any of them touch their systems.</p><p><strong>What you get</strong></p><ul><li>A parent workflow that fetches the threat pulses you subscribe to in AlienVault OTX</li><li>Each pulse, with its indicators of compromise, passed to a sub-workflow you choose</li><li>A way to assess exposure by searching your Dynatrace data for those indicators</li><li>Manual or scheduled runs</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>An AlienVault OTX account and API key</li><li><span class=\"code\">otx.alienvault.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>A sub-workflow that analyzes one pulse, for example by searching logs and network data in Grail for its indicators. <strong>It isn&#x27;t included here.</strong></li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">alienvault-pulses-analysis.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In <span class=\"code\">get-alienvault-pulses</span>, add your AlienVault API key, for example as an <span class=\"code\">X-OTX-API-KEY</span> header from the credential vault.</li><li>In <span class=\"code\">analyze-alert</span>, select the sub-workflow that processes each pulse.</li><li>Run it manually, or add a schedule trigger.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, an AlienVault OTX API key and a sub-workflow that analyzes one pulse.</p><ol><li>Upload the workflow template in Workflows</li><li>Add your AlienVault API key</li><li>Select the sub-workflow that analyzes each pulse</li><li>Run it manually or add a schedule</li></ol>",
+ "files": [
+  {
+   "name": "alienvault-pulses-analysis.workflow-template.yaml",
+   "path": "alienvault-pulses-analysis.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/alienvault-threat-intelligence/alienvault-pulses-analysis.workflow-template.yaml",
+   "size": 2144
+  }
+ ]
+}

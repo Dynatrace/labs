@@ -1,0 +1,113 @@
+{
+ "overviewHtml": "<p>Writing Monaco configuration for each setting from scratch takes time. This project collects ready-made templates for Dynatrace configurations and settings so you can start from a working base.</p><p><strong>What you get</strong></p><ul><li>Monaco v2 projects with a config file and object definition each</li><li>A global directory for globally applied settings</li><li>Commented parameters, such as service anomaly detection</li><li>A default option to reset a setting</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>There are several directories which will contain monaco projects. The directory &quot;global&quot; will contain projects which can only be applied globally.</p><p>Each directory will contain many sub-directories of monaco projects, which contain a folder with a config.yaml and object.json.</p><h4>Service Anomaly Detection</h4><ol><li>Edit the anomalyDetection\\serviceAnom\\config.yaml file.</li></ol><p>Replace the parameter values with your own values.</p><pre class=\"codeblock\">        resp:\n          ###################\n          ## resp - responseTime\n          ## Fields:\n          ## enabled - enabled\n          ## mode - detectionMode - &quot;auto&quot;,&quot;fixed&quot;\n          ## degMilli (both) - degradationMilliseconds \n          ## degPercent (auto) - degradationPercent\n          ## degSlowestMilli (both) - slowestDegradationMilliseconds\n          ## degSlowestPercent (auto) - slowestDegradationPercent\n          ## reqPerMin (both) - requestsPerMinute\n          ## abState (both) - minutesAbnormalState\n          ## sens (fixed) - sensitivity - &quot;low&quot;,&quot;medium&quot;,&quot;high&quot;\n          ##############\n          type: value\n          value:\n            enabled: true\n            mode: &quot;auto&quot;\n            degMilli: 399\n            degPercent: 10\n            degSlowestMilli: 1000\n            degSlowestPercent: 100\n            reqPerMin: 15\n            abState: 1\n            sens: &quot;low&quot;</pre><p>Most Monaco v2 projects contain a &quot;default&quot; parameter. Which returns the setting/configuration back to defaults if set to true.</p><ol><li>Run the monaco command</li></ol><pre class=\"codeblock\">monaco deploy manifest.yaml --project serviceAnom -e ENV_NAME</pre><h4>Workflow of multiple configurations</h4><p>There are several configurations where the id/name should be used as input to another configuration.</p><p>ex: managementZone -&gt; alertingProfile</p><ol><li>Copy the folders alertingProfile and managementZone, add them to a <em>new project folder</em>.</li></ol><ol><li>Add the <em>new project folder name</em> under list of projects in manifest.yaml</li></ol><pre class=\"codeblock\">  projects:\n  - name: {YOUR PROJECT NAME}\n    type: grouping\n    path: {YOUR PROJECT NAME}/</pre><ol><li>Edit the alertingProfile &gt; config.yaml to make a reference to the id of one of the managementZone configs</li></ol><pre class=\"codeblock\">    ...\n    parameters:\n      managementZone:\n        type: reference\n        project: managementZone\n        configType: builtin:management-zones\n        configId: {YOUR CONFIG MZ ID}\n        property: id\n    ...</pre><ol><li>Run the monaco command in the /project directory</li></ol><pre class=\"codeblock\">monaco deploy manifest.yaml --project {YOUR PROJECT NAME} -e ENV_NAME</pre>",
+ "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Choose the project for the setting you want</li><li>Edit its config with your values</li><li>Deploy it with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "_manifest.yaml",
+   "path": "_manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/_manifest.yaml",
+   "size": 973
+  },
+  {
+   "name": "config.yaml",
+   "path": "anomalyDetection/databaseServiceAnom/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/anomalyDetection/databaseServiceAnom/config.yaml",
+   "size": 2989
+  },
+  {
+   "name": "object.json",
+   "path": "anomalyDetection/databaseServiceAnom/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/anomalyDetection/databaseServiceAnom/object.json",
+   "size": 4464
+  },
+  {
+   "name": "config.yaml",
+   "path": "anomalyDetection/serviceAnom/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/anomalyDetection/serviceAnom/config.yaml",
+   "size": 2797
+  },
+  {
+   "name": "object.json",
+   "path": "anomalyDetection/serviceAnom/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/anomalyDetection/serviceAnom/object.json",
+   "size": 4011
+  },
+  {
+   "name": "config.yaml",
+   "path": "browserMonitor/multiStep/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/browserMonitor/multiStep/config.yaml",
+   "size": 4902
+  },
+  {
+   "name": "object.json",
+   "path": "browserMonitor/multiStep/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/browserMonitor/multiStep/object.json",
+   "size": 6659
+  },
+  {
+   "name": "config.yaml",
+   "path": "browserMonitor/singleStep/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/browserMonitor/singleStep/config.yaml",
+   "size": 2106
+  },
+  {
+   "name": "object.json",
+   "path": "browserMonitor/singleStep/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/browserMonitor/singleStep/object.json",
+   "size": 2205
+  },
+  {
+   "name": "config.yaml",
+   "path": "global/alertingProfile/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/alertingProfile/config.yaml",
+   "size": 3223
+  },
+  {
+   "name": "object.json",
+   "path": "global/alertingProfile/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/alertingProfile/object.json",
+   "size": 3042
+  },
+  {
+   "name": "config.yaml",
+   "path": "global/managementZone/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/managementZone/config.yaml",
+   "size": 3767
+  },
+  {
+   "name": "object.json",
+   "path": "global/managementZone/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/managementZone/object.json",
+   "size": 3955
+  },
+  {
+   "name": "config.yaml",
+   "path": "global/ownership/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/ownership/config.yaml",
+   "size": 2185
+  },
+  {
+   "name": "object.json",
+   "path": "global/ownership/object.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dynatrace_template_hub/global/ownership/object.json",
+   "size": 1831
+  }
+ ]
+}

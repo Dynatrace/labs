@@ -1,0 +1,57 @@
+{
+ "overviewHtml": "<p>Automating account configuration needs the right groups and policies in place first. This sample sets up both for Monaco to manage Grail buckets and automations.</p><p><strong>What you get</strong></p><ul><li>Account configuration deployed with Monaco</li><li>Policies, boundaries and groups for Monaco admin access</li><li>User assignments for Config-as-Code OAuth clients</li><li>A script to fill in environment ID and user email</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p><strong>Pre-requisites</strong></p><ul><li>Monaco CLI version 2.11.0+</li><li>An OAuth token granting Dynatrace Account access</li><li>The following environment variables defined</li><li>ACCOUNT_UUID ... the UUID of your account</li><li>ACCOUNT_OAUTH_CLIENT_ID ... your oAuth client&#x27;s ID</li><li>ACCOUNT_OAUTH_CLIENT_SECRET ... your oAuth client&#x27;s secret</li></ul><p>You will also need to fill the sample configuration with actual values for your environment ID and the user you will tie Config-as-Code admin oAuth clients to.</p><p>You can do this either by manually replacing the following values:</p><ul><li>%YOUR_ENVIRONMENT_ID% in groups.yaml</li><li>%YOUR_USER_EMAIL% in users.yaml and delete.yaml</li></ul><p>Or by setting your desired values as environment variables <span class=\"code\">YOUR_ENVIRONMENT_ID</span> and <span class=\"code\">YOUR_USER_EMAIL</span> and running the configure.sh shell script. (Requires <span class=\"code\">sed</span> command line tool to be installed)</p><p>Then you can deploy your configurations using monaco</p><pre class=\"codeblock\">monaco account deploy -m manifest-account.yaml</pre>",
+ "getStartedHtml": "<p>You need Monaco and an OAuth client with account access.</p><ol><li>Set the account environment variables</li><li>Fill in your environment ID and user email</li><li>Deploy the account manifest with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "configure.sh",
+   "path": "configure.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/configure.sh",
+   "size": 328
+  },
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/delete.yaml",
+   "size": 246
+  },
+  {
+   "name": "manifest-account.yaml",
+   "path": "manifest-account.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/manifest-account.yaml",
+   "size": 279
+  },
+  {
+   "name": "boundaries.yaml",
+   "path": "casc-admin/boundaries.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/casc-admin/boundaries.yaml",
+   "size": 128
+  },
+  {
+   "name": "groups.yaml",
+   "path": "casc-admin/groups.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/casc-admin/groups.yaml",
+   "size": 934
+  },
+  {
+   "name": "policies.yaml",
+   "path": "casc-admin/policies.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/casc-admin/policies.yaml",
+   "size": 696
+  },
+  {
+   "name": "users.yaml",
+   "path": "casc-admin/users.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/account-monaco-admin-access/casc-admin/users.yaml",
+   "size": 184
+  }
+ ]
+}

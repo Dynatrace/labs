@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Workflows live in one environment, and teams need a way to back them up, promote them to another environment or keep them in version control.</p><p><strong>What you get</strong></p><ul><li>Example curl calls to list, get and create workflows</li><li>A workflow that commits every workflow definition to a GitHub repository</li><li>A workflow that creates a workflow from a definition in GitHub</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>For the API: an <a href=\"https://developer.dynatrace.com/develop/access-platform-apis-from-outside/\" target=\"_blank\" rel=\"noopener\">OAuth client</a> with the scopes <span class=\"code\">automation:workflows:read</span>, <span class=\"code\">automation:workflows:write</span> and <span class=\"code\">automation:workflows:run</span></li><li>For the GitHub workflows: a GitHub repository and token, and <span class=\"code\">api.github.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li></ul>",
+ "setupHtml": "<p><strong>API:</strong></p><ol><li>Create the OAuth client and get a bearer token.</li><li>To browse the API, open the <strong>API documentation</strong> app from the Launcher and select the <em>Automation</em> definition. You can also download the OpenAPI file there.</li><li>Use the calls in <span class=\"code\">api-examples.txt</span>: <span class=\"code\">GET /platform/automation/v1/workflows</span> and <span class=\"code\">GET /platform/automation/v1/workflows/{id}</span> to export, <span class=\"code\">POST /platform/automation/v1/workflows</span> to import.</li></ol><p><strong>Workflows:</strong></p><ol><li>Import the JSON file through the API (or upload it in <strong>Workflows</strong>).</li><li>Fill in the GitHub details (see Configuration) and run it.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows and, for the GitHub workflows, a repository and token.</p><ol><li>Create an OAuth client and get a bearer token</li><li>Try the example API calls</li><li>Import a GitHub workflow and fill in your repository details</li></ol>",
+ "files": [
+  {
+   "name": "export-all-workflows-to-github.workflow.json",
+   "path": "export-all-workflows-to-github.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/workflow-import-export-api/export-all-workflows-to-github.workflow.json",
+   "size": 3165
+  },
+  {
+   "name": "import-workflows-from-github.workflow.json",
+   "path": "import-workflows-from-github.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/workflow-import-export-api/import-workflows-from-github.workflow.json",
+   "size": 3002
+  },
+  {
+   "name": "api-examples.txt",
+   "path": "api-examples.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/workflow-import-export-api/api-examples.txt",
+   "size": 5863
+  }
+ ]
+}

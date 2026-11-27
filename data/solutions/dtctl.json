@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>dtctl is the open-source CLI for the Dynatrace platform. It follows familiar verb-noun syntax (like kubectl) and gives platform engineers, SREs, developers, and AI agents a single interface to manage workflows, dashboards, notebooks, queries, SLOs, settings, and more, directly from the terminal. Agents discover available commands at runtime and receive structured output they can parse and act on immediately. Humans get tab autocomplete, resource shortcuts, and in-editor YAML editing.</p><p><strong>What you get</strong></p><ul><li>Verbs like <span class=\"code\">get</span>, <span class=\"code\">describe</span>, <span class=\"code\">apply</span> and <span class=\"code\">delete</span> for workflows, dashboards, SLOs and more</li><li>DQL query execution with structured output for automation</li><li>Multiple environments with safety levels against accidental changes</li><li>A bundled Agent Skill that teaches AI assistants to operate Dynatrace</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace SaaS environment you can sign in to.</p><ol><li>Install dtctl with Homebrew, a script or PowerShell</li><li>Sign in with OAuth and run the built-in check</li><li>List resources or apply a configuration file</li></ol>",
+ "files": []
+}

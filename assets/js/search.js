@@ -26,7 +26,7 @@ const FIELD_W={title:10,tech:8,tags:6,facets:5,summary:3,body:1};
 ART.forEach(a=>{
   const f={title:a.title,tech:a.tech.join(' '),tags:[...a.tags,...a.capabilities].join(' '),
            facets:[...a.areas,...typesOf(a).map(t=>TYPE[t].label),a.path.replace(/[-_/]/g,' ')].join(' '),
-           summary:a.summary,body:stripHtml(a.overviewHtml+' '+a.prereqsHtml+' '+a.setupHtml)};
+           summary:a.summary,body:a.bodyTokens||''};   // the panel texts' words, prepared by the build
   a._ix=Object.fromEntries(Object.entries(f).map(([k,v])=>[k,{text:norm(v),toks:[...new Set(toks(v))]}]));
 });
 function lev(a,b,max){

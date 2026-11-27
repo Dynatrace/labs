@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Teams running deployments with ArgoCD lack a view of sync activity and application states. This Terraform project integrates ArgoCD with Dynatrace so you can see sync history and deployment health in one place.</p><p><strong>What you get</strong></p><ul><li>Dashboards for ArgoCD application lifecycle and platform observability</li><li>OpenPipeline ingest source and pipeline for normalized SDLC events</li><li>Insight to optimize your ArgoCD deployments</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
+ "setupHtml": "<ol><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-api-support-access-permission-handling#create-platform-tokens\" target=\"_blank\" rel=\"noopener\">Create a Platform token</a> with the following permissions.</li></ol><ul><li>Run apps: <span class=\"code\">app-engine:apps:run</span></li><li>View OpenPipeline configurations: <span class=\"code\">settings:objects:read</span></li><li>Edit OpenPipeline configurations: <span class=\"code\">settings:objects:write</span></li><li>Create and edit documents: <span class=\"code\">document:documents:write</span></li><li>View documents: <span class=\"code\">document:documents:read</span></li></ul><ol><li>Store the retrieved platform token in an environment variable.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><ol><li>Store your Dynatrace environment URL in an environment variable. Make sure to replace `<span class=\"code\"> with your Dynatrace environment ID, e.g. </span>abc12345`.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_ENV_URL=&#x27;https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_ENV_URL=&#x27;https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com&#x27;</pre><ol><li>Clone the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code-samples\" target=\"_blank\" rel=\"noopener\">Dynatrace configuration as code sample</a> repository using the following commands and move to the <span class=\"code\">argocd_observability_terraform</span> directory.</li></ol><pre class=\"codeblock\">    git clone https://github.com/Dynatrace/dynatrace-configuration-as-code-samples.git\n    cd dynatrace-configuration-as-code-samples/argocd_observability_terraform</pre>",
+ "getStartedHtml": "<p>You need Terraform and a Dynatrace platform token.</p><ol><li>Create a platform token and set your environment URL</li><li>Apply the Terraform configuration</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "dashboards.argocd.tf",
+   "path": "dashboards.argocd.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/dashboards.argocd.tf",
+   "size": 563
+  },
+  {
+   "name": "events.sdlc.argocd.ingest-sources.tf",
+   "path": "events.sdlc.argocd.ingest-sources.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/events.sdlc.argocd.ingest-sources.tf",
+   "size": 1796
+  },
+  {
+   "name": "events.sdlc.argocd.pipelines.tf",
+   "path": "events.sdlc.argocd.pipelines.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/events.sdlc.argocd.pipelines.tf",
+   "size": 4844
+  },
+  {
+   "name": "locals.tf",
+   "path": "locals.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/locals.tf",
+   "size": 269
+  },
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/main.tf",
+   "size": 0
+  },
+  {
+   "name": "outputs.tf",
+   "path": "outputs.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/outputs.tf",
+   "size": 258
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/providers.tf",
+   "size": 394
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/variables.tf",
+   "size": 0
+  },
+  {
+   "name": "argocd_app_lifecycle_observability.json",
+   "path": "dashboards/argocd_app_lifecycle_observability.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/dashboards/argocd_app_lifecycle_observability.json",
+   "size": 52938
+  },
+  {
+   "name": "argocd_platform_observability.json",
+   "path": "dashboards/argocd_platform_observability.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability_terraform/dashboards/argocd_platform_observability.json",
+   "size": 33748
+  }
+ ]
+}

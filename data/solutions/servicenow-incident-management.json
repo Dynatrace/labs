@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Problems that open duplicate or half-empty tickets slow down resolution, because the service desk must add context by hand.</p><p><strong>What you get</strong></p><ul><li>A trigger once Davis AI identifies the root cause, skipping maintenance windows</li><li>Related logs added to the description</li><li>CMDB configuration item and support group from Dynatrace ownership</li><li>Impact and urgency calculation, and a new incident or a comment on an existing one</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/service-now\" target=\"_blank\" rel=\"noopener\">ServiceNow for Workflows</a> with a connection</li><li>The ServiceNow <strong>Service Graph Connector for Dynatrace</strong>, which maps Dynatrace entities to CMDB CIs (needed by <span class=\"code\">get_cmdb_ci</span>)</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams assigned to your entities</li><li>For the severity example: <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a></li><li>For the email step: <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/email\" target=\"_blank\" rel=\"noopener\">Email for Workflows</a></li></ul>",
+ "setupHtml": "<ol><li>Download the workflow template(s) in this folder.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and select the file. The upload guides you through selecting connections.</li><li>Review the trigger and the tasks described below, then activate the workflow.</li></ol><p>How the main workflow works:</p><ul><li><strong>Trigger:</strong> a Davis problem trigger. A custom filter fires once the root cause is identified and skips problems during maintenance windows. Adjust the entity tags to your needs.</li><li><strong><span class=\"code\">get_cmdb_ci</span>:</strong> searches the CMDB base class by <span class=\"code\">correlation_id</span>.</li><li><strong><span class=\"code\">get_supportgroup</span>:</strong> finds the owner of the root-cause entity.</li><li><strong><span class=\"code\">get_problem_impact</span> and <span class=\"code\">estimate_problem_urgency</span>:</strong> JavaScript examples of impact and urgency calculations. Change the logic to match your process.</li><li><strong><span class=\"code\">search_incidents</span>, then <span class=\"code\">comment_on_an_incident</span> or <span class=\"code\">create_incident</span>:</strong> updates an existing incident or creates a new one.</li></ul>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, ServiceNow for Workflows and the Service Graph Connector for Dynatrace.</p><ol><li>Upload the workflow templates in Workflows</li><li>Select your connections when prompted</li><li>Adjust the trigger and impact logic, then activate</li></ol>",
+ "files": [
+  {
+   "name": "servicenow-incident-management.workflow-template.yaml",
+   "path": "servicenow-incident-management.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/servicenow-incident-management/servicenow-incident-management.workflow-template.yaml",
+   "size": 12304
+  },
+  {
+   "name": "servicenow-severity-from-impact.workflow-template.yaml",
+   "path": "servicenow-severity-from-impact.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/servicenow-incident-management/servicenow-severity-from-impact.workflow-template.yaml",
+   "size": 9830
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "overviewHtml": "<p>Scanners from other vendors produce long lists of findings, and it is hard to tell which ones matter or who should act on them.</p><p><strong>What you get</strong></p><ul><li>Jira ticket workflows for critical vulnerabilities and critical container vulnerabilities</li><li>Slack notification workflows for the same findings</li><li>An email workflow for critical security findings</li><li>A Jira workflow that only covers hosts Dynatrace monitors, shown with Qualys data</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Vulnerability findings from a third-party tool in the <span class=\"code\">security.events</span> table. The verified-host example uses Qualys data.</li><li>A connection for Jira or Slack for Workflows, or Email for Workflows</li></ul>",
+ "setupHtml": "<ol><li>Download the workflow template(s) you need.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong>, select the file and assign the connection.</li><li>Run it once manually, then activate the trigger.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, findings in the security.events table and a Jira, Slack or email connection.</p><ol><li>Download the workflow templates you need</li><li>Upload them in Workflows and assign the connection</li><li>Run once manually, then activate the trigger</li></ol>",
+ "files": [
+  {
+   "name": "create-jira-ticket-for-verified-host-vulnerabilities.workflow-template.yaml",
+   "path": "create-jira-ticket-for-verified-host-vulnerabilities.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/create-jira-ticket-for-verified-host-vulnerabilities.workflow-template.yaml",
+   "size": 10715
+  },
+  {
+   "name": "email-for-critical-security-findings.workflow-template.yaml",
+   "path": "email-for-critical-security-findings.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/email-for-critical-security-findings.workflow-template.yaml",
+   "size": 4593
+  },
+  {
+   "name": "jira-tickets-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "path": "jira-tickets-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/jira-tickets-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "size": 9163
+  },
+  {
+   "name": "jira-tickets-for-critical-vulnerabilities.workflow-template.yaml",
+   "path": "jira-tickets-for-critical-vulnerabilities.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/jira-tickets-for-critical-vulnerabilities.workflow-template.yaml",
+   "size": 13899
+  },
+  {
+   "name": "slack-notifications-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "path": "slack-notifications-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/slack-notifications-for-critical-container-vulnerabilities.workflow-template.yaml",
+   "size": 11802
+  },
+  {
+   "name": "slack-notifications-for-critical-vulnerabilities.workflow-template.yaml",
+   "path": "slack-notifications-for-critical-vulnerabilities.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/external-security-findings-notifications/slack-notifications-for-critical-vulnerabilities.workflow-template.yaml",
+   "size": 10535
+  }
+ ]
+}

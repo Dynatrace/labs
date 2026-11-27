@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Preparing a cloud cost review by hand is slow, and ROI conversations need a polished result. Two prompt variants analyze a tenant with the Cloud Native Connection and produce a printable HTML report.</p><p><strong>What you get</strong></p><ul><li>Prompts for Claude Code with <span class=\"code\">dtctl</span> and for Dynatrace Assist</li><li>Detection of idle AWS and Azure resources such as volumes, VMs, NAT gateways and Lambdas</li><li>Kubernetes over-provisioning analysis and on-demand pricing estimates</li><li>Exclusion of DR and HA resources and collaborative wording</li></ul>",
+ "prereqsHtml": "<ul><li><strong>Dynatrace tenant</strong> with <a href=\"https://docs.dynatrace.com/docs/shortlink/cloud-native-connection\" target=\"_blank\" rel=\"noopener\">Cloud Native Connection</a> enabled for AWS and/or Azure</li><li><strong>For the Claude Code variant:</strong> <span class=\"code\">dtctl</span> configured with a context for the target tenant; Claude Code installed</li><li><strong>For the Dynatrace Assist variant:</strong> Access to the Dynatrace Assist playground or a tenant with Assist enabled (no local tooling needed)</li><li>Kubernetes over-provisioning analysis requires a K8s footprint monitored by Dynatrace</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a tenant with the Cloud Native Connection enabled for AWS or Azure.</p><ol><li>Choose the Claude Code or Dynatrace Assist prompt</li><li>Run it against the target tenant</li><li>Print the HTML report to PDF to share</li></ol>",
+ "files": [
+  {
+   "name": "prompt-claude-code.md",
+   "path": "prompt-claude-code.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agents-and-prompts/cloud-cost-optimization-review/prompt-claude-code.md",
+   "size": 5307
+  },
+  {
+   "name": "prompt-dynatrace-assist.md",
+   "path": "prompt-dynatrace-assist.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agents-and-prompts/cloud-cost-optimization-review/prompt-dynatrace-assist.md",
+   "size": 5551
+  }
+ ]
+}

@@ -1,0 +1,113 @@
+{
+ "overviewHtml": "<p>Teams assessing workloads against the Well-Architected Framework need repeatable checks across all six pillars. Setting this up by hand across applications, SLOs and guardians is slow and error-prone, so this template bundles the pieces.</p><p><strong>What you get</strong></p><ul><li>A six pillars workflow</li><li>Site Reliability Guardian templates, including cost and operational ones</li><li>Application, detection rule, ownership and SLO configs</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<ol><li>Review the files in the repository</li><li>Adjust the manifest to your environment</li><li>Deploy the configuration</li></ol>",
+ "files": [
+  {
+   "name": "delete_template.yaml",
+   "path": "delete_template.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/delete_template.yaml",
+   "size": 1563
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/manifest.yaml",
+   "size": 586
+  },
+  {
+   "name": "update-srg-id.sh",
+   "path": "update-srg-id.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/update-srg-id.sh",
+   "size": 1432
+  },
+  {
+   "name": "ownership.json",
+   "path": "workflow/ownership.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/workflow/ownership.json",
+   "size": 904
+  },
+  {
+   "name": "wf-sixpillars.json",
+   "path": "workflow/wf-sixpillars.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/workflow/wf-sixpillars.json",
+   "size": 12253
+  },
+  {
+   "name": "srg-cost.json",
+   "path": "srg/cost/srg-cost.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/cost/srg-cost.json",
+   "size": 1173
+  },
+  {
+   "name": "application-detection-rule.json",
+   "path": "srg/opr-excel/application-detection-rule.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/opr-excel/application-detection-rule.json",
+   "size": 115
+  },
+  {
+   "name": "application.json",
+   "path": "srg/opr-excel/application.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/opr-excel/application.json",
+   "size": 3754
+  },
+  {
+   "name": "slo-apdex.json",
+   "path": "srg/opr-excel/slo-apdex.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/opr-excel/slo-apdex.json",
+   "size": 606
+  },
+  {
+   "name": "srg-opr-excel.json",
+   "path": "srg/opr-excel/srg-opr-excel.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/opr-excel/srg-opr-excel.json",
+   "size": 468
+  },
+  {
+   "name": "slo-resptime.json",
+   "path": "srg/perf/slo-resptime.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/perf/slo-resptime.json",
+   "size": 669
+  },
+  {
+   "name": "srg-perf.json",
+   "path": "srg/perf/srg-perf.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/perf/srg-perf.json",
+   "size": 1250
+  },
+  {
+   "name": "k8s-anomaly-detection.json",
+   "path": "srg/reliability/k8s-anomaly-detection.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/reliability/k8s-anomaly-detection.json",
+   "size": 2054
+  },
+  {
+   "name": "log-ingestion-rules.json",
+   "path": "srg/reliability/log-ingestion-rules.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/reliability/log-ingestion-rules.json",
+   "size": 312
+  },
+  {
+   "name": "srg-reliability.json",
+   "path": "srg/reliability/srg-reliability.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/well_architected_framework_validation/srg/reliability/srg-reliability.json",
+   "size": 952
+  }
+ ]
+}

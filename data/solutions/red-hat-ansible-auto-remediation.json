@@ -1,0 +1,50 @@
+{
+ "overviewHtml": "<p>Detecting a problem is only half the job. Remediation and ticket updates still depend on manual hand-offs between tools.</p><p><strong>What you get</strong></p><ul><li>Variant with Ansible Automation Controller: ServiceNow incident, DQL-found remediation, job template launch</li><li>Result comments on the incident and the problem, plus a Slack message to the owning team</li><li>Variant with Event-Driven Ansible: load forecast with Davis AI and a rulebook-triggered playbook</li><li>A step-by-step tutorial notebook</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and Notebooks</li><li>Red Hat Ansible Automation Platform (Automation Controller and/or Event-Driven Ansible)</li><li>From Dynatrace Hub: Red Hat Ansible for Workflows, ServiceNow for Workflows and Slack for Workflows, each with a connection</li><li>The hosts of your systems in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a>. Use <a href=\"https://docs.dynatrace.com/docs/setup-and-configuration/edgeconnect\" target=\"_blank\" rel=\"noopener\">EdgeConnect</a> if they are behind a firewall.</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your entities, used for targeted notifications</li></ul>",
+ "setupHtml": "<ol><li>In <strong>Notebooks</strong>, choose <strong>Import</strong> and select <span class=\"code\">red-hat-tutorial.notebook.json</span>. Follow it step by step.</li><li>Create the connections to Red Hat Ansible, ServiceNow and Slack.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import the workflow template(s) for the variant you want. Assign the connections when prompted.</li><li>For variant 2, deploy <span class=\"code\">rulebook.yml</span> and <span class=\"code\">playbook.yml</span> in Event-Driven Ansible.</li><li>Use the notebook to ingest a test event and watch the remediation run.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Red Hat Ansible Automation Platform and connections for ServiceNow and Slack.</p><ol><li>Import the tutorial notebook and follow it</li><li>Create the Ansible, ServiceNow and Slack connections</li><li>Upload the workflow templates for your variant</li><li>Ingest a test event and watch the remediation</li></ol>",
+ "files": [
+  {
+   "name": "auto-remediation-with-ticketing.workflow-template.yaml",
+   "path": "auto-remediation-with-ticketing.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/auto-remediation-with-ticketing.workflow-template.yaml",
+   "size": 11169
+  },
+  {
+   "name": "core-journey-auto-remediation.workflow-template.yaml",
+   "path": "core-journey-auto-remediation.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/core-journey-auto-remediation.workflow-template.yaml",
+   "size": 10410
+  },
+  {
+   "name": "mitigate-with-event-driven-ansible.workflow-template.yaml",
+   "path": "mitigate-with-event-driven-ansible.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/mitigate-with-event-driven-ansible.workflow-template.yaml",
+   "size": 15270
+  },
+  {
+   "name": "playbook.yml",
+   "path": "playbook.yml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/playbook.yml",
+   "size": 373
+  },
+  {
+   "name": "red-hat-tutorial.notebook.json",
+   "path": "red-hat-tutorial.notebook.json",
+   "kind": "Notebook",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/red-hat-tutorial.notebook.json",
+   "size": 11701
+  },
+  {
+   "name": "rulebook.yml",
+   "path": "rulebook.yml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/red-hat-ansible-auto-remediation/rulebook.yml",
+   "size": 543
+  }
+ ]
+}

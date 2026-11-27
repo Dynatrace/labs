@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Setting up access for each new team in Account Management means repeating the same clicks for groups, policies and environments.</p><p><strong>What you get</strong></p><ul><li>Group creation through the Account Management API</li><li>Default policies such as <span class=\"code\">AppEngine - User</span> and <span class=\"code\">Hub Catalog Read</span></li><li>Parameterized policies limiting read access to a management zone, security context or host group</li><li>Bindings in both a non-production and a production environment</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Account Management access to create an <a href=\"https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients\" target=\"_blank\" rel=\"noopener\">OAuth client</a> with permission to manage groups and policies</li><li>The custom parameterized policy above, created in your account</li><li><span class=\"code\">api.dynatrace.com</span> and <span class=\"code\">sso.dynatrace.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li></ul>",
+ "setupHtml": "<ol><li>Create the OAuth client.</li><li>Store the client secret in the credential vault of the environment where the workflow will run.</li><li>Download <span class=\"code\">iam-group-management.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In the <span class=\"code\">groups_definition</span> task, replace `` with your group details.</li><li>In the <span class=\"code\">env_var</span> task, replace `` with your account ID, client ID, the credential vault ID of the secret, and the other required fields.</li><li>Run the workflow.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows and an OAuth client with permission to manage groups and policies.</p><ol><li>Create the OAuth client and store its secret in the credential vault</li><li>Upload the workflow template in Workflows</li><li>Fill in your group and account details</li><li>Run the workflow</li></ol>",
+ "files": [
+  {
+   "name": "iam-group-management.workflow-template.yaml",
+   "path": "iam-group-management.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/iam-group-management/iam-group-management.workflow-template.yaml",
+   "size": 10000
+  }
+ ]
+}

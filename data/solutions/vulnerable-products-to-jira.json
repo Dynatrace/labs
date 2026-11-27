@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Vulnerabilities reported per process create floods of duplicate tickets, which teams struggle to work through.</p><p><strong>What you get</strong></p><ul><li>A trigger every 30 minutes that queries open vulnerabilities in <span class=\"code\">security.events</span></li><li>Grouping by product using release monitoring</li><li>A sub-workflow that checks for an existing Jira ticket</li><li>Owner lookup and ticket creation with a tracking link back to Dynatrace</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and Runtime Vulnerability Analytics</li><li>Release monitoring (product and version information) for your processes</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> with a connection</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your entities</li></ul>",
+ "setupHtml": "<ol><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import the sub-workflow <span class=\"code\">appsec-ticket-creation-sub-workflow.workflow-template.yaml</span> <strong>first</strong>. Assign the Jira connection.</li><li>Copy the new sub-workflow&#x27;s ID.</li><li>Import <span class=\"code\">appsec-trigger.workflow-template.yaml</span> and replace `` with that ID.</li><li>Run the trigger once manually, then activate the schedule.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Runtime Vulnerability Analytics, release monitoring and a Jira connection.</p><ol><li>Import the ticket creation sub-workflow and assign Jira</li><li>Import the trigger and point it at the sub-workflow</li><li>Run once, then activate the schedule</li></ol>",
+ "files": [
+  {
+   "name": "appsec-ticket-creation-sub-workflow.workflow-template.yaml",
+   "path": "appsec-ticket-creation-sub-workflow.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/vulnerable-products-to-jira/appsec-ticket-creation-sub-workflow.workflow-template.yaml",
+   "size": 8162
+  },
+  {
+   "name": "appsec-trigger.workflow-template.yaml",
+   "path": "appsec-trigger.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/vulnerable-products-to-jira/appsec-trigger.workflow-template.yaml",
+   "size": 7636
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Alerts often reach a shared inbox, and the people who own the affected service have to dig for context in the logs before they can act on the event.</p><p><strong>What you get</strong></p><ul><li>A trigger on matching events</li><li>A DQL query that fetches the related log lines</li><li>An owner lookup through Dynatrace ownership</li><li>An email to the owners that includes the logs</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/email\" target=\"_blank\" rel=\"noopener\">Email for Workflows</a> (the workflow actor needs <span class=\"code\">email:emails:send</span>)</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams with email contacts assigned to your entities</li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">email-entity-owner-notification.workflow-template.yaml</span>.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and select the file.</li><li>Adjust the trigger (see Configuration) and activate the workflow.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Email for Workflows and ownership teams with email contacts.</p><ol><li>Upload the workflow template in Workflows</li><li>Adjust the trigger to the events you care about</li><li>Activate the workflow</li></ol>",
+ "files": [
+  {
+   "name": "email-entity-owner-notification.workflow-template.yaml",
+   "path": "email-entity-owner-notification.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/email-entity-owner-notification/email-entity-owner-notification.workflow-template.yaml",
+   "size": 2490
+  }
+ ]
+}

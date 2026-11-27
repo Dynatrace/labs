@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>During an incident the hard part is staying methodical under pressure. This prompt keeps the sequence consistent, from triage to root cause, and leaves a write-up behind that you can share.</p><p><strong>What you get</strong></p><ul><li>All active Dynatrace problems checked in one sweep</li><li>Root cause explained in plain English</li><li>User impact, error logs and distributed traces per critical problem</li><li>Mitigation suggestions, business-impact priority and an incident report</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Run it when an incident is active</li><li>Share the generated report with responders</li></ol>",
+ "files": []
+}

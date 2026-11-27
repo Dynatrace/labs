@@ -26,7 +26,23 @@ function relDate(d){ if(!d) return '—'; const n=Math.round(daysAgo(d));
   return n<1?'today':n<2?'yesterday':n<30?`${n} days ago`:n<365?`${Math.round(n/30.4)} months ago`:`${(n/365).toFixed(1)} years ago`; }
 const freshness=d=>{const m=daysAgo(d)/30.4; return m<6?'fresh':m<12?'aging':'stale';};
 const byAdded=(x,y)=>y.added.localeCompare(x.added)||y.updated.localeCompare(x.updated)||x.title.localeCompare(y.title);
-const byUpdated=(x,y)=>y.updated.localeCompare(x.updated)||x.title.localeCompare(y.title);
+/* "Recently updated" sorts by the exact time (updatedAt, UTC), so entries saved on the same day keep their order. */
+const byUpdated=(x,y)=>(y.updatedAt||y.updated).localeCompare(x.updatedAt||x.updated)||x.title.localeCompare(y.title);
+/* The panel's long texts and file list live in data/solutions/<id>.json; loaded once, when needed. */
+const DETAIL={};
+function loadDetail(a){
+  if(!a) return Promise.resolve();
+  if(!DETAIL[a.id]) DETAIL[a.id]=fetch('data/solutions/'+encodeURIComponent(a.id)+'.json')
+    .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d=>{ Object.assign(a,d); a._loaded=true; })
+    .catch(()=>{ delete DETAIL[a.id]; a._failed=true; });
+  return DETAIL[a.id];
+}
+/* Start loading a solution as soon as its card is pointed at or focused. */
+['pointerover','focusin'].forEach(ev=>document.addEventListener(ev,e=>{
+  const el=e.target.closest&&e.target.closest('[data-id],[data-open]'); if(!el) return;
+  const id=el.dataset.open||el.dataset.id; const a=ART.find(x=>x.id===id); if(a&&!a._loaded) loadDetail(a);
+},{passive:true}));
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2600);}
 
 /* ── Previews ───────────────────────────────────────────────────────────── */

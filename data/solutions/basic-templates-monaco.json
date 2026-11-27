@@ -1,0 +1,92 @@
+{
+ "overviewHtml": "<p>Learning configuration as code is easier with a working example. These templates deploy common settings that you can review and adapt to your own needs.</p><p><strong>What you get</strong></p><ul><li>Alerting profile, problem notification and ownership configurations</li><li>Application detection, web application and synthetic monitor setup</li><li>Maintenance window, management zone and SLO definitions</li><li>An environment variable script to run before deployment</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To download the CLI, head over to the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code/releases\" target=\"_blank\" rel=\"noopener\">dynatrace-configuration-as-code GitHub repository</a>.</p><p>If you&#x27;re new to Monaco and want to learn more, check out the <a href=\"https://dt-url.net/monaco-observability-clinic\" target=\"_blank\" rel=\"noopener\">Observability Clinic on Monaco 2.0</a>.</p><p>After your Monaco setup is done, and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the default.sh in the env_variables folder.</li><li>Run the script to export the variables - execute &quot;source env_variables/default.sh&quot;</li><li>Run &quot;monaco deploy manifest.yaml --dry-run&quot; to very syntax of all files is correct.</li><li>Run the monaco project with &quot;monaco deploy manifest.yaml&quot;</li><li>Explore your Dynatrace environment and check out what got deployed</li></ol><p>In case you need to <strong>delete</strong> the configuration, feel free to explore the <a href=\"https://docs.dynatrace.com/docs/manage/configuration-as-code/monaco/reference/commands#delete\" target=\"_blank\" rel=\"noopener\">delete command</a>.</p>",
+ "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Fill in the environment variables script and export it</li><li>Run a dry run, then deploy with Monaco</li><li>Explore what was created and adapt it</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/manifest.yaml",
+   "size": 544
+  },
+  {
+   "name": "default.sh",
+   "path": "env_variables/default.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/env_variables/default.sh",
+   "size": 4629
+  },
+  {
+   "name": "alerting-profile.json",
+   "path": "monaco/alerting-profile.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/alerting-profile.json",
+   "size": 828
+  },
+  {
+   "name": "application-detection.json",
+   "path": "monaco/application-detection.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/application-detection.json",
+   "size": 130
+  },
+  {
+   "name": "application-web.json",
+   "path": "monaco/application-web.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/application-web.json",
+   "size": 5055
+  },
+  {
+   "name": "config.yaml",
+   "path": "monaco/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/config.yaml",
+   "size": 10517
+  },
+  {
+   "name": "http-monitor.json",
+   "path": "monaco/http-monitor.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/http-monitor.json",
+   "size": 1962
+  },
+  {
+   "name": "mw.json",
+   "path": "monaco/mw.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/mw.json",
+   "size": 972
+  },
+  {
+   "name": "mz.json",
+   "path": "monaco/mz.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/mz.json",
+   "size": 3758
+  },
+  {
+   "name": "ownership.json",
+   "path": "monaco/ownership.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/ownership.json",
+   "size": 569
+  },
+  {
+   "name": "problem-notification.json",
+   "path": "monaco/problem-notification.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/problem-notification.json",
+   "size": 482
+  },
+  {
+   "name": "slo.json",
+   "path": "monaco/slo.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-monaco/monaco/slo.json",
+   "size": 433
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>&quot;Is this service healthy?&quot; is asked often and answered differently each time. This prompt makes the check repeatable, so every review covers the same signals and ends with a clear verdict.</p><p><strong>What you get</strong></p><ul><li>Current response time, errors and throughput</li><li>Active problems and alerts</li><li>Recent deployments and their impact</li><li>The five slowest endpoints and any security vulnerabilities</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Name the service, or let it infer it from your workspace</li><li>Review the summary and follow up on flagged issues</li></ol>",
+ "files": []
+}

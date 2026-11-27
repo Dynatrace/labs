@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Slow workflows and long pull request times are hard to spot. This project integrates GitHub with Dynatrace so you can turn workflow and pull request activity into data you can act on.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitHub workflows and pull requests</li><li>OpenPipeline ingest source and pipelines for jobs, pull requests and workflows</li><li>Data to streamline CI/CD and improve productivity</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco and a GitHub organization.</p><ol><li>Review the manifest for your environment</li><li>Deploy the project with Monaco</li><li>Connect GitHub to send events to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/manifest.yaml",
+   "size": 326
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/document-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/document-dashboard/config.yaml",
+   "size": 389
+  },
+  {
+   "name": "github.pull_requests.json",
+   "path": "pipeline_observability/document-dashboard/github.pull_requests.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/document-dashboard/github.pull_requests.json",
+   "size": 21369
+  },
+  {
+   "name": "github.workflow_pulse.json",
+   "path": "pipeline_observability/document-dashboard/github.workflow_pulse.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/document-dashboard/github.workflow_pulse.json",
+   "size": 52458
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/openpipeline/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/config.yaml",
+   "size": 2656
+  },
+  {
+   "name": "events.sdlc.github.ingest_sources.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.github.ingest_sources.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.github.ingest_sources.json",
+   "size": 3113
+  },
+  {
+   "name": "events.sdlc.github.pipelines.job.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.github.pipelines.job.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.github.pipelines.job.json",
+   "size": 3659
+  },
+  {
+   "name": "events.sdlc.github.pipelines.pull_request.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.github.pipelines.pull_request.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.github.pipelines.pull_request.json",
+   "size": 3236
+  },
+  {
+   "name": "events.sdlc.github.pipelines.workflow.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.github.pipelines.workflow.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.github.pipelines.workflow.json",
+   "size": 4089
+  },
+  {
+   "name": "events.sdlc.global.routing.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.global.routing.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.global.routing.json",
+   "size": 971
+  }
+ ]
+}
