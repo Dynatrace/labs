@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>DQL queries consume budget, and it is rarely clear who runs the expensive ones. Governance and FinOps teams need visibility into usage and cost drivers across the environment.</p><p><strong>What you get</strong></p><ul><li>Total DQL cost and cost over time</li><li>Data scanned in GB and execution counts</li><li>Heavy users, expensive queries, and costly data sources</li><li>Detection of inefficient or unoptimized DQL usage</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>High‑level KPIs and trends including:</p><ul><li>Total DQL cost</li><li>Cost over time</li><li>Data scanned (GB)</li><li>Execution counts</li></ul>",
+ "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Review the KPIs and trends for your timeframe</li><li>Follow up with heavy users or costly queries</li></ol>",
+ "files": [
+  {
+   "name": "DQL Usage Overview.json",
+   "path": "DQL Usage Overview.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/dql-usage-overview/DQL%20Usage%20Overview.json",
+   "size": 51766
+  }
+ ]
+}

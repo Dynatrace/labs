@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Cloud SRE Agents connects Dynatrace Intelligence to the hyperscaler SRE agents running in your cloud environment. When Dynatrace detects a problem, Cloud SRE Agents evaluates your configured Interaction Profiles, dispatches the problem to matching agents in parallel, and writes their findings back to the Dynatrace problem record.</p><p><strong>What you get</strong></p><ul><li>AWS DevOps Agent, Azure SRE Agent, and Gemini Cloud Assist called in parallel on each problem</li><li>Evidence such as CloudTrail history, Azure policy, GCP IAM, and recent deployments</li><li>Suggested remediation for AWS and Azure</li><li>Findings shown on the problem screen the SRE already reads</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p><em>Cloud SRE Agents is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Cloud SRE Agents</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li></ol>",
+ "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app once you receive the instructions</li></ol>",
+ "files": []
+}

@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Business processes like claims handling are hard to see from infrastructure metrics alone. This dashboard shows how to visualize one process end to end in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Performance and status of an insurance claims process</li><li>Dashboard JSON ready to import</li><li>Sample log data to try it out</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">Dashboard - insurance claims processing.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards app</strong>.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol>",
+ "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Ingest the sample log data or point it at your own</li><li>Review and adjust the dashboard to your process</li></ol>",
+ "files": [
+  {
+   "name": "Dashboard - insurance claims processing.json",
+   "path": "Dashboard - insurance claims processing.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/insurance-claims-processing/Dashboard%20-%20insurance%20claims%20processing.json",
+   "size": 34406
+  },
+  {
+   "name": "Sample data - insurance claims processing.log",
+   "path": "Sample data - insurance claims processing.log",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/insurance-claims-processing/Sample%20data%20-%20insurance%20claims%20processing.log",
+   "size": 6961
+  }
+ ]
+}

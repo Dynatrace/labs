@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Teams that want to separate log data in Grail, for example for retention or access, need a working bucket and routing rule to start from.</p><p><strong>What you get</strong></p><ul><li>Monaco project that creates a custom Grail bucket</li><li>A rule that routes specific logs to the new bucket</li><li>Manifest and config files ready to adapt</li><li>A simple pattern for managing buckets as code</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco &gt;=<span class=\"code\">v2.9.0</span></li><li>Dynatrace Platform environment</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client.</p><ol><li>Point the Monaco manifest at your environment</li><li>Adjust the bucket definition and log routing rule</li><li>Deploy the project with Monaco</li></ol>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/grail_buckets/manifest.yaml",
+   "size": 357
+  },
+  {
+   "name": "bucket.json",
+   "path": "bucket/bucket.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/grail_buckets/bucket/bucket.json",
+   "size": 92
+  },
+  {
+   "name": "config.yaml",
+   "path": "bucket/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/grail_buckets/bucket/config.yaml",
+   "size": 556
+  },
+  {
+   "name": "log-bucket-rule.json",
+   "path": "bucket/log-bucket-rule.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/grail_buckets/bucket/log-bucket-rule.json",
+   "size": 146
+  }
+ ]
+}

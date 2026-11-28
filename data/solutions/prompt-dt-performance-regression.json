@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>&quot;Did my deploy make it slower?&quot; often gets answered by looking at a chart. This prompt runs a proper before and after comparison and stops early when nothing regressed.</p><p><strong>What you get</strong></p><ul><li>An investigation window anchored on the latest deployment event</li><li>Before and after comparison of P95 response time, error rate and throughput</li><li>Regression thresholds that decide whether to dig deeper</li><li>Trace investigation and a rollback or hotfix recommendation</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Confirm the service and when the regression began</li><li>Review the comparison and the recommendation</li></ol>",
+ "files": []
+}

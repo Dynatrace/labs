@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Response times alone do not tell you whether users are happy. Apdex condenses performance into one satisfaction score, so teams can see how services perform from the end-user perspective.</p><p><strong>What you get</strong></p><ul><li>Requests grouped as Satisfied, Tolerating, or Frustrated</li><li>Apdex trends over time</li><li>Insight into service performance from the end-user perspective</li><li>Filters for namespace, cluster, and service name</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">Apdex Dashboard.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards app</strong>.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol><ul><li>The <strong>namespace</strong> and <strong>cluster filters</strong> if your environment differs.</li><li>Any <strong>service name filters</strong> to match your setup.</li></ul><ol><li>Save the dashboard and start exploring your Apdex data.</li></ol>",
+ "getStartedHtml": "<ol><li>Import the dashboard JSON in the Dashboards app</li><li>Adjust the namespace, cluster, and service name filters to your environment</li><li>Save it and explore your Apdex data</li></ol>",
+ "files": [
+  {
+   "name": "Apdex Dashboard.json",
+   "path": "Apdex Dashboard.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/apdex-dashboard/Apdex%20Dashboard.json",
+   "size": 20725
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>An agent with access to Dynatrace still does not know how DQL behaves or how to structure an investigation, so it writes broken queries and wastes tokens. Dynatrace for AI teaches Claude Code, Cursor, GitHub Copilot and other coding agents how to access production insights.</p><p><strong>What you get</strong></p><ul><li>Skills in the open Agent Skills format for DQL, services, logs, problems and Kubernetes</li><li>Plugins for Claude Code, Cursor, Google Antigravity and Devin</li><li>Reusable prompts for health checks and incident response</li><li>Compatibility with GitHub Copilot, OpenCode and other agents</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>Skills carry knowledge only, so pair them with dtctl or the Dynatrace MCP server for live data.</p><ol><li>Install the plugin or skills package for your agent</li><li>Set your environment URL and platform token</li><li>Ask the agent to investigate a service</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": []
+}

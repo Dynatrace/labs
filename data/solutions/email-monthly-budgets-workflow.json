@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Cost owners want early notice when spend approaches the monthly budget, without checking reports. If spend stays below the threshold, nothing is sent.</p><p><strong>What you get</strong></p><ul><li>Month-to-date costs from the Account Management API by environment and capability</li><li>Spend calculated as a percentage of your <span class=\"code\">MONTHLY_BUDGET</span></li><li>Email with cost breakdown when the threshold is met</li><li>Threshold set on the workflow step condition</li></ul>",
+ "prereqsHtml": "<ul><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope</li><li>A Credential Vault entry named <span class=\"code\">DPS Budget Tracker OAuth</span></li><li>The <span class=\"code\">dynatrace.email</span> connector enabled in your environment</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need an OAuth client, a Credential Vault entry and the email connector.</p><ol><li>Create the OAuth client and store it in Credential Vault</li><li>Import the workflow and set your monthly budget</li><li>Set the threshold and recipients</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "email-monthly-cost-status.workflow.json",
+   "path": "email-monthly-cost-status.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/email-monthly-budgets-workflow/email-monthly-cost-status.workflow.json",
+   "size": 17130
+  }
+ ]
+}

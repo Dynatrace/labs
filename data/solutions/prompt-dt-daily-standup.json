@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Standup prep means opening several screens each morning and summarizing them by hand. This prompt runs that pass for you, so the team hears what changed and what broke before the meeting starts.</p><p><strong>What you get</strong></p><ul><li>Health status per service: healthy, degraded or critical</li><li>Response time, error and throughput comparison, today against yesterday</li><li>Incidents and problems from the last 24 hours</li><li>Recent deployments and action items as shareable bullets</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Name the services to include, or let it infer them</li><li>Share the generated bullets with your team</li></ol>",
+ "files": []
+}

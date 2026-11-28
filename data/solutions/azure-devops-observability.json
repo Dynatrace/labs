@@ -1,0 +1,99 @@
+{
+ "overviewHtml": "<p>Slow pipelines and long pull request times are hard to see across Azure DevOps projects. This project integrates Azure DevOps with Dynatrace to turn pipeline and pull request activity into data you can act on.</p><p><strong>What you get</strong></p><ul><li>Dashboards for Azure DevOps pipelines and pull requests</li><li>Business events, logs and deployments from the integration</li><li>Data to streamline CI/CD and improve productivity</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco and an Azure DevOps organization.</p><ol><li>Review the manifest for your environment</li><li>Deploy the project with Monaco</li><li>Connect Azure DevOps to send data to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "AZDO_pipelines_insights_based_on_log_ingest.md",
+   "path": "AZDO_pipelines_insights_based_on_log_ingest.md",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/AZDO_pipelines_insights_based_on_log_ingest.md",
+   "size": 10031
+  },
+  {
+   "name": "manifest-blog_post.yaml",
+   "path": "manifest-blog_post.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/manifest-blog_post.yaml",
+   "size": 524
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/manifest.yaml",
+   "size": 408
+  },
+  {
+   "name": "azure_devops_bizevents.json",
+   "path": "demo_blog_post/document-dashboard/azure_devops_bizevents.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/demo_blog_post/document-dashboard/azure_devops_bizevents.json",
+   "size": 90026
+  },
+  {
+   "name": "azure_devops_logs.json",
+   "path": "demo_blog_post/document-dashboard/azure_devops_logs.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/demo_blog_post/document-dashboard/azure_devops_logs.json",
+   "size": 90334
+  },
+  {
+   "name": "azure_devops_dynatrace_integration.json",
+   "path": "demo_blog_post/document-notebook/azure_devops_dynatrace_integration.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/demo_blog_post/document-notebook/azure_devops_dynatrace_integration.json",
+   "size": 9245
+  },
+  {
+   "name": "config.yaml",
+   "path": "demo_blog_post/document-notebook/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/demo_blog_post/document-notebook/config.yaml",
+   "size": 1336
+  },
+  {
+   "name": "azure_devops_deployments.json",
+   "path": "pipeline_observability/document-dashboard/azure_devops_deployments.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/document-dashboard/azure_devops_deployments.json",
+   "size": 106465
+  },
+  {
+   "name": "azure_devops_pipelines.json",
+   "path": "pipeline_observability/document-dashboard/azure_devops_pipelines.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/document-dashboard/azure_devops_pipelines.json",
+   "size": 96705
+  },
+  {
+   "name": "azure_devops_pull_request.json",
+   "path": "pipeline_observability/document-dashboard/azure_devops_pull_request.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/document-dashboard/azure_devops_pull_request.json",
+   "size": 58242
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/document-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/document-dashboard/config.yaml",
+   "size": 816
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/openpipeline/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/openpipeline/config.yaml",
+   "size": 138
+  },
+  {
+   "name": "events.sdlc.azdo.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.azdo.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/azure_devops_observability/pipeline_observability/openpipeline/events.sdlc.azdo.json",
+   "size": 69883
+  }
+ ]
+}

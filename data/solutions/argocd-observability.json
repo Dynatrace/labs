@@ -1,0 +1,64 @@
+{
+ "overviewHtml": "<p>Teams running deployments with ArgoCD lack a view of sync activity and application states. This project integrates ArgoCD with Dynatrace so you can see sync history and deployment health in one place.</p><p><strong>What you get</strong></p><ul><li>Dashboards for ArgoCD application lifecycle and platform observability</li><li>OpenPipeline ingest source and pipeline for normalized SDLC events</li><li>Insight to optimize your ArgoCD deployments</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
+ "setupHtml": "<ol><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/guides/create-platform-token\" target=\"_blank\" rel=\"noopener\">Create a Platform token</a> with the following permissions.</li></ol><ul><li>Run apps: <span class=\"code\">app-engine:apps:run</span></li><li>View OpenPipeline configurations: <span class=\"code\">settings:objects:read</span></li><li>Edit OpenPipeline configurations: <span class=\"code\">settings:objects:write</span></li><li>Create and edit documents: <span class=\"code\">document:documents:write</span></li><li>View documents: <span class=\"code\">document:documents:read</span></li></ul><ol><li>Store the retrieved platform token in an environment variable.</li></ol><p>Windows:</p><pre class=\"codeblock\">    $env:DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><p>Linux / macOS:</p><pre class=\"codeblock\">    export DYNATRACE_PLATFORM_TOKEN=&#x27;&lt;YOUR_PLATFORM_TOKEN&gt;&#x27;</pre><ol><li>Clone the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code-samples\" target=\"_blank\" rel=\"noopener\">Dynatrace configuration as code sample</a> repository and go to <span class=\"code\">argocd_observability</span>.</li></ol><pre class=\"codeblock\">    git clone https://github.com/Dynatrace/dynatrace-configuration-as-code-samples.git\n    cd dynatrace-configuration-as-code-samples/argocd_observability</pre><ol><li>Edit the <span class=\"code\">manifest.yaml</span> by exchanging the `` placeholder with your Dynatrace environment ID.</li></ol><pre class=\"codeblock\">    manifestVersion: 1.0\n    projects:\n      - name: pipeline_observability\n    environmentGroups:\n      - name: group\n        environments:\n          - name: &lt;YOUR-DT-ENV-ID&gt;\n            url:\n              type: value\n              value: https://&lt;YOUR-DT-ENV-ID&gt;.apps.dynatrace.com\n            auth:\n              platformToken:\n                name: DYNATRACE_PLATFORM_TOKEN</pre>",
+ "getStartedHtml": "<p>You need Monaco and a Dynatrace platform token.</p><ol><li>Create a platform token and store it in an environment variable</li><li>Enter your environment ID in the manifest</li><li>Deploy the project with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "deployment_event.md",
+   "path": "deployment_event.md",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/deployment_event.md",
+   "size": 2668
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/manifest.yaml",
+   "size": 324
+  },
+  {
+   "name": "argocd_app_lifecycle_observability.json",
+   "path": "argocd_observability/document-dashboard/argocd_app_lifecycle_observability.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/document-dashboard/argocd_app_lifecycle_observability.json",
+   "size": 52937
+  },
+  {
+   "name": "argocd_platform_observability.json",
+   "path": "argocd_observability/document-dashboard/argocd_platform_observability.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/document-dashboard/argocd_platform_observability.json",
+   "size": 33748
+  },
+  {
+   "name": "config.yaml",
+   "path": "argocd_observability/document-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/document-dashboard/config.yaml",
+   "size": 637
+  },
+  {
+   "name": "config.yaml",
+   "path": "argocd_observability/openpipeline/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/openpipeline/config.yaml",
+   "size": 1149
+  },
+  {
+   "name": "events.sdlc.argocd.ingest_sources.json",
+   "path": "argocd_observability/openpipeline/events.sdlc.argocd.ingest_sources.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/openpipeline/events.sdlc.argocd.ingest_sources.json",
+   "size": 1447
+  },
+  {
+   "name": "events.sdlc.argocd.pipelines.application.json",
+   "path": "argocd_observability/openpipeline/events.sdlc.argocd.pipelines.application.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/argocd_observability/argocd_observability/openpipeline/events.sdlc.argocd.pipelines.application.json",
+   "size": 3912
+  }
+ ]
+}

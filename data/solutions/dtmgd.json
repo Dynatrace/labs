@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Managed environments multiply across production, staging and development, and answering one question means signing in to each in turn.</p><p><strong>What you get</strong></p><ul><li>Terminal access to problems, entities, events, logs, metrics, SLOs and vulnerabilities</li><li>One named context per environment, with queries that fan out across all of them</li><li>Read-only contexts by default, running on your workstation</li><li>The same tool coverage as the Managed MCP server</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need one or more Dynatrace Managed environments and an API token for each.</p><ol><li>Install dtmgd with Homebrew, a script or Go</li><li>Create a context per environment and store its token</li><li>Run the doctor check, then list open problems</li></ol>",
+ "files": []
+}

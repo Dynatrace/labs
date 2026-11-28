@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>CI/CD pipelines often behave like black boxes: slow, unstable, with flaky tests. This blueprint combines tracing, metrics, and SDLC events to show what is happening.</p><p><strong>What you get</strong></p><ul><li>Real-time view of where a pipeline is and why it is slow</li><li>Dashboards for Azure Pipelines and GitLab build performance</li><li>Workflows that pull pipeline details into SDLC events</li><li>OpenTelemetry collector configs for instrumentation</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>This blueprint supports three instrumentation approaches. Choose the one that fits your setup:</p>",
+ "getStartedHtml": "<ol><li>Choose the instrumentation approach that fits your CI/CD setup</li><li>Import the dashboards and workflows into Dynatrace</li><li>Configure the collector or pipeline integration</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "Azure Pipeline Observability (SDLC).json",
+   "path": "azure-devops/workflow/dashboard/Azure Pipeline Observability (SDLC).json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/azure-devops/workflow/dashboard/Azure%20Pipeline%20Observability%20%28SDLC%29.json",
+   "size": 13973
+  },
+  {
+   "name": "leverage-ado-timeline-api-transform-to-sldc-events.workflow.json",
+   "path": "azure-devops/workflow/workflow template/leverage-ado-timeline-api-transform-to-sldc-events.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/azure-devops/workflow/workflow%20template/leverage-ado-timeline-api-transform-to-sldc-events.workflow.json",
+   "size": 12743
+  },
+  {
+   "name": "Gitlab_Build_Performance_for_all_jobs.json",
+   "path": "gitlab/workflow/dashboard/Gitlab_Build_Performance_for_all_jobs.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/gitlab/workflow/dashboard/Gitlab_Build_Performance_for_all_jobs.json",
+   "size": 38311
+  },
+  {
+   "name": "wf_pull_gitlab_pipeline_details_a_87c8d72c-2a65-4dda-b04b-d919233b4a14.json",
+   "path": "gitlab/workflow/workflow/wf_pull_gitlab_pipeline_details_a_87c8d72c-2a65-4dda-b04b-d919233b4a14.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/gitlab/workflow/workflow/wf_pull_gitlab_pipeline_details_a_87c8d72c-2a65-4dda-b04b-d919233b4a14.json",
+   "size": 12483
+  },
+  {
+   "name": "Build Performance for all jobs.json",
+   "path": "jenkins/workflow/dashboard/Build Performance for all jobs.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/jenkins/workflow/dashboard/Build%20Performance%20for%20all%20jobs.json",
+   "size": 14351
+  },
+  {
+   "name": "pull-push-bizevents-nikhil.workflow.json",
+   "path": "jenkins/workflow/workflow template/pull-push-bizevents-nikhil.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/jenkins/workflow/workflow%20template/pull-push-bizevents-nikhil.workflow.json",
+   "size": 8758
+  },
+  {
+   "name": "docker-compose.yaml",
+   "path": "gitlab/opentelemetry/docker-compose.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/gitlab/opentelemetry/docker-compose.yaml",
+   "size": 1160
+  },
+  {
+   "name": "gitlab-ci-pipelines-exporter.yml",
+   "path": "gitlab/opentelemetry/gitlab-ci-pipelines-exporter.yml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/gitlab/opentelemetry/gitlab-ci-pipelines-exporter.yml",
+   "size": 493
+  },
+  {
+   "name": "otel_config.yaml",
+   "path": "gitlab/opentelemetry/otel_config.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/gitlab/opentelemetry/otel_config.yaml",
+   "size": 702
+  },
+  {
+   "name": "otel-config.yaml",
+   "path": "jenkins/opentelemetry/config/otel-config.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/ci-cd-pipeline/jenkins/opentelemetry/config/otel-config.yaml",
+   "size": 500
+  }
+ ]
+}

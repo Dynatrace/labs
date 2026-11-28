@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>An MCP server for self-hosted Dynatrace Managed, letting Claude, Kiro, GitHub Copilot and other MCP-compatible assistants query problems, logs, metrics, entities, SLOs and vulnerabilities across one or many Managed environments.</p><p><strong>What you get</strong></p><ul><li>Problems, security problems, entities, SLOs, events, logs and metrics as MCP tools</li><li>Queries across one or many Managed environments from one server</li><li>Local (stdio) and remote (HTTP/SSE) modes</li><li>Support for assistants such as VS Code, Claude, Cursor, Kiro and GitHub Copilot</li></ul><p>This is a thin, read-only protocol adapter over the existing Managed REST APIs: it runs outside the platform so it consumes no cluster resources, never modifies or persists data, and can fan a single question out across several Managed instances at once.</p>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need one or more Dynatrace Managed deployments and an API token with read scopes.</p><ol><li>Create the API token</li><li>List your environments in a configuration file</li><li>Add the server to your assistant&#x27;s MCP configuration</li></ol>",
+ "files": []
+}

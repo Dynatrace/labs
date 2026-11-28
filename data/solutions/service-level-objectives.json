@@ -1,0 +1,64 @@
+{
+ "overviewHtml": "<p>Teams that manage SLOs by hand struggle to keep them consistent and reviewable. The example shows three ways to define an objective, so you can pick the one that fits your service and reuse it across teams.</p><p><strong>What you get</strong></p><ul><li>Custom SLI configuration</li><li>SLI reference configuration</li><li>Custom SLI with segments configuration</li><li>Monaco manifest and delete files for deploy and cleanup</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.22.0+</span></li><li>Dynatrace Platform environment</li><li>OAuth credentials as described [here][OAuth credentials], including the additional scopes: <span class=\"code\">slo:slos:read</span> and <span class=\"code\">slo:slos:write</span>.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client with SLO scopes.</p><ol><li>Point the Monaco manifest at your environment</li><li>Deploy the project to create the SLOs</li><li>Adapt the SLI definitions to your services</li></ol>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/delete.yaml",
+   "size": 359
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/manifest.yaml",
+   "size": 370
+  },
+  {
+   "name": "config.yaml",
+   "path": "service-level-objectives/segment/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/segment/config.yaml",
+   "size": 79
+  },
+  {
+   "name": "segment.json",
+   "path": "service-level-objectives/segment/segment.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/segment/segment.json",
+   "size": 1009
+  },
+  {
+   "name": "config.yaml",
+   "path": "service-level-objectives/slo-v2/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/slo-v2/config.yaml",
+   "size": 530
+  },
+  {
+   "name": "custom-sli-with-segments.json",
+   "path": "service-level-objectives/slo-v2/custom-sli-with-segments.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/slo-v2/custom-sli-with-segments.json",
+   "size": 543
+  },
+  {
+   "name": "custom-sli.json",
+   "path": "service-level-objectives/slo-v2/custom-sli.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/slo-v2/custom-sli.json",
+   "size": 305
+  },
+  {
+   "name": "sli-reference.json",
+   "path": "service-level-objectives/slo-v2/sli-reference.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objectives/service-level-objectives/slo-v2/sli-reference.json",
+   "size": 501
+  }
+ ]
+}

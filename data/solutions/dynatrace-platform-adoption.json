@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Platform owners often lack a clear picture of how Dynatrace is actually used. This dashboard shows real human usage, excluding system accounts and internal services.</p><p><strong>What you get</strong></p><ul><li>Active users and adoption trends over time</li><li>Apps and capabilities gaining traction</li><li>Metrics powered by Grail audit telemetry</li><li>Default view of the last 30 days</li></ul>",
+ "prereqsHtml": "<ul><li>A Dynatrace (Gen3) environment with <strong>Grail</strong></li><li>The <strong>Dashboards</strong> app</li><li>Permission to query audit telemetry (<span class=\"code\">dt.system.events</span>, <span class=\"code\">AUDIT_EVENT</span>)</li><li>Default time range: last 30 days</li></ul>",
+ "setupHtml": "<ol><li>Open the <strong>Dashboards</strong> app in your Dynatrace environment.</li><li>Use <strong>Upload</strong> to import <span class=\"code\">Dynatrace Platform Adoption.json</span>.</li><li>That&#x27;s it — the dashboard reads your own environment&#x27;s audit telemetry live. There are no hard-coded IDs or environment-specific settings, so it works out of the box.</li></ol>",
+ "getStartedHtml": "<p>You need a Dynatrace environment with Grail and permission to query audit telemetry.</p><ol><li>Open the Dashboards app</li><li>Upload the dashboard JSON</li><li>Review adoption across your environment</li></ol>",
+ "files": [
+  {
+   "name": "Dynatrace Platform Adoption.json",
+   "path": "Dynatrace Platform Adoption.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/dynatrace-platform-adoption/Dynatrace%20Platform%20Adoption.json",
+   "size": 66445
+  }
+ ]
+}

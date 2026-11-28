@@ -1,0 +1,43 @@
+{
+ "overviewHtml": "<p>Teams that share Segments across dashboards need a repeatable way to create and keep them in sync. Doing this manually in the UI makes changes hard to track across environments.</p><p><strong>What you get</strong></p><ul><li>A segment configuration managed with Monaco</li><li>A dashboard configuration that depends on the segment</li><li>Automatic inclusion of the segment in the dashboard</li><li>Manifest and delete files for deploy and cleanup</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.19.0+</span></li><li>Dynatrace Platform environment</li><li>OAuth credentials as described [here][OAuth credentials], including the additional scopes: <span class=\"code\">storage:filter-segments:read</span>, <span class=\"code\">storage:filter-segments:write</span>, <span class=\"code\">storage:filter-segments:delete</span>.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and an OAuth client with segment scopes.</p><ol><li>Point the Monaco manifest at your environment</li><li>Deploy the project to create the segment and dashboard</li><li>Adapt the segment definition to your needs</li></ol>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/segment-with-dashboard/delete.yaml",
+   "size": 172
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/segment-with-dashboard/manifest.yaml",
+   "size": 307
+  },
+  {
+   "name": "_config.yaml",
+   "path": "segments/_config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/segment-with-dashboard/segments/_config.yaml",
+   "size": 411
+  },
+  {
+   "name": "dashboard.json",
+   "path": "segments/dashboard.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/segment-with-dashboard/segments/dashboard.json",
+   "size": 1166
+  },
+  {
+   "name": "segment.json",
+   "path": "segments/segment.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/segment-with-dashboard/segments/segment.json",
+   "size": 1009
+  }
+ ]
+}

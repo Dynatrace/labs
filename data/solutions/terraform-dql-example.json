@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>As environments grow, configuration changes target many entities, and you need their IDs to reference the right settings objects.</p><p><strong>What you get</strong></p><ul><li>A DQL data source that fetches host groups by name</li><li>Results decoded into a local variable</li><li>A <span class=\"code\">for_each</span> pattern that creates log rules per host group</li><li>A simple starting point to adapt to your own cases</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need an OAuth or platform token that can read the Grail data you query.</p><ol><li>Review the provider documentation for DQL permissions</li><li>Adapt the DQL query and resource in the sample</li><li>Run Terraform plan and apply</li></ol>",
+ "files": [
+  {
+   "name": "host-group-log-rules.tf",
+   "path": "host-group-log-rules.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_dql_example/host-group-log-rules.tf",
+   "size": 694
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_dql_example/providers.tf",
+   "size": 154
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>One shared channel for every issue buries the people who can act, and they still have to look up the relevant logs.</p><p><strong>What you get</strong></p><ul><li>A trigger on matching Dynatrace events</li><li>A DQL query that fetches related logs</li><li>A lookup of the owning team through Dynatrace ownership</li><li>A Jira issue and a Slack message targeted at that team, enriched with log lines</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> and <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a>, each with a connection</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams assigned to your entities</li><li>Logs in Grail for the entities you monitor</li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">jira-slack-targeted-notifications.workflow.json</span>.</li><li>Import it in <strong>Workflows</strong> (upload the file) or with the Automation API.</li><li>Select your Jira and Slack connections in the <span class=\"code\">create_jira_issue</span> and <span class=\"code\">send_message_to_dyn_channel</span> tasks.</li><li>Activate the trigger.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Jira and Slack connections and ownership teams on your entities.</p><ol><li>Import the workflow in Workflows</li><li>Select your Jira and Slack connections</li><li>Activate the trigger</li></ol>",
+ "files": [
+  {
+   "name": "jira-slack-targeted-notifications.workflow.json",
+   "path": "jira-slack-targeted-notifications.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/jira-slack-targeted-notifications/jira-slack-targeted-notifications.workflow.json",
+   "size": 5117
+  }
+ ]
+}

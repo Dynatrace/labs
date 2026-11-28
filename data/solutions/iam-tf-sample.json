@@ -1,0 +1,57 @@
+{
+ "overviewHtml": "<p>Organizations need fine-grained access control for central admin, observability and engineering teams, and doing it by hand does not scale. The sample shows a scalable pattern you can adapt to your own teams.</p><p><strong>What you get</strong></p><ul><li>Default policies with policy boundaries</li><li>Custom policies built from templates</li><li>Config file that drives buckets, segments, pipelines, teams and permissions</li><li>Modular Terraform code for central teams and project teams</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>To get this project running on your system:</p><ol><li><strong>Clone the repository</strong></li><li><strong>Install Terraform</strong> (<a href=\"https://developer.hashicorp.com/terraform/install\" target=\"_blank\" rel=\"noopener\">Install Guide</a>)</li><li><strong>Generate OAuth client</strong> (<a href=\"https://myaccount.dynatrace.com\" target=\"_blank\" rel=\"noopener\">Account Management</a>)</li></ol><ul><li>To support all resource creation here, esure you include the following scopes:</li></ul><p><span class=\"code\">account-env-read</span>, <span class=\"code\">iam:groups:read</span>, <span class=\"code\">account-idm-read</span>, <span class=\"code\">account-idm-write</span>, <span class=\"code\">iam-policies-management</span>, <span class=\"code\">storage:filter-segments:admin</span>, <span class=\"code\">storage:bucket-definitions:read</span>, <span class=\"code\">storage:bucket-definitions:write</span>, <span class=\"code\">storage:bucket-definitions:delete</span>, <span class=\"code\">openpipeline:configurations:read</span>, <span class=\"code\">openpipeline:configurations:write</span>, <span class=\"code\">storage:filter-segments:read</span>, <span class=\"code\">storage:filter-segments:write</span>, <span class=\"code\">storage:filter-segments:delete</span>, <span class=\"code\">storage:filter-segments:admin</span></p><ol><li><strong>Set required environment variables:</strong></li></ol><pre class=\"codeblock\">    export DYNATRACE_ENV_URL=&lt;your_env_url&gt;\n    export DT_CLIENT_ID=&lt;your_client_id&gt;\n    export DT_CLIENT_SECRET=&lt;your_client_secret&gt;\n    export TF_VAR_DT_ACCOUNT_ID=&lt;your_account_id&gt;\n\n5. **Enter your environment IDs in ./config/config.yaml:**\n   Speficy at least one environment ID the config.yaml file\n\n6. **Optionally modify ./config/config.yaml:**\n   You might want to modify the config file that drives the Terraform code by adding additional buckets, segments, pipelines, teams, or modify permission assignments to better match your access scenario\n\n7. **Optionally modify the location of the Terraform statefile:**\n   You can do so by changing the `backend` section of the providers.tf file. It is advisable for production environments to store this Terraform state file in secure cloud location rather than on the local machine.\n\n8. **Initialize Terraform:**</pre><p>terraform init</p><pre class=\"codeblock\">9. **Review the plan:**</pre><p>terraform plan</p><pre class=\"codeblock\">10. **Apply the configuration:**\n</pre><p>terraform apply</p><pre class=\"codeblock\">    Note that due to a `race condition` situation with the provider, policies still beng created report as completed, thus causing downstream errors (The argument &quot;policy.1.id&quot; is required, but no definition was found). To remedy, either run `terraform apply` again or consider implementing time_sleep or null_resource workarounds in main.tf.</pre>",
+ "getStartedHtml": "<p>You need Terraform and a Dynatrace OAuth client for your account.</p><ol><li>Clone the repository and create an OAuth client with the listed scopes</li><li>Enter your environment IDs in the config file</li><li>Adapt teams and permissions, then run Terraform</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "locals.tf",
+   "path": "locals.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/locals.tf",
+   "size": 4671
+  },
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/main.tf",
+   "size": 24756
+  },
+  {
+   "name": "output.tf",
+   "path": "output.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/output.tf",
+   "size": 945
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/providers.tf",
+   "size": 704
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/variables.tf",
+   "size": 424
+  },
+  {
+   "name": "config.yaml",
+   "path": "config/config.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/config/config.yaml",
+   "size": 10024
+  },
+  {
+   "name": "morpheus.json",
+   "path": "config/segments/morpheus.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/iam_tf_sample/config/segments/morpheus.json",
+   "size": 1750
+  }
+ ]
+}

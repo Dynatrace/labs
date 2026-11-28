@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Teams want AI analysis inside their automations without leaving Dynatrace. This connector brings Claude into Workflows as an action.</p><p><strong>What you get</strong></p><ul><li>Managed connections to Claude with support for different models, using an API key</li><li>Prompt defined and executed directly in the workflow action</li><li>Response stored and analyzed in Dynatrace</li><li>Example workflow that queries logs and asks Claude for error analysis</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p><em>Claude Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Claude Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, search for <em>Claude</em> in Workflows to find it as a new action.</li></ol>",
+ "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app from Hub</li><li>Add the Claude action to a workflow and create a connection</li></ol>",
+ "files": []
+}

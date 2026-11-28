@@ -1,0 +1,113 @@
+{
+ "overviewHtml": "<p>Onboarding each team to Dynatrace by hand is slow, and group membership should follow your identity provider. Manual setup also invites drift between access in Azure and in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Policies and groups created from input files</li><li>SAML integration with Azure Entra ID groups</li><li>Terraform for admin, automation and default user groups</li><li>Environment and service inputs in YAML and JSON</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>Update group references to match the groups you use in Azure, and export the environment variables required for <a href=\"https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group\" target=\"_blank\" rel=\"noopener\">AzureAd Group Datasource</a>.</p><p>Next Export environment variables for the oAuth client following the <a href=\"https://registry.terraform.io/providers/dynatrace-oss/dynatrace/latest/docs\" target=\"_blank\" rel=\"noopener\">Dynatrace terraform provider documentation</a>.</p><p>You will now be ready to plan and apply.</p>",
+ "getStartedHtml": "<p>You need Terraform, a Dynatrace OAuth client and Azure Entra ID access.</p><ol><li>Update the group references to match your Azure groups</li><li>Export the Azure and Dynatrace environment variables</li><li>Run Terraform plan and apply</li></ol>",
+ "files": [
+  {
+   "name": "additional_groups.yaml",
+   "path": "additional_groups.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/additional_groups.yaml",
+   "size": 193
+  },
+  {
+   "name": "environments.yaml",
+   "path": "environments.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/environments.yaml",
+   "size": 68
+  },
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/main.tf",
+   "size": 3062
+  },
+  {
+   "name": "MODULES-README.md",
+   "path": "MODULES-README.md",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/MODULES-README.md",
+   "size": 4138
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/providers.tf",
+   "size": 496
+  },
+  {
+   "name": "services-input.json",
+   "path": "services-input.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/services-input.json",
+   "size": 1197
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/variables.tf",
+   "size": 157
+  },
+  {
+   "name": "admin.tf",
+   "path": "modules/groups/admin.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/admin.tf",
+   "size": 1888
+  },
+  {
+   "name": "automation_users_group.tf",
+   "path": "modules/groups/automation_users_group.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/automation_users_group.tf",
+   "size": 769
+  },
+  {
+   "name": "default_users.tf",
+   "path": "modules/groups/default_users.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/default_users.tf",
+   "size": 2594
+  },
+  {
+   "name": "elevated_access.tf",
+   "path": "modules/groups/elevated_access.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/elevated_access.tf",
+   "size": 593
+  },
+  {
+   "name": "groups.tf",
+   "path": "modules/groups/groups.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/groups.tf",
+   "size": 2818
+  },
+  {
+   "name": "providers.tf",
+   "path": "modules/groups/providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/providers.tf",
+   "size": 135
+  },
+  {
+   "name": "terraform_enterprise_group.tf",
+   "path": "modules/groups/terraform_enterprise_group.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/terraform_enterprise_group.tf",
+   "size": 1353
+  },
+  {
+   "name": "variables.tf",
+   "path": "modules/groups/variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_team_onboarding/modules/groups/variables.tf",
+   "size": 457
+  }
+ ]
+}

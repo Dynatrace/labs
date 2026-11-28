@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Developers lose time switching between GitHub and observability tools when a deployment misbehaves or a vulnerability appears. The Dynatrace GitHub Custom Agent brings Dynatrace insights into the repository, combined with GitHub Copilot and an MCP server.</p><p><strong>What you get</strong></p><ul><li>Investigation of production failures without leaving GitHub</li><li>Deployment validation by comparing pre- and post-deployment metrics</li><li>Categorized production errors to prioritize remediation</li><li>Detection of performance regressions and automated release health checks</li><li>Responses to security vulnerabilities and compliance monitoring</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>The <strong>Dynatrace GitHub Custom Agent</strong> helps organizations:</p><ul><li>Achieve true end-to-end visibility from code to production.</li><li>Enhance developer productivity by integrating observability directly into GitHub workflows.</li><li>Improve operational excellence by enabling faster incident response and root cause analysis.</li><li>Ensure application reliability and security through automated monitoring and validation.</li></ul><p>The custom agent bridges the gap between development and production by combining the capabilities of Dynatrace with GitHub Copilot and its custom agents. This integration empowers developers to act on insights immediately, reducing delays and inefficiencies in the software development lifecycle.</p>",
+ "getStartedHtml": "<p>You need a GitHub repository, GitHub Copilot and a configured Dynatrace MCP server.</p><ol><li>Set up the Dynatrace MCP server for your environment</li><li>Add the custom agent file to your GitHub repository</li><li>Ask the agent about errors, deployments or vulnerabilities</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "Dynatrace.md",
+   "path": "Dynatrace.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/github-custom-agent/Dynatrace.md",
+   "size": 25520
+  }
+ ]
+}

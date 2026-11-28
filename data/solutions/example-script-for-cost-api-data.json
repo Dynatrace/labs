@@ -1,0 +1,99 @@
+{
+ "overviewHtml": "<p>Teams tracking Dynatrace Platform Subscription spend need cost data from the Account Management API in a usable form. The script runs locally, so you can start without building a pipeline.</p><p><strong>What you get</strong></p><ul><li>Cost per environment for the current month, aggregated by capability and environment</li><li>Budget check against your <span class=\"code\">DT_MONTHLY_BUDGET</span></li><li>Optional business events sent to your tenant</li><li>Raw and summary results saved as JSON files</li></ul>",
+ "prereqsHtml": "<ul><li>Python 3.10 or later</li><li>An OAuth client with <span class=\"code\">account-uac-read</span> scope on your Dynatrace account</li><li>(Optional) A Dynatrace API token with <span class=\"code\">bizevents.ingest</span> scope to send events to your tenant</li></ul><p>See SETUP.md for step-by-step instructions.</p>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Python 3.10 or later and an OAuth client for your account.</p><ol><li>Create an OAuth client with the cost read scope</li><li>Configure the script with your settings</li><li>Run the script and review the summary</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "main.py",
+   "path": "main.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/main.py",
+   "size": 4945
+  },
+  {
+   "name": "requirements.txt",
+   "path": "requirements.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/requirements.txt",
+   "size": 34
+  },
+  {
+   "name": "tracker.py",
+   "path": "budget/tracker.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/tracker.py",
+   "size": 2610
+  },
+  {
+   "name": "utils.py",
+   "path": "budget/utils.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/utils.py",
+   "size": 661
+  },
+  {
+   "name": "Current-Month-DPS-Budget-Tracker.json",
+   "path": "example-dashboard-template/Current-Month-DPS-Budget-Tracker.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/example-dashboard-template/Current-Month-DPS-Budget-Tracker.json",
+   "size": 7353
+  },
+  {
+   "name": "cost_per_environment.json",
+   "path": "example-results/cost_per_environment.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/example-results/cost_per_environment.json",
+   "size": 203797
+  },
+  {
+   "name": "monthly_summary.json",
+   "path": "example-results/monthly_summary.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/example-results/monthly_summary.json",
+   "size": 3375
+  },
+  {
+   "name": "subscription_detail.json",
+   "path": "example-results/subscription_detail.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/example-results/subscription_detail.json",
+   "size": 3703
+  },
+  {
+   "name": "subscriptions.json",
+   "path": "example-results/subscriptions.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/example-results/subscriptions.json",
+   "size": 226
+  },
+  {
+   "name": "__init__.py",
+   "path": "budget/dynatrace/__init__.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/dynatrace/__init__.py",
+   "size": 0
+  },
+  {
+   "name": "auth.py",
+   "path": "budget/dynatrace/auth.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/dynatrace/auth.py",
+   "size": 618
+  },
+  {
+   "name": "client.py",
+   "path": "budget/dynatrace/client.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/dynatrace/client.py",
+   "size": 3822
+  },
+  {
+   "name": "events.py",
+   "path": "budget/dynatrace/events.py",
+   "kind": "Script",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/example-script-for-cost-api-data/budget/dynatrace/events.py",
+   "size": 3212
+  }
+ ]
+}

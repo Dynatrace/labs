@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>AI assistants often invent action names and template syntax when asked for Dynatrace workflows. This <span class=\"code\">AGENTS.md</span> instruction file gives them the correct rules.</p><p><strong>What you get</strong></p><ul><li>Coverage of YAML templates, API JSON and Terraform formats</li><li>Workflow structure: tasks, conditions, triggers and loops</li><li>Examples for DQL, JavaScript, HTTP, email, Jira, Slack and Teams actions</li><li>Jinja2 expressions, best practices and troubleshooting</li><li>A pull request review checklist for syntax, security and DQL</li></ul>",
+ "prereqsHtml": "<ul><li>An AI coding assistant that reads <span class=\"code\">AGENTS.md</span>, or that lets you add custom instructions</li><li>Dynatrace SaaS with Workflows, to import and test the generated workflows</li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">AGENTS.md</span>.</li><li>Put it in the root of the repository where you keep your workflows. Assistants that support the <span class=\"code\">AGENTS.md</span> convention pick it up automatically. For others, add its content as custom instructions, for example <span class=\"code\">.github/copilot-instructions.md</span> or a Cursor rule.</li><li>Ask the assistant to create or review a workflow, then import the result in <strong>Workflows</strong> and test it.</li></ol>",
+ "getStartedHtml": "<p>You need an AI assistant that reads AGENTS.md or custom instructions, and Dynatrace Workflows.</p><ol><li>Download the instruction file</li><li>Place it in your workflow repository or add it as custom instructions</li><li>Ask the assistant to create or review a workflow, then test it</li></ol>",
+ "files": [
+  {
+   "name": "AGENTS.md",
+   "path": "AGENTS.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agents-and-prompts/workflow-authoring-agent-instructions/AGENTS.md",
+   "size": 35615
+  }
+ ]
+}

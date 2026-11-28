@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Connects the Cursor editor to a live Dynatrace environment over MCP, bundling one MCP server connection and 30 Dynatrace skills so the coding agent can investigate production issues without leaving the editor.</p><p>Debugging a production failure from the editor usually means copying logs into the chat by hand, so the agent guesses without live context. With the plugin, asking why <span class=\"code\">payment-api</span> is returning 5xx pulls the root cause into the session together with the related logs, metrics, traces and CPU/memory profiling from the live environment — and because it draws on Dynatrace causal analysis and Smartscape topology, the agent can explain <em>why</em> it happened rather than inferring from correlation.</p><p><strong>What you get</strong></p><ul><li>A Dynatrace MCP server connection from Cursor to your environment</li><li>Dynatrace skills for DQL, dashboards, notebooks and alerting</li><li>Live logs, metrics and traces available to the coding agent</li><li>Support for private team marketplaces in enterprise setups</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Cursor and a Dynatrace environment with a platform token.</p><ol><li>Open the Cursor Marketplace and install the Dynatrace plugin</li><li>Set your environment URL and platform token</li><li>Ask the agent about a failing service</li></ol>",
+ "files": []
+}

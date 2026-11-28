@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Teams running CI/CD on GitHub often lack visibility into how long workflows and pull requests really take. This example turns GitHub activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li><span class=\"code\">github.workflow_pulse</span> dashboard for GitHub workflow performance</li><li><span class=\"code\">github.pull_requests</span> dashboard for pull request timings</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>Terraform files that deploy dashboards, ingest sources and pipelines</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Terraform</a></li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Terraform.</p><ol><li>Configure the Terraform provider and variables for your environment</li><li>Apply the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitHub so its events reach Dynatrace</li></ol>",
+ "files": [
+  {
+   "name": "dashboards.github.tf",
+   "path": "dashboards.github.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/dashboards.github.tf",
+   "size": 483
+  },
+  {
+   "name": "events.sdlc.github.ingest-sources.tf",
+   "path": "events.sdlc.github.ingest-sources.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/events.sdlc.github.ingest-sources.tf",
+   "size": 3395
+  },
+  {
+   "name": "events.sdlc.github.pipelines.tf",
+   "path": "events.sdlc.github.pipelines.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/events.sdlc.github.pipelines.tf",
+   "size": 14597
+  },
+  {
+   "name": "locals.tf",
+   "path": "locals.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/locals.tf",
+   "size": 520
+  },
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/main.tf",
+   "size": 1672
+  },
+  {
+   "name": "outputs.tf",
+   "path": "outputs.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/outputs.tf",
+   "size": 704
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/providers.tf",
+   "size": 394
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/variables.tf",
+   "size": 0
+  },
+  {
+   "name": "github.pull_requests.json",
+   "path": "dashboards/github.pull_requests.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/dashboards/github.pull_requests.json",
+   "size": 21369
+  },
+  {
+   "name": "github.workflow_pulse.json",
+   "path": "dashboards/github.workflow_pulse.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/github_pipeline_observability_terraform/dashboards/github.workflow_pulse.json",
+   "size": 52458
+  }
+ ]
+}
