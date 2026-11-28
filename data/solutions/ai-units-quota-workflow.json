@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>AI-powered features consume AI Units, and a few heavy users can use up a shared budget before anyone notices. Teams need a way to cap consumption per person.</p><p><strong>What you get</strong></p><ul><li>Monitoring of per-user AI Units consumption from billing events in Grail</li><li>Daily quota check against a threshold you define</li><li>Automatic restriction of access to AI-powered features when the threshold is exceeded</li><li>Email notification and business events for each enforcement</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace platform with Account Management permissions</li><li><span class=\"code\">storage:events:write</span> permission for the workflow actor (to ingest business events)</li><li>Email connector enabled in your Dynatrace environment</li><li>Billing events data available in Grail (<span class=\"code\">dt.system.events</span>)</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment with Account Management permissions and the Email connector.</p><ol><li>Upload the workflow in Dynatrace Workflows</li><li>Set your daily quota threshold and notification recipients</li><li>Grant the workflow actor permission to write business events</li><li>Activate the trigger</li></ol>",
+ "files": [
+  {
+   "name": "workflow.yaml",
+   "path": "workflow.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ai-units-quota-workflow/workflow.yaml",
+   "size": 18594
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>AI features add usage to your Dynatrace bill, and it is not obvious which part drives it. This dashboard makes AI-related billing events visible in one place. For official figures, use your Account Management portal.</p><p><strong>What you get</strong></p><ul><li>Total cost based on list price</li><li>Breakdown per billing unit: AI Units</li><li>Related query cost</li><li>Related Standard Function calls</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>Total cost (based on list price) and breakdown per billing unit: AI Units, related query cost, and related Standard Function calls.</p>",
+ "getStartedHtml": "<ol><li>Import the dashboard JSON into the Dashboards app</li><li>Pick the timeframe you want to review</li><li>Compare the figures with your Account Management portal</li></ol>",
+ "files": [
+  {
+   "name": "Usage - Agentic AI.json",
+   "path": "Usage - Agentic AI.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/ai-cost-overview/Usage%20-%20Agentic%20AI.json",
+   "size": 33155
+  }
+ ]
+}

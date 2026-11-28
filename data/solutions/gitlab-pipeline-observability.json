@@ -1,0 +1,99 @@
+{
+ "overviewHtml": "<p>Teams running CI/CD on GitLab often lack visibility into how long pipelines and merge requests really take. This example turns GitLab activity into normalized SDLC events you can analyze in Dynatrace.</p><p><strong>What you get</strong></p><ul><li>Dashboards for GitLab deployments, merge requests and pipelines</li><li>Normalized SDLC events ingested through OpenPipeline</li><li>OpenPipeline rules for deployment, job and merge request events</li><li>Monaco project with manifest and configs ready to deploy</li></ul>",
+ "prereqsHtml": "<ul><li><a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/monaco/installation\" target=\"_blank\" rel=\"noopener\">Install Dynatrace Configuration as Code via Monaco</a></li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Dynatrace Configuration as Code via Monaco.</p><ol><li>Adjust the Monaco manifest for your Dynatrace environment</li><li>Deploy the configuration to create dashboards and OpenPipeline settings</li><li>Connect GitLab so its events reach Dynatrace</li></ol>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/manifest.yaml",
+   "size": 325
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/document-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/document-dashboard/config.yaml",
+   "size": 622
+  },
+  {
+   "name": "gitlab.deployments.json",
+   "path": "pipeline_observability/document-dashboard/gitlab.deployments.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/document-dashboard/gitlab.deployments.json",
+   "size": 44589
+  },
+  {
+   "name": "gitlab.merge_request.json",
+   "path": "pipeline_observability/document-dashboard/gitlab.merge_request.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/document-dashboard/gitlab.merge_request.json",
+   "size": 21807
+  },
+  {
+   "name": "gitlab.pipeline.json",
+   "path": "pipeline_observability/document-dashboard/gitlab.pipeline.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/document-dashboard/gitlab.pipeline.json",
+   "size": 50822
+  },
+  {
+   "name": "config.yaml",
+   "path": "pipeline_observability/openpipeline/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/config.yaml",
+   "size": 3656
+  },
+  {
+   "name": "events.sdlc.gitlab.ingest_sources.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.ingest_sources.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.ingest_sources.json",
+   "size": 4046
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.deployment.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.deployment.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.deployment.json",
+   "size": 2290
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.job.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.job.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.job.json",
+   "size": 3011
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.merge_request.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.merge_request.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.merge_request.json",
+   "size": 3510
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.pipeline.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.pipeline.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.pipeline.json",
+   "size": 5123
+  },
+  {
+   "name": "events.sdlc.gitlab.pipelines.release.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.release.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.gitlab.pipelines.release.json",
+   "size": 2346
+  },
+  {
+   "name": "events.sdlc.global.routing.json",
+   "path": "pipeline_observability/openpipeline/events.sdlc.global.routing.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/gitlab_pipeline_observability/pipeline_observability/openpipeline/events.sdlc.global.routing.json",
+   "size": 1611
+  }
+ ]
+}

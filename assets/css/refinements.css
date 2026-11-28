@@ -171,3 +171,5 @@ body.search-docked .hdr .grow{display:none;}
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .hero-fresh .mcard.fcard .tx{padding:10px 12px 12px;flex:1;}
 .hero-fresh .mcard.fcard .ds{-webkit-line-clamp:5;min-height:0;font-size:12.5px;line-height:1.45;}
+/* While a solution's texts load (a fraction of a second). */
+.d-loading{color:var(--neutral-70);font-style:italic;}

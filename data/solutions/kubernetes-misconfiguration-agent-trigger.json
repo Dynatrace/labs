@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Compliance findings for Kubernetes workloads pile up, and security and platform teams spend time triaging them one by one.</p><p><strong>What you get</strong></p><ul><li>A DQL query every three hours for critical and high workload misconfigurations</li><li>Optional filtering to a single cluster</li><li>A sub-workflow started per finding with the object, type, title, occurrences and compliance control</li><li>A hook for an agent that suggests or applies fixes</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Security posture management / compliance findings for Kubernetes in Grail</li><li>A sub-workflow that processes one finding, for example an agentic AI workflow that suggests Kubernetes fixes. <strong>It isn&#x27;t included here.</strong></li></ul>",
+ "setupHtml": "<ol><li>Download <span class=\"code\">trigger-kubernetes-operations-agent.workflow-template.yaml</span> and upload it in <strong>Workflows</strong>.</li><li>In <span class=\"code\">suggest_k8s_fixes</span>, select the sub-workflow that should handle each finding (<span class=\"code\">workflowId</span>).</li><li>Run it once manually, then activate the schedule. It&#x27;s inactive by default.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Kubernetes compliance findings in Grail and a sub-workflow that handles one finding.</p><ol><li>Upload the workflow template in Workflows</li><li>Select the sub-workflow that handles each finding</li><li>Run once manually, then activate the schedule</li></ol>",
+ "files": [
+  {
+   "name": "trigger-kubernetes-operations-agent.workflow-template.yaml",
+   "path": "trigger-kubernetes-operations-agent.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-misconfiguration-agent-trigger/trigger-kubernetes-operations-agent.workflow-template.yaml",
+   "size": 5297
+  }
+ ]
+}

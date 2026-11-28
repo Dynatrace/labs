@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>New users of Configuration as Code need a small, working project to follow along with the documentation. This sample is a safe place to practice before touching real configuration.</p><p><strong>What you get</strong></p><ul><li>Reference project for the Deploy your first configuration guide</li><li>Monaco manifest and an auto-tag configuration</li><li>A delete file to remove what you deployed</li><li>Minimal setup: your environment URL and an API token</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<ol><li>Set your environment URL in the manifest file</li><li>Export your API token as an environment variable</li><li>Deploy the project with Monaco</li></ol>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/learn-monaco-auto-tag/delete.yaml",
+   "size": 72
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/learn-monaco-auto-tag/manifest.yaml",
+   "size": 361
+  },
+  {
+   "name": "auto-tag.json",
+   "path": "project-example/auto-tag/auto-tag.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/learn-monaco-auto-tag/project-example/auto-tag/auto-tag.json",
+   "size": 627
+  },
+  {
+   "name": "auto-tag.yaml",
+   "path": "project-example/auto-tag/auto-tag.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/learn-monaco-auto-tag/project-example/auto-tag/auto-tag.yaml",
+   "size": 199
+  }
+ ]
+}

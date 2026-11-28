@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Active Directory changes and lockouts are hard to trace across raw logs. Security and IT teams need a clear audit trail for daily monitoring and investigations.</p><p><strong>What you get</strong></p><ul><li>Executive summary of login and change activity</li><li>Dashboards for password changes, account changes, and group modifications</li><li>Lockout source investigation and root cause views</li><li>Tracking for user OU movement, GPO changes, extended attributes, and DFS file audits</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<ol><li>Import the dashboard JSON files into the Dashboards app</li><li>Make sure your Active Directory logs are ingested into Dynatrace</li><li>Start with the executive summary, then drill into the detail dashboards</li></ol>",
+ "files": [
+  {
+   "name": "00_Executive_Summary.json",
+   "path": "00_Executive_Summary.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/00_Executive_Summary.json",
+   "size": 30387
+  },
+  {
+   "name": "01_Password_Changes.json",
+   "path": "01_Password_Changes.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/01_Password_Changes.json",
+   "size": 11125
+  },
+  {
+   "name": "02_Lockout_Source_Investigation.json",
+   "path": "02_Lockout_Source_Investigation.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/02_Lockout_Source_Investigation.json",
+   "size": 11716
+  },
+  {
+   "name": "03_Account_Changes_Audit.json",
+   "path": "03_Account_Changes_Audit.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/03_Account_Changes_Audit.json",
+   "size": 14189
+  },
+  {
+   "name": "04_Group_Modifications.json",
+   "path": "04_Group_Modifications.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/04_Group_Modifications.json",
+   "size": 12006
+  },
+  {
+   "name": "05_Lockout_Disable_Root_Cause.json",
+   "path": "05_Lockout_Disable_Root_Cause.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/05_Lockout_Disable_Root_Cause.json",
+   "size": 11769
+  },
+  {
+   "name": "06_Extended_Attributes_Audit.json",
+   "path": "06_Extended_Attributes_Audit.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/06_Extended_Attributes_Audit.json",
+   "size": 10657
+  },
+  {
+   "name": "07_User_OU_Movement_Tracking.json",
+   "path": "07_User_OU_Movement_Tracking.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/07_User_OU_Movement_Tracking.json",
+   "size": 7095
+  },
+  {
+   "name": "08_GPO_Changes.json",
+   "path": "08_GPO_Changes.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/08_GPO_Changes.json",
+   "size": 7581
+  },
+  {
+   "name": "09_File_Audit_DFS.json",
+   "path": "09_File_Audit_DFS.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/active-directory-audit/09_File_Audit_DFS.json",
+   "size": 11872
+  }
+ ]
+}

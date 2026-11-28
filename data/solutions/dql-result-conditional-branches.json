@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Workflows often need to act differently depending on what a query returns, and it is not obvious how to evaluate a DQL result in a condition.</p><p><strong>What you get</strong></p><ul><li>Two example workflows that branch on error counts per Kubernetes namespace</li><li>A version that parses the DQL result in a JavaScript task before branching</li><li>A shorter conditions-only version with no JavaScript task</li><li>Self-generated test data, so no connections or apps are needed</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>No connections or external apps. The DQL query generates its own test data.</li></ul>",
+ "setupHtml": "<ol><li>Download one of the workflows. Each comes in two formats:</li></ol><ul><li><span class=\"code\">*.workflow-template.yaml</span>: workflow template. Import it in <strong>Workflows</strong> with <strong>Upload</strong>.</li><li><span class=\"code\">*.workflow.json</span>: JSON export for the Automation API.</li></ul><ol><li>Import it and choose <strong>Run</strong>. The workflow uses the on-demand trigger.</li><li>Open the execution to see which branch ran.</li></ol>",
+ "getStartedHtml": "<p>You only need Dynatrace Workflows.</p><ol><li>Download one of the workflows and upload it in Workflows</li><li>Run it on demand</li><li>Open the execution to see which branch ran</li></ol>",
+ "files": [
+  {
+   "name": "conditions-only.workflow-template.yaml",
+   "path": "conditions-only.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/dql-result-conditional-branches/conditions-only.workflow-template.yaml",
+   "size": 2783
+  },
+  {
+   "name": "conditions-only.workflow.json",
+   "path": "conditions-only.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/dql-result-conditional-branches/conditions-only.workflow.json",
+   "size": 2979
+  },
+  {
+   "name": "parse-dql-with-javascript.workflow-template.yaml",
+   "path": "parse-dql-with-javascript.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/dql-result-conditional-branches/parse-dql-with-javascript.workflow-template.yaml",
+   "size": 10043
+  },
+  {
+   "name": "parse-dql-with-javascript.workflow.json",
+   "path": "parse-dql-with-javascript.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/dql-result-conditional-branches/parse-dql-with-javascript.workflow.json",
+   "size": 9208
+  }
+ ]
+}

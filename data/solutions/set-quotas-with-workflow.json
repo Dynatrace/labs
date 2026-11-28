@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Unlimited log queries can drive up costs fast, and a few heavy users are often responsible. Admins need an automatic guardrail instead of manual monitoring.</p><p><strong>What you get</strong></p><ul><li>Every-minute check of each user&#x27;s daily log-query volume from billing events</li><li>Configurable threshold, 10 TB by default</li><li>Over-quota users added to an IAM group that denies log reads</li><li>Email notification and a business event for auditing and de-duplication</li><li>Automatic reset at midnight UTC, or manual early unlock</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS tenant with Automation Workflows and the <span class=\"code\">dynatrace.email</span> connector enabled</li><li>Account Management access to create IAM policies, groups, service users, and OAuth clients</li><li>The <span class=\"code\">dynatrace.automations ^1.3208.0</span> and <span class=\"code\">dynatrace.email ^1.10.8</span> apps available in your environment</li></ul><p>See SETUP.md for the full step-by-step instructions.</p>",
+ "setupHtml": "<p>The setup takes roughly 15 minutes and involves six steps:</p><ol><li>Create two IAM policies — one to deny log reads, one for the workflow to run with</li><li>Create the <strong>&quot;Quota exceeded&quot;</strong> group and attach the deny policy</li><li>[OPTIONAL (Recommened)]Create a service user <strong>&quot;Quota Exceeded Check User&quot;</strong> as the workflow actor</li><li>Create an OAuth client (requires an account manager as the subject user)</li><li>Store the OAuth credentials in the Credential Vault as <strong>&quot;Quota check OAuth&quot;</strong></li><li>Import <span class=\"code\">workflow.yaml</span> and set the actor to the service user</li></ol>",
+ "getStartedHtml": "<p>You need Automation Workflows, the email connector, and Account Management access.</p><ol><li>Create the IAM policies and the quota-exceeded group</li><li>Create an OAuth client and store it in the Credential Vault</li><li>Import the workflow and set its actor</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "workflow.yaml",
+   "path": "workflow.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/cost-intelligence-blueprints/set-quotas-with-workflow/workflow.yaml",
+   "size": 11861
+  }
+ ]
+}

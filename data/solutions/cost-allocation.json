@@ -1,0 +1,43 @@
+{
+ "overviewHtml": "<p>Teams that share a Dynatrace environment need to know who uses what and what it costs. This dashboard gives the transparency to show costs back to teams and find optimization opportunities.</p><p><strong>What you get</strong></p><ul><li>Total usage and costs for any selected period</li><li>Service fees applied on top of Dynatrace rate cards</li><li>Cost trends over time</li><li>Drill-down by cost center or product</li><li>Tracing of each usage item back to its source</li></ul>",
+ "prereqsHtml": "<p>Before you begin, ensure you have:</p><ul><li>A Dynatrace environment with access to the Dashboards app.</li><li>Appropriate permissions to import and edit dashboards.</li><li>Appropriate permissions to view System Events.</li><li>DPS Cost Allocation properly set up.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Dynatrace Cost Allocation configured and permission to view system events.</p><ol><li>Import the dashboard JSON into the Dashboards app</li><li>Choose the dashboard variant and rate card settings you need</li><li>Select a period and explore costs by cost center or product</li></ol>",
+ "files": [
+  {
+   "name": "DPS Cost Allocation Overview Dashboard extended v3.13.json",
+   "path": "DPS Cost Allocation Overview Dashboard extended v3.13.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/cost-allocation/DPS%20Cost%20Allocation%20Overview%20Dashboard%20extended%20v3.13.json",
+   "size": 213732
+  },
+  {
+   "name": "DPS Cost Allocation Overview Dashboard v3.13.json",
+   "path": "DPS Cost Allocation Overview Dashboard v3.13.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/cost-allocation/DPS%20Cost%20Allocation%20Overview%20Dashboard%20v3.13.json",
+   "size": 201723
+  },
+  {
+   "name": "Cost Allocation Extended Setup Notebook v3.10.json",
+   "path": "Notebook helper/Cost Allocation Extended Setup Notebook v3.10.json",
+   "kind": "Notebook",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/cost-allocation/Notebook%20helper/Cost%20Allocation%20Extended%20Setup%20Notebook%20v3.10.json",
+   "size": 11428
+  },
+  {
+   "name": "AMP-ratecard.txt",
+   "path": "AMP-ratecard.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/cost-allocation/AMP-ratecard.txt",
+   "size": 5502
+  },
+  {
+   "name": "price-point.json",
+   "path": "price-point.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/cost-allocation/price-point.json",
+   "size": 8407
+  }
+ ]
+}

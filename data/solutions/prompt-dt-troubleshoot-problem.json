@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Two engineers investigating the same problem rarely take the same path. This prompt fixes the method, always starting from the problem, so results are reproducible and queries stay scoped.</p><p><strong>What you get</strong></p><ul><li>Active problems listed in a table, or a pre-filled problem recognized</li><li>Log queries scoped to the problem timeframe</li><li>Classification of actionable errors</li><li>A handoff to trace investigation</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Describe the problem, or pick one from the list</li><li>Follow the investigation through logs and traces</li></ol>",
+ "files": []
+}

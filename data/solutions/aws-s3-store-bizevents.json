@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Teams that want to archive Dynatrace data in AWS need a working example of the S3 actions before building their own workflow.</p><p><strong>What you get</strong></p><ul><li>Listing of S3 buckets and creation of a <span class=\"code\">dynatrace-bizevents</span> bucket if missing</li><li>A DQL task that fetches the most recent business event</li><li>An S3 put object task that stores the event with a timestamp key</li><li>A CloudFormation template that creates the AWS role and identity provider</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the AWS for Workflows app</li><li>An AWS account and the <a href=\"https://aws.amazon.com/cli/\" target=\"_blank\" rel=\"noopener\">AWS CLI</a>, with permission to create IAM resources</li><li>Business events in Grail</li></ul>",
+ "setupHtml": "<ol><li><strong>Create the AWS resources</strong> with <span class=\"code\">cloudformation-store-bizevents-in-s3-bucket.json</span>. This is step 2 of the <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/aws/aws-workflows-setup\" target=\"_blank\" rel=\"noopener\">AWS for Workflows setup</a>. The template creates:</li></ol><ul><li>an IAM identity provider that trusts identities issued by <span class=\"code\">https://token.dynatrace.com</span>;</li><li>an IAM role that trusts this provider, with inline policies for <span class=\"code\">account:ListRegions</span>, <span class=\"code\">s3:PutObject</span>, <span class=\"code\">s3:ListAllMyBuckets</span> and <span class=\"code\">s3:CreateBucket</span>.</li></ul><p>Replace <span class=\"code\">[TENANT-ID]</span> and run:</p><pre class=\"codeblock\">   aws cloudformation create-stack --stack-name dynatrace-s3-workflow-example --template-url https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/aws-s3-store-bizevents/cloudformation-store-bizevents-in-s3-bucket.json --parameters ParameterKey=TenantUrl,ParameterValue=[TENANT-ID].apps.dynatrace.com ParameterKey=ConnectionName,ParameterValue=S3-Example --capabilities CAPABILITY_IAM</pre><p>CloudFormation&#x27;s <span class=\"code\">--template-url</span> normally expects an S3 URL. If AWS rejects the GitHub URL, download the file and use <span class=\"code\">--template-body file://cloudformation-store-bizevents-in-s3-bucket.json</span> instead.</p><ol><li><strong>Create the connection in Dynatrace</strong> (step 3 of the setup). Name it <span class=\"code\">S3-Example</span> and use the ARN of the new role. Get the ARN with:</li></ol><pre class=\"codeblock\">   aws iam list-roles --query &#x27;Roles[?starts_with(RoleName, `DynatraceS3WorkflowExample`)].Arn&#x27;</pre><ol><li><strong>Import and run the workflow.</strong> Upload <span class=\"code\">store-bizevent-in-s3-bucket.workflow-template.yaml</span> in <strong>Workflows</strong>, select the <span class=\"code\">S3-Example</span> connection in the three S3 tasks, and choose <strong>Run</strong>.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows with the AWS for Workflows app and an AWS account.</p><ol><li>Create the AWS resources with the CloudFormation template</li><li>Create the connection in Dynatrace using the new role</li><li>Upload the workflow, select the connection and run it</li></ol>",
+ "files": [
+  {
+   "name": "store-bizevent-in-s3-bucket.workflow-template.yaml",
+   "path": "store-bizevent-in-s3-bucket.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/aws-s3-store-bizevents/store-bizevent-in-s3-bucket.workflow-template.yaml",
+   "size": 2223
+  },
+  {
+   "name": "cloudformation-store-bizevents-in-s3-bucket.json",
+   "path": "cloudformation-store-bizevents-in-s3-bucket.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/aws-s3-store-bizevents/cloudformation-store-bizevents-in-s3-bucket.json",
+   "size": 4097
+  }
+ ]
+}

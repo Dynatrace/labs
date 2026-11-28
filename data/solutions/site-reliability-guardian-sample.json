@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Teams that validate releases with guardians want them versioned and repeatable instead of built by hand in the UI. Keeping them as code makes release validation easy to review, share and redeploy across environments.</p><p><strong>What you get</strong></p><ul><li>A guardian configuration for Site Reliability Guardian</li><li>An automation workflow built on Workflows</li><li>Monaco manifest and configs ready to deploy</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.6.0</span></li><li>Dynatrace Platform environment with <a href=\"https://www.dynatrace.com/support/help/platform-modules/cloud-automation/site-reliability-guardian#install-update-or-uninstall\" target=\"_blank\" rel=\"noopener\">Site Reliability Guardian installed</a></li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">app-engine:apps:run</span>. This returns value for the environment varaibles <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, Site Reliability Guardian and an OAuth client.</p><ol><li>Set up the OAuth client and environment variables</li><li>Adjust the guardian and workflow definitions</li><li>Deploy them with Monaco</li></ol>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/site_reliability_guardian_sample/manifest.yaml",
+   "size": 397
+  },
+  {
+   "name": "configs.yaml",
+   "path": "srg-config-as-code/configs.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/site_reliability_guardian_sample/srg-config-as-code/configs.yaml",
+   "size": 1166
+  },
+  {
+   "name": "guardian.json",
+   "path": "srg-config-as-code/guardian.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/site_reliability_guardian_sample/srg-config-as-code/guardian.json",
+   "size": 2586
+  },
+  {
+   "name": "workflow.json",
+   "path": "srg-config-as-code/workflow.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/site_reliability_guardian_sample/srg-config-as-code/workflow.json",
+   "size": 3050
+  }
+ ]
+}

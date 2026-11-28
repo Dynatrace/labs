@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Cloud security findings pile up in AWS Security Hub, and teams cannot easily tell which misconfigurations matter. This package uses Kiro CLI and Dynatrace to triage, validate and remediate them.</p><p><strong>What you get</strong></p><ul><li>AI-assisted verification of cloud misconfigurations using Dynatrace runtime context</li><li>AI-assisted remediation of confirmed misconfigurations</li><li>Jira ticket creation based on AWS Security Hub integration</li><li>Two scenarios: Kiro CLI-based and Dynatrace-driven triaging</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Kiro CLI, AWS Security Hub, Jira and a Dynatrace environment.</p><ol><li>Add the agent and instruction files to Kiro CLI</li><li>Import the Dynatrace workflow template for Security Hub triaging</li><li>Choose a triaging scenario and run it</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "dynatrace-aws-security-hub-triaging.workflow-template.yaml",
+   "path": "dynatrace-aws-security-hub-triaging.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/kiro-cli-security-agent/dynatrace-aws-security-hub-triaging.workflow-template.yaml",
+   "size": 12908
+  },
+  {
+   "name": "instructions.md",
+   "path": "instructions.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/kiro-cli-security-agent/instructions.md",
+   "size": 15578
+  },
+  {
+   "name": "dynatrace-security-agent.json",
+   "path": "dynatrace-security-agent.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/kiro-cli-security-agent/dynatrace-security-agent.json",
+   "size": 1185
+  }
+ ]
+}

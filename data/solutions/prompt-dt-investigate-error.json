@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Starting from raw error logs means sifting through noise, while problems are already correlated. This prompt begins with Dynatrace problems and follows the trail into logs and traces.</p><p><strong>What you get</strong></p><ul><li>Relevant Dynatrace problems with their timeframe and affected entities</li><li>ERROR logs scoped to that context and grouped by message</li><li>Example log entries and related traces for the top three errors</li><li>Suggested root cause and remediation steps</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment, the Dynatrace for AI skills and a tool that reaches it (dtctl or the Dynatrace MCP server).</p><ol><li>Copy the prompt into your AI chat or prompt folder</li><li>Give it a service or timeframe, or let it infer the service</li><li>Review the root cause and remediation steps</li></ol>",
+ "files": []
+}

@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Creating ownership teams by hand is slow and drifts out of date as people and groups change in other systems.</p><p><strong>What you get</strong></p><ul><li>A workflow that imports groups from Microsoft Entra ID as teams</li><li>A workflow that imports groups from ServiceNow as teams</li><li>A workflow for a custom team file mapped to the ownership settings schema</li><li>Scheduled syncs and an example input file</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the Ownership app</li><li>Depending on the source: an Azure for Workflows connection with Entra ID group read access, or a ServiceNow for Workflows connection</li><li>For the custom source: the host of your team file in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a>. For the sample file that&#x27;s <span class=\"code\">raw.githubusercontent.com</span>.</li></ul>",
+ "setupHtml": "<ol><li>Download the workflow template for your source.</li><li>In <strong>Workflows</strong>, choose <strong>Upload</strong>, select the file and assign the connection.</li><li>Run it once manually, check the imported teams in <strong>Settings &gt; Ownership &gt; Teams</strong>, then keep the schedule active.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, the Ownership app and a connection to your team source.</p><ol><li>Download the template for your source</li><li>Upload it in Workflows and assign the connection</li><li>Run once, check the teams, then keep the schedule active</li></ol>",
+ "files": [
+  {
+   "name": "import-teams-from-custom-source.workflow-template.yaml",
+   "path": "import-teams-from-custom-source.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ownership-team-import/import-teams-from-custom-source.workflow-template.yaml",
+   "size": 2830
+  },
+  {
+   "name": "import-teams-from-entra-id.workflow-template.yaml",
+   "path": "import-teams-from-entra-id.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ownership-team-import/import-teams-from-entra-id.workflow-template.yaml",
+   "size": 1768
+  },
+  {
+   "name": "import-teams-from-servicenow.workflow-template.yaml",
+   "path": "import-teams-from-servicenow.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ownership-team-import/import-teams-from-servicenow.workflow-template.yaml",
+   "size": 1538
+  },
+  {
+   "name": "example-teams.json",
+   "path": "example-teams.json",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/ownership-team-import/example-teams.json",
+   "size": 537
+  }
+ ]
+}

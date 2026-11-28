@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Out of the box, an AI coding agent does not know how to use Dynatrace tools. This steering file from the Dynatrace Kiro power guides the Kiro agent in using the Dynatrace MCP tools correctly.</p><p><strong>What you get</strong></p><ul><li>A guide that defines capabilities and usage patterns for Dynatrace MCP tools</li><li>DQL queries against Grail and access to topology data</li><li>Example prompts for slow services, error logs, pod memory and JavaScript errors</li></ul>",
+ "prereqsHtml": "<ul><li>A running Kiro agent instance.</li><li>Access to a Dynatrace environment with permissions to query Grail (DQL) and access topology data.</li></ul>",
+ "setupHtml": "<p>To use this steering file with Kiro:</p><ol><li><strong>Download:</strong> Download the <span class=\"code\">dynatrace.md</span> file.</li><li><strong>Install:</strong> Place the file in your Kiro <span class=\"code\">steering</span> directory (.kiro/steering) or import it via the agent configuration.</li><li><strong>Interact:</strong> Ask Kiro questions such as:</li></ol><ul><li><em>&quot;Investigate the slow response times on the checkout service.&quot;</em></li><li><em>&quot;Show me the most frequent error logs in production for the last hour.&quot;</em></li><li><em>&quot;Analyze the memory usage of the payment-service pods.&quot;</em></li><li><em>&quot;What are the top JavaScript errors affecting our users right now?&quot;</em></li></ul>",
+ "getStartedHtml": "<p>You need a running Kiro agent and a Dynatrace environment with Grail and topology access.</p><ol><li>Download the steering file</li><li>Place it in your Kiro steering directory or import it via agent configuration</li><li>Ask Kiro to investigate a service or error</li></ol>",
+ "files": [
+  {
+   "name": "dynatrace.md",
+   "path": "dynatrace.md",
+   "kind": "Agent instructions",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/agentic-ecosystem/kiro-power/dynatrace.md",
+   "size": 22540
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "overviewHtml": "<p>Teams that want consistent SLOs across services need ready templates instead of building each objective from scratch. The hub simplifies rollout across many services.</p><p><strong>What you get</strong></p><ul><li>SLO templates for HTTP availability and performance</li><li>Templates for synthetic monitor availability and performance</li><li>Service availability and Kubernetes cluster CPU and memory efficiency templates</li><li>Monaco project for rolling them out as code</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.22.0</span></li><li>Dynatrace Platform environment with SLOs installed.</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">slo:slos:read, slo:slos:write, slo:objective-templates:read</span>. This returns value for the environment variables <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, SLOs in your Dynatrace environment and an OAuth client.</p><ol><li>Set up the OAuth client and environment variables</li><li>Choose the SLO templates you need</li><li>Deploy them with Monaco</li></ol>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/manifest.yaml",
+   "size": 376
+  },
+  {
+   "name": "config.yaml",
+   "path": "slo-hub/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/config.yaml",
+   "size": 7086
+  },
+  {
+   "name": "slo.json",
+   "path": "slo-hub/slo.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/slo.json",
+   "size": 465
+  },
+  {
+   "name": "http_availability.txt",
+   "path": "slo-hub/sli_query/http_availability.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/http_availability.txt",
+   "size": 347
+  },
+  {
+   "name": "http_performance.txt",
+   "path": "slo-hub/sli_query/http_performance.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/http_performance.txt",
+   "size": 765
+  },
+  {
+   "name": "kubernetes_cluster_cpu_usage_efficiency.txt",
+   "path": "slo-hub/sli_query/kubernetes_cluster_cpu_usage_efficiency.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/kubernetes_cluster_cpu_usage_efficiency.txt",
+   "size": 403
+  },
+  {
+   "name": "kubernetes_cluster_memory_usage_efficiency.txt",
+   "path": "slo-hub/sli_query/kubernetes_cluster_memory_usage_efficiency.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/kubernetes_cluster_memory_usage_efficiency.txt",
+   "size": 427
+  },
+  {
+   "name": "monitor_availability.txt",
+   "path": "slo-hub/sli_query/monitor_availability.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/monitor_availability.txt",
+   "size": 370
+  },
+  {
+   "name": "monitor_performance.txt",
+   "path": "slo-hub/sli_query/monitor_performance.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/monitor_performance.txt",
+   "size": 766
+  },
+  {
+   "name": "service_availability.txt",
+   "path": "slo-hub/sli_query/service_availability.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/service_availability.txt",
+   "size": 457
+  },
+  {
+   "name": "service_performance.txt",
+   "path": "slo-hub/sli_query/service_performance.txt",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service-level-objective-hub/slo-hub/sli_query/service_performance.txt",
+   "size": 771
+  }
+ ]
+}

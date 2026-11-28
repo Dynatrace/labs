@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Learning Terraform for Dynatrace is easier with a working example. These templates deploy common settings that you can review and adapt to your own needs.</p><p><strong>What you get</strong></p><ul><li>Alerting profile, application detection and web application configurations</li><li>Synthetic monitor, auto tag and management zone setup</li><li>Ownership configuration and ownership teams</li><li>Provider and variable files plus an environment variable script</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To install the CLI, head over to the <a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/terraform-cli\" target=\"_blank\" rel=\"noopener\">install terraform CLI documentation</a>.</p><p>If you&#x27;re new to Terraform and want to learn more, check out the <a href=\"https://www.youtube.com/watch?v=uAudyJNpda0&amp;t=3746s\" target=\"_blank\" rel=\"noopener\">Getting Started with Dynatrace Terraform</a>.</p><p>After your Terraform setup is done, and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the default.sh in the env_variables folder.</li><li>Run the script to export the variables - execute &quot;source env_variables/default.sh&quot;</li><li>Run &quot;terraform init&quot; to initiate and fetch the Dynatrace Terraform provider.</li><li>Run &quot;terraform plan&quot; to verify syntax of all files and see what will be deployed into your tenant.</li><li>Run &quot;terraform apply&quot; to apply your configuration.</li><li>Explore your Dynatrace environment and check out what got deployed</li></ol><p>In case you need to <strong>delete</strong> the configuration, feel free to run &quot;terraform destroy&quot;. Feel free to refer to <a href=\"https://docs.dynatrace.com/docs/deliver/configuration-as-code/terraform/teraform-basic-example#delete-the-configuration\" target=\"_blank\" rel=\"noopener\">delete configuration documentation page</a>.</p>",
+ "getStartedHtml": "<p>You need Terraform and a Dynatrace environment.</p><ol><li>Fill in the environment variables script and export it</li><li>Run init, plan and apply</li><li>Explore what was created and adapt it</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "main.tf",
+   "path": "main.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-terraform/main.tf",
+   "size": 10911
+  },
+  {
+   "name": "providers.tf",
+   "path": "providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-terraform/providers.tf",
+   "size": 154
+  },
+  {
+   "name": "variables.tf",
+   "path": "variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-terraform/variables.tf",
+   "size": 2015
+  },
+  {
+   "name": "default.sh",
+   "path": "env_variables/default.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/basic-templates-terraform/env_variables/default.sh",
+   "size": 4686
+  }
+ ]
+}

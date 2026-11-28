@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Teams shipping often need one place to see which releases are running where and whether they carry risk. Without it, release status and risk are scattered across tools and hard to compare.</p><p><strong>What you get</strong></p><ul><li>Overview of all releases across environments</li><li>Filtering by release or environment</li><li>Validation outcomes and risks such as vulnerabilities</li><li>Pre-built dashboard with example configuration</li></ul>",
+ "prereqsHtml": "<p>To enable accurate release detection and ensure the dashboards work as intended:</p><ul><li>Review and implement Dynatrace <a href=\"https://docs.dynatrace.com/docs/deliver/release-monitoring/version-detection-strategies\" target=\"_blank\" rel=\"noopener\">version detection strategies</a>.</li><li>Ensure all required prerequisites listed in the Dynatrace documentation are met.</li></ul>",
+ "setupHtml": "<ol><li><strong>Clone or Download</strong> this repository.</li><li><strong>Import the Dashboard:</strong> Follow the instructions in the dashboard JSON or documentation to import it into your Dynatrace environment.</li><li><strong>Configure Version Detection:</strong> Set up version detection according to the <a href=\"https://docs.dynatrace.com/docs/deliver/release-monitoring/version-detection-strategies\" target=\"_blank\" rel=\"noopener\">official documentation</a>.</li><li><strong>Customize as Needed:</strong> Adjust the dashboards or detection rules to fit your organization’s release processes.</li></ol>",
+ "getStartedHtml": "<p>You need version detection set up for accurate release data.</p><ol><li>Configure version detection as described in Dynatrace documentation</li><li>Import the dashboard into your environment</li><li>Adjust the dashboard and detection rules to your release process</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/release-monitoring/manifest.yaml",
+   "size": 404
+  },
+  {
+   "name": "config.yaml",
+   "path": "release_monitoring/document-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/release-monitoring/release_monitoring/document-dashboard/config.yaml",
+   "size": 266
+  },
+  {
+   "name": "release_monitoring.json",
+   "path": "release_monitoring/document-dashboard/release_monitoring.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/release-monitoring/release_monitoring/document-dashboard/release_monitoring.json",
+   "size": 56690
+  }
+ ]
+}

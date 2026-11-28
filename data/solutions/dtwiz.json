@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>dtwiz is the open-source ingest CLI for Dynatrace. It checks the machine it runs on, detects the platform, containers, Kubernetes, existing agents, cloud providers, and running services, then recommends the best way to get that data into Dynatrace</p><p>Getting data flowing is the step where most people stall, because picking between OneAgent and an OTel Collector, and then configuring it correctly, requires knowledge you do not yet have on day one. <span class=\"code\">dtwiz setup</span> inspects the machine and makes that decision for you, so the first useful telemetry arrives in minutes rather than after a documentation crawl.</p><p><strong>What you get</strong></p><ul><li>Detection of your platform, containers, Kubernetes, existing agents and cloud</li><li>Ranked ingestion recommendations and guided installation</li><li>Support for OneAgent, OpenTelemetry, Kubernetes, AWS, Azure and Google Cloud</li><li>A live watch for newly ingested data</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment URL and a platform token.</p><ol><li>Set the environment URL and token as variables</li><li>Run the install script for your operating system</li><li>Run the setup command and follow the recommendation</li></ol>",
+ "files": []
+}

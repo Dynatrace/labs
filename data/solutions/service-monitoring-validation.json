@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Site reliability teams need a single view of a service&#x27;s health, release quality and error budget, plus an alert when the budget burns too fast.</p><p><strong>What you get</strong></p><ul><li>Dashboard with the four golden signals</li><li>Release validation results from Site Reliability Guardian</li><li>Availability and performance SLOs</li><li>Fast burn rate alert and a workflow that sends an email</li></ul>",
+ "prereqsHtml": "<p>To ensure that the Dynatrace configurations work as intended:</p><ul><li>Monaco version <span class=\"code\">v2.24.0+</span></li><li>Platform token (<a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-create-platform-token\" target=\"_blank\" rel=\"noopener\">See our documentation</a>) covering the needed permissions: Documents, Automation, SLO v2, Settings, email, and additionally <span class=\"code\">app-engine:apps:run</span></li></ul>",
+ "setupHtml": "<ol><li><strong>Clone or Download</strong> this repository.</li><li>In <strong><span class=\"code\">service_monitoring_sample\\config.yaml</span></strong>, configure an email address by replacing &quot;myteam@mycompany.com&quot; with your email address, set proper names, tags and event filter parameters as indicated by &quot;#INPUT&quot; comments in the file.</li><li><strong>Set your environment variables</strong>: You need a Dynatrace Platform environment and the following environment variables to try this out:</li></ol><ul><li><span class=\"code\">DT_ENV_URL</span>: https://YOUR-DT-ENVIRONMENT-ID.apps.dynatrace.com</li><li><span class=\"code\">PLATFORM_TOKEN</span>: <em>Returned when creating the platform token</em> (see:<a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-create-platform-token\" target=\"_blank\" rel=\"noopener\">docs</a>)</li><li><span class=\"code\">SERVICE_ID</span>: Add the Dynatrace service entity ID that shall be used in the sample, in the format: &quot;SERVICE-XYXYXYXYXYXYXYXY&quot;</li></ul><ol><li><strong>Deploy Dynatrace configurations:</strong> Deploy the Dynatrace configurations to your target environment. If you&#x27;re new to Monaco, see <a href=\"https://docs.dynatrace.com/docs/shortlink/configuration-as-code-commands\" target=\"_blank\" rel=\"noopener\">Monaco deploy command</a> for further help.</li><li><strong>Set up your CI/CD tool:</strong> Set up your CI/CD tool to send deployment events for triggering the release validation <a href=\"https://docs.dynatrace.com/docs/shortlink/usecase-release-validation\" target=\"_blank\" rel=\"noopener\">official documentation</a>.</li><li><strong>Customize as Needed:</strong> Adjust the dashboards or detection rules to fit your organization’s release and monitoring processes.</li></ol>",
+ "getStartedHtml": "<p>You need Monaco, a Dynatrace Platform environment and a platform token.</p><ol><li>Set your email address, names and filters in the config</li><li>Set the environment variables, including your service ID</li><li>Deploy with Monaco and send deployment events from your CI/CD tool</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/delete.yaml",
+   "size": 671
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/manifest.yaml",
+   "size": 277
+  },
+  {
+   "name": "config.yaml",
+   "path": "service_monitoring_sample/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/config.yaml",
+   "size": 4327
+  },
+  {
+   "name": "myservice-dashboard.json",
+   "path": "service_monitoring_sample/myservice-dashboard.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-dashboard.json",
+   "size": 45646
+  },
+  {
+   "name": "myservice-fast-burn-rate-alert.json",
+   "path": "service_monitoring_sample/myservice-fast-burn-rate-alert.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-fast-burn-rate-alert.json",
+   "size": 2036
+  },
+  {
+   "name": "myservice-guardian.json",
+   "path": "service_monitoring_sample/myservice-guardian.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-guardian.json",
+   "size": 3234
+  },
+  {
+   "name": "myservice-slo-alert-notification.json",
+   "path": "service_monitoring_sample/myservice-slo-alert-notification.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-slo-alert-notification.json",
+   "size": 1832
+  },
+  {
+   "name": "myservice-slo-availability.json",
+   "path": "service_monitoring_sample/myservice-slo-availability.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-slo-availability.json",
+   "size": 644
+  },
+  {
+   "name": "myservice-slo-performance.json",
+   "path": "service_monitoring_sample/myservice-slo-performance.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-slo-performance.json",
+   "size": 977
+  },
+  {
+   "name": "myservice-srg-val-standard.json",
+   "path": "service_monitoring_sample/myservice-srg-val-standard.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/service_monitoring_validation/service_monitoring_sample/myservice-srg-val-standard.json",
+   "size": 1869
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "overviewHtml": "<p>Maintaining dashboards by hand across environments is error-prone and hard to repeat. These samples show how to deploy dashboards as code with Monaco, so the same views can be rolled out repeatably to any environment you manage.</p><p><strong>What you get</strong></p><ul><li>Sample dashboards for monitoring and visualizing your environment</li><li>An executive dashboard</li><li>An SLI dashboard for service level indicators</li><li>A Monaco project with manifest and config, ready to deploy</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco &gt;<span class=\"code\">v2.15.0</span></li><li>Dynatrace Platform environment with Dashboards installed.</li><li>OAuth client as described <a href=\"https://www.dynatrace.com/support/help/manage/configuration-as-code/guides/create-oauth-client#create-an-oauth-client\" target=\"_blank\" rel=\"noopener\">here</a>, including the additional scope: <span class=\"code\">document:documents:write, document:documents:read, document:documents:delete, document:trash.documents:delete</span>. This returns value for the environment variables <span class=\"code\">CLIENT_ID</span> and <span class=\"code\">CLIENT_SECRET</span> mentioned below.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco and an OAuth client with document scopes.</p><ol><li>Set the client ID and secret variables</li><li>Deploy the project with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dashboards/manifest.yaml",
+   "size": 423
+  },
+  {
+   "name": "config.yaml",
+   "path": "executive-service-slo-dashboard/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dashboards/executive-service-slo-dashboard/config.yaml",
+   "size": 485
+  },
+  {
+   "name": "executive.json",
+   "path": "executive-service-slo-dashboard/executive.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dashboards/executive-service-slo-dashboard/executive.json",
+   "size": 31736
+  },
+  {
+   "name": "sli.json",
+   "path": "executive-service-slo-dashboard/sli.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/dashboards/executive-service-slo-dashboard/sli.json",
+   "size": 234015
+  }
+ ]
+}

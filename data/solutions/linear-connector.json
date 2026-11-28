@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Engineers who track work in Linear should not have to watch Dynatrace for incidents. This connector keeps both sides in sync.</p><p><strong>What you get</strong></p><ul><li>Linear issue created or updated whenever a Dynatrace problem fires</li><li>Two-way comment sync between Dynatrace and Linear</li><li>Loop prevention with tagged comments and hidden markers</li><li>One connection per Linear team, managed from the app</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p><em>Linear Connector for Dynatrace Workflows is available as a Dynatrace app to all customers upon request.</em></p><ol><li><em>Linear Connector for Dynatrace Workflows</em> is delivered via a <a href=\"https://docs.dynatrace.com/docs/shortlink/hub#add-subscription\" target=\"_blank\" rel=\"noopener\">Hub subscription</a>. Email community-apps@dynatrace.com with your account name and tenant ID, as described <a href=\"https://github.com/Dynatrace/community-examples/blob/main/dynatrace-apps/README.md\" target=\"_blank\" rel=\"noopener\">here</a>.</li><li>We&#x27;ll process your request and send instructions for subscribing to the channel and installing the app.</li><li>After installation, open the app from the Dynatrace App Launcher to manage connections and import workflow templates.</li></ol>",
+ "getStartedHtml": "<ol><li>Request the Hub subscription by emailing the community apps team</li><li>Install the app and create a connection per Linear team</li><li>Import the workflow templates</li></ol>",
+ "files": []
+}

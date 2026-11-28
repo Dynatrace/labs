@@ -1,0 +1,64 @@
+{
+ "overviewHtml": "<p>Settings objects are often shared too broadly or too narrowly across users. This example shows how to set access with the <span class=\"code\">allUsers</span> property, which takes the value none, read or write, in Monaco.</p><p><strong>What you get</strong></p><ul><li>An <span class=\"code\">access-control</span> Monaco project with three configurations</li><li>Read access for all users</li><li>Full write access for all users</li><li>Removal of access for other users</li></ul>",
+ "prereqsHtml": "<ul><li>Monaco <span class=\"code\">v2.23.0+</span></li><li>Dynatrace Platform environment</li><li>An [OAuth client][OAuth credentials], with the scopes <span class=\"code\">settings:objects:read</span>, <span class=\"code\">settings:objects:write</span>, and <span class=\"code\">settings:schemas:read</span>.</li><li>The targeted Settings 2.0 object must support owner-based access control, as indicated by its schema having <span class=\"code\">ownerBasedAccessControl</span> set to <span class=\"code\">true</span>.</li></ul>",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco, an OAuth client and a settings object that supports owner-based access control.</p><ol><li>Point the manifest at your environment and settings object</li><li>Pick the read, write or none configuration</li><li>Deploy it with Monaco</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/delete.yaml",
+   "size": 303
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/manifest.yaml",
+   "size": 360
+  },
+  {
+   "name": "config.json",
+   "path": "access-control/access-control-none/config.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-none/config.json",
+   "size": 64
+  },
+  {
+   "name": "config.yaml",
+   "path": "access-control/access-control-none/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-none/config.yaml",
+   "size": 292
+  },
+  {
+   "name": "config.json",
+   "path": "access-control/access-control-read/config.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-read/config.json",
+   "size": 64
+  },
+  {
+   "name": "config.yaml",
+   "path": "access-control/access-control-read/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-read/config.yaml",
+   "size": 301
+  },
+  {
+   "name": "config.json",
+   "path": "access-control/access-control-write/config.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-write/config.json",
+   "size": 64
+  },
+  {
+   "name": "config.yaml",
+   "path": "access-control/access-control-write/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/access-control/access-control/access-control-write/config.yaml",
+   "size": 308
+  }
+ ]
+}

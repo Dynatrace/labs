@@ -1,0 +1,85 @@
+{
+ "overviewHtml": "<p>Development teams own applications spread across services, databases and different infrastructures, and problems must reach the team that owns them. This sample shows the recommended best practice.</p><p><strong>What you get</strong></p><ul><li>Auto-tagging rules that tag everything a team owns</li><li>Alerting profiles that select which problems alert</li><li>Notification configuration, including email, based on those profiles</li><li>Templates for host, Kubernetes and AWS Kubernetes setups</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need Monaco and a Dynatrace environment.</p><ol><li>Adjust the manifest and tagging rules to your teams</li><li>Set the alerting profile and notification recipients</li><li>Deploy the project with Monaco</li></ol>",
+ "files": [
+  {
+   "name": "delete.yaml",
+   "path": "delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/delete.yaml",
+   "size": 171
+  },
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/manifest.yaml",
+   "size": 297
+  },
+  {
+   "name": "config.yaml",
+   "path": "sample/alerting-profile/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/alerting-profile/config.yaml",
+   "size": 395
+  },
+  {
+   "name": "template.json",
+   "path": "sample/alerting-profile/template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/alerting-profile/template.json",
+   "size": 1454
+  },
+  {
+   "name": "aws_k8s_template.json",
+   "path": "sample/auto-tag/aws_k8s_template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/auto-tag/aws_k8s_template.json",
+   "size": 3600
+  },
+  {
+   "name": "config.yaml",
+   "path": "sample/auto-tag/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/auto-tag/config.yaml",
+   "size": 1668
+  },
+  {
+   "name": "host_template.json",
+   "path": "sample/auto-tag/host_template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/auto-tag/host_template.json",
+   "size": 1322
+  },
+  {
+   "name": "k8s_template.json",
+   "path": "sample/auto-tag/k8s_template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/auto-tag/k8s_template.json",
+   "size": 1881
+  },
+  {
+   "name": "config.yaml",
+   "path": "sample/notification/config.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/notification/config.yaml",
+   "size": 1182
+  },
+  {
+   "name": "email_template.json",
+   "path": "sample/notification/email_template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/notification/email_template.json",
+   "size": 375
+  },
+  {
+   "name": "slack_template.json",
+   "path": "sample/notification/slack_template.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/problem_notification_sample/sample/notification/slack_template.json",
+   "size": 382
+  }
+ ]
+}

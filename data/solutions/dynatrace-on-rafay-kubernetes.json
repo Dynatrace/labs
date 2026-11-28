@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Platform teams running Kubernetes fleets on Rafay often instrument clusters one at a time, leaving gaps and drift. This blueprint makes observability part of the baseline.</p><p><strong>What you get</strong></p><ul><li>Dynatrace Operator, DynaKube, and tokens as three versioned Rafay add-ons</li><li>One blueprint for the whole fleet, with cluster identity injected at sync time</li><li>Kubernetes monitoring, application and log monitoring, OTLP ingest, and KSPM</li><li>Upgrades published progressively and rolled back per cluster</li></ul>",
+ "prereqsHtml": "<ul><li><strong>Dynatrace environment</strong> — SaaS environment ID (for example <span class=\"code\">abc12345</span>), used to build <span class=\"code\">spec.apiUrl</span>.</li><li><strong>Access tokens</strong> — an operator token and a data-ingest token. Use the <span class=\"code\">Kubernetes: Dynatrace Operator</span> and <span class=\"code\">Kubernetes: Data Ingest</span> templates so the required scopes are applied. See <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/tokens-permissions\" target=\"_blank\" rel=\"noopener\">Access tokens and permissions</a>.</li><li><strong>Rafay permissions</strong> — a project in which you can manage Repositories, Add-Ons, Blueprints, and Clusters. Screenshots were taken on Rafay Controller v3.1.</li><li><strong>Clusters</strong> — one or more clusters imported into or provisioned by Rafay, on a <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/supported-technologies\" target=\"_blank\" rel=\"noopener\">supported distribution</a>.</li><li><strong>Connectivity</strong> — outbound access from cluster nodes to the Dynatrace environment and to the chart and image registries in use.</li></ul><p>[!NOTE] Every chart, image, and API version referenced here is an example that was current when the screenshots were taken. Check the <a href=\"https://docs.dynatrace.com/docs/whats-new/dynatrace-operator\" target=\"_blank\" rel=\"noopener\">Dynatrace Operator release notes</a> for the current release before adopting.</p>",
+ "setupHtml": "<p>First, choose how to source Dynatrace Operator — App Catalog or custom Helm repository</p><p>Rafay can source the operator from its own curated App Catalog or from a Helm repository you register yourself.</p><p><strong>App Catalog</strong> is the fast path: search the catalog for <em>Dynatrace</em>, open <span class=\"code\">dynatrace-operator</span> from the <span class=\"code\">default-helm</span> catalog, and choose <strong>Create Add-On</strong>. Catalog indexing lags upstream chart releases, so the newest operator version may not be selectable, and air-gapped environments cannot reach the catalog endpoint at all.</p><p><strong>Custom Helm repository</strong> is the recommended option for production and is what the steps below use. It pins the exact chart version, keeps the values file under your control, and is reproducible through the Rafay RCTL CLI or a GitOps pipeline.</p><p>If you use the App Catalog instead, skip steps 1 and 2 and continue from step 3.</p>",
+ "getStartedHtml": "<p>You need a Dynatrace environment, access tokens, and a Rafay project with clusters.</p><ol><li>Create the Dynatrace add-ons in Rafay</li><li>Add them to a golden blueprint</li><li>Apply the blueprint to your clusters</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "dynakube.yaml",
+   "path": "dynakube.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/dynatrace-on-rafay-kubernetes/dynakube.yaml",
+   "size": 2356
+  },
+  {
+   "name": "operator-values.yaml",
+   "path": "operator-values.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/dynatrace-on-rafay-kubernetes/operator-values.yaml",
+   "size": 4679
+  },
+  {
+   "name": "tokens-secret.yaml",
+   "path": "tokens-secret.yaml",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/observability-blueprints/dynatrace-on-rafay-kubernetes/tokens-secret.yaml",
+   "size": 311
+  }
+ ]
+}

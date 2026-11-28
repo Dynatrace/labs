@@ -1,0 +1,29 @@
+{
+ "overviewHtml": "<p>Attacks on Kubernetes often show up as small anomalies in audit logs, and alerts rarely reach the team that owns the workload.</p><p><strong>What you get</strong></p><ul><li>A check every 10 minutes for potentially compromised service accounts, with an allow-list</li><li>Detection findings written to <span class=\"code\">security.events</span></li><li>An instant workflow for new high and critical findings that finds the owners</li><li>A notification sub-workflow for email, Slack and Microsoft Teams</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows</li><li>Kubernetes audit logs in Grail, for service account detection (see the <a href=\"https://dt-url.net/en230wg\" target=\"_blank\" rel=\"noopener\">use case documentation</a>)</li><li>Permission for the workflow to ingest into <span class=\"code\">security.events</span></li><li>Slack, Microsoft Teams and/or Email for Workflows, for notifications</li><li><a href=\"https://docs.dynatrace.com/docs/deliver/ownership\" target=\"_blank\" rel=\"noopener\">Ownership</a> teams on your Kubernetes workloads</li></ul>",
+ "setupHtml": "<ol><li>In <strong>Workflows</strong>, choose <strong>Upload</strong> and import <span class=\"code\">notification-sender-sub-workflow.workflow-template.yaml</span> first. Assign the notification connections.</li><li>Import <span class=\"code\">critical-finding-instant-notification.workflow-template.yaml</span> and replace `<span class=\"code\"> in </span>trigger_notification_sender` with the sender&#x27;s ID.</li><li>Import <span class=\"code\">service-account-unauthorized-access.workflow-template.yaml</span>.</li><li>Run each one manually once, then activate the triggers.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, Kubernetes audit logs in Grail and ownership teams on your workloads.</p><ol><li>Import the notification sender sub-workflow first</li><li>Import the finding notification and detection workflows</li><li>Link them, run each once, then activate the triggers</li></ol>",
+ "files": [
+  {
+   "name": "critical-finding-instant-notification.workflow-template.yaml",
+   "path": "critical-finding-instant-notification.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-threat-detection/critical-finding-instant-notification.workflow-template.yaml",
+   "size": 5364
+  },
+  {
+   "name": "notification-sender-sub-workflow.workflow-template.yaml",
+   "path": "notification-sender-sub-workflow.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-threat-detection/notification-sender-sub-workflow.workflow-template.yaml",
+   "size": 3237
+  },
+  {
+   "name": "service-account-unauthorized-access.workflow-template.yaml",
+   "path": "service-account-unauthorized-access.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-threat-detection/service-account-unauthorized-access.workflow-template.yaml",
+   "size": 8151
+  }
+ ]
+}

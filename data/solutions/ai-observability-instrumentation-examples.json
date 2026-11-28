@@ -1,0 +1,7 @@
+{
+ "overviewHtml": "<p>Agentic workloads are hard to reason about because behavior is spread across prompt flows, tool calls and downstream services.</p><p><strong>What you get</strong></p><ul><li>Demos for model SDKs such as AWS Bedrock, Anthropic, OpenAI and Mistral</li><li>Demos for frameworks such as LangGraph, CrewAI, Google ADK and LiteLLM</li><li>Setup guides for coding agents such as Claude Code and Codex CLI</li><li>Examples using OneAgent, OpenTelemetry or an OTel Collector</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need a Dynatrace environment and an AI workload to instrument.</p><ol><li>Pick your SDK or framework from the demo tables</li><li>Choose OneAgent, OpenTelemetry or a Collector</li><li>Follow that folder&#x27;s example and check the traces</li></ol>",
+ "files": []
+}

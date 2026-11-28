@@ -1,0 +1,15 @@
+{
+ "overviewHtml": "<p>Syslog data from many Linux servers is noisy and spread out. Operations and SRE teams need one central view of system activity and health.</p><p><strong>What you get</strong></p><ul><li>High-volume and high-severity system events</li><li>Spikes in warnings, errors, and authentication failures</li><li>Syslog patterns over time and comparison across regions or server groups</li><li>Raw log exploration for root-cause analysis</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>Follow these steps to import and use the dashboard in your Dynatrace environment:</p><ol><li><strong>Download</strong> the <span class=\"code\">[SYSTEM] Syslog Overview.json</span> file from this repository.</li><li>In Dynatrace, open the <strong>Dashboards</strong> app.</li><li>Click <strong>Import dashboard</strong> and upload the JSON file.</li><li>Once imported, review and adjust:</li></ol><ul><li><strong>OpenPipeline configuration</strong>, using out-of-the-box Syslog parsers</li><li><strong>Country or region extraction</strong>, using DPL if multiple rsyslog deployments are in use</li><li><strong>Filters</strong> for hosts, host groups, log source, and regions</li><li><strong>Drilldown links</strong>, updating them with your Dynatrace tenant-specific URLs</li><li><strong>Field mappings</strong>, ensuring your Syslog ingestion pipeline (e.g., rsyslog, syslog-ng, journald exports) aligns with the dashboard’s expected schema</li></ul><ol><li>Save the dashboard and begin exploring your <strong>Linux Syslog data in real time</strong>.</li></ol>",
+ "getStartedHtml": "<p>You need Syslog data ingested into Dynatrace.</p><ol><li>Import the dashboard JSON into the Dashboards app</li><li>Adjust filters, drilldown links, and field mappings to your setup</li><li>Save it and explore your Syslog data</li></ol>",
+ "files": [
+  {
+   "name": "Syslog Overview.json",
+   "path": "Syslog Overview.json",
+   "kind": "Dashboard",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/dashboards/linux-syslog/Syslog%20Overview.json",
+   "size": 52294
+  }
+ ]
+}

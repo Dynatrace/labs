@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Teams deploying many synthetic monitors benefit from standard modules that enforce best practices and take simple input files. Modules keep every team deploying monitors the same way, with less copy-paste Terraform.</p><p><strong>What you get</strong></p><ul><li>Module for HTTP monitors</li><li>Module for network availability monitors</li><li>JSON input files that drive the modules</li><li>Terraform test file and shared provider setup</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "",
+ "getStartedHtml": "<p>You need an API token that can manage synthetic monitors.</p><ol><li>Create an API token with the synthetic monitor scopes</li><li>Edit the input files for your monitors</li><li>Run Terraform to deploy them</li></ol>",
+ "files": [
+  {
+   "name": "http-input.json",
+   "path": "synthetics/examples/http-input.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/examples/http-input.json",
+   "size": 357
+  },
+  {
+   "name": "locals.tf",
+   "path": "synthetics/examples/locals.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/examples/locals.tf",
+   "size": 860
+  },
+  {
+   "name": "nam-input.json",
+   "path": "synthetics/examples/nam-input.json",
+   "kind": "Config file",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/examples/nam-input.json",
+   "size": 464
+  },
+  {
+   "name": "tests.tf",
+   "path": "synthetics/examples/tests.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/examples/tests.tf",
+   "size": 556
+  },
+  {
+   "name": "http.tf",
+   "path": "synthetics/http/http.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/http/http.tf",
+   "size": 2407
+  },
+  {
+   "name": "providers.tf",
+   "path": "synthetics/http/providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/http/providers.tf",
+   "size": 159
+  },
+  {
+   "name": "variables.tf",
+   "path": "synthetics/http/variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/http/variables.tf",
+   "size": 408
+  },
+  {
+   "name": "nam.tf",
+   "path": "synthetics/nam/nam.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/nam/nam.tf",
+   "size": 2708
+  },
+  {
+   "name": "providers.tf",
+   "path": "synthetics/nam/providers.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/nam/providers.tf",
+   "size": 158
+  },
+  {
+   "name": "variables.tf",
+   "path": "synthetics/nam/variables.tf",
+   "kind": "Terraform",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/terraform_modules/synthetics/nam/variables.tf",
+   "size": 544
+  }
+ ]
+}

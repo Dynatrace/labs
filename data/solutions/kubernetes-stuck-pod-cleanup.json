@@ -1,0 +1,57 @@
+{
+ "overviewHtml": "<p>Pods that hang while terminating block rollouts and need someone to notice and clean them up manually.</p><p><strong>What you get</strong></p><ul><li>A trigger on the Dynatrace event for pods stuck in the terminating phase</li><li>Force-deletion through the Kubernetes Automation connector and EdgeConnect</li><li>Kubernetes manifests for the secret, role, service account and EdgeConnect</li><li>A test pod to simulate the problem</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows and the Kubernetes app</li><li>Kubernetes cluster monitored by the Dynatrace Operator</li><li><a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/guides/deployment-and-configuration/edgeconnect/kubernetes-automation\" target=\"_blank\" rel=\"noopener\">Kubernetes Automation</a> with EdgeConnect (the <span class=\"code\">dynatrace.kubernetes.connector</span> app)</li><li>An OAuth client for EdgeConnect</li><li><span class=\"code\">kubectl</span> access to the cluster</li></ul>",
+ "setupHtml": "<ol><li><strong>Set up Kubernetes Automation with the Operator.</strong> Follow the <a href=\"https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/guides/deployment-and-configuration/edgeconnect/kubernetes-automation/edge-connect-kubernetes-automation-operator-supported-setup\" target=\"_blank\" rel=\"noopener\">operator-supported setup</a> and apply each manifest with <span class=\"code\">kubectl apply -f .yaml</span>:</li></ol><ul><li><span class=\"code\">secret.yaml</span>: stores the OAuth client for EdgeConnect.</li><li><span class=\"code\">role.yaml</span>: the permissions for the automation use cases.</li><li><span class=\"code\">serviceaccount.yaml</span>: the service account that EdgeConnect impersonates to call the Kubernetes API server.</li><li><span class=\"code\">rolebinding.yaml</span>: links the service account to the role.</li><li><span class=\"code\">edgeconnect.yaml</span>: deploys EdgeConnect in the <span class=\"code\">dynatrace</span> namespace and creates the Kubernetes connection in Dynatrace.</li></ul><ol><li><strong>Turn on anomaly detection.</strong> In <strong>Settings &gt; Anomaly Detection &gt; Workloads</strong>, enable detection of pods stuck in the pending and terminating phases (<a href=\"https://docs.dynatrace.com/docs/observe/infrastructure-monitoring/container-platform-monitoring/kubernetes-app/reference/anomaly-detectors\" target=\"_blank\" rel=\"noopener\">details</a>).</li><li><strong>Import the workflow.</strong> In <strong>Workflows</strong>, choose <strong>Upload</strong> and select <span class=\"code\">kubernetes-stuck-pod-cleanup.workflow-template.yaml</span>. Select the connection that you created with <span class=\"code\">edgeconnect.yaml</span>, then activate the trigger.</li><li><strong>Optional: simulate the problem.</strong> Apply <span class=\"code\">podtermination.yaml</span> to create a pod that stays in the terminating phase once deleted, then run <span class=\"code\">kubectl delete pods pod-stuck</span>. If your security rules require it, replace the image with one you trust.</li><li><strong>Watch it work.</strong> Open the Kubernetes app, select <strong>Pods</strong> and filter for your test cluster. After the detection timeframe (10 minutes by default), the workflow runs and force-deletes the pod.</li></ol>",
+ "getStartedHtml": "<p>You need a Kubernetes cluster monitored by the Dynatrace Operator and an OAuth client for EdgeConnect.</p><ol><li>Set up Kubernetes Automation with the provided manifests</li><li>Enable anomaly detection for stuck pods</li><li>Import the workflow and select the connection</li><li>Optionally simulate a stuck pod to test</li></ol>",
+ "files": [
+  {
+   "name": "edgeconnect.yaml",
+   "path": "edgeconnect.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/edgeconnect.yaml",
+   "size": 450
+  },
+  {
+   "name": "kubernetes-stuck-pod-cleanup.workflow-template.yaml",
+   "path": "kubernetes-stuck-pod-cleanup.workflow-template.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/kubernetes-stuck-pod-cleanup.workflow-template.yaml",
+   "size": 1981
+  },
+  {
+   "name": "podtermination.yaml",
+   "path": "podtermination.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/podtermination.yaml",
+   "size": 292
+  },
+  {
+   "name": "role.yaml",
+   "path": "role.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/role.yaml",
+   "size": 707
+  },
+  {
+   "name": "rolebinding.yaml",
+   "path": "rolebinding.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/rolebinding.yaml",
+   "size": 314
+  },
+  {
+   "name": "secret.yaml",
+   "path": "secret.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/secret.yaml",
+   "size": 190
+  },
+  {
+   "name": "serviceaccount.yaml",
+   "path": "serviceaccount.yaml",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/kubernetes-stuck-pod-cleanup/serviceaccount.yaml",
+   "size": 121
+  }
+ ]
+}

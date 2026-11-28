@@ -1,0 +1,78 @@
+{
+ "overviewHtml": "<p>Hosts are often sized wrongly, and resizing needs approval and manual work across tools. This example automates the loop with Dynatrace Workflows.</p><p><strong>What you get</strong></p><ul><li>A workflow that finds hosts above 90% or below 15% CPU with DQL</li><li>Jira ticket creation, Slack notification and approval handling</li><li>A second workflow that resizes hosts through infrastructure APIs and closes the ticket</li><li>Slack and Jira connections deployed by Monaco</li></ul>",
+ "prereqsHtml": "",
+ "setupHtml": "<p>To get started with Dynatrace Configuration as Code please see <a href=\"https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>To download the CLI, head over to the <a href=\"https://github.com/Dynatrace/dynatrace-configuration-as-code/releases\" target=\"_blank\" rel=\"noopener\">dynatrace-configuration-as-code GitHub repository</a>.</p><p>If you&#x27;re new to Monaco and want to learn more, check out the <a href=\"https://dt-url.net/monaco-observability-clinic\" target=\"_blank\" rel=\"noopener\">Observability Clinic on Monaco 2.0</a>.</p><p>After your Monaco setup is done and you have some practice, feel free to deploy this configuration and explore it in your tenant. To deploy it, please follow the steps below:</p><ol><li>Fill out the input-needed.sh as well as the environment url in the manifest.yaml file.</li><li>Run the script to record the values</li><li>Run the monaco project</li><li>Go to Settings&gt;Dynatrace Apps&gt;Slack/Jira to check your Slack and Jira connections and go to the new Workflows apps to check your 2 newly created workflows.</li></ol><p>In case you need to delete the configuration, feel free to run the monaco delete command with the delete.yaml.</p>",
+ "getStartedHtml": "<p>You need Monaco, Jira, Slack and an environment with Workflows.</p><ol><li>Fill in the input script and manifest for your environment</li><li>Deploy the project with Monaco</li><li>Add the Jira automations that send approval events to Dynatrace</li></ol><p>Full setup instructions are in the README.</p>",
+ "files": [
+  {
+   "name": "manifest.yaml",
+   "path": "manifest.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/manifest.yaml",
+   "size": 657
+  },
+  {
+   "name": "delete.yaml",
+   "path": "deletefiles/delete.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/deletefiles/delete.yaml",
+   "size": 341
+  },
+  {
+   "name": "input-needed.sh",
+   "path": "script/input-needed.sh",
+   "kind": "File",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/script/input-needed.sh",
+   "size": 2119
+  },
+  {
+   "name": "jira-connection.json",
+   "path": "first-example/jira-connection/jira-connection.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/first-example/jira-connection/jira-connection.json",
+   "size": 189
+  },
+  {
+   "name": "jira-connection.yaml",
+   "path": "first-example/jira-connection/jira-connection.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/first-example/jira-connection/jira-connection.yaml",
+   "size": 459
+  },
+  {
+   "name": "slack-connection.json",
+   "path": "second-example/slack-connection/slack-connection.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/second-example/slack-connection/slack-connection.json",
+   "size": 75
+  },
+  {
+   "name": "slack-connection.yaml",
+   "path": "second-example/slack-connection/slack-connection.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/second-example/slack-connection/slack-connection.yaml",
+   "size": 526
+  },
+  {
+   "name": "calculate-ticket.json",
+   "path": "third-example/workflow-calculate-ticket/calculate-ticket.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/third-example/workflow-calculate-ticket/calculate-ticket.json",
+   "size": 4099
+  },
+  {
+   "name": "calculate-ticket.yaml",
+   "path": "third-example/workflow-calculate-ticket/calculate-ticket.yaml",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/third-example/workflow-calculate-ticket/calculate-ticket.yaml",
+   "size": 2138
+  },
+  {
+   "name": "event-trigger.json",
+   "path": "third-example/workflow-calculate-ticket/event-trigger.json",
+   "kind": "Monaco config",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/configuration-as-code/VM-RIght-Sizing/third-example/workflow-calculate-ticket/event-trigger.json",
+   "size": 6458
+  }
+ ]
+}

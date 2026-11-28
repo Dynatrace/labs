@@ -1,0 +1,22 @@
+{
+ "overviewHtml": "<p>Over-provisioned VMs waste money and under-provisioned ones hurt performance, yet resizing needs an approval step.</p><p><strong>What you get</strong></p><ul><li>A DQL check for Azure hosts with CPU usage above 90% or below 15%</li><li>A Jira ticket that lists the hosts, plus a Slack notification</li><li>A second workflow that reacts to the approval event sent back from Jira</li><li>Resizing through the Azure Compute API, then closing the ticket</li></ul>",
+ "prereqsHtml": "<ul><li>Dynatrace SaaS with Workflows, and Azure VMs monitored by OneAgent. The hosts need Azure subscription and resource group metadata.</li><li><a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/jira\" target=\"_blank\" rel=\"noopener\">Jira for Workflows</a> and <a href=\"https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack\" target=\"_blank\" rel=\"noopener\">Slack for Workflows</a> connections</li><li>An Azure app registration (service principal) with permission to resize the VMs</li><li><span class=\"code\">login.microsoftonline.com</span> and <span class=\"code\">management.azure.com</span> in the <a href=\"https://developer.dynatrace.com/develop/functions/allow-outbound-connections/\" target=\"_blank\" rel=\"noopener\">allowed outbound connections</a></li><li>A Jira automation that sends an event to Dynatrace when the ticket is approved</li></ul>",
+ "setupHtml": "<ol><li>Import both JSON files in <strong>Workflows</strong> (upload) or with the Automation API.</li><li>In each Jira and Slack task, select your connections. The connection IDs were removed from the export.</li><li>In Jira, create the approval automation. When an issue moves from <em>Open</em> to <em>Pending</em>, approve it (or let a team approve it), then send a web request to <span class=\"code\">https://.apps.dynatrace.com/api/v2/events/ingest</span> with a <span class=\"code\">CUSTOM_INFO</span> event. That event carries the issue key, URL, ID and description, as shown in the Configuration as Code README.</li><li>Set the event trigger of <strong>Host Resize - Event Triggered</strong> to match that event.</li></ol>",
+ "getStartedHtml": "<p>You need Dynatrace Workflows, OneAgent on Azure VMs, Jira and Slack connections and an Azure service principal.</p><ol><li>Import both workflows and select your connections</li><li>Create the Jira approval automation</li><li>Match the event trigger to that automation</li></ol>",
+ "files": [
+  {
+   "name": "host-resize-calculate-and-ticket.workflow.json",
+   "path": "host-resize-calculate-and-ticket.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/vm-right-sizing/host-resize-calculate-and-ticket.workflow.json",
+   "size": 4021
+  },
+  {
+   "name": "host-resize-event-triggered.workflow.json",
+   "path": "host-resize-event-triggered.workflow.json",
+   "kind": "Workflow",
+   "url": "https://raw.githubusercontent.com/Dynatrace/community-examples/main/workflows/vm-right-sizing/host-resize-event-triggered.workflow.json",
+   "size": 5473
+  }
+ ]
+}
